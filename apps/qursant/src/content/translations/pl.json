@@ -1,22 +1,22 @@
 {
-    "common": {
-        "navigation": {
-            "home": "Strona główna",
-            "about": "O nas",
-            "courses": "Kursy",
-            "pricing": "Cennik",
-            "booking": "Rezerwacja",
-            "faq": "FAQ",
-            "contact": "Kontakt"
-        },
-        "buttons": {
-            "learnMore": "Dowiedz się więcej",
-            "contact": "Skontaktuj się",
-            "book": "Zarezerwuj kurs"
-        }
+  "common": {
+    "navigation": {
+      "home": "Strona główna",
+      "about": "O nas",
+      "courses": "Kursy",
+      "pricing": "Cennik",
+      "booking": "Rezerwacja",
+      "faq": "FAQ",
+      "contact": "Kontakt"
     },
-    "meta": {
-        "title": "Qursant - Szkoła Jazdy w Bydgoszczy",
-        "description": "Profesjonalna szkoła jazdy w Bydgoszczy. Kursy prawa jazdy, doświadczeni instruktorzy, wysokie wyniki zdawalności."
+    "buttons": {
+      "learnMore": "Dowiedz się więcej",
+      "contact": "Skontaktuj się",
+      "book": "Zarezerwuj kurs"
     }
+  },
+  "meta": {
+    "title": "Qursant - Szkoła Jazdy w Bydgoszczy",
+    "description": "Profesjonalna szkoła jazdy w Bydgoszczy. Kursy prawa jazdy, doświadczeni instruktorzy, wysokie wyniki zdawalności."
+  }
 }
