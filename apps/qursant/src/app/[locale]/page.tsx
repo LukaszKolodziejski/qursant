@@ -4,14 +4,28 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { generateSchemaOrgMarkup } from '@/lib/seo/schemaMarkup';
+import Script from 'next/script';
 
 export default function HomePage() {
   const t = useTranslations('home');
   const pathname = usePathname();
   const locale = pathname.split('/')[1] || 'pl';
+  const url = `https://qursant.pl${pathname}`;
+
+  const schemaMarkup = generateSchemaOrgMarkup({
+    locale: locale as 'pl' | 'en' | 'uk',
+    url,
+  });
 
   return (
     <>
+      <Script
+        id="schema-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+      />
+
       {/* Hero section */}
       <section className="relative bg-white dark:bg-gray-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
