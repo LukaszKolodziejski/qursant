@@ -1,0 +1,137 @@
+
+🎯 Cel:
+Stwórz nowoczesną, responsywną i zoptymalizowaną pod SEO stronę internetową dla szkoły jazdy Qursant z Bydgoszczy. Projekt będzie wielojęzyczny (PL/EN/UA), interaktywny i oparty o Tailwind CSS, Next.js (App Router), Nx oraz CI/CD. Będziesz pracować iteracyjnie, zadaniowo i w komunikacji z administratorem (mną).
+
+🧠 Sposób pracy Cursor:
+1. Podziel cały projekt na **30 mini-zadań**, z podziałem na mniejsze mikro-zadania.
+2. Przed rozpoczęciem każdego mini-zadania:
+   - Przeanalizuj aktualny stan repozytorium.
+   - Sprawdź co już zostało zrobione.
+   - Wskaż administratorowi, które **mikro-zadanie aktualnie wykonujesz**.
+   - Uruchom aplikację lokalnie (`npm run dev`) by przetestować aktualny stan.
+3. Poczekaj na **akceptację administratora** zanim przejdziesz do kolejnych mikro-zadań lub mini-zadania.
+4. Pracuj według poniższej architektury, zaleceń i stosu technologicznego.
+
+🧱 Stack:
+- Next.js App Router (v15)
+- Nx Monorepo
+- TailwindCSS + tailwind plugins (forms, typography, aspect-ratio)
+- Framer Motion
+- i18n z `next-intl`
+- React Hook Form + Zod (walidacja)
+- Nodemailer / własne API do wysyłki formularza
+- SEO: next-seo, JSON-LD, meta tags, sitemap, robots.txt
+- TypeScript, ESLint, Prettier, Lighthouse
+
+📁 Architektura:
+apps/
+└── qursant/
+    ├── public/
+    │   ├── images/             # Zdjęcia używane w projekcie
+    │   ├── videos/             # Materiały video (np. z drona, sali)
+    │   ├── logos/              # Logo jasne, ciemne
+    │   └── og/                 # Obrazy OpenGraph dla SEO
+    │
+    ├── src/
+    │   ├── app/
+    │   │   ├── [locale]/       # Routing językowy: pl, en, ua
+    │   │   │   ├── page.tsx             # Strona główna
+    │   │   │   ├── o-nas/page.tsx       # Podstrona o nas
+    │   │   │   ├── kursy/page.tsx       # Lista kursów
+    │   │   │   ├── cennik/page.tsx      # Cennik + kalkulator
+    │   │   │   ├── rezerwacja/page.tsx  # Formularz zapisów
+    │   │   │   ├── faq/page.tsx         # FAQ
+    │   │   │   ├── kontakt/page.tsx     # Mapa + formularz
+    │   │   │   └── opinie/page.tsx      # Opinie klientów
+    │   │   ├── layout.tsx               # Layout z navbar/footer
+    │   │   └── globals.css              # Tailwind base + custom
+    │
+    │   ├── components/
+    │   │   ├── layout/                  # Navbar, Footer, LanguageSwitcher
+    │   │   ├── ui/                      # Przycisk, Karta, Input itp.
+    │   │   ├── common/                  # Sekcje strony głównej, CTA, Hero
+    │   │   └── forms/                   # Komponenty formularzy
+    │
+    │   ├── lib/
+    │   │   ├── seo/                     # Konfiguracja next-seo
+    │   │   ├── email/                   # API do wysyłki formularza
+    │   │   ├── translations/            # Hooki i konfiguracja i18n
+    │   │   └── utils/                   # Pomocnicze funkcje
+    │
+    │   ├── content/
+    │   │   └── translations/            # pl.json, en.json, ua.json
+    │
+    ├── next.config.js                   # Konfiguracja Next.js + locales
+    ├── sitemap.config.js                # Konfiguracja sitemap
+    ├── tailwind.config.ts               # Tailwind + plugins
+    ├── robots.txt                       # Robots do SEO
+    └── middleware.ts                    # Middleware dla języków
+
+
+🌐 SEO i słowa kluczowe:
+Strona ma być zoptymalizowana pod:
+- Szkoła jazdy Bydgoszcz
+- Kurs prawa jazdy Bydgoszcz
+- Nauka jazdy
+- Egzamin na prawo jazdy
+- Najlepsza szkoła jazdy
+- Qursant
+Dodaj JSON-LD, OpenGraph, meta, alt, aria-labels, sitemap, robots.txt i przyjazne adresy URL.
+
+📌 Integracje:
+- Formularz zapisów z walidacją i wysyłką email
+- Mapa Google: https://www.google.pl/maps/place/Szko%C5%82a+Jazdy+Qursant/@53.1133239,18.0069507,15z/
+
+### ✅ Mini-zadania (kroki dla Cursor AI)
+
+🔧 Etap 1: Inicjalizacja
+1. Stwórz strukturę katalogów wg architektury powyżej.
+2. Skonfiguruj Tailwind z pluginami.
+3. Skonfiguruj App Router + `next.config.js` pod i18n.
+4. Dodaj `pl`, `en`, `ua` w `translations/` + hooki `useTranslations`.
+5. Stwórz komponent layoutu: Navbar, Footer, LanguageSwitcher.
+6. Dodaj plik `globals.css` i zainicjalizuj style bazowe.
+
+🏠 Etap 2: Strona Główna
+7. Zbuduj stronę główną (`[locale]/page.tsx`) z:
+   - Hero z animacją
+   - CTA + przycisk
+   - Sekcją "Dlaczego My?"
+8. Dodaj animacje z Framer Motion.
+9. Zadbaj o pełne SEO: meta tags, schema.org, JSON-LD.
+
+📄 Etap 3: Podstrony
+10. Dodaj stronę "O nas" (`/o-nas`) – opis szkoły, misja, zespół.
+11. Dodaj stronę "Kursy" – lista kursów z opisem.
+12. Dodaj stronę "Cennik" – tabela + kalkulator ceny.
+13. Dodaj stronę "Rezerwacja" – formularz zapisów.
+14. Dodaj stronę "FAQ" – accordion + schema FAQ.
+15. Dodaj stronę "Opinie" – slider + oceny.
+16. Dodaj stronę "Kontakt" – dane + mapa Google + formularz.
+
+🧩 Etap 4: Komponenty
+17. Zbuduj komponent `ReviewsSlider`.
+18. Zbuduj komponent `FAQAccordion`.
+19. Zbuduj `PricingCalculator`.
+20. Stwórz `GoogleMap` z pinezką.
+21. Formularz: React Hook Form + walidacja Zod.
+22. Wysyłka maila przez własne API (Next.js handler).
+23. Obsługa sukces / error stanu + loadingi.
+
+🌍 Etap 5: i18n + UX
+24. Obsługa języków PL / EN / UA (next-intl).
+25. `LanguageSwitcher` z dropdownem.
+26. Zmiana treści komponentów zależnie od języka.
+
+🔍 Etap 6: SEO & UX
+27. Dodaj sitemap.xml i robots.txt.
+28. Dodaj `next-seo.config.ts` i zaaplikuj do wszystkich stron.
+29. Zadbaj o strukturę nagłówków H1-H6.
+30. Zrób audyt Lighthouse i popraw punkty za performance i dostępność.
+
+🧪 Uwaga końcowa:
+Po każdej implementacji mini-zadania:
+- Uruchom aplikację (`npm run dev`)
+- Sprawdź UI
+- Zgłoś co zrobiłeś
+- Poczekaj na akceptację administratora

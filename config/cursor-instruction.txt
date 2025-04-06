@@ -1,0 +1,163 @@
+🎯 Objective:
+Create a modern, responsive and SEO-optimized website for Qursant driving school from Bydgoszcz, Poland. The project will be multilingual (PL/EN/UA), interactive and based on Tailwind CSS, Next.js (App Router), Nx and CI/CD. You will work iteratively, task-based and in communication with the administrator (me).
+
+🧠 The way Cursor works:
+1. Divide the entire project into **30 mini-tasks**, broken down into smaller micro-tasks.
+2. Before starting each mini-task:
+   - Review the current state of the repository.
+   - Check what has already been done.
+   - Indicate to the administrator which **micro-task you are currently doing**.
+   - Run the application locally (`npm run dev`) to test the current state.
+3. wait for **administrator approval** before proceeding to further micro-tasks or mini-tasks.
+4. work according to the following architecture, recommendations and technology stack.
+
+🧱 Stack:
+- Next.js App Router (v15)
+- Nx Monorepo
+- TailwindCSS + tailwind plugins (forms, typography, aspect-ratio)
+- Framer Motion
+- i18n with `next-intl`.
+- React Hook Form + Zod (validation)
+- Nodemailer / custom API for form submission
+- SEO: next-seo, JSON-LD, meta tags, sitemap, robots.txt
+- TypeScript, ESLint, Prettier, Lighthouse
+
+
+📁 Architecture:
+apps/
+└── qursant/
+    ├── public/
+    │   ├── images/
+    │   ├── videos/
+    │   ├── logo/
+    │   └── og/
+    ├── src/
+    │   ├── app/
+    │   │   ├── [locale]/
+    │   │   │   ├── layout.tsx
+    │   │   │   ├── page.tsx
+    │   │   │   ├── about/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── courses/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── pricing/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── booking/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── faq/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── contact/
+    │   │   │   │   └── page.tsx
+    │   │   │   └── reviews/
+    │   │   │       └── page.tsx
+    │   │   ├── layout.tsx
+    │   │   └── globals.css
+    │   ├── components/
+    │   │   ├── layout/
+    │   │   │   ├── Navbar.tsx
+    │   │   │   ├── Footer.tsx
+    │   │   │   └── LanguageSwitcher.tsx
+    │   │   ├── ui/
+    │   │   │   ├── Button.tsx
+    │   │   │   ├── Card.tsx
+    │   │   │   └── Input.tsx
+    │   │   ├── common/
+    │   │   │   ├── Hero.tsx
+    │   │   │   ├── WhyUs.tsx
+    │   │   │   └── CTA.tsx
+    │   │   └── forms/
+    │   │       ├── BookingForm.tsx
+    │   │       └── ContactForm.tsx
+    │   ├── lib/
+    │   │   ├── seo/
+    │   │   │   ├── next-seo.config.ts
+    │   │   │   └── schemaMarkup.ts
+    │   │   ├── email/
+    │   │   │   └── route.ts
+    │   │   ├── translations/
+    │   │   │   ├── i18n.ts
+    │   │   │   └── useTranslations.ts
+    │   │   └── utils/
+    │   │       ├── constants.ts
+    │   │       └── helpers.ts
+    │   ├── content/
+    │   │   └── translations/
+    │   │       ├── pl.json
+    │   │       ├── en.json
+    │   │       └── ua.json
+    │   └── styles/
+    │       └── animations.ts
+    ├── next.config.js
+    ├── sitemap.config.js
+    ├── tailwind.config.ts
+    ├── robots.txt
+    └── middleware.ts
+
+🌐 SEO and keywords:
+The site is to be optimized for:
+- Szkoła jazdy Bydgoszcz
+- Kurs prawa jazdy Bydgoszcz
+- Nauka jazdy
+- Egzamin na prawo jazdy
+- Najlepsza szkoła jazdy
+- Qursant
+Add JSON-LD, OpenGraph, meta, alt, aria-labels, sitemap, robots.txt and friendly URLs.
+
+📌 Integrations:
+- Signup form with validation and email sending
+- Google map: https://www.google.pl/maps/place/Szko%C5%82a+Drives+Qursant/@53.1133239,18.0069507,15z/
+
+
+### ✅ Mini-Tasks (steps for Cursor AI)
+
+🔧 Step 1: Initialization.
+1. create a directory structure according to the architecture above.
+2. configure Tailwind with plugins.
+3. configure App Router + `next.config.js` under i18n.
+4. Add `pl`, `en`, `ua` in `translations/` + hooki `useTranslations`.
+5. create layout component: Navbar, Footer, LanguageSwitcher.
+6. add `globals.css` file and initialize the base styles.
+
+🏠 Stage 2: Home page.
+7. build the home page (`[locale]/page.tsx`) with:
+   - Hero with animation
+   - CTA + button
+   - “Why Us?” section.
+8. add animations with Framer Motion.
+9. take care of full SEO: meta tags, schema.org, JSON-LD.
+
+📄 Stage 3: Sub-pages.
+10. add an “About Us” (`/o-nas`) page - school description, mission, team.
+11. Add “Courses” page - list of courses with description.
+12. add page “Price list” - table + price calculator.
+13. add page “Booking” - enrollment form.
+14. add page “FAQ”. - accordion + schema FAQ.
+15. add page “Opinions”. - slider + ratings.
+16. add “Contact” page - data + Google map + form.
+
+🧩 Stage 4: Components.
+17. build `ReviewsSlider` component.
+18. build the `FAQAccordion` component.
+19. build `PricingCalculator`.
+20. create a `GoogleMap` with a pin.
+21. form: React Hook Form + Zod validation.
+22. send email through custom API (Next.js handler).
+23. Handling success / error status + loadings.
+
+🌍 Stage 5: i18n + UX.
+24. support for PL / EN / UA (next-intl) languages.
+25. `LanguageSwitcher` with dropdown.
+26. Changing the content of components depending on the language.
+
+🔍 Stage 6: SEO & UX.
+27. add sitemap.xml and robots.txt.
+28. add `next-seo.config.ts` and apply to all pages.
+29. take care of H1-H6 header structure.
+30. do a Lighthouse audit and improve performance and accessibility scores.
+
+🧪 Final Note:
+After each mini-task implementation:
+- Run the application (`npm run dev`).
+- Check the UI
+- Report what you have done
+- Wait for admin approval

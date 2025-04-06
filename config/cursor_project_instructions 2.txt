@@ -1,0 +1,142 @@
+
+=======================
+🧠 Cursor AI – Projekt Strony: Szkoła Jazdy Qursant (Bydgoszcz)
+=======================
+
+🎯 CEL:
+Stworzenie nowoczesnej, responsywnej, wielojęzycznej strony internetowej dla szkoły jazdy "Qursant" w Bydgoszczy, zoptymalizowanej pod SEO, z funkcjonalnościami rejestracji, opinii, FAQ, animacjami i mapką dojazdu.
+
+=======================
+📦 STRUKTURA I TECHNOLOGIE
+=======================
+Stack:
+- Next.js (App Router)
+- TypeScript
+- Tailwind
+- Framer Motion (animacje)
+- React Hook Form + Zod (formularze)
+- next-intl (i18n PL / EN / UA)
+- next-sitemap, robots.txt (SEO)
+- nodemailer (wysyłka email)
+- Leaflet.js lub Google Maps (mapa)
+
+ SEO
+next-seo – meta tagi i OpenGraph
+
+next-sitemap – sitemap.xml i robots.txt
+
+schema-dts – dane strukturalne JSON-LD
+
+nextjs-google-analytics (opcjonalnie)
+
+🌍 Wersje językowe (i18n)
+next-intl – obsługa PL / EN / UA
+
+📬 Formularze i Email
+react-hook-form – zarządzanie formularzami
+
+zod – walidacja danych
+
+nodemailer – wysyłka emaili
+
+@react-email/components – szablony emaili
+
+@react-email/render – generowanie HTML maila
+
+🎨 Animacje i Interaktywność
+framer-motion – animacje wejścia, hover, scroll
+
+react-accessible-accordion – sekcja FAQ
+
+react-icons – ikony (opinie, oceny itd.)
+
+@react-google-maps/api lub react-leaflet – mapka lokalizacji
+
+💅 Stylowanie i UI
+@tailwindcss/forms – ulepszone formularze
+
+@tailwindcss/typography – lepsza typografia (blog, artykuły)
+
+clsx – warunkowe klasy CSS
+
+
+Mapa Google:
+https://www.google.pl/maps/place/Szko%C5%82a+Jazdy+Qursant/@53.1133239,18.0069507,15z/
+
+=======================
+🔍 ZAŁOŻENIA SEO
+=======================
+- Słowa kluczowe: szkoła jazdy, Bydgoszcz, kurs prawa jazdy, prawo jazdy, najlepsza
+- Meta tagi na każdej stronie: title, description, og:image, twitter:card
+- JSON-LD: LocalBusiness, FAQPage, Course, Review
+- OpenGraph + Twitter Cards
+- sitemap.xml + robots.txt
+- Kanoniczne URL-e
+- Hierarchia H1-H6
+- Blog i linkowanie wewnętrzne
+- Lighthouse (CWV, dostępność, performance)
+
+=======================
+📁 STRUKTURA PROJEKTU
+=======================
+apps/
+└── qursant/
+    ├── public/
+    │   ├── images/, videos/, logo/
+    ├── src/
+    │   ├── app/
+    │   │   ├── [locale]/
+    │   │   │   ├── page.tsx, layout.tsx, kursy/, cennik/, kontakt/ itd.
+    │   ├── components/
+    │   │   ├── Header, Footer, LanguageSwitcher, ContactForm, SEO, FAQAccordion
+    │   ├── lib/
+    │   │   ├── email.ts, seo.ts, constants.ts
+    │   ├── translations/ (pl.json, en.json, ua.json)
+    ├── pages/api/send.ts
+    ├── sitemap.config.js, robots.txt, next.config.js
+
+=======================
+✅ ZASADY PRACY CURSOR AI
+=======================
+
+🔸 Podziel projekt na np. ~30 mini-zadań (etapów), np.:
+  - 01. Konfiguracja repozytorium i layout
+  - 02. Konfiguracja języków i routing
+  - 03. Implementacja formularza zapisu
+  - ...
+  - 30. Testy i finalny deploy
+
+🔸 Każde mini-zadanie powinno zawierać mikro-zadania (np. 3–10), np.:
+  - stworzenie komponentu
+  - napisanie testu
+  - dodanie animacji
+  - uruchomienie preview
+
+🔸 Przed każdym mini-zadaniem:
+  ✅ Analizuj aktualny stan repozytorium (`git`, `fs`)
+  ✅ Uruchom aplikację lokalnie (`npm run dev`)
+  ✅ Wyświetl numer zadania i nazwę mikro-zadania, które wykonujesz
+
+🔸 Po zakończeniu mini-zadania:
+  🧠 Wstrzymaj się do momentu akceptacji przez administratora
+
+🔸 Tylko po akceptacji:
+  👉 przechodź do kolejnego mini-zadania.
+
+🔸 Pamiętaj o:
+  - Responsywności
+  - SEO na każdej podstronie
+  - Estetyce i animacjach
+  - Używaniu danych z `/public`
+  - Zgodności z i18n
+
+=======================
+🧑‍💻 ROLA ADMINISTRATORA
+=======================
+- Akceptuje/odrzuca wykonane mini- i mikro-zadania
+- Może wprowadzać poprawki i komentarze
+- Cursor kontynuuje pracę tylko po potwierdzeniu „Możesz przejść dalej”
+
+=======================
+📂 NAZWA PLIKU: cursor_project_instructions.txt
+=======================
