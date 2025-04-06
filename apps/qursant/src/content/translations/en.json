@@ -1,22 +1,63 @@
 {
   "common": {
-    "navigation": {
-      "home": "Home",
-      "about": "About Us",
-      "courses": "Courses",
-      "pricing": "Pricing",
-      "booking": "Book Now",
-      "faq": "FAQ",
-      "contact": "Contact"
-    },
-    "buttons": {
-      "learnMore": "Learn More",
-      "contact": "Contact Us",
-      "book": "Book a Course"
-    }
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation completed successfully",
+    "required": "Required field",
+    "logoAlt": "Qursant Logo"
   },
   "meta": {
     "title": "Qursant - Driving School in Bydgoszcz",
-    "description": "Professional driving school in Bydgoszcz. Driving courses, experienced instructors, high pass rates."
+    "description": "Professional driving school in Bydgoszcz. Courses for driving license categories A, B, C and D. Experienced instructors, high pass rates.",
+    "keywords": "driving school, driver's license, driving course, driving lessons, Bydgoszcz"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "courses": "Courses",
+    "pricing": "Pricing",
+    "booking": "Booking",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "learnMore": "Learn more",
+    "contact": "Contact us",
+    "book": "Book now",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "home": {
+    "title": "Professional Driving School in Bydgoszcz",
+    "subtitle": "Get your driver's license with the best instructors",
+    "description": "We offer courses for all driving license categories. High pass rates and experienced instructors.",
+    "welcomeMessage": "Welcome to Qursant Driving School!",
+    "startLearning": "Start learning today",
+    "stats": {
+      "students": "Happy students",
+      "experience": "Years of experience",
+      "instructors": "Experienced instructors",
+      "passRate": "Pass rate"
+    }
+  },
+  "footer": {
+    "siteFooter": "Site footer",
+    "schoolName": "Qursant - Driving School in Bydgoszcz",
+    "address": "Example St. 123, 85-123 Bydgoszcz",
+    "menu": "Menu",
+    "contact": "Contact",
+    "phone": "+48 123 456 789",
+    "email": "info@qursant.pl",
+    "facebookUrl": "https://facebook.com/qursant",
+    "instagramUrl": "https://instagram.com/qursant",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "followOnFacebook": "Follow us on Facebook",
+    "followOnInstagram": "Follow us on Instagram",
+    "callUs": "Call us",
+    "emailUs": "Email us",
+    "copyright": "Qursant. All rights reserved."
   }
 }

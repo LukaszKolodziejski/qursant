@@ -1,22 +1,63 @@
 {
   "common": {
-    "navigation": {
-      "home": "Головна",
-      "about": "Про нас",
-      "courses": "Курси",
-      "pricing": "Ціни",
-      "booking": "Бронювання",
-      "faq": "FAQ",
-      "contact": "Контакти"
-    },
-    "buttons": {
-      "learnMore": "Дізнатися більше",
-      "contact": "Зв'язатися",
-      "book": "Забронювати курс"
-    }
+    "loading": "Завантаження...",
+    "error": "Сталася помилка",
+    "success": "Операція успішно завершена",
+    "required": "Обов'язкове поле",
+    "logoAlt": "Логотип Qursant"
   },
   "meta": {
     "title": "Qursant - Автошкола в Бидгощі",
-    "description": "Професійна автошкола в Бидгощі. Курси водіння, досвідчені інструктори, високий рівень здачі іспитів."
+    "description": "Професійна автошкола в Бидгощі. Курси на водійські права категорій A, B, C та D. Досвідчені інструктори, високий рівень здачі іспитів.",
+    "keywords": "автошкола, водійські права, курс водіння, уроки водіння, Бидгощ"
+  },
+  "navigation": {
+    "home": "Головна",
+    "about": "Про нас",
+    "courses": "Курси",
+    "pricing": "Ціни",
+    "booking": "Бронювання",
+    "faq": "FAQ",
+    "contact": "Контакти"
+  },
+  "buttons": {
+    "learnMore": "Дізнатися більше",
+    "contact": "Зв'язатися",
+    "book": "Забронювати",
+    "openMenu": "Відкрити меню",
+    "closeMenu": "Закрити меню",
+    "submit": "Надіслати",
+    "cancel": "Скасувати"
+  },
+  "home": {
+    "title": "Професійна автошкола в Бидгощі",
+    "subtitle": "Отримайте водійські права з найкращими інструкторами",
+    "description": "Ми пропонуємо курси на всі категорії водійських прав. Високий рівень здачі іспитів та досвідчені інструктори.",
+    "welcomeMessage": "Ласкаво просимо до автошколи Qursant!",
+    "startLearning": "Почніть навчання сьогодні",
+    "stats": {
+      "students": "Задоволених учнів",
+      "experience": "Років досвіду",
+      "instructors": "Досвідчених інструкторів",
+      "passRate": "Рівень здачі"
+    }
+  },
+  "footer": {
+    "siteFooter": "Підвал сайту",
+    "schoolName": "Qursant - Автошкола в Бидгощі",
+    "address": "вул. Example 123, 85-123 Бидгощ",
+    "menu": "Меню",
+    "contact": "Контакти",
+    "phone": "+48 123 456 789",
+    "email": "info@qursant.pl",
+    "facebookUrl": "https://facebook.com/qursant",
+    "instagramUrl": "https://instagram.com/qursant",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "followOnFacebook": "Слідкуйте за нами на Facebook",
+    "followOnInstagram": "Слідкуйте за нами в Instagram",
+    "callUs": "Зателефонуйте нам",
+    "emailUs": "Напишіть нам",
+    "copyright": "Qursant. Всі права захищені."
   }
 }

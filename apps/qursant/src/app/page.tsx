@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Locale } from '../i18n/settings';
+import { getTranslations } from 'next-intl/server';
 
 type QursantMetadata = Omit<Metadata, 'alternates'> & {
   alternates: {
@@ -66,16 +67,12 @@ export const metadata: QursantMetadata = {
 } satisfies QursantMetadata;
 
 export default async function HomePage() {
-  const messages = (await import('../content/translations/pl.json')).default;
+  const t = await getTranslations();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold mb-4">
-        {messages.common.navigation.home}
-      </h1>
-      <p className="text-lg text-center max-w-2xl">
-        {messages.meta.description}
-      </p>
+      <h1 className="text-4xl font-bold mb-4">{t('navigation.home')}</h1>
+      <p className="text-lg text-center max-w-2xl">{t('meta.description')}</p>
       {/* Schema.org markup dla wyszukiwarek */}
       <script
         type="application/ld+json"
@@ -84,7 +81,7 @@ export default async function HomePage() {
             '@context': 'https://schema.org',
             '@type': 'EducationalOrganization',
             name: 'Qursant',
-            description: 'Profesjonalna szkoła jazdy w Bydgoszczy',
+            description: t('meta.description'),
             address: {
               '@type': 'PostalAddress',
               addressLocality: 'Bydgoszcz',
