@@ -1,75 +1,39 @@
+import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
-import { locales, type Locale } from '../../i18n/settings';
-import { Metadata } from 'next';
+import { getMessages } from 'next-intl/server';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import { locales } from '@/settings';
 
-// Generowanie statycznych parametrów dla wszystkich obsługiwanych języków
+export const metadata: Metadata = {
+  title: 'Qursant - Szkoła Jazdy',
+  description: 'Profesjonalna szkoła jazdy w Bydgoszczy',
+};
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://qursant.pl'),
-  title: 'Qursant - Szkoła Jazdy w Bydgoszczy',
-  description:
-    'Profesjonalna szkoła jazdy w Bydgoszczy. Kursy prawa jazdy, doświadczeni instruktorzy, wysokie wyniki zdawalności.',
-  alternates: {
-    canonical: '/',
-    languages: {
-      'x-default': '/',
-      pl: '/',
-      en: '/en',
-      uk: '/uk',
-    },
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'verification_token',
-  },
+type Props = {
+  children: React.ReactNode;
+  params: { locale: string };
 };
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { locale: Locale };
-}) {
+export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-
-  if (!locales.includes(locale)) {
-    notFound();
-  }
-
-  // Załaduj tłumaczenia dla danego języka
-  const messages = (await import(`../../content/translations/${locale}.json`))
-    .default;
+  const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body>
-        <NextIntlClientProvider
-          locale={locale}
-          messages={messages}
-          timeZone="Europe/Warsaw"
-        >
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider
+      locale={locale}
+      messages={messages}
+      timeZone="Europe/Warsaw"
+    >
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </div>
+    </NextIntlClientProvider>
   );
 }
