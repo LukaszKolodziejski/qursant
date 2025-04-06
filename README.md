@@ -80,3 +80,83 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Dostępne komendy
+
+### Podstawowe komendy deweloperskie
+```bash
+# Uruchomienie w trybie deweloperskim
+npm run dev
+
+# Zbudowanie projektu
+npm run build
+
+# Uruchomienie w trybie produkcyjnym
+npm start
+
+# Wyczyszczenie cache i plików tymczasowych
+npm run clean
+```
+
+### Testowanie i jakość kodu
+```bash
+# Uruchomienie testów jednostkowych
+npm test
+
+# Uruchomienie testów end-to-end
+npm run e2e
+
+# Sprawdzenie kodu przez lintera
+npm run lint
+
+# Automatyczna naprawa problemów z linterem
+npm run lint:fix
+
+# Sprawdzenie typów TypeScript
+npm run typecheck
+
+# Formatowanie kodu
+npm run format
+```
+
+### Analiza projektu
+```bash
+# Wizualizacja zależności (dostępne też jako npm run dep-graph)
+npm run graph
+
+# Analiza bundle'a
+npm run analyze
+```
+
+### Komendy dla monorepo
+```bash
+# Sprawdzenie zmodyfikowanych aplikacji
+npm run affected:apps
+
+# Sprawdzenie zmodyfikowanych bibliotek
+npm run affected:libs
+
+# Zbudowanie zmodyfikowanych elementów
+npm run affected:build
+
+# Testy dla zmodyfikowanych elementów
+npm run affected:test
+
+# Linting dla zmodyfikowanych elementów
+npm run affected:lint
+
+# Graf zależności dla zmodyfikowanych elementów
+npm run affected:dep-graph
+```
+
+### Komendy administracyjne
+```bash
+# Aktualizacja zależności NX
+npm run update
+
+# Integracja z NX Cloud
+npm run nx-cloud
+
+# Generatory workspace'a
+npm run workspace-generator
+```

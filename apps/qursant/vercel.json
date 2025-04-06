@@ -1,0 +1,6 @@
+{
+    "buildCommand": "npx nx build qursant",
+    "outputDirectory": "apps/qursant/.next",
+    "framework": "nextjs",
+    "installCommand": "npm install"
+}
