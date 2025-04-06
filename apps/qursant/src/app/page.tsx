@@ -18,7 +18,7 @@ export const metadata: QursantMetadata = {
     languages: {
       pl: '/',
       en: '/en',
-      ua: '/ua',
+      uk: '/uk',
     },
   },
   keywords: [
