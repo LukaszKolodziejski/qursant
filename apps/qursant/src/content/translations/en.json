@@ -1,0 +1,22 @@
+{
+    "common": {
+        "navigation": {
+            "home": "Home",
+            "about": "About Us",
+            "courses": "Courses",
+            "pricing": "Pricing",
+            "booking": "Book Now",
+            "faq": "FAQ",
+            "contact": "Contact"
+        },
+        "buttons": {
+            "learnMore": "Learn More",
+            "contact": "Contact Us",
+            "book": "Book a Course"
+        }
+    },
+    "meta": {
+        "title": "Qursant - Driving School in Bydgoszcz",
+        "description": "Professional driving school in Bydgoszcz. Driving courses, experienced instructors, high pass rates."
+    }
+}

@@ -1,8 +1,8 @@
-🎯 Objective:
-Create a modern, responsive and SEO-optimized website for Qursant driving school from Bydgoszcz, Poland. The project will be multilingual (PL/EN/UA), interactive and based on Tailwind CSS, Next.js (App Router), Nx and CI/CD. You will work iteratively, task-based and in communication with the administrator (me).
+🎯 Objective: 
+Create a modern, responsive, and SEO-optimized website for Qursant driving school from Bydgoszcz, Poland. The project will be multilingual (PL/EN/UA), interactive, and based on Tailwind CSS, Next.js (App Router), Nx, and CI/CD. You will work iteratively, task-based, and in communication with the administrator (me).
 
 🧠 The way Cursor works:
-1. Divide the entire project into **30 mini-tasks**, broken down into smaller micro-tasks.
+1. Divide the entire project into **mini-tasks**, broken down into smaller micro-tasks.
 2. Before starting each mini-task:
    - Review the current state of the repository.
    - Check what has already been done.
@@ -92,6 +92,9 @@ apps/
     ├── tailwind.config.ts
     ├── robots.txt
     └── middleware.ts
+
+Responsiveness:
+It is crucial that the website is fully responsive and optimized for all screen sizes, from mobile phones and tablets to large desktop monitors. The design should adapt seamlessly to different devices, ensuring that users have an optimal experience, no matter what device they are using. 
 
 🌐 SEO and keywords:
 The site is to be optimized for:
