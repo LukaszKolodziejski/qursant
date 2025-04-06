@@ -18,7 +18,9 @@
     "pricing": "Cennik",
     "booking": "Rezerwacja",
     "faq": "FAQ",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "mainMenu": "Menu główne",
+    "mobileMenu": "Menu mobilne"
   },
   "buttons": {
     "learnMore": "Dowiedz się więcej",
@@ -30,34 +32,53 @@
     "cancel": "Anuluj"
   },
   "home": {
-    "title": "Profesjonalna szkoła jazdy w Bydgoszczy",
-    "subtitle": "Zdobądź prawo jazdy z najlepszymi instruktorami",
-    "description": "Oferujemy kursy na wszystkie kategorie prawa jazdy. Wysokie wyniki zdawalności i doświadczeni instruktorzy.",
+    "title": "Twoja droga do sukcesu za kierownicą",
+    "subtitle": "Profesjonalna szkoła jazdy z doświadczonymi instruktorami",
+    "description": "Oferujemy kompleksowe szkolenia na prawo jazdy kategorii B z indywidualnym podejściem do każdego kursanta",
     "welcomeMessage": "Witamy w szkole jazdy Qursant!",
-    "startLearning": "Rozpocznij naukę już dziś",
+    "startLearning": "Rozpocznij naukę",
     "stats": {
       "students": "Zadowolonych kursantów",
       "experience": "Lat doświadczenia",
       "instructors": "Doświadczonych instruktorów",
-      "passRate": "Zdawalność"
+      "passRate": "Zdawalność egzaminów"
+    },
+    "whyUs": {
+      "title": "Dlaczego warto wybrać Qursant?",
+      "subtitle": "Odkryj, co wyróżnia naszą szkołę jazdy",
+      "reasons": {
+        "1": {
+          "title": "Doświadczeni instruktorzy",
+          "description": "Nasi instruktorzy to certyfikowani specjaliści z wieloletnim doświadczeniem w szkoleniu kierowców"
+        },
+        "2": {
+          "title": "Elastyczny harmonogram",
+          "description": "Oferujemy elastyczne godziny zajęć, dostosowane do Twojego planu dnia"
+        },
+        "3": {
+          "title": "Nowoczesna flota",
+          "description": "Szkolimy na nowych, bezpiecznych samochodach wyposażonych w najnowsze systemy wspomagania jazdy"
+        }
+      }
     }
   },
   "footer": {
     "siteFooter": "Stopka strony",
-    "schoolName": "Qursant - Szkoła Jazdy w Bydgoszczy",
-    "address": "ul. Example 123, 85-123 Bydgoszcz",
+    "schoolName": "Szkoła Jazdy Qursant",
+    "address": "ul. Przykładowa 123",
+    "city": "00-000 Warszawa",
     "menu": "Menu",
     "contact": "Kontakt",
     "phone": "+48 123 456 789",
-    "email": "info@qursant.pl",
+    "email": "kontakt@qursant.pl",
     "facebookUrl": "https://facebook.com/qursant",
     "instagramUrl": "https://instagram.com/qursant",
-    "facebook": "Facebook",
-    "instagram": "Instagram",
+    "facebook": "Odwiedź nas na Facebooku",
+    "instagram": "Śledź nas na Instagramie",
     "followOnFacebook": "Obserwuj nas na Facebooku",
     "followOnInstagram": "Obserwuj nas na Instagramie",
     "callUs": "Zadzwoń do nas",
     "emailUs": "Wyślij nam email",
-    "copyright": "Qursant. Wszelkie prawa zastrzeżone."
+    "copyright": "Wszelkie prawa zastrzeżone."
   }
 }
