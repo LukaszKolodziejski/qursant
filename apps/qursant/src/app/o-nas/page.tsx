@@ -323,14 +323,16 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative h-[500px] rounded-2xl overflow-hidden"
+              className="relative w-full"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50 mix-blend-multiply"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50 mix-blend-multiply rounded-2xl"></div>
               <Image
                 src="/images/photo-1.jpg"
                 alt="Szkoła Jazdy Qursant"
-                fill
-                className="object-cover"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-2xl"
+                priority
               />
             </motion.div>
           </div>
@@ -373,17 +375,15 @@ export default function AboutPage() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900/40 backdrop-blur-sm border border-blue-500/10"
+                className="group relative rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900/40 backdrop-blur-sm border border-blue-500/10"
               >
-                <div className="aspect-w-1 aspect-h-1 relative overflow-hidden">
+                <div className="relative w-full overflow-hidden rounded-t-2xl">
                   <Image
                     src={instruktor.image}
                     alt={instruktor.name}
                     width={600}
                     height={600}
-                    quality={95}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 rounded-t-2xl group-hover:scale-[1.02]"
+                    className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                 </div>
@@ -484,16 +484,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative rounded-2xl overflow-hidden"
+              className="relative w-full"
             >
               <Image
                 src="/images/photo-78.jpg"
                 alt="Wyposażenie Qursant"
-                width={1920}
-                height={1080}
-                quality={95}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 1920px"
-                className="object-cover w-full h-auto"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-2xl"
                 priority
               />
             </motion.div>

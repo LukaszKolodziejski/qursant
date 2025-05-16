@@ -226,7 +226,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* 3D Car Section */}
+      {/* 3D Car Section - zamieniam na sekcję ze zdjęciem */}
       <section className="relative bg-gradient-to-b from-indigo-900 to-blue-950 py-24">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.2),transparent_60%)]"></div>
@@ -251,31 +251,23 @@ export default function HomePage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* 3D Car Canvas */}
+            {/* Zdjęcie samochodu */}
             <motion.div
-              className="h-[400px] bg-gradient-to-br from-indigo-900/50 to-purple-900/50 rounded-2xl overflow-hidden backdrop-blur-sm border border-indigo-500/30"
+              className="relative w-full"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Canvas className="!touch-none">
-                <ambientLight intensity={0.5} />
-                <directionalLight position={[10, 10, 5]} intensity={1} />
-                <Suspense fallback={null}>
-                  <Float
-                    speed={1.5}
-                    rotationIntensity={0.5}
-                    floatIntensity={0.5}
-                  ></Float>
-                </Suspense>
-                <OrbitControls
-                  enableZoom={false}
-                  enablePan={false}
-                  autoRotate
-                  autoRotateSpeed={1}
-                />
-              </Canvas>
+              <Image
+                src="/images/photo-78.jpg"
+                alt="Nowoczesna flota"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-2xl"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/50 to-transparent rounded-2xl"></div>
             </motion.div>
 
             {/* Car Features */}
@@ -575,33 +567,25 @@ export default function HomePage() {
               ))}
             </motion.div>
 
-            {/* 3D License */}
+            {/* Zdjęcie zamiast 3D License */}
             <motion.div
+              className="relative w-full"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-[400px] relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-2xl overflow-hidden backdrop-blur-sm border border-purple-500/30"></div>
-              <Canvas className="!touch-none">
-                <ambientLight intensity={0.5} />
-                <spotLight
-                  position={[10, 10, 10]}
-                  angle={0.15}
-                  penumbra={1}
-                  intensity={1}
-                />
-                <Suspense fallback={null}></Suspense>
-                <OrbitControls
-                  enableZoom={false}
-                  enablePan={false}
-                  autoRotate
-                  autoRotateSpeed={1}
-                />
-              </Canvas>
+              <Image
+                src="/images/photo-15.jpg"
+                alt="Prawo jazdy"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-2xl"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent rounded-2xl"></div>
 
-              {/* CTA Badge floating on the 3D license */}
+              {/* CTA Badge floating on the image */}
               <div className="absolute bottom-6 right-6 z-10">
                 <motion.div
                   className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center space-x-2"
@@ -875,7 +859,7 @@ export default function HomePage() {
       </section>
 
       {/* Instructors Section */}
-      <section className="bg-gradient-to-b from-blue-950 to-slate-900 py-24 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-blue-950 to-indigo-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.1),transparent_70%)]"></div>
         </div>
@@ -908,28 +892,28 @@ export default function HomePage() {
           >
             {[
               {
-                name: 'Marek Jankowski',
-                role: 'Instruktor kat. B',
-                experience: '15 lat doświadczenia',
-                image: '/api/placeholder/300/300',
+                name: 'Robert Langer',
+                role: 'Główny Instruktor',
+                experience: '20 lat doświadczenia',
+                image: '/images/photo-1.jpg',
               },
               {
-                name: 'Aleksandra Dąbrowska',
+                name: 'Anna Kowalska',
                 role: 'Instruktor kat. A, B',
                 experience: '10 lat doświadczenia',
-                image: '/api/placeholder/300/300',
+                image: '/images/photo-2.jpg',
               },
               {
-                name: 'Tomasz Wójcik',
+                name: 'Marek Nowak',
                 role: 'Instruktor kat. C, C+E',
-                experience: '20 lat doświadczenia',
-                image: '/api/placeholder/300/300',
+                experience: '15 lat doświadczenia',
+                image: '/images/photo-3.jpg',
               },
               {
                 name: 'Katarzyna Lis',
-                role: 'Instruktor kat. B, B+E',
+                role: 'Instruktor kat. B',
                 experience: '8 lat doświadczenia',
-                image: '/api/placeholder/300/300',
+                image: '/images/photo-4.jpg',
               },
             ].map((instructor, index) => (
               <motion.div
@@ -937,12 +921,15 @@ export default function HomePage() {
                 variants={fadeInUp}
                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900/40 backdrop-blur-sm border border-blue-500/10"
               >
-                <div className="aspect-w-1 aspect-h-1 relative">
+                <div className="aspect-w-1 aspect-h-1 relative overflow-hidden">
                   <Image
                     src={instructor.image}
                     alt={instructor.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    width={600}
+                    height={600}
+                    quality={95}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover transition-transform duration-300 rounded-t-2xl group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                 </div>
