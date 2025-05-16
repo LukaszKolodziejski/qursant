@@ -2,7 +2,7 @@
   --color-primary: #2563eb;
   --color-primary-light: #3b82f6;
   --color-primary-dark: #1d4ed8;
-  
+
   --color-secondary: #10b981;
   --color-secondary-light: #34d399;
   --color-secondary-dark: #059669;
@@ -43,4 +43,4 @@
 
 .perspective-1000 {
   perspective: 1000px;
-} 
+}

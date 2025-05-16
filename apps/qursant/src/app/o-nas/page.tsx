@@ -1,11 +1,6 @@
 'use client';
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import {
@@ -55,7 +50,7 @@ const instruktorzy = [
   },
 ];
 
-export default function ONasPage() {
+export default function AboutPage() {
   const containerRef = useRef(null);
   const [activeInstructor, setActiveInstructor] = useState(0);
   const { scrollYProgress } = useScroll({

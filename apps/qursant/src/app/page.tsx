@@ -24,7 +24,7 @@ import Image from 'next/image';
 
 export default function HomePage() {
   const mainRef = useRef(null);
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -37,25 +37,27 @@ export default function HomePage() {
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
 
   useEffect(() => {
-    if (videoRef.current) {
-      const handleVideoLoaded = () => {
-        setIsVideoLoaded(true);
-      };
-
-      videoRef.current.addEventListener('loadeddata', handleVideoLoaded);
-
-      // Fallback if video is taking too long to load
-      const timer = setTimeout(() => {
-        if (!isVideoLoaded) setIsVideoLoaded(true);
-      }, 3000);
-
-      return () => {
-        if (videoRef.current) {
-          videoRef.current.removeEventListener('loadeddata', handleVideoLoaded);
-        }
-        clearTimeout(timer);
-      };
+    if (!videoRef?.current) {
+      return; // Early return if videoRef.current doesn't exist
     }
+
+    const handleVideoLoaded = () => {
+      setIsVideoLoaded(true);
+    };
+
+    videoRef.current.addEventListener('loadeddata', handleVideoLoaded);
+
+    // Fallback if video is taking too long to load
+    const timer = setTimeout(() => {
+      if (!isVideoLoaded) setIsVideoLoaded(true);
+    }, 3000);
+
+    return () => {
+      if (videoRef?.current) {
+        videoRef?.current.removeEventListener('loadeddata', handleVideoLoaded);
+      }
+      clearTimeout(timer);
+    };
   }, []);
 
   // Animation variants
@@ -829,7 +831,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="pt-8 pb-4">
-                  <p className="text-blue-100 mb-6">"{testimonial.quote}"</p>
+                  <p className="text-blue-100 mb-6">{testimonial.quote}</p>
                 </div>
 
                 <div className="flex items-center">
