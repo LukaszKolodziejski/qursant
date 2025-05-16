@@ -4,41 +4,46 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
-import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const t = useTranslations();
+
   const pathname = usePathname();
-  const locale = pathname.split('/')[1] || 'pl';
 
   const navigation = [
-    { name: t('navigation.home'), href: `/${locale}` },
-    { name: t('navigation.about'), href: `/${locale}/about` },
-    { name: t('navigation.courses'), href: `/${locale}/courses` },
-    { name: t('navigation.pricing'), href: `/${locale}/pricing` },
-    { name: t('navigation.booking'), href: `/${locale}/booking` },
-    { name: t('navigation.faq'), href: `/${locale}/faq` },
-    { name: t('navigation.contact'), href: `/${locale}/contact` },
+    { name: 'Strona główna', href: '/' },
+    { name: 'O nas', href: '/about' },
+    { name: 'Kursy', href: '/courses' },
+    { name: 'Cennik', href: '/pricing' },
+    { name: 'Rezerwacja', href: '/booking' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Kontakt', href: '/contact' },
   ];
+
+  // Funkcja pomocnicza do sprawdzania aktywnej ścieżki
+  const isActivePath = (path: string) => {
+    const pathParts = pathname.split('/');
+    const currentPath = pathParts.slice(1).join('/');
+
+    return path === '/' ? currentPath === '' : currentPath === path.slice(1);
+  };
 
   return (
     <nav
       className="bg-white dark:bg-gray-900 shadow-lg"
-      aria-label={t('navigation.mainMenu')}
+      aria-label={'mainMenu'}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link
-              href={`/${locale}`}
+              href={`/`}
               className="flex-shrink-0 flex items-center"
-              aria-label={t('navigation.home')}
+              aria-label={'home'}
             >
               <Image
                 src="/logo/logo.png"
-                alt={t('common.logoAlt')}
+                alt={'logo'}
                 width={120}
                 height={40}
                 className="h-10 w-auto"
@@ -53,20 +58,16 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ${
-                    pathname === item.href
+                    isActivePath(item.href)
                       ? 'border-primary text-primary'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white'
                   }`}
-                  aria-current={pathname === item.href ? 'page' : undefined}
+                  aria-current={isActivePath(item.href) ? 'page' : undefined}
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
-          </div>
-
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button */}
@@ -75,12 +76,10 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
               aria-expanded={isMenuOpen}
-              aria-label={
-                isMenuOpen ? t('buttons.closeMenu') : t('buttons.openMenu')
-              }
+              aria-label={isMenuOpen ? 'closeMenu' : 'openMenu'}
             >
               <span className="sr-only">
-                {isMenuOpen ? t('buttons.closeMenu') : t('buttons.openMenu')}
+                {isMenuOpen ? 'closeMenu' : 'openMenu'}
               </span>
               <svg
                 className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
@@ -118,7 +117,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}
-        aria-label={t('navigation.mobileMenu')}
+        aria-label={'mobileMenu'}
       >
         <div className="pt-2 pb-3 space-y-1">
           {navigation.map((item) => (
@@ -126,21 +125,16 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                pathname === item.href
+                isActivePath(item.href)
                   ? 'border-primary text-primary bg-primary-50'
                   : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white'
               }`}
               onClick={() => setIsMenuOpen(false)}
-              aria-current={pathname === item.href ? 'page' : undefined}
+              aria-current={isActivePath(item.href) ? 'page' : undefined}
             >
               {item.name}
             </Link>
           ))}
-        </div>
-        <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
-          <div className="px-2">
-            <LanguageSwitcher />
-          </div>
         </div>
       </div>
     </nav>

@@ -1,101 +1,1175 @@
-import { Metadata } from 'next';
-import { Locale } from '../i18n/settings';
-import { getTranslations } from 'next-intl/server';
+'use client';
 
-type QursantMetadata = Omit<Metadata, 'alternates'> & {
-  alternates: {
-    canonical: string;
-    languages: Partial<Record<Locale, string>>;
+import Link from 'next/link';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+import Script from 'next/script';
+import {
+  FaCar,
+  FaUserGraduate,
+  FaChalkboardTeacher,
+  FaMedal,
+  FaQuoteRight,
+} from 'react-icons/fa';
+import {
+  HiOutlineAcademicCap,
+  HiOutlineClock,
+  HiOutlineUserGroup,
+  HiLightningBolt,
+} from 'react-icons/hi';
+import { useRef, useEffect, useState, Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Float, PerspectiveCamera } from '@react-three/drei';
+import Image from 'next/image';
+
+export default function HomePage() {
+  const mainRef = useRef(null);
+  const videoRef = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: mainRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const handleVideoLoaded = () => {
+        setIsVideoLoaded(true);
+      };
+
+      videoRef.current.addEventListener('loadeddata', handleVideoLoaded);
+
+      // Fallback if video is taking too long to load
+      const timer = setTimeout(() => {
+        if (!isVideoLoaded) setIsVideoLoaded(true);
+      }, 3000);
+
+      return () => {
+        if (videoRef.current) {
+          videoRef.current.removeEventListener('loadeddata', handleVideoLoaded);
+        }
+        clearTimeout(timer);
+      };
+    }
+  }, []);
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0 },
   };
-};
 
-export const metadata: QursantMetadata = {
-  title: 'Qursant - Szkoła Jazdy w Bydgoszczy | Driving School',
-  description:
-    'Profesjonalna szkoła jazdy w Bydgoszczy. Kursy prawa jazdy, doświadczeni instruktorzy, wysokie wyniki zdawalności. Professional driving school in Bydgoszcz, Poland.',
-  alternates: {
-    canonical: '/',
-    languages: {
-      pl: '/',
-      en: '/en',
-      uk: '/uk',
-    },
-  },
-  keywords: [
-    // Polski
-    'Szkoła jazdy Bydgoszcz',
-    'Kurs prawa jazdy Bydgoszcz',
-    'Nauka jazdy',
-    'Egzamin na prawo jazdy',
-    'Najlepsza szkoła jazdy',
-    'Qursant',
-    // English
-    'Driving school Bydgoszcz',
-    'Driving lessons Bydgoszcz',
-    'Driving license Poland',
-    'Best driving school',
-    // Ukrainian
-    'Автошкола Бидгощ',
-    'Водійські курси Польща',
-  ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'pl_PL',
-    alternateLocale: ['en_GB', 'uk_UA'],
-    url: 'https://qursant.pl',
-    siteName: 'Qursant - Szkoła Jazdy',
-    images: [
-      {
-        url: '/og/home.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Qursant - Szkoła Jazdy w Bydgoszczy',
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
       },
-    ],
-  },
-} satisfies QursantMetadata;
+    },
+  };
 
-export default async function HomePage() {
-  const t = await getTranslations();
+  const pulseAnimation = {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: 'reverse',
+    },
+  };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold mb-4">{t('navigation.home')}</h1>
-      <p className="text-lg text-center max-w-2xl">{t('meta.description')}</p>
-      {/* Schema.org markup dla wyszukiwarek */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'EducationalOrganization',
-            name: 'Qursant',
-            description: t('meta.description'),
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Bydgoszcz',
-              addressCountry: 'PL',
-            },
-            url: 'https://qursant.pl',
-            sameAs: [
-              'https://www.facebook.com/qursant',
-              'https://instagram.com/qursant',
-            ],
-            teaches: ['Kurs prawa jazdy', 'Driving lessons', 'Водійські курси'],
-          }),
-        }}
-      />
-    </main>
+    <>
+      <Script id="schema-org" type="application/ld+json" />
+
+      {/* Hero section with full screen video and parallax effect */}
+      <section
+        ref={mainRef}
+        className="relative w-full h-screen overflow-hidden"
+      >
+        {/* Full screen video background with overlay */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/70 z-20"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(67,56,202,0.4),transparent_50%)] z-10"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.4),transparent_50%)] z-10"></div>
+
+          {/* Video positioned slightly lower and with proper path */}
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`object-cover w-full h-full transform translate-y-20 ${
+              isVideoLoaded ? 'opacity-100' : 'opacity-0'
+            } transition-opacity duration-1000`}
+          >
+            <source src="/videos/main_video.mp4" type="video/mp4" />
+          </video>
+
+          {/* Fallback loading state */}
+          {!isVideoLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center text-white">
+              <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-white"></div>
+            </div>
+          )}
+        </div>
+
+        {/* Hero content */}
+        <motion.div
+          className="relative z-30 flex flex-col items-center justify-center h-full px-6 text-center text-white"
+          style={{ opacity, scale, y }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2 }}
+              className="mb-6"
+            >
+              <motion.div
+                className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white text-sm font-medium mb-6"
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+              >
+                Nowa era szkoleń kierowców
+              </motion.div>
+            </motion.div>
+
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+                Qursant
+              </span>
+              <motion.span
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mt-4"
+                // animate={pulseAnimation}
+              >
+                Kieruj swoją przyszłością
+              </motion.span>
+            </h1>
+
+            <p className="mt-6 text-xl leading-8 text-blue-100 max-w-2xl mx-auto">
+              Nauka kierowania na najnowszych modelach pojazdów wyposażonych w
+              zaawansowane systemy bezpieczeństwa
+            </p>
+
+            <motion.div
+              className="mt-12 flex flex-wrap items-center justify-center gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              <Link
+                href={`/booking`}
+                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <span className="relative z-10">Zarezerwuj lekcję</span>
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400 z-0"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '0%' }}
+                  transition={{ duration: 0.5 }}
+                />
+              </Link>
+
+              <Link
+                href={`/courses`}
+                className="group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <span className="relative z-10">Zobacz kursy</span>
+                <motion.span
+                  className="absolute inset-0 bg-white/20 z-0"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll down indicator */}
+          <motion.div
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, y: [0, 10, 0] }}
+            transition={{ delay: 1.5, duration: 1.5, repeat: Infinity }}
+          >
+            <div className="flex flex-col items-center">
+              <span className="text-sm text-white/80 mb-2">Przewiń w dół</span>
+              <div className="w-6 h-10 rounded-full border-2 border-white/50 flex justify-center p-1">
+                <motion.div
+                  className="w-1 h-2 bg-white rounded-full"
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* 3D Car Section */}
+      <section className="relative bg-gradient-to-b from-indigo-900 to-blue-950 py-24">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.2),transparent_60%)]"></div>
+        </div>
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-100">
+                Nowoczesna flota
+              </span>
+            </h2>
+            <p className="text-blue-200 max-w-2xl mx-auto">
+              Ucz się prowadzić na najnowszych modelach pojazdów wyposażonych w
+              zaawansowane systemy bezpieczeństwa
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* 3D Car Canvas */}
+            <motion.div
+              className="h-[400px] bg-gradient-to-br from-indigo-900/50 to-purple-900/50 rounded-2xl overflow-hidden backdrop-blur-sm border border-indigo-500/30"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <Canvas className="!touch-none">
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[10, 10, 5]} intensity={1} />
+                <Suspense fallback={null}>
+                  <Float
+                    speed={1.5}
+                    rotationIntensity={0.5}
+                    floatIntensity={0.5}
+                  ></Float>
+                </Suspense>
+                <OrbitControls
+                  enableZoom={false}
+                  enablePan={false}
+                  autoRotate
+                  autoRotateSpeed={1}
+                />
+              </Canvas>
+            </motion.div>
+
+            {/* Car Features */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="space-y-6">
+                {[
+                  {
+                    title: 'Bezpieczna nauka',
+                    description:
+                      'Wszystkie nasze pojazdy są wyposażone w systemy wspomagające naukę jazdy',
+                    icon: <FaCar className="text-blue-400" />,
+                  },
+                  {
+                    title: 'Komfortowe wnętrze',
+                    description:
+                      'Klimatyzowane pojazdy zapewniające komfort podczas każdej lekcji',
+                    icon: <FaCar className="text-purple-400" />,
+                  },
+                  {
+                    title: 'Podwójne sterowanie',
+                    description:
+                      'Instruktor zawsze może przejąć kontrolę w sytuacji zagrożenia',
+                    icon: <FaCar className="text-pink-400" />,
+                  },
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{
+                      scale: 1.02,
+                      backgroundColor: 'rgba(255,255,255,0.1)',
+                    }}
+                  >
+                    <div className="text-2xl mr-4">{feature.icon}</div>
+                    <div>
+                      <h3 className="text-lg font-medium text-white">
+                        {feature.title}
+                      </h3>
+                      <p className="text-blue-200">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats section with animated counters */}
+      <section className="relative bg-gradient-to-b from-blue-950 to-indigo-950 py-24 sm:py-32 overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black/20 to-transparent"></div>
+
+          {/* Mesh gradient effect */}
+          <div className="absolute inset-0">
+            <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-purple-600/30 to-transparent blur-3xl"></div>
+            <div className="absolute top-40 -left-20 w-72 h-72 rounded-full bg-gradient-to-br from-blue-600/20 to-transparent blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-500/20 to-transparent blur-3xl"></div>
+          </div>
+
+          {/* Moving particles - SVG alternative to 3D particles */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern
+                id="smallGrid"
+                width="50"
+                height="50"
+                patternUnits="userSpaceOnUse"
+              >
+                <motion.circle
+                  cx="25"
+                  cy="25"
+                  r="1.5"
+                  fill="#fff"
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                  }}
+                />
+              </pattern>
+              <pattern
+                id="grid"
+                width="100"
+                height="100"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="100" height="100" fill="url(#smallGrid)" />
+                <motion.circle
+                  cx="50"
+                  cy="50"
+                  r="2"
+                  fill="#fff"
+                  animate={{ opacity: [0.2, 0.8, 0.2] }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                  }}
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            className="mx-auto max-w-2xl text-center mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
+                Nasza szkoła w liczbach
+              </span>
+            </h2>
+            <div className="w-24 h-1 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+          </motion.div>
+
+          <motion.div
+            className="mx-auto max-w-7xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+          >
+            <dl className="grid grid-cols-2 gap-6 md:grid-cols-4 text-center">
+              {[
+                {
+                  icon: <FaUserGraduate />,
+                  value: '1000+',
+                  label: 'Uczniów',
+                  color: 'from-blue-400 to-blue-600',
+                },
+                {
+                  icon: <HiOutlineClock />,
+                  value: '15+',
+                  label: 'Doświadczenie',
+                  color: 'from-purple-400 to-purple-600',
+                },
+                {
+                  icon: <FaChalkboardTeacher />,
+                  value: '10+',
+                  label: 'Instruktorów',
+                  color: 'from-pink-400 to-pink-600',
+                },
+                {
+                  icon: <FaMedal />,
+                  value: '95%',
+                  label: 'Zdawalność',
+                  color: 'from-yellow-400 to-orange-500',
+                },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="relative group flex flex-col items-center p-8 rounded-2xl backdrop-blur-sm"
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {/* Card gradient background */}
+                  <div className="absolute inset-0 rounded-2xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-300 backdrop-blur-sm"></div>
+
+                  {/* Glowing background effect */}
+                  <div
+                    className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-300`}
+                  ></div>
+
+                  <div className="relative z-10">
+                    <div
+                      className={`text-4xl bg-gradient-to-br ${stat.color} rounded-xl p-4 text-white mb-5 shadow-lg`}
+                    >
+                      {stat.icon}
+                    </div>
+                    <motion.dt
+                      className={`text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.color} mb-2`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
+                    >
+                      {stat.value}
+                    </motion.dt>
+                    <dd className="text-base text-blue-100">{stat.label}</dd>
+                  </div>
+                </motion.div>
+              ))}
+            </dl>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3D Driver's License Section */}
+      <section className="relative py-24 bg-gradient-to-b from-indigo-950 to-purple-950 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.15),transparent_70%)]"></div>
+        </div>
+
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-blue-300">
+                Zdobądź swoje prawo jazdy
+              </span>
+            </h2>
+            <p className="text-blue-200 max-w-2xl mx-auto">
+              Przeprowadzimy Cię przez cały proces - od kursu teoretycznego po
+              egzamin praktyczny
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Steps to License */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
+            >
+              {[
+                {
+                  step: '01',
+                  title: 'Kurs teoretyczny',
+                  description:
+                    'Kompleksowe szkolenie z przepisów ruchu drogowego i zasad bezpieczeństwa',
+                },
+                {
+                  step: '02',
+                  title: 'Jazdy praktyczne',
+                  description:
+                    'Nauka prowadzenia pojazdu pod okiem doświadczonych instruktorów',
+                },
+                {
+                  step: '03',
+                  title: 'Egzamin wewnętrzny',
+                  description:
+                    'Przygotowanie do egzaminu państwowego w warunkach zbliżonych do rzeczywistych',
+                },
+                {
+                  step: '04',
+                  title: 'Egzamin państwowy',
+                  description:
+                    'Wsparcie podczas egzaminu i wysoka zdawalność dzięki naszemu przygotowaniu',
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="flex space-x-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="relative h-12 w-12">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 blur-md opacity-80"></div>
+                      <div className="relative flex items-center justify-center h-12 w-12 rounded-full bg-purple-900 border border-purple-400">
+                        <span className="text-lg font-bold text-white">
+                          {step.step}
+                        </span>
+                      </div>
+                    </div>
+                    {index < 3 && (
+                      <div className="w-0.5 h-16 bg-gradient-to-b from-purple-500 to-blue-500 ml-6 mt-2"></div>
+                    )}
+                  </div>
+                  <div className="pt-2">
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-blue-200">{step.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* 3D License */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="h-[400px] relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-2xl overflow-hidden backdrop-blur-sm border border-purple-500/30"></div>
+              <Canvas className="!touch-none">
+                <ambientLight intensity={0.5} />
+                <spotLight
+                  position={[10, 10, 10]}
+                  angle={0.15}
+                  penumbra={1}
+                  intensity={1}
+                />
+                <Suspense fallback={null}></Suspense>
+                <OrbitControls
+                  enableZoom={false}
+                  enablePan={false}
+                  autoRotate
+                  autoRotateSpeed={1}
+                />
+              </Canvas>
+
+              {/* CTA Badge floating on the 3D license */}
+              <div className="absolute bottom-6 right-6 z-10">
+                <motion.div
+                  className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center space-x-2"
+                  whileHover={{ scale: 1.05 }}
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <span className="font-medium">Wysokie 95% zdawalności</span>
+                  <HiLightningBolt className="text-yellow-300" />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <Link
+              href={`/courses`}
+              className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <span>Sprawdź dostępne kursy</span>
+              <svg
+                className="ml-2 w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Course Categories Section */}
+      <section className="bg-gradient-to-b from-purple-950 to-indigo-950 py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.1),transparent_70%)]"></div>
+          <div className="absolute -right-40 top-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute -left-40 bottom-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-300">
+                Szkolenia dla każdej kategorii
+              </span>
+            </h2>
+            <p className="text-blue-200 max-w-2xl mx-auto">
+              Oferujemy pełen zakres kursów na prawo jazdy we wszystkich
+              kategoriach
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                category: 'AM, A1, A2, A',
+                title: 'Kursy na motocykle',
+                description: 'Od motorowerów po motocykle o dużej pojemności',
+                image: '/api/placeholder/600/400',
+                color: 'from-red-500 to-orange-500',
+              },
+              {
+                category: 'B, B+E',
+                title: 'Prawo jazdy na samochód osobowy',
+                description:
+                  'Najpopularniejsza kategoria z możliwością rozszerzenia o przyczepę',
+                image: '/api/placeholder/600/400',
+                color: 'from-blue-500 to-cyan-500',
+              },
+              {
+                category: 'C, C+E, D',
+                title: 'Kursy zawodowe',
+                description:
+                  'Szkolenia na samochody ciężarowe, autobusy i zestawy z przyczepami',
+                image: '/api/placeholder/600/400',
+                color: 'from-violet-500 to-purple-500',
+              },
+            ].map((course, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="group relative overflow-hidden rounded-2xl"
+                whileHover={{ y: -10 }}
+              >
+                <div className="aspect-w-16 aspect-h-9 relative">
+                  <div className="absolute inset-0 bg-gray-900/40 group-hover:bg-gray-900/30 transition-all duration-300 z-10"></div>
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover rounded-2xl"
+                  />
+                  <div className="absolute top-4 left-4 z-20">
+                    <span
+                      className={`inline-block py-1 px-4 rounded-full bg-gradient-to-r ${course.color} text-white text-sm font-medium`}
+                    >
+                      {course.category}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {course.title}
+                    </h3>
+                    <p className="text-white/80 mb-4">{course.description}</p>
+                    <div className="transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                      <Link
+                        href={`/courses`}
+                        className="inline-flex items-center text-white font-medium"
+                      >
+                        <span>Dowiedz się więcej</span>
+                        <svg
+                          className="ml-2 w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          ></path>
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-200">
+                Co mówią nasi kursanci
+              </span>
+            </h2>
+            <p className="text-blue-200 max-w-2xl mx-auto">
+              Opinie osób, które zdobyły prawo jazdy dzięki naszej szkole
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Anna Kowalska',
+                role: 'Kategoria B',
+                image: '/api/placeholder/150/150',
+                quote:
+                  'Dzięki cierpliwości instruktorów i profesjonalnemu podejściu zdałam za pierwszym razem! Polecam każdemu, kto chce szybko i bezstresowo nauczyć się jeździć.',
+                stars: 5,
+              },
+              {
+                name: 'Piotr Nowak',
+                role: 'Kategoria A2',
+                image: '/api/placeholder/150/150',
+                quote:
+                  'Świetna szkoła z nowoczesnym podejściem do nauki. Instruktorzy mają ogromne doświadczenie i potrafią przekazać wiedzę w sposób zrozumiały dla każdego.',
+                stars: 5,
+              },
+              {
+                name: 'Karolina Wiśniewska',
+                role: 'Kategoria B+E',
+                image: '/api/placeholder/150/150',
+                quote:
+                  'Profesjonalna szkoła jazdy. Elastyczne godziny zajęć, które można dopasować do swojego grafiku. Polecam każdemu, kto szuka solidnej szkoły jazdy.',
+                stars: 4,
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="absolute -top-6 left-6">
+                  <div className="h-12 w-12 relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 blur-md opacity-80"></div>
+                    <div className="relative flex items-center justify-center h-12 w-12 rounded-full bg-blue-900 border border-blue-400 text-white">
+                      <FaQuoteRight />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-8 pb-4">
+                  <p className="text-blue-100 mb-6">"{testimonial.quote}"</p>
+                </div>
+
+                <div className="flex items-center">
+                  <div className="h-12 w-12 rounded-full overflow-hidden mr-4">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-blue-300 text-sm">{testimonial.role}</p>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg
+                        key={i}
+                        className={`w-4 h-4 ${
+                          i < testimonial.stars
+                            ? 'text-yellow-400'
+                            : 'text-gray-400'
+                        }`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instructors Section */}
+      <section className="bg-gradient-to-b from-blue-950 to-slate-900 py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">
+                Nasi instruktorzy
+              </span>
+            </h2>
+            <p className="text-blue-200 max-w-2xl mx-auto">
+              Poznaj zespół doświadczonych instruktorów, którzy pomogą Ci zdobyć
+              prawo jazdy
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {[
+              {
+                name: 'Marek Jankowski',
+                role: 'Instruktor kat. B',
+                experience: '15 lat doświadczenia',
+                image: '/api/placeholder/300/300',
+              },
+              {
+                name: 'Aleksandra Dąbrowska',
+                role: 'Instruktor kat. A, B',
+                experience: '10 lat doświadczenia',
+                image: '/api/placeholder/300/300',
+              },
+              {
+                name: 'Tomasz Wójcik',
+                role: 'Instruktor kat. C, C+E',
+                experience: '20 lat doświadczenia',
+                image: '/api/placeholder/300/300',
+              },
+              {
+                name: 'Katarzyna Lis',
+                role: 'Instruktor kat. B, B+E',
+                experience: '8 lat doświadczenia',
+                image: '/api/placeholder/300/300',
+              },
+            ].map((instructor, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900/40 backdrop-blur-sm border border-blue-500/10"
+              >
+                <div className="aspect-w-1 aspect-h-1 relative">
+                  <Image
+                    src={instructor.image}
+                    alt={instructor.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    {instructor.name}
+                  </h3>
+                  <p className="text-blue-300 mb-2">{instructor.role}</p>
+                  <div className="flex items-center text-blue-200 text-sm">
+                    <HiOutlineAcademicCap className="mr-2" />
+                    <span>{instructor.experience}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-gradient-to-b from-slate-900 to-gray-900 py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-blue-100">
+                Często zadawane pytania
+              </span>
+            </h2>
+            <p className="text-blue-200 max-w-2xl mx-auto">
+              Odpowiedzi na najczęściej zadawane pytania dotyczące naszych
+              kursów
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              {
+                question: 'Ile trwa kurs na prawo jazdy kat. B?',
+                answer:
+                  'Kurs na prawo jazdy kategorii B składa się z 30 godzin zajęć teoretycznych oraz 30 godzin zajęć praktycznych. Całkowity czas trwania kursu zależy od indywidualnego tempa nauki, ale zwykle wynosi od 1 do 3 miesięcy.',
+              },
+              {
+                question:
+                  'Jakie dokumenty są potrzebne, aby zapisać się na kurs?',
+                answer:
+                  'Do zapisu na kurs potrzebujesz: dowodu osobistego, numeru PESEL, orzeczenia lekarskiego o braku przeciwwskazań do kierowania pojazdami, oraz zdjęcia do dokumentów. W przypadku osób niepełnoletnich wymagana jest również zgoda rodziców lub opiekunów prawnych.',
+              },
+              {
+                question: 'Jak wygląda egzamin państwowy?',
+                answer:
+                  'Egzamin państwowy składa się z dwóch części: teoretycznej i praktycznej. Część teoretyczna to test komputerowy składający się z pytań jednokrotnego wyboru. Część praktyczna obejmuje wykonanie zadań na placu manewrowym oraz jazdę w ruchu drogowym pod nadzorem egzaminatora.',
+              },
+              {
+                question: 'Czy oferujecie jazdy doszkalające przed egzaminem?',
+                answer:
+                  'Tak, oferujemy dodatkowe jazdy doszkalające dla osób, które chcą lepiej przygotować się do egzaminu praktycznego. Możesz wykupić dowolną liczbę dodatkowych godzin jazdy z instruktorem.',
+              },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="flex justify-between items-start">
+                  <h3 className="text-xl font-medium text-white">
+                    {faq.question}
+                  </h3>
+                  <div className="flex-shrink-0 ml-4">
+                    <div className="h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center">
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <p className="text-blue-100">{faq.answer}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-b from-gray-900 to-gray-950 py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="rounded-3xl bg-gradient-to-br from-blue-900 to-indigo-900 overflow-hidden shadow-2xl shadow-blue-500/20"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div className="p-12 lg:p-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h2 className="text-4xl font-bold text-white mb-4">
+                    Rozpocznij swoją przygodę z kierownicą już dziś
+                  </h2>
+                  <p className="text-blue-100 text-lg mb-8">
+                    Zapisz się na kurs i zdobądź prawo jazdy pod okiem
+                    doświadczonych instruktorów
+                  </p>
+                  <ul className="space-y-4 mb-10">
+                    {[
+                      'Elastyczne terminy zajęć',
+                      'Profesjonalni instruktorzy',
+                      'Nowoczesna flota pojazdów',
+                      'Wysoka zdawalność egzaminów',
+                    ].map((item, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="flex items-center text-blue-100"
+                      >
+                        <svg
+                          className="w-5 h-5 text-green-400 mr-3"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={`/booking`}
+                    className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  >
+                    <span>Zapisz się na kurs</span>
+                    <svg
+                      className="ml-2 w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </Link>
+                </motion.div>
+              </div>
+              <div className="relative hidden lg:block">
+                <Image
+                  src="/api/placeholder/600/800"
+                  alt="Driving school"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
+
+                {/* Floating elements */}
+                <motion.div
+                  className="absolute top-16 right-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl w-64"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-blue-500/20 rounded-lg mr-4">
+                      <HiOutlineUserGroup className="text-blue-300 text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-medium">Małe grupy</h4>
+                      <p className="text-blue-200 text-sm">
+                        Indywidualne podejście
+                      </p>
+                    </div>
+                  </div>
+                  <div className="h-1 w-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-4"></div>
+                  <p className="text-blue-100 text-sm">
+                    Szkolimy w małych grupach, aby zapewnić każdemu uczestnikowi
+                    indywidualne podejście i maksymalną efektywność nauki.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }

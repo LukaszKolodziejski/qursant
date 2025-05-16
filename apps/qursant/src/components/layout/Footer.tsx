@@ -3,22 +3,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 
 export default function Footer() {
-  const t = useTranslations();
   const pathname = usePathname();
-  const locale = pathname.split('/')[1] || 'pl';
+
   const currentYear = new Date().getFullYear();
 
   const navigation = [
-    { name: t('navigation.home'), href: `/${locale}` },
-    { name: t('navigation.about'), href: `/${locale}/about` },
-    { name: t('navigation.courses'), href: `/${locale}/courses` },
-    { name: t('navigation.pricing'), href: `/${locale}/pricing` },
-    { name: t('navigation.booking'), href: `/${locale}/booking` },
-    { name: t('navigation.faq'), href: `/${locale}/faq` },
-    { name: t('navigation.contact'), href: `/${locale}/contact` },
+    { name: 'Home', href: `/` },
+    { name: 'O nas', href: `/about` },
+    { name: 'Kursy', href: `/courses` },
+    { name: 'Cennik', href: `/pricing` },
+    { name: 'Rezerwacja', href: `/booking` },
+    { name: 'FAQ', href: `/faq` },
+    { name: 'Kontakt', href: `/contact` },
   ];
 
   return (
@@ -27,21 +25,17 @@ export default function Footer() {
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
-        {t('footer.siteFooter')}
+        Qursant
       </h2>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           {/* Logo i informacje */}
           <div className="space-y-8 xl:col-span-1">
-            <Link
-              href={`/${locale}`}
-              className="flex items-center"
-              aria-label={t('navigation.home')}
-            >
-              <span className="sr-only">{t('common.logoAlt')}</span>
+            <Link href={`/`} className="flex items-center" aria-label={'home'}>
+              <span className="sr-only">logo</span>
               <Image
                 src="/logo/logo.png"
-                alt={t('common.logoAlt')}
+                alt={'logo'}
                 width={120}
                 height={40}
                 className="h-10 w-auto"
@@ -49,11 +43,11 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-500 dark:text-gray-400 text-base">
-              {t('footer.schoolName')}
+              Qursant
               <br />
-              {t('footer.address')}
+              ul. Jana Pawła II 10
               <br />
-              {t('footer.city')}
+              85-000 Bydgoszcz
             </p>
           </div>
 
@@ -62,7 +56,7 @@ export default function Footer() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  {t('footer.menu')}
+                  Menu
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.map((item) => (
@@ -84,14 +78,14 @@ export default function Footer() {
               {/* Kontakt */}
               <div className="mt-12 md:mt-0">
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  {t('footer.contact')}
+                  Kontakt
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
                   <li>
                     <a
-                      href={`tel:${t('footer.phone')}`}
+                      href={`tel:`}
                       className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center"
-                      aria-label={t('footer.callUs')}
+                      aria-label={'callUs'}
                     >
                       <svg
                         className="h-6 w-6 mr-2"
@@ -106,14 +100,14 @@ export default function Footer() {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      {t('footer.phone')}
+                      +48 600 600 600
                     </a>
                   </li>
                   <li>
                     <a
-                      href={`mailto:${t('footer.email')}`}
+                      href={`mailto:`}
                       className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center"
-                      aria-label={t('footer.emailUs')}
+                      aria-label={'emailUs'}
                     >
                       <svg
                         className="h-6 w-6 mr-2"
@@ -128,16 +122,16 @@ export default function Footer() {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      {t('footer.email')}
+                      qursant@gmail.com
                     </a>
                   </li>
                   <li>
                     <a
-                      href={t('footer.facebookUrl')}
+                      href={`https://www.facebook.com/`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center"
-                      aria-label={t('footer.facebook')}
+                      aria-label={'facebook'}
                     >
                       <svg
                         className="h-6 w-6 mr-2"
@@ -155,11 +149,11 @@ export default function Footer() {
                   </li>
                   <li>
                     <a
-                      href={t('footer.instagramUrl')}
+                      href={`https://www.instagram.com/`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center"
-                      aria-label={t('footer.instagram')}
+                      aria-label={'instagram'}
                     >
                       <svg
                         className="h-6 w-6 mr-2"
@@ -184,7 +178,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8">
           <p className="text-base text-gray-400 text-center">
-            © {currentYear} {t('footer.schoolName')}. {t('footer.copyright')}
+            © {currentYear} Qursant. Wszelkie prawa zastrzeżone.
           </p>
         </div>
       </div>

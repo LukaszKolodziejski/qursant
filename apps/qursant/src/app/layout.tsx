@@ -1,11 +1,13 @@
 import './globals.css';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://qursant.pl'),
+  metadataBase: new URL('https://www.qursant.com.pl'),
   title: {
     template: '%s | Qursant',
     default: 'Qursant - Szkoła Jazdy w Bydgoszczy',
@@ -17,8 +19,6 @@ export const metadata: Metadata = {
     languages: {
       'x-default': '/',
       pl: '/',
-      en: '/en',
-      uk: '/uk',
     },
   },
   robots: {
@@ -39,16 +39,15 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode;
-  params?: { locale: string };
 };
 
-export default function RootLayout({ children, params }: Props) {
-  const locale = params?.locale || 'pl';
-
+export default function RootLayout({ children }: Props) {
   return (
-    <html lang={locale}>
+    <html lang="pl">
       <body className={`${inter.className} bg-white dark:bg-gray-900`}>
-        {children}
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );

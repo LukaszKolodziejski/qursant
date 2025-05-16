@@ -1,11 +1,8 @@
-import { Locale } from '@/i18n/settings';
-
 type SchemaOrgProps = {
-  locale: Locale;
   url: string;
 };
 
-export const generateSchemaOrgMarkup = ({ locale, url }: SchemaOrgProps) => {
+export const generateSchemaOrgMarkup = ({ url }: SchemaOrgProps) => {
   const baseUrl = 'https://qursant.pl';
 
   const organizationSchema = {
@@ -27,6 +24,11 @@ export const generateSchemaOrgMarkup = ({ locale, url }: SchemaOrgProps) => {
       postalCode: '00-000',
       addressCountry: 'PL',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 53.1235,
+      longitude: 18.0084,
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+48 123 456 789',
@@ -45,7 +47,7 @@ export const generateSchemaOrgMarkup = ({ locale, url }: SchemaOrgProps) => {
     publisher: {
       '@id': `${baseUrl}/#organization`,
     },
-    inLanguage: locale,
+    inLanguage: 'pl',
   };
 
   const breadcrumbSchema = {
@@ -57,12 +59,7 @@ export const generateSchemaOrgMarkup = ({ locale, url }: SchemaOrgProps) => {
         position: 1,
         item: {
           '@id': url,
-          name:
-            locale === 'pl'
-              ? 'Strona główna'
-              : locale === 'en'
-              ? 'Home'
-              : 'Головна',
+          name: 'Strona główna',
         },
       },
     ],
