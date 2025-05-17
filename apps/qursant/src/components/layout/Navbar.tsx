@@ -1,142 +1,167 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const pathname = usePathname();
 
   const navigation = [
     { name: 'Strona główna', href: '/' },
-    { name: 'O nas', href: '/about' },
-    { name: 'Kursy', href: '/courses' },
-    { name: 'Cennik', href: '/pricing' },
-    { name: 'Rezerwacja', href: '/booking' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Kontakt', href: '/contact' },
+    { name: 'O nas', href: '/o-nas' },
+    { name: 'Kursy', href: '/kursy' },
+    { name: 'Galeria', href: '/galeria' },
+    { name: 'Cennik', href: '/cennik' },
+    { name: 'Pytania', href: '/pytania' },
+    { name: 'Rezerwacja', href: '/rezerwacja' },
+    { name: 'Kontakt', href: '/kontakt' },
   ];
+
+  // Obsługa scrollowania
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setScrolled(currentScrollPos > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Funkcja pomocnicza do sprawdzania aktywnej ścieżki
   const isActivePath = (path: string) => {
-    const pathParts = pathname.split('/');
-    const currentPath = pathParts.slice(1).join('/');
-
-    return path === '/' ? currentPath === '' : currentPath === path.slice(1);
+    return path === '/' ? pathname === '/' : pathname === path;
   };
 
   return (
-    <nav
-      className="bg-white dark:bg-gray-900 shadow-lg"
-      aria-label={'mainMenu'}
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{
+        height: scrolled ? '5rem' : '6rem',
+      }}
+      transition={{ duration: 0.3 }}
+      className={`fixed w-full z-50 transition-all duration-300 pt-5 ${
+        scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-gray-900'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
+        <div className="flex justify-between items-center h-full">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <Link
-              href={`/`}
+              href="/"
               className="flex-shrink-0 flex items-center"
-              aria-label={'home'}
+              aria-label="Strona główna"
             >
               <Image
                 src="/logo/logo.png"
-                alt={'logo'}
-                width={120}
-                height={40}
-                className="h-10 w-auto"
+                alt="Qursant Logo"
+                width={scrolled ? 100 : 120}
+                height={scrolled ? 33 : 40}
+                className="transition-all duration-300"
                 priority
               />
             </Link>
+          </motion.div>
 
-            {/* Desktop menu */}
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              {navigation.map((item) => (
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center space-x-2">
+            {navigation.map((item) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                className="relative"
+              >
                 <Link
-                  key={item.href}
                   href={item.href}
-                  className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ${
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActivePath(item.href)
-                      ? 'border-primary text-primary'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white'
+                      ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
+                      : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
                   }`}
-                  aria-current={isActivePath(item.href) ? 'page' : undefined}
                 >
                   {item.name}
                 </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            <span className="sr-only">Menu</span>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={
+                  isMenuOpen
+                    ? 'M6 18L18 6M6 6l12 12'
+                    : 'M4 6h16M4 12h16M4 18h16'
+                }
+              />
+            </svg>
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-gray-900/95 backdrop-blur-md"
+          >
+            <div className="px-4 pt-2 pb-3 space-y-1">
+              {navigation.map((item) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href={item.href}
+                    className={`block px-4 py-3 rounded-xl text-base font-medium ${
+                      isActivePath(item.href)
+                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
+                        : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex items-center sm:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
-              aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? 'closeMenu' : 'openMenu'}
-            >
-              <span className="sr-only">
-                {isMenuOpen ? 'closeMenu' : 'openMenu'}
-              </span>
-              <svg
-                className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-              <svg
-                className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <div
-        className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}
-        aria-label={'mobileMenu'}
-      >
-        <div className="pt-2 pb-3 space-y-1">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                isActivePath(item.href)
-                  ? 'border-primary text-primary bg-primary-50'
-                  : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white'
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-              aria-current={isActivePath(item.href) ? 'page' : undefined}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

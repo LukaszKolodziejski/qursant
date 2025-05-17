@@ -196,7 +196,7 @@ const MapComponent = ({ coordinates, isHovered }: MapComponentProps) => {
         }
 
         #map {
-          height: 600px;
+          height: 60vh;
           width: 100%;
           border-radius: 1rem;
           overflow: hidden;

@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="pl">
       <body className={`${inter.className} bg-white dark:bg-gray-900`}>
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pt-14 sm:pt-14">{children}</main>
         <Footer />
       </body>
     </html>
