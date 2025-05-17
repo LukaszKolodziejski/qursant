@@ -1,0 +1,30 @@
+
+
+Ostatnich 5 wolnych miejsc w Maju 2025r.
+
+
+5
+
+
+
+----------- Formularz ---------
+Imię i nazwisko:    (input tekst)
+
+
+Adres email:   (input tekst)
+
+
+Rezerwuję moje miejsce na:    (select, pokazuje nazwę aktualnego miesiąca i roku, a pozostałe opcje to kolejne 6 miesiący )
+
+Maj 2025r.    
+
+
+Telefon:    (input number)
+100 200 300
+
+
+Wyrażam zgodę na przetwarzanie danych Polityka Prywatności   (check)
+
+
+
+"Sprawdzenie czy człowiek wysyła te dane"
