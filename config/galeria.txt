@@ -1,0 +1,14 @@
+znajdź folder /image ze zdjęciami.
+
+przeanalizuj ten skrypt w generateGalleryData i tam
+zamiast zmiany nazw plików, chcę żebyś utworzył w folderze image kilka folderów: właściciel, instruktorzy, siedziba, samochodzy, kursy.
+
+do tych folderów będę wrzucał zdjęcia: photo-1.jpg , photo-120.jpg   czyli  photo- i liczba.
+
+więc zmodyfikuj mój skrypt żeby wedłóg tego generował te informacje do zdjęć. Również bym chciał żebyś rozszerzył to żeby dodwało również ładne tytóły z tych kategorii i opisy. 
+
+Dodatkowa informacja to właścicielem jest Robert Langer..
+
+chcę również komendę z nx np. npm run gallery żeby uruchamiało ten skrypt. 
+
+

@@ -1,0 +1,82 @@
+Tworzę nowoczesną stronę internetową www dla szkoły jazdy w Bydgoszczy.
+
+
+Dane wejściowe:
+Chcę żebyś teraz przyjmował informację żebyś wiedział co masz zrobić. A jak przekażę ci wszystkie info dam Ci zadanie.
+
+
+Mój pojekt ma gotową i działającą konfigurację. przesyłąm package.json
+
+
+początkowo miałem takie informacje w: o-nas.txt 
+
+
+
+
+
+
+Chciałbym żebyś stworzył zakładkę (O nas) "/o-nas" według mojego projektu i konfiguracji,
+Projektuj jak ekspert od UX/UI, dużo gradientów, animacji, przejść, ikony, możesz dodać również kilka zdjęć: szkoły, instruktorów. Wszystkie zdjęcia mam w folderze: /images  a każde zdjęcie ma nazwę: photo-1.jpg, photo-2.jpg, photo-3.jpg, czyli "photo-" i liczba 
+
+Bazuj na technologiach które są używane w moim projekcie i package.json
+
+
+O nas - czyli o szkole jazdy, certyfikaty, instruktorzy, opinie. Możesz korzystać z materiałów które Ci wysłałem oraz edytować je, ulepszać, dodawać więcej informacji
+
+
+
+
+
+
+Tak, zdjęcia są dostępne. Kolory i gradienty tak jak byś był ekspertem UX UI.
+Możesz dodać certyfikaty które są potrzebne w polsce do prowadzenia szkoły jazdy.
+
+3. Nie bazuj na starym ukłądnie strony, tylko całkowicie zbuduj nową według wszystkich informacji które już masz oraz technologii które używam
+
+
+
+
+Strona główna - pierwsze wrażenie i najważniejsze informacje
+O nas - historia szkoły, certyfikaty, instruktorzy, recenzje i historia sukcesów
+Kursy - kategorie prawa jazdy, ceny, harmonogramy
+Cennik  - 
+Pytania - najczęściej zadawane pytania, przydatne informacje dla kursantów
+
+Galeria - zdjęcia szkoły, pojazdów, zdanych egzaminów
+
+
+Rezerwacja - formularz zapisów na kursy
+Kontakt - dane teleadresowe, mapa dojazdu, godziny otwarcia
+
+
+-----------------
+-----------------
+Ulepszaj to. Nie chcę czuć że to storna główna tylko zakłądka: O nas. 
+
+więc chcę trochę inny układ, w nagłówku żeby było widać że "O nas".  Więcj tekstu. więcej animacji. więcej inforamcji. zdjęcia instruktorów, więcej gradientów,. Ulepszaj dalej
+---------------
+Super, bardzo mi się podoba :) 
+
+więcej zaawansowanych animacji. i przjść. Większa rozdzielczość zdjęć.
+----------------
+
+
+Petarda, szok, jestem bardzo bardzo zadowolnoy :) 
+
+Teraz bazując na tej całej wiedzy wyżej stwórz nową stronę  /cennik
+
+dane informacje umieściłem w cennik.txt
+
+Tutaj nie dodawaj zdjęć, a bardziej animowane sekje z informacjami z ikonami. Chcę żeby dane były czytelne, więc niektóre nazwy mogą być większe a inne mniejsze. Bądź ekspertem UX/UI żeby jak najlepiej zaprezentować dane. 
+
+Moje dane informacje możesz rozszerzyć jeśli uważasz że było by warto umieścić w /cennik 
+
+czyli podstorna Cennik na prawo jazdy tej szkoły jazdy.
+
+
+z dodatkowych bym chciał żeby tam gdzie jest miesiąc i rok to zawsze pokazywał aktualny . Więc Jak jest maj 2025 to żeby było: Maj 2025 
+
+odnośnie cen możesz zrobić specjalne techniki sprzedarzowe, żeby jeszcze bardziej zachęcić, lub pospieszyć kursantów. Bądź ekspertem sprzedarzy żeby to zrobić
+
+
+

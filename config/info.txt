@@ -1,0 +1,13 @@
+Problematyczne elementy:
+Używa placeholderów dla zdjęć (/api/placeholder/)
+Niektóre komponenty 3D mogą być zbyt obciążające
+Brak optymalizacji dla obrazów (brakuje parametru sizes w niektórych miejscach)
+Potencjalne usprawnienia:
+Dodanie prawdziwych zdjęć zamiast placeholderów
+Optymalizacja ładowania wideo
+Dodanie lazy loadingu dla sekcji poniżej pierwszego ekranu
+Optymalizacja animacji dla urządzeń mobilnych
+SEO i dostępność:
+Brak meta tagów
+Brak alternatywnych tekstów dla niektórych obrazów
+Brak odpowiednich nagłówków w hierarchii

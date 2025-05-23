@@ -26,7 +26,8 @@
     "affected:dep-graph": "nx affected:dep-graph",
     "nx-cloud": "nx-cloud",
     "workspace-generator": "nx workspace-generator",
-    "vercel-build": "nx build qursant"
+    "vercel-build": "nx build qursant",
+    "gallery": "node apps/qursant/scripts/generateGalleryData.js"
   },
   "private": true,
   "dependencies": {
@@ -84,6 +85,7 @@
     "nx": "20.7.1",
     "postcss": "8.4.38",
     "prettier": "^2.6.2",
+    "sharp": "^0.34.1",
     "tailwindcss": "3.4.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.19.0"
