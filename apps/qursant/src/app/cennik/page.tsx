@@ -15,6 +15,8 @@ import {
 } from 'react-icons/hi';
 import { FaCar, FaGraduationCap, FaMedal, FaRegClock } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import { CONTACT } from '@/constants/contact';
+import { PRICES } from '@/constants/prices';
 
 export default function CennikPage() {
   const [currentDate, setCurrentDate] = useState('');
@@ -105,7 +107,7 @@ export default function CennikPage() {
               </h3>
               <div className="flex items-baseline mb-6">
                 <span className="text-4xl font-bold text-blue-300">
-                  3200 zł
+                  {PRICES.COURSE.BASIC} zł
                 </span>
                 <span className="text-blue-200 ml-2">/ kurs</span>
               </div>
@@ -124,7 +126,7 @@ export default function CennikPage() {
                 </li>
               </ul>
               <Link
-                href="/booking"
+                href="/rezerwacja"
                 className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Zapisz się na kurs
@@ -148,7 +150,7 @@ export default function CennikPage() {
               </h3>
               <div className="flex items-baseline mb-6">
                 <span className="text-4xl font-bold text-yellow-300">
-                  4000 zł
+                  {PRICES.COURSE.EXPRESS} zł
                 </span>
                 <span className="text-blue-200 ml-2">/ kurs</span>
               </div>
@@ -167,7 +169,7 @@ export default function CennikPage() {
                 </li>
               </ul>
               <Link
-                href="/booking"
+                href="/rezerwacja"
                 className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Wybierz kurs ekspresowy
@@ -221,29 +223,7 @@ export default function CennikPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  step: 'I rata',
-                  amount: '600 zł',
-                  desc: 'Zajęcia teoretyczne',
-                },
-                {
-                  step: 'II rata',
-                  amount: '600 zł',
-                  desc: 'Przed pierwszą jazdą',
-                },
-                {
-                  step: 'III rata',
-                  amount: '600 zł',
-                  desc: 'Po 10 godz. jazdy',
-                },
-                {
-                  step: 'IV rata',
-                  amount: '700 zł',
-                  desc: 'Po 16 godz. jazdy',
-                },
-                { step: 'V rata', amount: '700 zł', desc: 'Po 24 godz. jazdy' },
-              ].map((rata, index) => (
+              {PRICES.INSTALLMENTS.map((rata, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -257,7 +237,7 @@ export default function CennikPage() {
                       {rata.step}
                     </span>
                     <p className="text-2xl font-bold text-white my-2">
-                      {rata.amount}
+                      {rata.amount} zł
                     </p>
                     <p className="text-blue-200 text-sm">{rata.desc}</p>
                   </div>
@@ -273,7 +253,7 @@ export default function CennikPage() {
             >
               <p className="text-blue-200 mb-4">Numer konta do płatności:</p>
               <p className="text-xl font-mono text-white bg-white/5 rounded-lg py-3 px-6 inline-block">
-                ING 84 1050 1139 1000 0090 8455 3669
+                {CONTACT.BANK_ACCOUNT}
               </p>
             </motion.div>
           </div>
@@ -315,11 +295,12 @@ export default function CennikPage() {
               <ul className="space-y-3">
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
-                  100 zł/godz. - nasi kursanci
+                  {PRICES.ADDITIONAL.TRAINING_OWN_STUDENT} zł/godz. - nasi
+                  kursanci
                 </li>
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
-                  110 zł/godz. - pozostali
+                  {PRICES.ADDITIONAL.TRAINING_EXTERNAL} zł/godz. - pozostali
                 </li>
               </ul>
             </motion.div>
@@ -389,7 +370,7 @@ export default function CennikPage() {
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/booking"
+                href="/rezerwacja"
                 className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Zapisz się na kurs

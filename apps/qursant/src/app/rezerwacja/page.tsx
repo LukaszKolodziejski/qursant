@@ -14,9 +14,18 @@ import {
   HiOutlineExclamation,
 } from 'react-icons/hi';
 import Link from 'next/link';
+import { useReservationCounter } from '@/hooks/useReservationCounter';
+
+const shine = {
+  '@keyframes shine': {
+    '0%': { transform: 'translateX(-100%)' },
+    '100%': { transform: 'translateX(100%)' },
+  },
+};
 
 export default function RezerwacjaPage() {
-  const [currentDate, setCurrentDate] = useState('');
+  const { remainingPlaces, progressWidth, currentDate } =
+    useReservationCounter();
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -45,11 +54,6 @@ export default function RezerwacjaPage() {
       'Listopad',
       'Grudzień',
     ];
-
-    const currentMonth = months[now.getMonth()];
-    const currentYear = now.getFullYear();
-
-    setCurrentDate(`${currentMonth} ${currentYear}`);
 
     // Generowanie opcji dla następnych 6 miesięcy
     const options: string[] = [];
@@ -139,7 +143,7 @@ export default function RezerwacjaPage() {
               animate={pulseAnimation}
               className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-orange-500/20 text-orange-300 text-sm font-medium mb-6"
             >
-              Ostatnich 5 wolnych miejsc w {currentDate}!
+              Zarezerwuj swoje miejsce już teraz!
             </motion.div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -150,6 +154,26 @@ export default function RezerwacjaPage() {
             <p className="text-xl text-blue-200 max-w-2xl mx-auto">
               Wypełnij formularz poniżej, aby zarezerwować miejsce na kursie
             </p>
+
+            {/* Progress section */}
+            <div className="max-w-2xl mx-auto mt-12 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
+              <p className="text-base sm:text-lg font-medium text-blue-200 mb-3">
+                {remainingPlaces < 5
+                  ? `Ostatnie ${remainingPlaces} wolne miejsca w ${currentDate}`
+                  : `Ostatnich ${remainingPlaces} wolnych miejsc w ${currentDate}`}
+              </p>
+
+              <div className="relative h-[30px] bg-white/10 rounded-[20px] overflow-hidden">
+                <motion.div
+                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 rounded-[20px] flex items-center justify-center text-white font-medium"
+                  initial={{ width: '0%' }}
+                  animate={{ width: `${progressWidth}%` }}
+                  transition={{ duration: 1 }}
+                >
+                  {Math.round(progressWidth / 4.5)}
+                </motion.div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Formularz */}

@@ -16,6 +16,7 @@ import {
 } from 'react-icons/hi';
 import { FaCar, FaGraduationCap, FaRoad, FaIdCard } from 'react-icons/fa';
 import Link from 'next/link';
+import { CONTACT } from '@/constants/contact';
 
 export default function PytaniaPage() {
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -348,10 +349,17 @@ export default function PytaniaPage() {
                 <HiOutlinePhone className="ml-2" />
               </Link>
               <a
-                href="tel:600354556"
+                href={`tel:${CONTACT.PHONE_RAW}`}
                 className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
               >
-                Zadzwoń: 600 354 556
+                Zadzwoń: {CONTACT.PHONE}
+                <HiOutlinePhone className="ml-2" />
+              </a>
+              <a
+                href={`tel:${CONTACT.PHONE_2_RAW}`}
+                className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
+              >
+                Lub: {CONTACT.PHONE_2}
                 <HiOutlinePhone className="ml-2" />
               </a>
             </div>

@@ -31,22 +31,22 @@ const instruktorzy = [
     name: 'Robert Langer',
     role: 'Właściciel / Główny Instruktor',
     experience: '20+ lat doświadczenia',
-    specialization: 'Kategorie: A, B, C, D',
-    image: '/images/photo-1.jpg',
+    specialization: 'Kategoria B',
+    image: '/images/instructors/photo-1.jpg',
   },
   {
     name: 'Anna Kowalska',
     role: 'Instruktor',
     experience: '10+ lat doświadczenia',
-    specialization: 'Kategorie: B',
-    image: '/images/photo-2.jpg',
+    specialization: 'Kategoria B',
+    image: '/images/instructors/photo-10.jpg',
   },
   {
     name: 'Marek Nowak',
     role: 'Instruktor',
     experience: '15+ lat doświadczenia',
-    specialization: 'Kategorie: B, C',
-    image: '/images/photo-3.jpg',
+    specialization: 'Kategoria B',
+    image: '/images/instructors/photo-17.jpg',
   },
 ];
 
@@ -197,8 +197,8 @@ export default function AboutPage() {
               className="mt-6 text-xl leading-8 text-blue-100 max-w-2xl"
             >
               Od 2009 roku kształcimy najlepszych kierowców w Bydgoszczy, łącząc
-              tradycję z nowoczesnością. Nasza szkoła to nie tylko miejsce
-              nauki, to społeczność pasjonatów motoryzacji.
+              tradycję z nowoczesnością. Specjalizujemy się w kursach prawa
+              jazdy kategorii B.
             </motion.p>
 
             <motion.div
@@ -213,11 +213,11 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center space-x-2 text-blue-300">
                 <FaClock className="text-blue-400" />
-                <span>14 lat doświadczenia</span>
+                <span>15 lat doświadczenia</span>
               </div>
               <div className="flex items-center space-x-2 text-blue-300">
                 <FaUsers className="text-blue-400" />
-                <span>3000+ zadowolonych kursantów</span>
+                <span>4135+ zadowolonych kursantów</span>
               </div>
             </motion.div>
           </motion.div>
@@ -327,7 +327,7 @@ export default function AboutPage() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50 mix-blend-multiply rounded-2xl"></div>
               <Image
-                src="/images/photo-1.jpg"
+                src="/images/instructors/photo-1.jpg"
                 alt="Szkoła Jazdy Qursant"
                 width={800}
                 height={600}
@@ -487,7 +487,7 @@ export default function AboutPage() {
               className="relative w-full"
             >
               <Image
-                src="/images/photo-78.jpg"
+                src="/images/cars/photo-78.jpg"
                 alt="Wyposażenie Qursant"
                 width={800}
                 height={600}

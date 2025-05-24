@@ -20,6 +20,7 @@ import {
   FaPhoneAlt,
 } from 'react-icons/fa';
 import { BsCalendarCheck, BsClock, BsPinMap } from 'react-icons/bs';
+import { CONTACT } from '@/constants/contact';
 
 export default function KursyPage() {
   // Animacje
@@ -80,7 +81,7 @@ export default function KursyPage() {
             </div>
             <div className="mt-6 text-center">
               <Link
-                href="/booking"
+                href="/rezerwacja"
                 className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Zarezerwuj miejsce
@@ -277,17 +278,17 @@ export default function KursyPage() {
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/booking"
+                href="/rezerwacja"
                 className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Zarezerwuj termin
                 <HiOutlineCalendar className="ml-2" />
               </Link>
               <a
-                href="tel:600354556"
+                href={`tel:${CONTACT.PHONE_RAW}`}
                 className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
               >
-                Zadzwoń: 600 354 556
+                Zadzwoń: {CONTACT.PHONE}
                 <FaPhoneAlt className="ml-2" />
               </a>
             </div>

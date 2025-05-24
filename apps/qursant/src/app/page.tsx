@@ -21,12 +21,14 @@ import { useRef, useEffect, useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, PerspectiveCamera } from '@react-three/drei';
 import Image from 'next/image';
+import { useReservationCounter } from '@/hooks/useReservationCounter';
 
 export default function HomePage() {
   const mainRef = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { remainingPlaces, monthName } = useReservationCounter();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -164,47 +166,49 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2 }}
-              className="mb-6"
+              className="mb-8 md:mb-6 mt-2 sm:mt-0"
             >
               <motion.div
-                className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white text-sm font-medium mb-6"
+                className="inline-block px-4 py-2 md:px-6 md:py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white text-xs md:text-sm font-medium"
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
               >
-                Nowa era szkoleń kierowców
+                Prawo jazdy w 3 miesiące!
               </motion.div>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4 md:mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
                 Qursant
               </span>
-              <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mt-4"
-                // animate={pulseAnimation}
-              >
-                Kieruj swoją przyszłością
+              <motion.span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mt-2 md:mt-4 text-2xl sm:text-3xl md:text-5xl">
+                Profesjonalne kursy prawa jazdy kategorii B
               </motion.span>
             </h1>
 
-            <p className="mt-6 text-xl leading-8 text-blue-100 max-w-2xl mx-auto">
-              Nauka kierowania na najnowszych modelach pojazdów wyposażonych w
-              zaawansowane systemy bezpieczeństwa
+            <p className="mt-4 md:mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-blue-100 max-w-2xl mx-auto px-4">
+              Szkoła Jazdy w Bydgoszczy, gdzie 95% kursantów zdaje za pierwszym
+              razem!
             </p>
 
             <motion.div
-              className="mt-12 flex flex-wrap items-center justify-center gap-6"
+              className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
               <Link
-                href={`/booking`}
-                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                href="/rezerwacja"
+                className="w-full sm:w-auto group relative overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <span className="relative z-10">Zarezerwuj lekcję</span>
+                <span className="relative z-10">Zarezerwuj miejsce</span>
+                <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
+                  {remainingPlaces < 5
+                    ? `Ostatnie ${remainingPlaces} wolne miejsca w ${monthName}!`
+                    : `Ostatnich ${remainingPlaces} wolnych miejsc w ${monthName}!`}
+                </span>
                 <motion.span
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400 z-0"
                   initial={{ x: '-100%' }}
@@ -214,10 +218,13 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href={`/courses`}
-                className="group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                href="/kursy"
+                className="w-full sm:w-auto group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <span className="relative z-10">Zobacz kursy</span>
+                <span className="relative z-10">Sprawdź kursy</span>
+                <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
+                  -10% do końca miesiąca
+                </span>
                 <motion.span
                   className="absolute inset-0 bg-white/20 z-0"
                   initial={{ scale: 0, opacity: 0 }}
@@ -256,17 +263,17 @@ export default function HomePage() {
         }
       >
         {/* Sekcja floty */}
-        <section className="relative bg-gradient-to-b from-indigo-900 to-blue-950 py-24">
+        <section className="relative bg-gradient-to-b from-indigo-900 to-blue-950 py-12 sm:py-16 md:py-24">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.2),transparent_60%)]"></div>
           </div>
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-12"
             >
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-100">
@@ -356,7 +363,7 @@ export default function HomePage() {
         </section>
 
         {/* Sekcja statystyk */}
-        <section className="relative bg-gradient-to-b from-blue-950 to-indigo-950 py-24 sm:py-32 overflow-hidden">
+        <section className="relative bg-gradient-to-b from-blue-950 to-indigo-950 py-12 sm:py-16 md:py-24 overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black/20 to-transparent"></div>
@@ -445,19 +452,19 @@ export default function HomePage() {
                 {[
                   {
                     icon: <FaUserGraduate />,
-                    value: '1000+',
-                    label: 'Uczniów',
+                    value: '4,135+',
+                    label: 'Kursantów',
                     color: 'from-blue-400 to-blue-600',
                   },
                   {
                     icon: <HiOutlineClock />,
                     value: '15+',
-                    label: 'Doświadczenie',
+                    label: 'Lat doświadczenia',
                     color: 'from-purple-400 to-purple-600',
                   },
                   {
                     icon: <FaChalkboardTeacher />,
-                    value: '10+',
+                    value: '7',
                     label: 'Instruktorów',
                     color: 'from-pink-400 to-pink-600',
                   },
@@ -507,7 +514,7 @@ export default function HomePage() {
         </section>
 
         {/* Sekcja prawa jazdy */}
-        <section className="relative py-24 bg-gradient-to-b from-indigo-950 to-purple-950 overflow-hidden">
+        <section className="relative py-12 sm:py-16 md:py-24 bg-gradient-to-b from-indigo-950 to-purple-950 overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.15),transparent_70%)]"></div>
           </div>
@@ -606,7 +613,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <Image
-                  src="/images/photo-15.jpg"
+                  src="/images/cars/photo-78.jpg"
                   alt="Prawo jazdy"
                   width={800}
                   height={600}
@@ -631,19 +638,19 @@ export default function HomePage() {
             </div>
 
             <motion.div
-              className="mt-16 text-center"
+              className="mt-16 text-center relative z-20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <Link
-                href={`/courses`}
-                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                href="/rezerwacja"
+                className="group inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
               >
-                <span>Sprawdź dostępne kursy</span>
+                <span>Zapisz się na kurs</span>
                 <svg
-                  className="ml-2 w-5 h-5"
+                  className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -662,7 +669,7 @@ export default function HomePage() {
         </section>
 
         {/* Sekcja kategorii kursów */}
-        <section className="bg-gradient-to-b from-purple-950 to-indigo-950 py-24 relative overflow-hidden">
+        <section className="bg-gradient-to-b from-purple-950 to-indigo-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.1),transparent_70%)]"></div>
             <div className="absolute -right-40 top-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -678,94 +685,104 @@ export default function HomePage() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-300">
-                  Szkolenia dla każdej kategorii
-                </span>
+                <Link
+                  href="/cennik"
+                  className="hover:opacity-80 transition-opacity duration-300"
+                >
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-300">
+                    Kurs prawa jazdy kategorii B
+                  </span>
+                </Link>
               </h2>
               <p className="text-blue-200 max-w-2xl mx-auto">
-                Oferujemy pełen zakres kursów na prawo jazdy we wszystkich
-                kategoriach
+                Profesjonalne szkolenie na samochód osobowy z doświadczonymi
+                instruktorami
               </p>
             </motion.div>
 
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  category: 'B',
-                  title: 'Prawo jazdy na samochód osobowy',
+                  icon: <HiOutlineAcademicCap className="w-8 h-8" />,
+                  title: 'Teoria',
                   description:
-                    'Najpopularniejsza kategoria prawa jazdy - profesjonalne szkolenie z doświadczonymi instruktorami',
-                  image: '/images/cars/photo-78.jpg',
+                    '30 godzin lekcyjnych z wykorzystaniem nowoczesnych materiałów szkoleniowych',
                   color: 'from-blue-500 to-cyan-500',
                 },
-              ].map((course, index) => (
+                {
+                  icon: <FaCar className="w-8 h-8" />,
+                  title: 'Praktyka',
+                  description:
+                    '30 godzin jazd praktycznych na nowoczesnych samochodach z podwójną kontrolą',
+                  color: 'from-purple-500 to-pink-500',
+                },
+                {
+                  icon: <FaMedal className="w-8 h-8" />,
+                  title: 'Egzamin',
+                  description:
+                    'Przygotowanie do egzaminu państwowego z wysoką zdawalnością',
+                  color: 'from-yellow-500 to-orange-500',
+                },
+              ].map((feature, index) => (
                 <motion.div
                   key={index}
-                  variants={fadeInUp}
-                  className="group relative overflow-hidden rounded-2xl"
-                  whileHover={{ y: -10 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative p-8 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group"
                 >
-                  <div className="aspect-w-16 aspect-h-9 relative">
-                    <div className="absolute inset-0 bg-gray-900/40 group-hover:bg-gray-900/30 transition-all duration-300 z-10"></div>
-                    <Image
-                      src={course.image}
-                      alt={course.title}
-                      width={1280}
-                      height={720}
-                      className="object-cover rounded-2xl"
-                      sizes="(max-width: 1280px) 100vw, 1280px"
-                      priority
-                    />
-                    <div className="absolute top-4 left-4 z-20">
-                      <span
-                        className={`inline-block py-1 px-4 rounded-full bg-gradient-to-r ${course.color} text-white text-sm font-medium`}
-                      >
-                        {course.category}
-                      </span>
-                    </div>
-                    <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        {course.title}
-                      </h3>
-                      <p className="text-white/80 mb-4">{course.description}</p>
-                      <div className="transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        <Link
-                          href={`/courses`}
-                          className="inline-flex items-center text-white font-medium"
-                        >
-                          <span>Dowiedz się więcej</span>
-                          <svg
-                            className="ml-2 w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            ></path>
-                          </svg>
-                        </Link>
-                      </div>
-                    </div>
+                  <div className="absolute -top-4 -right-4">
+                    <div
+                      className={`w-24 h-24 rounded-full bg-gradient-to-br ${feature.color} opacity-10 blur-2xl group-hover:opacity-20 transition-opacity duration-300`}
+                    ></div>
                   </div>
+
+                  <div
+                    className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${feature.color} mb-6`}
+                  >
+                    {feature.icon}
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-blue-200 mb-6">{feature.description}</p>
+
+                  <motion.div
+                    className="h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.div>
               ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-center mt-12"
+            >
+              <Link
+                href="/cennik"
+                className="group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <span className="relative z-10">Zobacz kursy</span>
+                <motion.span
+                  className="absolute inset-0 bg-white/20 z-0"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </Link>
             </motion.div>
           </div>
         </section>
 
         {/* Sekcja testimoniali */}
-        <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-24 relative overflow-hidden">
+        <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_70%)]"></div>
           </div>
@@ -812,7 +829,7 @@ export default function HomePage() {
                   image: '/images/instructors/photo-23.jpg',
                   quote:
                     'Profesjonalna szkoła jazdy. Elastyczne godziny zajęć, które można dopasować do swojego grafiku. Polecam każdemu, kto szuka solidnej szkoły jazdy.',
-                  stars: 4,
+                  stars: 5,
                 },
               ].map((testimonial, index) => (
                 <motion.div
@@ -880,7 +897,7 @@ export default function HomePage() {
         </section>
 
         {/* Sekcja FAQ */}
-        <section className="bg-gradient-to-b from-slate-900 to-gray-900 py-24 relative overflow-hidden">
+        <section className="bg-gradient-to-b from-slate-900 to-gray-900 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.1),transparent_70%)]"></div>
           </div>
@@ -970,7 +987,7 @@ export default function HomePage() {
         </section>
 
         {/* Sekcja CTA */}
-        <section className="bg-gradient-to-b from-gray-900 to-gray-950 py-24 relative overflow-hidden">
+        <section className="bg-gradient-to-b from-gray-900 to-gray-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
           </div>
@@ -1030,12 +1047,12 @@ export default function HomePage() {
                       ))}
                     </ul>
                     <Link
-                      href={`/booking`}
-                      className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                      href="/kontakt"
+                      className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
                     >
-                      <span>Zapisz się na kurs</span>
+                      <span>Skontaktuj się z nami</span>
                       <svg
-                        className="ml-2 w-5 h-5"
+                        className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
