@@ -23,6 +23,18 @@ export default function Navbar() {
     { name: 'Kontakt', href: '/kontakt' },
   ];
 
+  // Blokowanie scrollowania gdy menu jest otwarte
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   // Obsługa scrollowania
   useEffect(() => {
     const handleScroll = () => {
@@ -102,7 +114,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+            className="lg:hidden p-2 mr-4 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 z-50"
           >
             <span className="sr-only">Menu</span>
             <svg
@@ -126,40 +138,51 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu z overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-gray-900/95 backdrop-blur-md"
-          >
-            <div className="px-4 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    href={item.href}
-                    className={`block px-4 py-3 rounded-xl text-base font-medium ${
-                      isActivePath(item.href)
-                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
-                        : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
+          <>
+            {/* Overlay do zamykania menu */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 bg-black z-40"
+            />
+
+            {/* Menu mobilne */}
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3 }}
+              className="fixed top-0 right-0 w-[300px] h-full bg-gray-900 shadow-xl z-50"
+            >
+              <div className="px-4 pt-20 pb-6 space-y-1">
+                {navigation.map((item) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                    <Link
+                      href={item.href}
+                      className={`block px-4 py-3 rounded-xl text-base font-medium ${
+                        isActivePath(item.href)
+                          ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
+                          : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

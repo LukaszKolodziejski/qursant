@@ -28,9 +28,13 @@ export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const { remainingPlaces, monthName } = useReservationCounter();
 
   useEffect(() => {
+    setIsVisible(true);
+    setIsVideoLoaded(false);
+
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -38,6 +42,37 @@ export default function HomePage() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!videoRef?.current) {
+      return;
+    }
+
+    const handleVideoLoaded = () => {
+      setIsVideoLoaded(true);
+    };
+
+    videoRef.current.addEventListener('loadeddata', handleVideoLoaded);
+
+    const timer = setTimeout(() => {
+      if (!isVideoLoaded) {
+        setIsVideoLoaded(true);
+      }
+    }, 3000);
+
+    videoRef.current.currentTime = 0;
+    videoRef.current.play().catch(() => {
+      // Obsługa błędu autoodtwarzania
+      setIsVideoLoaded(true);
+    });
+
+    return () => {
+      if (videoRef?.current) {
+        videoRef.current.removeEventListener('loadeddata', handleVideoLoaded);
+      }
+      clearTimeout(timer);
+    };
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -53,13 +88,11 @@ export default function HomePage() {
     [1, isMobile ? 0.9 : 0.8]
   );
 
-  // Zoptymalizowane animacje dla mobile
   const mobileAnimationConfig = {
     duration: isMobile ? 0.5 : 0.8,
     scale: isMobile ? 1.02 : 1.05,
   };
 
-  // Przykład użycia zoptymalizowanych animacji
   const pulseAnimation = {
     scale: [1, mobileAnimationConfig.scale, 1],
     transition: {
@@ -69,10 +102,16 @@ export default function HomePage() {
     },
   };
 
-  // Zoptymalizowane warianty animacji
   const fadeInUp = {
     hidden: { opacity: 0, y: isMobile ? 30 : 60 },
-    visible: { opacity: 1, y: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: 'easeOut',
+      },
+    },
   };
 
   const staggerContainer = {
@@ -81,65 +120,40 @@ export default function HomePage() {
       opacity: 1,
       transition: {
         staggerChildren: isMobile ? 0.1 : 0.15,
+        delayChildren: 0.1,
       },
     },
   };
-
-  useEffect(() => {
-    if (!videoRef?.current) {
-      return; // Early return if videoRef.current doesn't exist
-    }
-
-    const handleVideoLoaded = () => {
-      setIsVideoLoaded(true);
-    };
-
-    videoRef.current.addEventListener('loadeddata', handleVideoLoaded);
-
-    // Fallback if video is taking too long to load
-    const timer = setTimeout(() => {
-      if (!isVideoLoaded) setIsVideoLoaded(true);
-    }, 3000);
-
-    return () => {
-      if (videoRef?.current) {
-        videoRef?.current.removeEventListener('loadeddata', handleVideoLoaded);
-      }
-      clearTimeout(timer);
-    };
-  }, []);
 
   return (
     <>
       <Script id="schema-org" type="application/ld+json" />
 
-      {/* Hero section with full screen video and parallax effect */}
       <section
         ref={mainRef}
-        className="relative w-full h-screen overflow-hidden"
+        className="relative w-full min-h-screen overflow-x-hidden"
       >
-        {/* Full screen video background with overlay */}
         <div className="absolute inset-0 w-full h-full z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/70 z-20"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(67,56,202,0.4),transparent_50%)] z-10"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.4),transparent_50%)] z-10"></div>
 
-          {/* Video positioned slightly lower and with proper path */}
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className={`object-cover w-full h-full transform translate-y-20 ${
-              isVideoLoaded ? 'opacity-100' : 'opacity-0'
-            } transition-opacity duration-1000`}
-          >
-            <source src="/videos/main_video.mp4" type="video/mp4" />
-          </video>
+          <div className="absolute inset-0 overflow-hidden">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`object-cover w-full h-full transform translate-y-20 ${
+                isVideoLoaded ? 'opacity-100' : 'opacity-0'
+              } transition-opacity duration-1000`}
+            >
+              <source src="/videos/main_video.mp4" type="video/mp4" />
+            </video>
+          </div>
 
-          {/* Fallback loading state */}
           {!isVideoLoaded && (
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center text-white">
               <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-white"></div>
@@ -147,122 +161,123 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* Hero content */}
-        <motion.div
-          className="relative z-30 flex flex-col items-center justify-center h-full px-6 text-center text-white"
-          style={{ opacity, scale, y }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
+        <div className="relative z-30 w-full max-w-[100vw] overflow-x-hidden">
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 text-center text-white"
+            initial={{ opacity: 1, scale: 1, y: 0 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2 }}
-              className="mb-8 md:mb-6 mt-2 sm:mt-0"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+              className="w-full max-w-4xl mx-auto"
             >
               <motion.div
-                className="inline-block px-4 py-2 md:px-6 md:py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white text-xs md:text-sm font-medium"
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                variants={fadeInUp}
+                className="mb-8 md:mb-6 mt-2 sm:mt-0"
               >
-                Prawo jazdy w 3 miesiące!
+                <motion.div
+                  className="inline-block px-4 py-2 md:px-6 md:py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white text-xs md:text-sm font-medium"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                >
+                  Prawo jazdy w 2 miesiące!
+                </motion.div>
+              </motion.div>
+
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4 md:mb-6 break-words"
+              >
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+                  Qursant
+                </span>
+                <motion.span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mt-2 md:mt-4 text-2xl sm:text-3xl md:text-5xl">
+                  Profesjonalne kursy prawa jazdy kategorii B
+                </motion.span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeInUp}
+                className="mt-4 md:mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-blue-100 max-w-2xl mx-auto break-words"
+              >
+                Szkoła Jazdy w Bydgoszczy, gdzie 95% kursantów zdaje za
+                pierwszym razem!
+              </motion.p>
+
+              <motion.div
+                className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
+              >
+                <Link
+                  href="/rezerwacja"
+                  className="w-full sm:w-auto group relative overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span className="relative z-10">Zarezerwuj miejsce</span>
+                  <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
+                    {remainingPlaces < 5
+                      ? `Ostatnie ${remainingPlaces} wolne miejsca w ${monthName}!`
+                      : `Ostatnich ${remainingPlaces} wolnych miejsc w ${monthName}!`}
+                  </span>
+                  <motion.span
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400 z-0"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '0%' }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </Link>
+
+                <Link
+                  href="/kursy"
+                  className="w-full sm:w-auto group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span className="relative z-10">Sprawdź kursy</span>
+                  <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
+                    -10% do końca miesiąca
+                  </span>
+                  <motion.span
+                    className="absolute inset-0 bg-white/20 z-0"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </Link>
               </motion.div>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4 md:mb-6">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-                Qursant
-              </span>
-              <motion.span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mt-2 md:mt-4 text-2xl sm:text-3xl md:text-5xl">
-                Profesjonalne kursy prawa jazdy kategorii B
-              </motion.span>
-            </h1>
-
-            <p className="mt-4 md:mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-blue-100 max-w-2xl mx-auto px-4">
-              Szkoła Jazdy w Bydgoszczy, gdzie 95% kursantów zdaje za pierwszym
-              razem!
-            </p>
-
             <motion.div
-              className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
+              className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden sm:block"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
+              animate={{ opacity: 1, y: [0, 10, 0] }}
+              transition={{ delay: 1.5, duration: 1.5, repeat: Infinity }}
             >
-              <Link
-                href="/rezerwacja"
-                className="w-full sm:w-auto group relative overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <span className="relative z-10">Zarezerwuj miejsce</span>
-                <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
-                  {remainingPlaces < 5
-                    ? `Ostatnie ${remainingPlaces} wolne miejsca w ${monthName}!`
-                    : `Ostatnich ${remainingPlaces} wolnych miejsc w ${monthName}!`}
+              <div className="flex flex-col items-center">
+                <span className="text-sm text-white/80 mb-2">
+                  Przewiń w dół
                 </span>
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400 z-0"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '0%' }}
-                  transition={{ duration: 0.5 }}
-                />
-              </Link>
-
-              <Link
-                href="/kursy"
-                className="w-full sm:w-auto group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <span className="relative z-10">Sprawdź kursy</span>
-                <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
-                  -10% do końca miesiąca
-                </span>
-                <motion.span
-                  className="absolute inset-0 bg-white/20 z-0"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </Link>
+                <div className="w-6 h-10 rounded-full border-2 border-white/50 flex justify-center p-1">
+                  <motion.div
+                    className="w-1 h-2 bg-white rounded-full"
+                    animate={{ y: [0, 12, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+                </div>
+              </div>
             </motion.div>
           </motion.div>
-
-          {/* Scroll down indicator */}
-          <motion.div
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, 10, 0] }}
-            transition={{ delay: 1.5, duration: 1.5, repeat: Infinity }}
-          >
-            <div className="flex flex-col items-center">
-              <span className="text-sm text-white/80 mb-2">Przewiń w dół</span>
-              <div className="w-6 h-10 rounded-full border-2 border-white/50 flex justify-center p-1">
-                <motion.div
-                  className="w-1 h-2 bg-white rounded-full"
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Sekcje poniżej pierwszego ekranu z lazy loading */}
       <Suspense
         fallback={
           <div className="h-screen bg-gradient-to-b from-indigo-900 to-blue-950" />
         }
       >
-        {/* Sekcja floty */}
         <section className="relative bg-gradient-to-b from-indigo-900 to-blue-950 py-12 sm:py-16 md:py-24">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.2),transparent_60%)]"></div>
@@ -287,7 +302,6 @@ export default function HomePage() {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Zdjęcie samochodu */}
               <motion.div
                 className="relative w-full"
                 initial={{ opacity: 0, x: -50 }}
@@ -307,7 +321,6 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/50 to-transparent rounded-2xl"></div>
               </motion.div>
 
-              {/* Car Features */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -362,20 +375,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sekcja statystyk */}
         <section className="relative bg-gradient-to-b from-blue-950 to-indigo-950 py-12 sm:py-16 md:py-24 overflow-hidden">
-          {/* Decorative elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black/20 to-transparent"></div>
 
-            {/* Mesh gradient effect */}
             <div className="absolute inset-0">
               <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-purple-600/30 to-transparent blur-3xl"></div>
               <div className="absolute top-40 -left-20 w-72 h-72 rounded-full bg-gradient-to-br from-blue-600/20 to-transparent blur-3xl"></div>
               <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-500/20 to-transparent blur-3xl"></div>
             </div>
 
-            {/* Moving particles - SVG alternative to 3D particles */}
             <svg
               className="absolute inset-0 w-full h-full opacity-30"
               xmlns="http://www.w3.org/2000/svg"
@@ -481,10 +490,8 @@ export default function HomePage() {
                     variants={fadeInUp}
                     whileHover={{ scale: 1.05 }}
                   >
-                    {/* Card gradient background */}
                     <div className="absolute inset-0 rounded-2xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-300 backdrop-blur-sm"></div>
 
-                    {/* Glowing background effect */}
                     <div
                       className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-300`}
                     ></div>
@@ -513,7 +520,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sekcja prawa jazdy */}
         <section className="relative py-12 sm:py-16 md:py-24 bg-gradient-to-b from-indigo-950 to-purple-950 overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.15),transparent_70%)]"></div>
@@ -539,7 +545,6 @@ export default function HomePage() {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Steps to License */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -604,7 +609,6 @@ export default function HomePage() {
                 ))}
               </motion.div>
 
-              {/* Zdjęcie zamiast 3D License */}
               <motion.div
                 className="relative w-full"
                 initial={{ opacity: 0, x: 50 }}
@@ -622,7 +626,6 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent rounded-2xl"></div>
 
-                {/* CTA Badge floating on the image */}
                 <div className="absolute bottom-6 right-6 z-10">
                   <motion.div
                     className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center space-x-2"
@@ -668,7 +671,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sekcja kategorii kursów */}
         <section className="bg-gradient-to-b from-purple-950 to-indigo-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.1),transparent_70%)]"></div>
@@ -781,7 +783,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sekcja testimoniali */}
         <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_70%)]"></div>
@@ -896,7 +897,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sekcja FAQ */}
         <section className="bg-gradient-to-b from-slate-900 to-gray-900 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.1),transparent_70%)]"></div>
@@ -986,7 +986,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sekcja CTA */}
         <section className="bg-gradient-to-b from-gray-900 to-gray-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
@@ -1080,7 +1079,6 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
 
-                  {/* Floating elements */}
                   <motion.div
                     className="absolute top-16 right-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl w-64"
                     initial={{ opacity: 0, y: 20 }}
