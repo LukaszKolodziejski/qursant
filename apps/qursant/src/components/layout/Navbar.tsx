@@ -58,9 +58,7 @@ export default function Navbar() {
         height: scrolled ? '5rem' : '6rem',
       }}
       transition={{ duration: 0.3 }}
-      className={`fixed w-full z-50 transition-all duration-300 pt-5 ${
-        scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-gray-900'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 pt-5 bg-gray-900 shadow-lg`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-full">
