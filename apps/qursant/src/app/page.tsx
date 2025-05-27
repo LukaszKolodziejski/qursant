@@ -225,7 +225,7 @@ export default function HomePage() {
                   className="w-full sm:w-auto group relative overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
                   <span className="relative z-10">Zarezerwuj miejsce</span>
-                  <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
+                  <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90 relative z-10">
                     {remainingPlaces < 5
                       ? `Ostatnie ${remainingPlaces} wolne miejsca w ${monthName}!`
                       : `Ostatnich ${remainingPlaces} wolnych miejsc w ${monthName}!`}
@@ -236,6 +236,7 @@ export default function HomePage() {
                     whileHover={{ x: '0%' }}
                     transition={{ duration: 0.5 }}
                   />
+                  <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-45 animate-shine" />
                 </Link>
 
                 <Link
