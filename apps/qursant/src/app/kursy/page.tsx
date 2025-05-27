@@ -21,6 +21,7 @@ import {
 } from 'react-icons/fa';
 import { BsCalendarCheck, BsClock, BsPinMap } from 'react-icons/bs';
 import { CONTACT } from '@/constants/contact';
+import { COURSE } from '@/constants/course';
 
 export default function KursyPage() {
   // Animacje
@@ -44,7 +45,7 @@ export default function KursyPage() {
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -76,8 +77,12 @@ export default function KursyPage() {
               <h2 className="text-2xl font-semibold">Najbliższy kurs</h2>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold text-white mb-2">15 maja 2025</p>
-              <p className="text-xl text-blue-200">Start o godzinie 17:00</p>
+              <p className="text-3xl font-bold text-white mb-2">
+                {COURSE.NEXT_START_DATE}
+              </p>
+              <p className="text-xl text-blue-200">
+                Start o godzinie {COURSE.START_TIME}
+              </p>
             </div>
             <div className="mt-6 text-center">
               <Link
@@ -121,7 +126,8 @@ export default function KursyPage() {
                   <div>
                     <span className="font-medium text-white">Teoria:</span>
                     <br />
-                    30 godzin lekcyjnych (2-3 tygodnie)
+                    {COURSE.DURATION.THEORY.HOURS} godzin lekcyjnych (
+                    {COURSE.DURATION.THEORY.WEEKS} tygodnie)
                   </div>
                 </li>
                 <li className="flex items-start text-blue-200">
@@ -129,7 +135,8 @@ export default function KursyPage() {
                   <div>
                     <span className="font-medium text-white">Praktyka:</span>
                     <br />
-                    30 godzin zegarowych (3-5 tygodni)
+                    {COURSE.DURATION.PRACTICE.HOURS} godzin zegarowych (
+                    {COURSE.DURATION.PRACTICE.WEEKS} tygodni)
                   </div>
                 </li>
               </ul>
@@ -156,7 +163,8 @@ export default function KursyPage() {
                       Tryb tygodniowy:
                     </span>
                     <br />
-                    Poniedziałek-Piątek, godz. 17:00
+                    {COURSE.SCHEDULE.WEEKDAY.DAYS}, godz.{' '}
+                    {COURSE.SCHEDULE.WEEKDAY.TIME}
                   </div>
                 </li>
                 <li className="flex items-start text-blue-200">
@@ -166,7 +174,7 @@ export default function KursyPage() {
                       Tryb weekendowy:
                     </span>
                     <br />
-                    Elastyczne godziny (do uzgodnienia)
+                    {COURSE.SCHEDULE.WEEKEND.INFO}
                   </div>
                 </li>
               </ul>
