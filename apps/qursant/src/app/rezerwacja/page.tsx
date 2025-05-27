@@ -88,8 +88,12 @@ export default function RezerwacjaPage() {
         }),
       });
 
-      if (response.ok) {
-        toast.success('Rezerwacja została wysłana pomyślnie!');
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success('Rezerwacja została wysłana pomyślnie!', {
+          duration: 5000,
+        });
         setFormData({
           name: '',
           email: '',
@@ -98,10 +102,31 @@ export default function RezerwacjaPage() {
           agreement: false,
         });
       } else {
-        throw new Error('Błąd podczas wysyłania rezerwacji');
+        // Pokazujemy główny komunikat o błędzie
+        toast.error(
+          data.error || 'Wystąpił błąd podczas wysyłania rezerwacji',
+          {
+            duration: 5000,
+          }
+        );
+
+        // Jeśli są szczegóły błędu, pokazujemy je w osobnym toast
+        if (data.details) {
+          setTimeout(() => {
+            toast(data.details, {
+              icon: '❗',
+              duration: 7000,
+            });
+          }, 1000);
+        }
       }
     } catch (error) {
-      toast.error('Wystąpił błąd podczas wysyłania rezerwacji');
+      toast.error(
+        'Nie udało się połączyć z serwerem. Spróbuj ponownie później.',
+        {
+          duration: 5000,
+        }
+      );
     } finally {
       setIsSubmitting(false);
     }
