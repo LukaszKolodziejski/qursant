@@ -10,7 +10,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3097,
     "height": 4646,
     "orientation": "vertical",
-    "description": "Doświadczony instruktor i właściciel szkoły nauki jazdy Qursant"
+    "description": "Pasjonat bezpiecznej jazdy i edukacji przyszłych kierowców"
   },
   {
     "src": "/images/boss/photo-28.jpg",
@@ -19,7 +19,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3097,
     "height": 3868,
     "orientation": "vertical",
-    "description": "Profesjonalne podejście i wieloletnie doświadczenie w szkoleniu kierowców"
+    "description": "Doświadczony instruktor i właściciel szkoły nauki jazdy Qursant"
   },
   {
     "src": "/images/boss/photo-29.jpg",
@@ -37,7 +37,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3183,
     "height": 3971,
     "orientation": "vertical",
-    "description": "Doświadczony instruktor i właściciel szkoły nauki jazdy Qursant"
+    "description": "Pasjonat bezpiecznej jazdy i edukacji przyszłych kierowców"
   },
   {
     "src": "/images/boss/photo-31.jpg",
@@ -46,7 +46,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3505,
     "height": 5257,
     "orientation": "vertical",
-    "description": "Profesjonalne podejście i wieloletnie doświadczenie w szkoleniu kierowców"
+    "description": "Doświadczony instruktor i właściciel szkoły nauki jazdy Qursant"
   },
   {
     "src": "/images/boss/photo-32.jpg",
@@ -55,7 +55,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3505,
     "height": 4377,
     "orientation": "vertical",
-    "description": "Pasjonat bezpiecznej jazdy i edukacji przyszłych kierowców"
+    "description": "Profesjonalne podejście i wieloletnie doświadczenie w szkoleniu kierowców"
   },
   {
     "src": "/images/boss/photo-62.jpg",
@@ -91,7 +91,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3250,
     "height": 4055,
     "orientation": "vertical",
-    "description": "Profesjonalne podejście i wieloletnie doświadczenie w szkoleniu kierowców"
+    "description": "Pasjonat bezpiecznej jazdy i edukacji przyszłych kierowców"
   },
   {
     "src": "/images/boss/photo-73.jpg",
@@ -100,7 +100,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3303,
     "height": 4954,
     "orientation": "vertical",
-    "description": "Doświadczony instruktor i właściciel szkoły nauki jazdy Qursant"
+    "description": "Pasjonat bezpiecznej jazdy i edukacji przyszłych kierowców"
   },
   {
     "src": "/images/boss/photo-74.jpg",
@@ -145,7 +145,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3475,
     "height": 5213,
     "orientation": "vertical",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
   },
   {
     "src": "/images/instructors/photo-13.jpg",
@@ -154,7 +154,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3104,
     "height": 3880,
     "orientation": "vertical",
-    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
+    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
   },
   {
     "src": "/images/instructors/photo-14.jpg",
@@ -181,7 +181,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5472,
     "height": 3648,
     "orientation": "horizontal",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
   },
   {
     "src": "/images/instructors/photo-17.jpg",
@@ -190,7 +190,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3214,
     "height": 4821,
     "orientation": "vertical",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Cierpliwość i zaangażowanie w proces nauczania"
   },
   {
     "src": "/images/instructors/photo-2.jpg",
@@ -199,7 +199,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3132,
     "height": 3915,
     "orientation": "vertical",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Cierpliwość i zaangażowanie w proces nauczania"
   },
   {
     "src": "/images/instructors/photo-21.jpg",
@@ -208,7 +208,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5127,
     "height": 3418,
     "orientation": "horizontal",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
   },
   {
     "src": "/images/instructors/photo-22.jpg",
@@ -226,7 +226,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3367,
     "height": 4209,
     "orientation": "vertical",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Cierpliwość i zaangażowanie w proces nauczania"
   },
   {
     "src": "/images/instructors/photo-24.jpg",
@@ -235,7 +235,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5062,
     "height": 3375,
     "orientation": "horizontal",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
   },
   {
     "src": "/images/instructors/photo-25.jpg",
@@ -271,7 +271,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5007,
     "height": 3338,
     "orientation": "horizontal",
-    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
+    "description": "Cierpliwość i zaangażowanie w proces nauczania"
   },
   {
     "src": "/images/instructors/photo-7.jpg",
@@ -280,7 +280,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4721,
     "height": 3147,
     "orientation": "horizontal",
-    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
+    "description": "Cierpliwość i zaangażowanie w proces nauczania"
   },
   {
     "src": "/images/instructors/photo-71.jpg",
@@ -289,7 +289,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3495,
     "height": 5243,
     "orientation": "vertical",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Profesjonalne podejście i indywidualne podejście do kursanta"
   },
   {
     "src": "/images/instructors/photo-72.jpg",
@@ -298,7 +298,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3495,
     "height": 4361,
     "orientation": "vertical",
-    "description": "Wykwalifikowana kadra instruktorska z wieloletnim doświadczeniem"
+    "description": "Cierpliwość i zaangażowanie w proces nauczania"
   },
   {
     "src": "/images/instructors/photo-8.jpg",
@@ -334,7 +334,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 1440,
     "height": 1080,
     "orientation": "horizontal",
-    "description": "Przyjazne miejsce do nauki i rozwoju"
+    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
   },
   {
     "src": "/images/office/photo-12.jpg",
@@ -343,7 +343,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 1440,
     "height": 1080,
     "orientation": "horizontal",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
   },
   {
     "src": "/images/office/photo-38.jpg",
@@ -361,7 +361,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3417,
     "height": 5125,
     "orientation": "vertical",
-    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
+    "description": "Przyjazne miejsce do nauki i rozwoju"
   },
   {
     "src": "/images/office/photo-40.jpg",
@@ -370,7 +370,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 2703,
     "height": 3378,
     "orientation": "vertical",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Przyjazne miejsce do nauki i rozwoju"
   },
   {
     "src": "/images/office/photo-41.jpg",
@@ -379,7 +379,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5271,
     "height": 3514,
     "orientation": "horizontal",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
   },
   {
     "src": "/images/office/photo-42.jpg",
@@ -388,7 +388,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4969,
     "height": 3313,
     "orientation": "horizontal",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Przyjazne miejsce do nauki i rozwoju"
   },
   {
     "src": "/images/office/photo-43.jpg",
@@ -406,7 +406,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3372,
     "height": 5058,
     "orientation": "vertical",
-    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
+    "description": "Przyjazne miejsce do nauki i rozwoju"
   },
   {
     "src": "/images/office/photo-45.jpg",
@@ -415,7 +415,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3372,
     "height": 4208,
     "orientation": "vertical",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Przyjazne miejsce do nauki i rozwoju"
   },
   {
     "src": "/images/office/photo-46.jpg",
@@ -424,7 +424,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5162,
     "height": 3441,
     "orientation": "horizontal",
-    "description": "Przyjazne miejsce do nauki i rozwoju"
+    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
   },
   {
     "src": "/images/office/photo-47.jpg",
@@ -433,7 +433,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4636,
     "height": 3091,
     "orientation": "horizontal",
-    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
+    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
   },
   {
     "src": "/images/office/photo-48.jpg",
@@ -442,7 +442,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5224,
     "height": 3483,
     "orientation": "horizontal",
-    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
+    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
   },
   {
     "src": "/images/office/photo-49.jpg",
@@ -451,7 +451,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4039,
     "height": 2693,
     "orientation": "horizontal",
-    "description": "Przyjazne miejsce do nauki i rozwoju"
+    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
   },
   {
     "src": "/images/office/photo-50.jpg",
@@ -460,7 +460,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3892,
     "height": 2595,
     "orientation": "horizontal",
-    "description": "Przyjazne miejsce do nauki i rozwoju"
+    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
   },
   {
     "src": "/images/office/photo-51.jpg",
@@ -487,7 +487,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3406,
     "height": 5109,
     "orientation": "vertical",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Przyjazne miejsce do nauki i rozwoju"
   },
   {
     "src": "/images/office/photo-54.jpg",
@@ -496,7 +496,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3278,
     "height": 4098,
     "orientation": "vertical",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
   },
   {
     "src": "/images/office/photo-55.jpg",
@@ -523,7 +523,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3169,
     "height": 4754,
     "orientation": "vertical",
-    "description": "Przyjazne miejsce do nauki i rozwoju"
+    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
   },
   {
     "src": "/images/office/photo-58.jpg",
@@ -532,7 +532,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3025,
     "height": 3781,
     "orientation": "vertical",
-    "description": "Komfortowe sale wykładowe wyposażone w najnowszy sprzęt"
+    "description": "Nowoczesna siedziba w centrum Bydgoszczy"
   },
   {
     "src": "/images/office/photo-59.jpg",
@@ -577,7 +577,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 960,
     "height": 739,
     "orientation": "horizontal",
-    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
+    "description": "Komfortowe auta przystosowane do nauki jazdy"
   },
   {
     "src": "/images/cars/photo-3.jpg",
@@ -586,7 +586,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4032,
     "height": 3024,
     "orientation": "horizontal",
-    "description": "Komfortowe auta przystosowane do nauki jazdy"
+    "description": "Nowoczesne samochody szkoleniowe"
   },
   {
     "src": "/images/cars/photo-33.jpg",
@@ -604,7 +604,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3432,
     "height": 5148,
     "orientation": "vertical",
-    "description": "Nowoczesne samochody szkoleniowe"
+    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
   },
   {
     "src": "/images/cars/photo-35.jpg",
@@ -613,7 +613,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3432,
     "height": 4283,
     "orientation": "vertical",
-    "description": "Nowoczesne samochody szkoleniowe"
+    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
   },
   {
     "src": "/images/cars/photo-36.jpg",
@@ -640,7 +640,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3372,
     "height": 5058,
     "orientation": "vertical",
-    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
+    "description": "Nowoczesne samochody szkoleniowe"
   },
   {
     "src": "/images/cars/photo-5.jpg",
@@ -649,7 +649,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3372,
     "height": 4208,
     "orientation": "vertical",
-    "description": "Komfortowe auta przystosowane do nauki jazdy"
+    "description": "Nowoczesne samochody szkoleniowe"
   },
   {
     "src": "/images/cars/photo-6.jpg",
@@ -676,7 +676,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5229,
     "height": 3486,
     "orientation": "horizontal",
-    "description": "Nowoczesne samochody szkoleniowe"
+    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
   },
   {
     "src": "/images/cars/photo-66.jpg",
@@ -685,7 +685,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5147,
     "height": 3431,
     "orientation": "horizontal",
-    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
+    "description": "Komfortowe auta przystosowane do nauki jazdy"
   },
   {
     "src": "/images/cars/photo-67.jpg",
@@ -694,7 +694,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3050,
     "height": 4575,
     "orientation": "vertical",
-    "description": "Nowoczesne samochody szkoleniowe"
+    "description": "Komfortowe auta przystosowane do nauki jazdy"
   },
   {
     "src": "/images/cars/photo-68.jpg",
@@ -703,7 +703,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3050,
     "height": 3806,
     "orientation": "vertical",
-    "description": "Nowoczesne samochody szkoleniowe"
+    "description": "Komfortowe auta przystosowane do nauki jazdy"
   },
   {
     "src": "/images/cars/photo-70.jpg",
@@ -712,7 +712,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 5046,
     "height": 3364,
     "orientation": "horizontal",
-    "description": "Komfortowe auta przystosowane do nauki jazdy"
+    "description": "Nowoczesne samochody szkoleniowe"
   },
   {
     "src": "/images/cars/photo-75.jpg",
@@ -730,7 +730,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 3450,
     "height": 4306,
     "orientation": "vertical",
-    "description": "Komfortowe auta przystosowane do nauki jazdy"
+    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
   },
   {
     "src": "/images/cars/photo-77.jpg",
@@ -748,7 +748,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4612,
     "height": 3075,
     "orientation": "horizontal",
-    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
+    "description": "Komfortowe auta przystosowane do nauki jazdy"
   },
   {
     "src": "/images/cars/photo-79.jpg",
@@ -757,7 +757,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4995,
     "height": 3330,
     "orientation": "horizontal",
-    "description": "Pojazdy wyposażone w systemy bezpieczeństwa"
+    "description": "Nowoczesne samochody szkoleniowe"
   },
   {
     "src": "/images/cars/photo-80.jpg",
@@ -775,7 +775,7 @@ export const galleryImages: GalleryImage[] = [
     "width": 4805,
     "height": 3203,
     "orientation": "horizontal",
-    "description": "Komfortowe auta przystosowane do nauki jazdy"
+    "description": "Nowoczesne samochody szkoleniowe"
   },
   {
     "src": "/images/cars/photo-82.jpg",
@@ -787,13 +787,22 @@ export const galleryImages: GalleryImage[] = [
     "description": "Komfortowe auta przystosowane do nauki jazdy"
   },
   {
+    "src": "/images/course/photo-17.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 17",
+    "category": "course",
+    "width": 1200,
+    "height": 1600,
+    "orientation": "vertical",
+    "description": "Kursy dostosowane do indywidualnych potrzeb"
+  },
+  {
     "src": "/images/course/photo-18.jpg",
     "alt": "Szkolenia i Kursy - Zdjęcie 18",
     "category": "course",
     "width": 2750,
     "height": 4125,
     "orientation": "vertical",
-    "description": "Profesjonalne szkolenia teoretyczne i praktyczne"
+    "description": "Przygotowanie do egzaminu w realnych warunkach"
   },
   {
     "src": "/images/course/photo-19.jpg",
@@ -812,6 +821,60 @@ export const galleryImages: GalleryImage[] = [
     "height": 3122,
     "orientation": "horizontal",
     "description": "Przygotowanie do egzaminu w realnych warunkach"
+  },
+  {
+    "src": "/images/course/photo-21.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 21",
+    "category": "course",
+    "width": 1355,
+    "height": 1806,
+    "orientation": "vertical",
+    "description": "Kursy dostosowane do indywidualnych potrzeb"
+  },
+  {
+    "src": "/images/course/photo-22.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 22",
+    "category": "course",
+    "width": 1512,
+    "height": 2016,
+    "orientation": "vertical",
+    "description": "Kursy dostosowane do indywidualnych potrzeb"
+  },
+  {
+    "src": "/images/course/photo-23.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 23",
+    "category": "course",
+    "width": 2048,
+    "height": 1998,
+    "orientation": "horizontal",
+    "description": "Kursy dostosowane do indywidualnych potrzeb"
+  },
+  {
+    "src": "/images/course/photo-24.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 24",
+    "category": "course",
+    "width": 2048,
+    "height": 1827,
+    "orientation": "horizontal",
+    "description": "Kursy dostosowane do indywidualnych potrzeb"
+  },
+  {
+    "src": "/images/course/photo-25.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 25",
+    "category": "course",
+    "width": 2016,
+    "height": 1512,
+    "orientation": "horizontal",
+    "description": "Przygotowanie do egzaminu w realnych warunkach"
+  },
+  {
+    "src": "/images/course/photo-26.jpg",
+    "alt": "Szkolenia i Kursy - Zdjęcie 26",
+    "category": "course",
+    "width": 1200,
+    "height": 1600,
+    "orientation": "vertical",
+    "description": "Kursy dostosowane do indywidualnych potrzeb"
   },
   {
     "src": "/images/course/photo-3.jpg",

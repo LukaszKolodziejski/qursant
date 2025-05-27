@@ -25,28 +25,44 @@ import {
   HiOutlineLocationMarker,
   HiOutlineBadgeCheck,
 } from 'react-icons/hi';
+import {
+  getStudentsCount,
+  getExperienceYears,
+  INSTRUCTORS_COUNT,
+  formatNumber,
+} from '@/constants/stats';
 
 const instruktorzy = [
   {
     name: 'Robert Langer',
-    role: 'Właściciel / Główny Instruktor',
+    role: 'Właściciel / Instruktor / Egzaminator',
     experience: '20+ lat doświadczenia',
     specialization: 'Kategoria B',
-    image: '/images/instructors/photo-1.jpg',
+    image: '/images/boss/photo-27.jpg',
   },
   {
-    name: 'Anna Kowalska',
-    role: 'Instruktor',
-    experience: '10+ lat doświadczenia',
+    name: 'Nasi Instruktorzy',
+    role: 'Najlepsi instruktorzy',
+    experience: '9-18+ lat doświadczenia',
+    staff: [
+      'Ryszard - Biuro',
+      'Robert - Właściciel',
+      'Barbara - Instruktor',
+      'Tomasz - Instruktor',
+      'Rafał - Instruktor',
+      'Krzysztof - Instruktor',
+      'Piotr - Instruktor',
+      'Zosia - Ratownik medyczny',
+    ],
     specialization: 'Kategoria B',
-    image: '/images/instructors/photo-10.jpg',
+    image: '/images/instructors/photo-3.jpg',
   },
   {
-    name: 'Marek Nowak',
-    role: 'Instruktor',
-    experience: '15+ lat doświadczenia',
+    name: 'Siedziba Qursant',
+    role: 'Zajęcia teoretyczne',
+    experience: `${formatNumber(getStudentsCount())}+ zadowolonych kursantów`,
     specialization: 'Kategoria B',
-    image: '/images/instructors/photo-17.jpg',
+    image: '/images/office/photo-57.jpg',
   },
 ];
 
@@ -213,11 +229,13 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center space-x-2 text-blue-300">
                 <FaClock className="text-blue-400" />
-                <span>15 lat doświadczenia</span>
+                <span>{getExperienceYears()} lat doświadczenia</span>
               </div>
               <div className="flex items-center space-x-2 text-blue-300">
                 <FaUsers className="text-blue-400" />
-                <span>4135+ zadowolonych kursantów</span>
+                <span>
+                  {formatNumber(getStudentsCount())}+ zadowolonych kursantów
+                </span>
               </div>
             </motion.div>
           </motion.div>
@@ -355,7 +373,7 @@ export default function AboutPage() {
           >
             <h2 className="text-4xl font-bold text-white mb-4">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">
-                Nasi instruktorzy
+                Nasza Szkoła Qursant
               </span>
             </h2>
             <p className="text-blue-200 max-w-2xl mx-auto">
@@ -388,17 +406,46 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">
-                    {instruktor.name}
-                  </h3>
-                  <p className="text-blue-300 mb-2">{instruktor.role}</p>
-                  <div className="flex items-center text-blue-200 text-sm">
-                    <HiOutlineAcademicCap className="mr-2" />
-                    <span>{instruktor.experience}</span>
-                  </div>
-                  <div className="flex items-center text-blue-200 text-sm mt-1">
-                    <FaCar className="mr-2" />
-                    <span>{instruktor.specialization}</span>
+                  <div className="pt-8 pb-4">
+                    {instruktor.staff ? (
+                      <div className="space-y-2">
+                        {instruktor.staff.map((person, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center text-blue-100"
+                          >
+                            {person.includes('Biuro') && (
+                              <HiOutlineUserGroup className="text-blue-400 mr-2 text-xl" />
+                            )}
+                            {person.includes('Właściciel') && (
+                              <FaUserTie className="text-purple-400 mr-2 text-xl" />
+                            )}
+                            {person.includes('Instruktor') && (
+                              <FaChalkboardTeacher className="text-green-400 mr-2 text-xl" />
+                            )}
+                            {person.includes('Ratownik') && (
+                              <FaMedal className="text-red-400 mr-2 text-xl" />
+                            )}
+                            <span>{person}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <>
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          {instruktor.name}
+                        </h3>
+                        <p className="text-blue-300 mb-2">{instruktor.role}</p>
+                        <div className="flex items-center text-blue-200 text-sm">
+                          <HiOutlineAcademicCap className="mr-2" />
+                          <span>{instruktor.experience}</span>
+                        </div>
+                        <div className="flex items-center text-blue-200 text-sm mt-1">
+                          <FaCar className="mr-2" />
+                          <span>{instruktor.specialization}</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -465,7 +512,7 @@ export default function AboutPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center text-blue-200">
                     <HiLightningBolt className="text-purple-400 mr-2" />
-                    Najnowsze toyoty yaris 2021r
+                    Najnowsze Ople Corsa z 2024 roku
                   </li>
                   <li className="flex items-center text-blue-200">
                     <HiLightningBolt className="text-purple-400 mr-2" />6

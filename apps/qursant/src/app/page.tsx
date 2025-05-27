@@ -22,6 +22,12 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, PerspectiveCamera } from '@react-three/drei';
 import Image from 'next/image';
 import { useReservationCounter } from '@/hooks/useReservationCounter';
+import {
+  getStudentsCount,
+  getExperienceYears,
+  INSTRUCTORS_COUNT,
+  formatNumber,
+} from '@/constants/stats';
 
 export default function HomePage() {
   const mainRef = useRef(null);
@@ -461,19 +467,19 @@ export default function HomePage() {
                 {[
                   {
                     icon: <FaUserGraduate />,
-                    value: '4,135+',
+                    value: `${formatNumber(getStudentsCount())}+`,
                     label: 'Kursantów',
                     color: 'from-blue-400 to-blue-600',
                   },
                   {
                     icon: <HiOutlineClock />,
-                    value: '15+',
+                    value: `${getExperienceYears()}+`,
                     label: 'Lat doświadczenia',
                     color: 'from-purple-400 to-purple-600',
                   },
                   {
                     icon: <FaChalkboardTeacher />,
-                    value: '7',
+                    value: `${INSTRUCTORS_COUNT}`,
                     label: 'Instruktorów',
                     color: 'from-pink-400 to-pink-600',
                   },

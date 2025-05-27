@@ -89,7 +89,7 @@ export default function PytaniaPage() {
           id: 'samochody',
           question: 'Jakimi samochodami prowadzone są jazdy?',
           answer:
-            'Szkolimy na nowych Toyotach Yaris z 2021 roku. Samochody są w pełni wyposażone w systemy bezpieczeństwa, klimatyzację oraz podwójne sterowanie. Wszystkie auta są regularnie serwisowane i utrzymane w idealnym stanie.',
+            'Szkolimy na nowych Oplach Corsach z 2024 roku. Samochody są w pełni wyposażone w systemy bezpieczeństwa, klimatyzację oraz podwójne sterowanie. Wszystkie auta są regularnie serwisowane i utrzymane w idealnym stanie.',
         },
         {
           id: 'teoria-online',
