@@ -3,14 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import {
-  HiOutlineAcademicCap,
-  HiOutlineClock,
-  HiOutlineUserGroup,
-  HiLightningBolt,
-  HiOutlineMail,
-  HiOutlinePhone,
-} from 'react-icons/hi';
+import { HiOutlineMail, HiOutlinePhone } from 'react-icons/hi';
 
 export default function Footer() {
   const pathname = usePathname();

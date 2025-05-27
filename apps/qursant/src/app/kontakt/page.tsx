@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import {
   HiOutlinePhone,
   HiOutlineMail,
@@ -19,7 +18,6 @@ const MapComponent = dynamic(() => import('./MapComponent'), {
 });
 
 export default function KontaktPage() {
-  const [isMapHovered, setIsMapHovered] = useState(false);
   const googleMapsUrl =
     'https://www.google.pl/maps/place/Szko%C5%82a+Jazdy+Qursant/@53.1133239,18.0069507,15z/data=!4m6!3m5!1s0x4703139b5c5a0f71:0x3da35ada0e7720b8!8m2!3d53.1114435!4d18.016832!16s%2Fg%2F1tgb619c!5m1!1e4?entry=ttu';
 
@@ -137,23 +135,11 @@ export default function KontaktPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="relative"
-              onMouseEnter={() => setIsMapHovered(true)}
-              onMouseLeave={() => setIsMapHovered(false)}
               onClick={() => window.open(googleMapsUrl, '_blank')}
               style={{ cursor: 'pointer' }}
             >
               <div className="relative h-full min-h-[400px] rounded-2xl overflow-hidden">
                 <MapComponent coordinates={coordinates} isHovered={false} />
-                {/* Overlay z informacją o kliknięciu */}
-                {/* <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isMapHovered ? 1 : 0 }}
-                  className="absolute inset-0 bg-black/40 flex items-center justify-center"
-                >
-                  <span className="text-white text-lg font-medium">
-                    Kliknij, aby otworzyć w Google Maps
-                  </span>
-                </motion.div> */}
               </div>
             </motion.div>
           </div>

@@ -8,21 +8,11 @@ import {
 } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useEffect, useRef, useMemo } from 'react';
-import {
-  FaCar,
-  FaUsers,
-  FaBuilding,
-  FaGraduationCap,
-  FaChevronLeft,
-  FaChevronRight,
-} from 'react-icons/fa';
-import { HiOutlineCamera } from 'react-icons/hi';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
 import { galleryImages } from '../../data/galleryImages';
-import { ImageCategory } from '../../types/gallery';
 
 export default function GaleriaPage() {
-  const [selectedCategory, setSelectedCategory] =
-    useState<ImageCategory>('all');
   const [horizontalSlideIndex1, setHorizontalSlideIndex1] = useState(0);
   const [horizontalSlideIndex2, setHorizontalSlideIndex2] = useState(0);
   const [horizontalSlideIndex3, setHorizontalSlideIndex3] = useState(0);
@@ -162,24 +152,6 @@ export default function GaleriaPage() {
       }
       return prev === horizontalImages3.length - 1 ? 0 : prev + 1;
     });
-  };
-
-  const navigateVertical = () => {
-    setVerticalStartIndex1(
-      (prev) => (prev + displayCount) % verticalImages1.length
-    );
-  };
-
-  const navigateVertical2 = () => {
-    setVerticalStartIndex2(
-      (prev) => (prev + displayCount) % verticalImages2.length
-    );
-  };
-
-  const navigateVertical3 = () => {
-    setVerticalStartIndex3(
-      (prev) => (prev + displayCount) % verticalImages3.length
-    );
   };
 
   return (

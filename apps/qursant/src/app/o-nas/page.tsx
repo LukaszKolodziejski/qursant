@@ -1,17 +1,11 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useRef, useState, useEffect } from 'react';
 import {
   FaCar,
-  FaUserGraduate,
   FaChalkboardTeacher,
   FaMedal,
-  FaQuoteRight,
-  FaAward,
-  FaStar,
-  FaGraduationCap,
   FaUserTie,
   FaMapMarkerAlt,
   FaClock,
@@ -28,7 +22,6 @@ import {
 import {
   getStudentsCount,
   getExperienceYears,
-  INSTRUCTORS_COUNT,
   formatNumber,
 } from '@/constants/stats';
 
@@ -67,17 +60,6 @@ const instruktorzy = [
 ];
 
 export default function AboutPage() {
-  const containerRef = useRef(null);
-  const [activeInstructor, setActiveInstructor] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
-
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -90,39 +72,6 @@ export default function AboutPage() {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-      },
-    },
-  };
-
-  // Dodajemy nowe warianty animacji
-  const pageTransition = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
-      },
-    },
-  };
-
-  const staggerItems = {
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const fadeInScale = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };

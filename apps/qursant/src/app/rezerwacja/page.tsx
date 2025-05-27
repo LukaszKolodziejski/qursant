@@ -5,23 +5,13 @@ import { useState, useEffect } from 'react';
 // import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { toast, Toaster } from 'react-hot-toast';
 import {
-  HiOutlineClock,
   HiOutlineCalendar,
   HiOutlineUser,
   HiOutlineMail,
   HiOutlinePhone,
-  HiOutlineCheck,
-  HiOutlineExclamation,
 } from 'react-icons/hi';
 import Link from 'next/link';
 import { useReservationCounter } from '@/hooks/useReservationCounter';
-
-const shine = {
-  '@keyframes shine': {
-    '0%': { transform: 'translateX(-100%)' },
-    '100%': { transform: 'translateX(100%)' },
-  },
-};
 
 export default function RezerwacjaPage() {
   const { remainingPlaces, progressWidth, currentDate } =
@@ -120,6 +110,7 @@ export default function RezerwacjaPage() {
           }, 1000);
         }
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error(
         'Nie udało się połączyć z serwerem. Spróbuj ponownie później.',
@@ -133,10 +124,6 @@ export default function RezerwacjaPage() {
   };
 
   // Animacje
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
 
   const pulseAnimation = {
     scale: [1, 1.02, 1],

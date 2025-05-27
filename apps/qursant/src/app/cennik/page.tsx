@@ -3,17 +3,13 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
-  HiOutlineClock,
-  HiOutlineCalendar,
-  HiOutlineCurrencyDollar,
   HiOutlineDocumentText,
   HiOutlineAcademicCap,
   HiLightningBolt,
   HiOutlineCheck,
   HiOutlineGift,
-  HiOutlineCreditCard,
 } from 'react-icons/hi';
-import { FaCar, FaGraduationCap, FaMedal, FaRegClock } from 'react-icons/fa';
+import { FaCar } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { CONTACT } from '@/constants/contact';
 import { PRICES } from '@/constants/prices';
@@ -41,11 +37,6 @@ export default function CennikPage() {
   }, []);
 
   // Animacje
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   const pulseAnimation = {
     scale: [1, 1.02, 1],
     transition: {

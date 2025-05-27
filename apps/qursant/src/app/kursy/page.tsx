@@ -5,10 +5,6 @@ import Link from 'next/link';
 import {
   HiOutlineClock,
   HiOutlineCalendar,
-  HiOutlineLocationMarker,
-  HiOutlineAcademicCap,
-  HiOutlineCurrencyDollar,
-  HiOutlinePhone,
   HiOutlineUserGroup,
   HiLightningBolt,
 } from 'react-icons/hi';

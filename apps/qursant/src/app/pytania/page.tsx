@@ -3,18 +3,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
-  HiOutlineAcademicCap,
-  HiOutlineClock,
-  HiOutlineDocumentText,
   HiOutlineCurrencyDollar,
-  HiOutlineLocationMarker,
-  HiOutlineUserGroup,
   HiOutlineChevronDown,
   HiOutlineLightBulb,
   HiOutlineClipboardCheck,
   HiOutlinePhone,
 } from 'react-icons/hi';
-import { FaCar, FaGraduationCap, FaRoad, FaIdCard } from 'react-icons/fa';
+import { FaCar, FaGraduationCap } from 'react-icons/fa';
 import Link from 'next/link';
 import { CONTACT } from '@/constants/contact';
 
