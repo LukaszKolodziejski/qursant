@@ -49,7 +49,10 @@ export async function POST(request: Request) {
     // Sprawdzanie statusu obu emaili
     if (customerResponse.error) {
       // Jeśli błąd dotyczy walidacji domeny (403)
-      if (customerResponse.error.statusCode === 403) {
+      if (
+        'statusCode' in customerResponse.error &&
+        customerResponse.error.statusCode === 403
+      ) {
         return NextResponse.json(
           {
             success: false,

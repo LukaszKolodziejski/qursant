@@ -813,30 +813,35 @@ export default function HomePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  name: 'Anna Kowalska',
+                  name: 'Anna',
                   role: 'Kategoria B',
-                  image: '/images/instructors/photo-10.jpg',
                   quote:
-                    'Dzięki cierpliwości instruktorów i profesjonalnemu podejściu zdałam za pierwszym razem! Polecam każdemu, kto chce szybko i bezstresowo nauczyć się jeździć.',
+                    'Nie sądziłam, że uda mi się kiedykolwiek zdać prawo jazdy a stało się tak jeszcze za pierwszym razem, Pan Robert bardzo cierpliwy, miły, instruktor na wielki medal. Serdecznie zachęcam i polecam Szkołę jazdy Qursant.',
                   stars: 5,
                 },
                 {
-                  name: 'Piotr Nowak',
+                  name: 'Piotr',
                   role: 'Kategoria B',
-                  image: '/images/instructors/photo-17.jpg',
                   quote:
-                    'Świetna szkoła z nowoczesnym podejściem do nauki. Instruktorzy mają ogromne doświadczenie i potrafią przekazać wiedzę w sposób zrozumiały dla każdego.',
+                    'Nie mając do tej pory dotyczenia z kierownicą, a dzięki Panu Rafałowi wystarczyło 30 godzin i egzamin zdany za 1 podejściem. Serdecznie polecam Szkołę jazdy Qursant.',
                   stars: 5,
                 },
                 {
-                  name: 'Karolina Wiśniewska',
+                  name: 'Karolina',
                   role: 'Kategoria B',
-                  image: '/images/instructors/photo-23.jpg',
                   quote:
-                    'Profesjonalna szkoła jazdy. Elastyczne godziny zajęć, które można dopasować do swojego grafiku. Polecam każdemu, kto szuka solidnej szkoły jazdy.',
+                    'Świetna szkoła jazdy! Egzamin zdany za pierwszym razem, a instruktor Rafał to prawdziwy profesjonalista świetnie przygotowuje do egzaminu i doskonale zna przepisy. Polecam!',
+                  stars: 5,
+                },
+                {
+                  name: 'Więcej opinii',
+                  role: '',
+                  quote:
+                    'Sprawdź wszystkie opinie naszych kursantów na portalu SuperPrawoJazdy',
+                  link: 'https://www.superprawojazdy.pl/szkola-jazdy-qursant,5277.htm',
                   stars: 5,
                 },
               ].map((testimonial, index) => (
@@ -858,20 +863,20 @@ export default function HomePage() {
                   </div>
 
                   <div className="pt-8 pb-4">
-                    <p className="text-blue-100 mb-6">{testimonial.quote}</p>
+                    {testimonial.link ? (
+                      <Link
+                        href={testimonial.link}
+                        target="_blank"
+                        className="text-blue-100 mb-6 hover:text-blue-300 transition-colors"
+                      >
+                        {testimonial.quote}
+                      </Link>
+                    ) : (
+                      <p className="text-blue-100 mb-6">{testimonial.quote}</p>
+                    )}
                   </div>
 
                   <div className="flex items-center">
-                    <div className="h-12 w-12 rounded-full overflow-hidden mr-4">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={96}
-                        height={96}
-                        className="object-cover"
-                        sizes="96px"
-                      />
-                    </div>
                     <div>
                       <h4 className="text-white font-medium">
                         {testimonial.name}
