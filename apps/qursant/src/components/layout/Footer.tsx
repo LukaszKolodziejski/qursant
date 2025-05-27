@@ -172,7 +172,16 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8">
           <p className="text-base text-gray-400 text-center">
-            © {currentYear} Qursant. Wszelkie prawa zastrzeżone.
+            © {currentYear} Qursant. Wszelkie prawa zastrzeżone. Strona
+            stworzona przez{' '}
+            <a
+              href="https://www.linkedin.com/in/lukasz-kolodziejski/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              Łukasz Kołodziejski
+            </a>
           </p>
         </div>
       </div>
