@@ -103,6 +103,7 @@ export default function HomePage() {
 
       <section
         ref={mainRef}
+        data-homepage
         className="relative w-full min-h-screen overflow-x-hidden"
       >
         <div className="absolute inset-0 w-full h-full z-0">
