@@ -291,7 +291,8 @@ export default function CennikPage() {
                 </li>
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
-                  {PRICES.ADDITIONAL.TRAINING_EXTERNAL} zł/godz. - pozostali
+                  {PRICES.ADDITIONAL.TRAINING_EXTERNAL} zł/godz. - dla
+                  pozostałych
                 </li>
               </ul>
             </motion.div>
