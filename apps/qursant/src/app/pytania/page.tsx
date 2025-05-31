@@ -12,6 +12,7 @@ import {
 import { FaCar, FaGraduationCap } from 'react-icons/fa';
 import Link from 'next/link';
 import { CONTACT } from '@/constants/contact';
+import { PRICES } from '@/constants/prices';
 
 export default function PytaniaPage() {
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -145,26 +146,26 @@ export default function PytaniaPage() {
         {
           id: 'cena',
           question: 'Ile kosztuje kurs i co zawiera cena?',
-          answer:
-            'Kurs podstawowy kosztuje 3200 zł, ekspresowy 4000 zł. Cena zawiera: komplet materiałów dydaktycznych, 30h teorii, 30h praktyki, egzaminy wewnętrzne. Oferujemy możliwość płatności w 5 wygodnych ratach.',
+          answer: `Kurs podstawowy kosztuje ${PRICES.COURSE.BASIC} zł, ekspresowy ${PRICES.COURSE.EXPRESS} zł. Cena zawiera: komplet materiałów dydaktycznych, 30h teorii, 30h praktyki, egzaminy wewnętrzne. Oferujemy możliwość płatności w 5 wygodnych ratach.`,
         },
         {
           id: 'dokumenty',
           question: 'Jakie dokumenty są potrzebne?',
-          answer:
-            'Potrzebujesz: dowód osobisty, PKK (pomagamy w uzyskaniu), orzeczenie lekarskie (możliwość wykonania u nas za 200 zł), zdjęcie do dokumentów. Wszystkie formalności możemy załatwić podczas jednej wizyty w naszej szkole.',
+          answer: `Potrzebujesz: dowód osobisty, PKK (pomagamy w uzyskaniu), orzeczenie lekarskie (możliwość wykonania u nas za ${PRICES.ADDITIONAL.MEDICAL_EXAM} zł), zdjęcie do dokumentów. Wszystkie formalności możemy załatwić podczas jednej wizyty w naszej szkole.`,
         },
         {
           id: 'dodatkowe',
           question: 'Czy są jakieś dodatkowe opłaty?',
-          answer:
-            'Poza kursem należy uwzględnić: badanie lekarskie (200 zł), opłatę za egzamin państwowy (teoria 50 zł, praktyka 200 zł). Ewentualne jazdy doszkalające to koszt 100 zł/h dla naszych kursantów.',
+          answer: `Poza kursem należy uwzględnić: badanie lekarskie (${PRICES.ADDITIONAL.MEDICAL_EXAM} zł), opłatę za egzamin państwowy (teoria 50 zł, praktyka 200 zł). Ewentualne jazdy doszkalające to koszt ${PRICES.ADDITIONAL.TRAINING_OWN_STUDENT} zł/h dla naszych kursantów.`,
         },
         {
           id: 'raty',
           question: 'Jak wygląda system ratalny?',
-          answer:
-            'Oferujemy dogodny system ratalny: I rata (600 zł) - przy zapisie, II rata (600 zł) - przed pierwszą jazdą, III rata (600 zł) - po 10h jazd, IV rata (700 zł) - po 16h jazd, V rata (700 zł) - po 24h jazd. Nie pobieramy żadnych dodatkowych opłat za rozłożenie płatności na raty.',
+          answer: `Oferujemy dogodny system ratalny: ${PRICES.INSTALLMENTS.map(
+            (rate, index) => `${rate.step} (${rate.amount} zł) - ${rate.desc}`
+          ).join(
+            ', '
+          )}. Nie pobieramy żadnych dodatkowych opłat za rozłożenie płatności na raty.`,
         },
       ],
     },
@@ -182,8 +183,7 @@ export default function PytaniaPage() {
         {
           id: 'niepowodzenie',
           question: 'Co w przypadku niepowodzenia na egzaminie?',
-          answer:
-            'W przypadku niepowodzenia oferujemy jazdy doszkalające w promocyjnej cenie 100 zł/h dla naszych kursantów. Analizujemy błędy z egzaminu i skupiamy się na elementach wymagających poprawy. Pomagamy również w organizacji kolejnego terminu egzaminu.',
+          answer: `W przypadku niepowodzenia oferujemy jazdy doszkalające w promocyjnej cenie ${PRICES.ADDITIONAL.TRAINING_OWN_STUDENT} zł/h dla naszych kursantów. Analizujemy błędy z egzaminu i skupiamy się na elementach wymagających poprawy. Pomagamy również w organizacji kolejnego terminu egzaminu.`,
         },
         {
           id: 'przerwa',

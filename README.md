@@ -13,6 +13,13 @@
 
 ## Run tasks
 
+To merge:
+
+```sh
+git merge develop
+git push --force
+
+```
 To run the dev server for your app, use:
 
 ```sh
