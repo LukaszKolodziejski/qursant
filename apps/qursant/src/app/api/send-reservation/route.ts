@@ -30,7 +30,6 @@ export async function POST(request: Request) {
 
     console.log('Wysyłanie emaila do klienta...');
     const customerResponse = await resend.emails.send({
-      // from: 'Qursant <onboarding@resend.dev>',
       from: 'Qursant <no-reply@qursant.com.pl>',
       to: [email],
       subject: 'Potwierdzenie rezerwacji kursu - Szkoła Jazdy Qursant',
@@ -40,12 +39,9 @@ export async function POST(request: Request) {
 
     console.log('Wysyłanie emaila do admina...');
     const adminResponse = await resend.emails.send({
-      // from: 'Qursant <onboarding@resend.dev>',
       from: 'Qursant <no-reply@qursant.com.pl>',
-      // to: ['lukasz.kolodziejski333@gmail.com'], //TODO: Change to admin email and domain
-      // to: ['lukasz-kolodziejski3333@wp.pl'], //TODO: Change to admin email and domain
-      // to: ['lukkoli.web@wp.pl',CONTACT.EMAIL], //TODO: Change to admin email and domain
-      to: ['lukkoli.web@wp.pl'], //TODO: Change to admin email and domain
+      to: ['lukkoli.web@wp.pl', CONTACT.EMAIL],
+      // to: ['lukkoli.web@wp.pl'],
       replyTo: email,
       subject: 'Nowa rezerwacja kursu',
       html: adminEmailHtml,
