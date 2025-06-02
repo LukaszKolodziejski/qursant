@@ -13,6 +13,6 @@ export const PRICES = {
   ADDITIONAL: {
     MEDICAL_EXAM: 200,
     TRAINING_OWN_STUDENT: 110,
-    TRAINING_EXTERNAL: 110,
+    TRAINING_EXTERNAL: 120,
   },
 } as const;
