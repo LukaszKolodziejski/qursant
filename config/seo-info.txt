@@ -1,0 +1,69 @@
+Wprowadzone zmiany znacząco poprawią SEO strony:
+W layout.tsx:
+Dodano rozszerzone metadane z kluczowymi frazami dla Bydgoszczy
+Dodano strukturalne dane Schema.org dla szkoły jazdy
+Dodano geolokalizację i dane adresowe
+Zoptymalizowano tytuły i opisy pod kątem SEO
+Dodano OpenGraph tagi dla lepszego udostępniania w mediach społecznościowych
+Utworzono robots.txt:
+Zdefiniowano zasady indeksowania dla robotów
+Dodano odniesienie do sitemap.xml
+Zabezpieczono wrażliwe ścieżki
+Utworzono sitemap.xml:
+Dodano wszystkie ważne strony
+Ustawiono priorytety i częstotliwość aktualizacji
+Dodano daty ostatniej modyfikacji
+
+
+Dodatkowe rekomendacje dla dalszej optymalizacji SEO:
+1 
+Techniczne:
+Zoptymalizuj obrazy (dodaj znaczniki alt, lazy loading)
+Popraw wydajność strony (Core Web Vitals)
+Dodaj kompresję GZIP/Brotli
+Skonfiguruj cache przeglądarki
+2
+Treść:
+Dodaj więcej lokalnego contentu związanego z Bydgoszczą
+Twórz blog z poradami dla kursantów
+Dodaj sekcję z sukcesami i statystykami zdawalności
+Rozszerz FAQ o lokalne pytania
+3
+Linkowanie:
+Zbuduj profil linków z lokalnych portali
+Dodaj firmę do lokalnych katalogów
+Współpracuj z lokalnymi portalami
+4
+Lokalne SEO:
+Załóż i zoptymalizuj Google Business Profile
+Zbieraj pozytywne recenzje Google
+Dodaj firmę do Apple Maps i Bing Places
+
+
+>>>>
+Podsumowanie zmian i rekomendacji:
+1 Sitemap:
+Zastąpiliśmy statyczny sitemap.xml dynamicznym generatorem
+Daty będą aktualizowane automatycznie
+Łatwiejsze zarządzanie priorytetami i częstotliwością zmian
+Next.js automatycznie generuje sitemap.xml przy każdym buildzie
+
+2 Dodatkowe usprawnienia SEO:
+Dodano manifest.json dla PWA
+Dodano plik weryfikacyjny Google
+Rozszerzono słowa kluczowe o "ośrodek szkolenia kierowców" i "osk"
+Dodano wsparcie dla Apple Web App
+Włączono wykrywanie email w formatDetection
+
+3. Dodatkowe rekomendacje:
+Dodaj plik .well-known/security.txt z informacjami o bezpieczeństwie
+Rozważ dodanie RSS feed dla przyszłego bloga
+Dodaj znaczniki Open Graph dla każdej podstrony
+Zaimplementuj breadcrumbs w Schema.org
+Dodaj FAQ Schema.org na stronie z pytaniami
+
+4. Monitorowanie SEO:
+Zarejestruj stronę w Google Search Console
+Skonfiguruj Google Analytics 4
+Monitoruj Core Web Vitals
+Śledź pozycje w wynikach wyszukiwania dla kluczowych fraz

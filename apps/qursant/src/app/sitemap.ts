@@ -1,20 +1,50 @@
 import { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    '/',
-    '/about',
-    '/courses',
-    '/pricing',
-    '/booking',
-    '/faq',
-    '/contact',
-  ];
+const routes = [
+  {
+    url: '/',
+    priority: 1.0,
+    changeFrequency: 'weekly',
+  },
+  {
+    url: '/o-nas',
+    priority: 0.8,
+    changeFrequency: 'monthly',
+  },
+  {
+    url: '/kursy',
+    priority: 0.9,
+    changeFrequency: 'weekly',
+  },
+  {
+    url: '/cennik',
+    priority: 0.9,
+    changeFrequency: 'weekly',
+  },
+  {
+    url: '/rezerwacja',
+    priority: 1.0,
+    changeFrequency: 'always',
+  },
+  {
+    url: '/pytania',
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
+    url: '/kontakt',
+    priority: 0.8,
+    changeFrequency: 'monthly',
+  },
+] as const;
 
-  return routes.flatMap((route) => ({
-    url: `https://www.qursant.com.pl${route}`,
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://www.qursant.com.pl';
+
+  return routes.map(({ url, priority, changeFrequency }) => ({
+    url: `${baseUrl}${url}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency,
+    priority,
   }));
 }

@@ -1,0 +1,17 @@
+{
+    "name": "Szkoła Jazdy Qursant Bydgoszcz",
+    "short_name": "Qursant",
+    "description": "Profesjonalna szkoła jazdy w Bydgoszczy. Kursy prawa jazdy kategorii B.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3b82f6",
+    "icons": [
+        {
+            "src": "/logo/logo.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

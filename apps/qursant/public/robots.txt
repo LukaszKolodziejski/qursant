@@ -1,0 +1,11 @@
+# https://www.qursant.com.pl/robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://www.qursant.com.pl/sitemap.xml
+
+# Block access to specific files and directories
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?* 
