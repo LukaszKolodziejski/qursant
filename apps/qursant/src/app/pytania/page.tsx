@@ -128,7 +128,7 @@ export default function PytaniaPage() {
           id: 'zdawalnosc',
           question: 'Jaka jest zdawalność w Waszej szkole?',
           answer:
-            'Nasza szkoła może pochwalić się zdawalnością na poziomie 95% za pierwszym podejściem. To wynik znacznie wyższy niż średnia krajowa. Osiągamy to dzięki indywidualnemu podejściu do kursanta, doświadczonej kadrze i kompleksowemu programowi szkolenia.',
+            'Nasza szkoła może pochwalić się zdawalnością na poziomie 60% za pierwszym podejściem. To wynik znacznie wyższy niż średnia krajowa. Osiągamy to dzięki indywidualnemu podejściu do kursanta, doświadczonej kadrze i kompleksowemu programowi szkolenia.',
         },
         {
           id: 'stres',

@@ -177,8 +177,7 @@ export default function HomePage() {
                 variants={fadeInUp}
                 className="mt-4 md:mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-blue-100 max-w-2xl mx-auto break-words"
               >
-                Szkoła Jazdy w Bydgoszczy, gdzie 95% kursantów zdaje za
-                pierwszym razem!
+                Polecana przez tysiące kursantów od {getExperienceYears()} lat
               </motion.p>
 
               <motion.div
@@ -448,8 +447,8 @@ export default function HomePage() {
                 },
                 {
                   icon: <FaMedal />,
-                  value: '95%',
-                  label: 'Zdawalność',
+                  value: '98%',
+                  label: 'Zadowolenia',
                   color: 'from-yellow-400 to-orange-500',
                 },
               ].map((stat, index) => (
@@ -472,7 +471,7 @@ export default function HomePage() {
                       {stat.icon}
                     </div>
                     <motion.dt
-                      className={`text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.color} mb-2`}
+                      className={`text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.color} mb-2`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}

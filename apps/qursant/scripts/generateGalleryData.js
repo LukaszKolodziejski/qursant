@@ -93,7 +93,7 @@ async function generateGalleryData() {
 
       imagesData.push({
         src: `/images/${category}/${file}`,
-        alt: `${categoryInfo.title} - Zdjęcie ${photoNumber}`,
+        alt: `${categoryInfo.title}`,
         category,
         width: metadata.width,
         height: metadata.height,

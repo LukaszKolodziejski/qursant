@@ -111,7 +111,7 @@ a.buttonLukkoli {
 
 <div class="coupon">
   <div class="container">
-    <h3><img src="https://www.qursant.com.pl/wp-content/uploads/2019/08/cropped-darklogo.png" alt="Szkoła jazdy Qursant" style="width:auto; height:60px"></h3>
+    <h3><img src="https://www.qursant.com.pl/logo/logo-white.png" alt="Szkoła jazdy Qursant" style="width:auto; height:60px"></h3>
   </div>
   
   <div class="container" style="background-color:white">
@@ -218,7 +218,7 @@ body {
 
 <div class="coupon">
   <div class="container">
-    <h3><img src="https://www.qursant.com.pl/wp-content/uploads/2019/08/cropped-darklogo.png" alt="Szkoła jazdy Qursant" style="width:auto; height:60px"></h3>
+    <h3><img src="https://www.qursant.com.pl/logo/logo-white.png" alt="Szkoła jazdy Qursant" style="width:auto; height:60px"></h3>
   </div>
   
   <div class="container" style="background-color:white">

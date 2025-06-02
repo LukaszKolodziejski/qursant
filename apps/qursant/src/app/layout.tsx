@@ -1,10 +1,17 @@
 import './globals.css';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
+
+export const viewport: Viewport = {
+  themeColor: '#3b82f6',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.qursant.com.pl'),
@@ -13,7 +20,7 @@ export const metadata: Metadata = {
     default: 'Szkoła Jazdy Qursant Bydgoszcz - Prawo Jazdy Kategorii B',
   },
   description:
-    'Profesjonalna szkoła jazdy w Bydgoszczy ➤ 95% zdawalność ➤ Doświadczeni instruktorzy ➤ Nowoczesne samochody ✓ Zapisz się na kurs prawa jazdy już dziś! Elastyczne terminy, konkurencyjne ceny.',
+    'Profesjonalna szkoła jazdy w Bydgoszczy ➤ Doświadczeni instruktorzy ➤ Nowoczesne samochody ✓ Zapisz się na kurs prawa jazdy już dziś! Elastyczne terminy, konkurencyjne ceny.',
   keywords:
     'szkoła jazdy, szkoła jazdy bydgoszcz, prawo jazdy, prawo jazdy bydgoszcz, kurs prawa jazdy, kurs prawa jazdy bydgoszcz,nauka jazdy, nauka jazdy bydgoszcz, kurs na prawo jazdy, instruktor bydgoszcz, egzamin prawo jazdy bydgoszcz, kategoria b bydgoszcz, ośrodek szkolenia kierowców bydgoszcz, osk bydgoszcz',
   alternates: {
@@ -24,7 +31,6 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/manifest.json',
-  themeColor: '#3b82f6',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -59,7 +65,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'verification_token',
+    google: '3MjVR8wLcqMo3Ft46oL8xIPPT7ZG9O7H9l78xO2gtgs',
   },
   authors: [{ name: 'Qursant' }],
   creator: 'Qursant',
@@ -69,12 +75,7 @@ export const metadata: Metadata = {
     address: true,
     email: true,
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  category: 'education',
+  category: 'driving school',
   other: {
     'geo.position': '53.1133239;18.0069507',
     'geo.placename': 'Bydgoszcz',
@@ -145,7 +146,7 @@ export default function RootLayout({ children }: Props) {
         />
         <meta
           name="google-site-verification"
-          content="LGupz6VxxoIGgNHBnWDbKrxhyUIFqscCFZSfLfr-DHI"
+          content="3MjVR8wLcqMo3Ft46oL8xIPPT7ZG9O7H9l78xO2gtgs"
         />
       </head>
       <body
