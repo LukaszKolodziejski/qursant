@@ -47,4 +47,11 @@ out
 
 test-output
 
+*.local
+.local
+local
+*.env.local
+!.env.local
+
+# Ignoruj pliki środowiskowe
 .env.local
