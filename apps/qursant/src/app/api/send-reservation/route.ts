@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     console.log('Wysyłanie emaila do admina...');
     const adminResponse = await resend.emails.send({
       from: 'Qursant <no-reply@qursant.com.pl>',
-      to: ['lukkoli.web@wp.pl', CONTACT.EMAIL],
+      to: [CONTACT.EMAIL],
       // to: ['lukkoli.web@wp.pl'],
       replyTo: email,
       subject: 'Nowa rezerwacja kursu',
