@@ -177,7 +177,7 @@ export default function HomePage() {
                 variants={fadeInUp}
                 className="mt-4 md:mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-blue-100 max-w-2xl mx-auto break-words"
               >
-                Polecana przez tysiące kursantów od {getExperienceYears()} lat
+                Najwyższa zdawalność w Bydgoszczy od {getExperienceYears()} lat
               </motion.p>
 
               <motion.div
