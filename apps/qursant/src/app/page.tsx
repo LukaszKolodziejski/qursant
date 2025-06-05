@@ -211,7 +211,7 @@ export default function HomePage() {
                 >
                   <span className="relative z-10">Sprawdź kursy</span>
                   <span className="block text-xs md:text-sm mt-0.5 md:mt-1 opacity-90">
-                    -10% do końca miesiąca
+                    Ceny promocyjne do końca miesiąca
                   </span>
                   <motion.span
                     className="absolute inset-0 bg-white/20 z-0"
