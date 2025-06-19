@@ -1,7 +1,7 @@
 export const PRICES = {
   COURSE: {
     BASIC: 3350,
-    EXPRESS: 4000,
+    EXPRESS: 4150,
   },
   INSTALLMENTS: [
     { step: 'I rata', amount: 650, desc: 'Zajęcia teoretyczne' },
