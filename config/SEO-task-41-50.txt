@@ -1,0 +1,76 @@
+SEO — Zadania techniczne dla punktów 41–50 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx. Źródło: config/SEO.txt (pkt 41–50) i config/DOCUMENTATION.txt.
+
+41) Walidacja danych strukturalnych (Rich Results Test) i lint JSON‑LD
+- [DEV] Komponent schem: centralizuj w `apps/qursant/src/components/seo/StructuredData.tsx` funkcje generujące JSON‑LD (Organization, LocalBusiness, WebSite, BreadcrumbList, Article, FAQPage, HowTo, VideoObject, ImageObject, Service, Event).
+- [DEV] Linter schem: skrypt `apps/qursant/scripts/validate-schema.ts` — walidacja JSON (typy pól, wymagane atrybuty, rozmiar), wykrywanie null/empty; raport do `config/schema-report.csv`.
+- [DEV] Test integracyjny: dodaj prostą stronę testową (tylko w dev) `/seo/schema-sample` renderującą wszystkie typy — do ręcznego sprawdzenia w Rich Results Test.
+- [DEV] NPM scripts: `npm run seo:schema` uruchamia linter + otwiera wskazówki manualnej walidacji (link do narzędzia Google).
+- Kryteria akceptacji: brak błędów krytycznych w linterze i Rich Results Test dla stron przykładowych.
+
+42) Przygotowanie pod AI Overviews (AIO) i odpowiedzi bezpośrednie
+- [DEV] Komponent `AnswerBox`: `apps/qursant/src/components/seo/AnswerBox.tsx` — krótka odpowiedź 40–80 słów z tytułem pytania; opcjonalne listy/tabele.
+- [DEV] Wstaw `AnswerBox` na: `cennik/page.tsx` (kluczowe ceny/warunki), `kursy/page.tsx` (jak zapisać się, czas trwania), `pytania/page.tsx` (top pytania), `o-nas/page.tsx` (dlaczego my), `kontakt/page.tsx` (jak dojechać/rezerwacja).
+- [DEV] Schema wspierająca: FAQPage/HowTo/Service zgodnie z treścią `AnswerBox`; nie duplikuj pytań bez rzeczywistej treści.
+- [DEV] Fragmenty tabel: przygotuj mały komponent `KeyFactsTable` (2‑kolumnowa) dla warunków/cen/terminów.
+- Kryteria akceptacji: bloki odpowiedzi są czytelne, unikalne i zgodne z treścią; brak „thin” Q&A; test manualny — AIO‑friendly format.
+
+43) Featured Snippets (definicje i listy kroków)
+- [DEV] Komponent `DefinitionBlock`: `apps/qursant/src/components/seo/DefinitionBlock.tsx` — definicja 1–2 zdania.
+- [DEV] Komponent `StepsList`: `apps/qursant/src/components/seo/StepsList.tsx` — lista kroków z kotwicami (`id`), możliwy `HowTo` JSON‑LD.
+- [DEV] Wstaw na money pages: na `kursy/page.tsx` sekcja „Jak wygląda proces zapisu?” (StepsList); na `rezerwacja/page.tsx` „Jak rezerwacja działa?”; na `cennik/page.tsx` definicja opisująca strukturę cen.
+- [DEV] Anchor links: dodaj spis treści na dłuższych stronach (TOC z linkami do sekcji) — ułatwi skanowanie i FS.
+- Kryteria akceptacji: obecne krótkie bloki definicji i listy kroków; poprawne kotwice; brak konfliktów z FAQ.
+
+44) PAA (People Also Ask) — pytania i sekcje Q&A
+- [DEV] Dane FAQ: utwórz `apps/qursant/src/data/faq.ts` z listą najczęstszych pytań/odpowiedzi (źródło: PAA/klienci); przypisz do stron: `pytania`, `kursy`, `cennik`, `rezerwacja`, `kontakt`.
+- [DEV] Komponent `FaqSection`: `apps/qursant/src/components/seo/FaqSection.tsx` — akordeon + generacja `FAQPage` w `StructuredData`.
+- [DEV] Wstaw `FaqSection` na ww. strony; dopilnuj by pytania były różnorodne i nie duplikowały H2 tytułów sekcji.
+- [DEV] Linkowanie do sekcji: każdy FAQ ma anchor (#pytanie); umożliw url fragmentowy w linkach wewnętrznych.
+- Kryteria akceptacji: FAQ renderuje się bez błędów; schemy poprawne; sekcje Q&A realnie odpowiadają na pytania użytkowników.
+
+45) E‑E‑A‑T — autorzy, polityki, zaufanie
+- [DEV] Strony autorów: `apps/qursant/src/app/autor/[slug]/page.tsx` + dane `apps/qursant/src/data/authors.ts` (bio, doświadczenie, zdjęcie, kwalifikacje). Linkuj z artykułów i sekcji „O nas”.
+- [DEV] Polityki: dodaj strony `apps/qursant/src/app/polityka-redakcyjna/page.tsx`, `apps/qursant/src/app/polityka-prywatnosci/page.tsx` (jeśli nie ma), `apps/qursant/src/app/reklama-wspolpraca/page.tsx` — link w stopce.
+- [DEV] Trust/Proof: sekcja na `/o-nas` z certyfikatami, referencjami i case (wideo/zdjęcia) + link do dedykowanej strony „Opinie”.
+- [DEV] Meta autora/aktualizacji: w poradniku i money pages dodaj bloki „Autor” i „Aktualizacja: data”; w JSON‑LD `Article`/`BlogPosting` uzupełnij `author`, `dateModified`.
+- Kryteria akceptacji: istnieją strony autorów i polityk; money/poradnik zawiera info o autorze/aktualizacji; zwiększona wiarygodność w UI.
+
+46) Źródła i cytowania
+- [DEV] Komponent `References`: `apps/qursant/src/components/seo/References.tsx` — lista źródeł (tytuł, URL, data dostępu); użyj na stronach poradnika i przy wrażliwych treściach.
+- [DEV] Dane źródeł: możliwość przekazania przez props lub frontmatter (dla MDX) — w tej chwili jako tablica w pliku strony.
+- [DEV] Atrybuty linków zewn.: `rel="noopener nofollow"` dla źródeł, które nie są oficjalnymi instytucjami; `target="_blank"` gdy właściwe.
+- [DEV] Style cytatów: w `globals.css` dodaj styl dla bloków cytatów (`blockquote`) i bibliografii.
+- Kryteria akceptacji: źródła obecne i poprawnie ostylowane; linki mają prawidłowe atrybuty; JSON‑LD (jeśli dotyczy) bez sprzeczności.
+
+47) YMYL — recenzja ekspercka i disclaimers
+- [DEV] Flagi treści: w danych artykułu dodaj `isYMYL: boolean` i `reviewedBy?: AuthorRef`.
+- [DEV] Banner disclaimer: komponent `YMYLBanner` informujący, że treść ma charakter informacyjny (nie porada prawna/medyczna/finansowa) — renderuj gdy `isYMYL`.
+- [DEV] Review meta: w `Article` JSON‑LD dodaj `reviewedBy` (jeśli istnieje) i datę przeglądu; wyświetl sekcję „Sprawdzono przez”.
+- [DEV] Formularze/kontakt: wzmocnij walidację i dostępność (WCAG), by nie indukować błędów w krytycznych procesach.
+- Kryteria akceptacji: YMYL treści oznaczone i mają disclaimers; jeśli zrecenzowane — widoczne w UI i JSON‑LD.
+
+48) Kalendarz publikacji i aktualizacji (velocity)
+- [DEV] Plik kalendarza: `config/content-calendar.json` — pozycje (slug, tytuł, klaster, planowana data publikacji/aktualizacji, intencja, właściciel).
+- [DEV] Generator szablonów: skrypt `apps/qursant/scripts/generate-article.ts` tworzący pliki w `apps/qursant/src/data/poradnik/*.mdx` lub `.ts` na podstawie kalendarza (z frontmatter: autor, data, źródła, FAQ stuby).
+- [DEV] Widok dev: `/seo/calendar` (tylko w dev) — lista backlogu treści, status (DRAFT/READY/PUBLISHED/UPDATE DUE) na podstawie obecności pliku i dat.
+- Kryteria akceptacji: kalendarz istnieje; generator tworzy pliki bez błędów; widok dev wyświetla backlog i statusy.
+
+49) Szablony treści (service, lokalizacja, porównanie, poradnik, checklist, case, FAQ, glosariusz)
+- [DEV] Katalog szablonów: `apps/qursant/src/components/content-templates/` — komponenty layoutów dla typów treści (nagłówek, meta, FAQ slot, references slot, CTA, breadcrumbs, schema hooks).
+- [DEV] MDX wsparcie (opcjonalnie): konfiguracja loadera MDX (Nx/Next) jeśli zdecydujemy; na start można użyć plików `.ts` z danymi.
+- [DEV] Przykładowe wdrożenia: utwórz po 1 stronie każdego typu (DRAFT) i ukryj przed sitemap (noindex) do czasu publikacji.
+- Kryteria akceptacji: szablony gotowe do użycia; można w prosty sposób tworzyć nowe strony z poprawną strukturą SEO.
+
+50) Internal linking playbook — egzekucja
+- [DEV] Użyj istniejącego `SuggestedLinks` (z wcześniejszych zadań) + `ClusterNav` i `RelatedContent` do osiągnięcia 5–10 linków kontekstowych/stronę w money/poradnik.
+- [DEV] Linter linków: skrypt `apps/qursant/scripts/check-internal-links.ts` — raportuje liczbę linków wewnętrznych per strona, wykrywa sieroty i brak linków do hubu.
+- [DEV] Reguły anchorów: wykorzystaj `SmartLink` (z wcześniejszych zadań) dla opisowych anchorów; ostrzegaj o exact‑match spam.
+- [DEV] QA: raport do `config/internal-links-report.csv` — money pages muszą mieć ≥5 linków; artykuły w klastrze linkują do hubu i 2+ powiązanych artykułów.
+- Kryteria akceptacji: raport „zielony” dla money i klastrów; brak orphanów w kluczowych sekcjach.
+
+Uwagi implementacyjne
+- Dbaj o spójność danych źródłowych (NAP, autorzy) poprzez centralne pliki w `src/constants`/`src/data`.
+- JSON‑LD renderuj bezpiecznie, minimalizując wpływ na CWV; unikaj zduplikowanych skryptów dla tego samego typu/strony.
+- Każdą większą zmianę opisz w changelogu SEO (data, co zmieniono, oczekiwany wpływ), aby korelować z GSC/GA4.

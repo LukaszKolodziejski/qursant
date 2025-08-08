@@ -5,6 +5,7 @@ import {
   getAdminEmailTemplate,
 } from '@/constants/emailTemplates';
 import { CONTACT } from '@/constants/contact';
+import { sendGaEventServer } from '@/lib/ga-server';
 
 export async function POST(request: Request) {
   try {
@@ -90,10 +91,19 @@ export async function POST(request: Request) {
     }
 
     // Jeśli wszystko się udało
+    // Fire server-side GA4 event (optional)
+    void sendGaEventServer('lead_submit_success', {
+      page_path: '/rezerwacja',
+      phone,
+      email_domain: typeof email === 'string' ? email.split('@')[1] : undefined,
+    });
+
     return NextResponse.json(
       {
         success: true,
         message: 'Rezerwacja została przyjęta pomyślnie',
+        // hint for client to optionally treat as conversion
+        event: 'lead_submit_success',
       },
       { status: 200 }
     );

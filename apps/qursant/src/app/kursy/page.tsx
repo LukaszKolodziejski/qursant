@@ -1,10 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import {
   HiOutlineClock,
-  HiOutlineCalendar,
   HiOutlineUserGroup,
   HiLightningBolt,
 } from 'react-icons/hi';
@@ -17,7 +15,11 @@ import {
 } from 'react-icons/fa';
 import { BsCalendarCheck, BsClock, BsPinMap } from 'react-icons/bs';
 import { CONTACT } from '@/constants/contact';
+import FaqSection from '@/components/seo/FaqSection';
 import { COURSE } from '@/constants/course';
+import AnswerBox from '@/components/seo/AnswerBox';
+import IntentCta from '@/components/seo/IntentCta';
+import SuggestedLinks from '@/components/seo/SuggestedLinks';
 
 export default function KursyPage() {
   // Animacje
@@ -38,6 +40,18 @@ export default function KursyPage() {
 
   return (
     <div className="min-h-screen">
+      <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-8">
+        <div className="container mx-auto px-6">
+          <AnswerBox
+            title="Czym jest kurs prawa jazdy kategorii B w Qursant?"
+            text="Kurs prawa jazdy kat. B w Qursant to 30 godzin teorii i 30 godzin praktyki na nowoczesnych Oplach Corsach. Stawiamy na małe grupy, elastyczne terminy i indywidualne podejście, co przekłada się na wysoką zdawalność egzaminów."
+          />
+        </div>
+      </section>
+      <AnswerBox
+        title="Szybka odpowiedź"
+        text="Kurs kat. B obejmuje 30 godzin teorii i 30 godzin praktyki. Zajęcia odbywają się w elastycznych terminach, a najbliższy kurs startuje już wkrótce. Zarezerwuj miejsce online."
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950">
         <div className="absolute inset-0">
@@ -81,13 +95,10 @@ export default function KursyPage() {
               </p>
             </div>
             <div className="mt-6 text-center">
-              <Link
-                href="/rezerwacja"
+              <IntentCta
+                intent="transactional"
                 className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                Zarezerwuj miejsce
-                <HiOutlineCalendar className="ml-2" />
-              </Link>
+              />
             </div>
           </motion.div>
         </div>
@@ -268,9 +279,30 @@ export default function KursyPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* FAQ + CTA Section */}
       <section className="relative py-16 bg-gradient-to-b from-blue-950 to-gray-900">
         <div className="container mx-auto px-6">
+          <FaqSection
+            items={[
+              {
+                question: 'Ile trwa kurs kat. B?',
+                answer:
+                  'Standardowo 1–3 miesiące (30h teorii i 30h praktyki). Tryb ekspresowy pozwala ukończyć kurs w 2–4 tygodnie.',
+              },
+              {
+                question: 'Jak zapisać się na kurs?',
+                answer:
+                  'Wybierz termin i zapisz się online na stronie rezerwacji lub skontaktuj się z nami telefonicznie.',
+              },
+              {
+                question: 'Czy można rozłożyć płatność na raty?',
+                answer:
+                  'Tak, oferujemy 5 wygodnych rat bez dodatkowych kosztów.',
+              },
+            ]}
+            heading="FAQ o kursach"
+            className="mb-12"
+          />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -281,13 +313,10 @@ export default function KursyPage() {
               Nie czekaj, zapisz się już dziś!
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/rezerwacja"
+              <IntentCta
+                intent="transactional"
                 className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                Zarezerwuj termin
-                <HiOutlineCalendar className="ml-2" />
-              </Link>
+              />
               <a
                 href={`tel:${CONTACT.PHONE_RAW}`}
                 className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
@@ -297,6 +326,11 @@ export default function KursyPage() {
               </a>
             </div>
           </motion.div>
+        </div>
+      </section>
+      <section className="relative py-12 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="container mx-auto px-6">
+          <SuggestedLinks currentPath="/kursy" heading="Zobacz także" />
         </div>
       </section>
     </div>

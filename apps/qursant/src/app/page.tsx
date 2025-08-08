@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import Script from 'next/script';
+import StructuredData from '@/components/seo/StructuredData';
 import {
   FaCar,
   FaUserGraduate,
@@ -99,7 +99,32 @@ export default function HomePage() {
 
   return (
     <>
-      <Script id="schema-org" type="application/ld+json" />
+      {/* VideoObject + ImageObject for media rich results */}
+      <StructuredData
+        id="homepage-media-jsonld"
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'VideoObject',
+            name: 'Szkoła Jazdy Qursant - Wideo prezentacyjne',
+            description:
+              'Poznaj Szkołę Jazdy Qursant w Bydgoszczy: nowoczesna flota, doświadczeni instruktorzy, wysoka zdawalność.',
+            thumbnailUrl: [
+              'https://www.qursant.com.pl/images/cars/photo-77.jpg',
+            ],
+            uploadDate: new Date().toISOString(),
+            contentUrl: 'https://www.qursant.com.pl/videos/main_video.mp4',
+            embedUrl: 'https://www.qursant.com.pl',
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ImageObject',
+            contentUrl: 'https://www.qursant.com.pl/images/cars/photo-77.jpg',
+            url: 'https://www.qursant.com.pl/images/cars/photo-77.jpg',
+            caption: 'Szkoła Jazdy Qursant - nowoczesna flota',
+          },
+        ]}
+      />
 
       <section
         ref={mainRef}

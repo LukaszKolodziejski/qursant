@@ -1,8 +1,14 @@
 import './globals.css';
 import { Metadata, Viewport } from 'next';
+import Script from 'next/script';
+import { initConsentDefaults } from '@/lib/ga';
+export { reportWebVitals } from '@/lib/web-vitals';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import Breadcrumbs from '@/components/nav/Breadcrumbs';
+import EventBindings from '@/components/analytics/EventBindings';
+import { CONTACT } from '@/constants/contact';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
   keywords:
     'szkoła jazdy, szkoła jazdy bydgoszcz, prawo jazdy, prawo jazdy bydgoszcz, kurs prawa jazdy, kurs prawa jazdy bydgoszcz,nauka jazdy, nauka jazdy bydgoszcz, kurs na prawo jazdy, instruktor bydgoszcz, egzamin prawo jazdy bydgoszcz, kategoria b bydgoszcz, ośrodek szkolenia kierowców bydgoszcz, osk bydgoszcz',
   alternates: {
-    canonical: 'https://www.qursant.com.pl',
+    canonical: '/',
     languages: {
       'x-default': 'https://www.qursant.com.pl',
       pl: 'https://www.qursant.com.pl',
@@ -92,17 +98,36 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="pl" className="scroll-smooth">
       <head>
+        {process.env.NEXT_PUBLIC_GA4_ID ? (
+          <>
+            <Script id="ga4-consent-default" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());`}
+            </Script>
+            <Script
+              id="ga4-script"
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
+            />
+            <Script id="ga4-config" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);} 
+                gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        ) : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'DrivingSchool',
-              name: 'Szkoła Jazdy Qursant',
-              image: 'https://www.qursant.com.pl/logo/logo-white.png',
               '@id': 'https://www.qursant.com.pl',
               url: 'https://www.qursant.com.pl',
-              telephone: '+48600354556',
+              name: 'Szkoła Jazdy Qursant',
+              image: 'https://www.qursant.com.pl/logo/logo-white.png',
+              telephone: `+48${CONTACT.PHONE_RAW}`,
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'ul. Ujejskiego 46a',
@@ -115,13 +140,6 @@ export default function RootLayout({ children }: Props) {
                 latitude: 53.1133239,
                 longitude: 18.0069507,
               },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                bestRating: '5',
-                worstRating: '1',
-                ratingCount: '156',
-              },
               openingHoursSpecification: [
                 {
                   '@type': 'OpeningHoursSpecification',
@@ -132,15 +150,23 @@ export default function RootLayout({ children }: Props) {
                     'Thursday',
                     'Friday',
                   ],
-                  opens: '09:00',
+                  opens: '15:00',
                   closes: '17:00',
+                },
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Saturday'],
+                  opens: '09:00',
+                  closes: '11:00',
                 },
               ],
               sameAs: [
-                'https://www.facebook.com/Qursant/',
-                'https://www.instagram.com/qursantlangerrobert/',
+                CONTACT.SOCIAL_MEDIA.FACEBOOK,
+                CONTACT.SOCIAL_MEDIA.INSTAGRAM,
                 'https://www.google.pl/maps/place/Szkoła+Jazdy+Qursant/@53.1133239,18.0069507,15z',
               ],
+              hasMap:
+                'https://www.google.pl/maps/place/Szkoła+Jazdy+Qursant/@53.1133239,18.0069507,15z',
             }),
           }}
         />
@@ -152,12 +178,18 @@ export default function RootLayout({ children }: Props) {
       <body
         className={`${inter.className} bg-white dark:bg-gray-900 flex flex-col min-h-screen`}
       >
+        {/* Init consent defaults client-side once */}
+        <Script id="ga4-consent-init" strategy="afterInteractive">
+          {`try{(${initConsentDefaults.toString()})();}catch(e){}`}
+        </Script>
         <Navbar />
+        <Breadcrumbs />
         <main
           className={`flex-grow [&:not(:has(>:first-child[data-homepage]))]:pt-14 [&:not(:has(>:first-child[data-homepage]))]:sm:pt-14`}
         >
           {children}
         </main>
+        <EventBindings />
         <Footer />
       </body>
     </html>

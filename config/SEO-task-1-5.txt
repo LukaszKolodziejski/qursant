@@ -1,0 +1,49 @@
+SEO — Zadania techniczne dla punktów 1–5 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx. Źródło wymagań: config/SEO.txt (punkty 1–5) i config/DOCUMENTATION.txt.
+
+1) Cele biznesowe i KPI SEO (pomiar i zdarzenia)
+- [DEV] Dodaj integrację GA4 (gtag) globalnie w `apps/qursant/src/app/layout.tsx` przy użyciu `next/script` (asynchroniczne ładowanie, consent-aware).
+- [DEV] Zaimplementuj zdarzenia GA4 dla kluczowych akcji:
+  - `lead_submit_success` po udanym wysłaniu formularza rezerwacji w `apps/qursant/src/app/api/send-reservation/route.ts` (trigger po 2xx) i w UI `apps/qursant/src/app/rezerwacja/page.tsx` (po success).
+  - `call_click` na kliknięcia tel. w całej witrynie (linki `tel:` w `Navbar.tsx`, `Footer.tsx`, `Kontakt`).
+  - `email_click` na kliknięcia w `mailto:`.
+  - `gbp_click` na klik w link do profilu Google Business Profile (jeśli link występuje w `Kontakt`).
+- [DEV] Dodaj stronę podziękowania `apps/qursant/src/app/rezerwacja/dziekujemy/page.tsx` i przekierowanie po sukcesie API; wyślij tam `page_view` + `conversion` (GA4 config przez dataLayer/gtag).
+- [DEV] Ustandaryzuj UTM w linkach wychodzących (np. do GBP) przez helper w `apps/qursant/src/lib/utm.ts` i zastosuj w komponentach.
+- [DEV] Dodaj metryki RUM Web Vitals (LCP/INP/CLS) z wysyłką do GA4 lub endpointu własnego (lekki moduł `apps/qursant/src/lib/web-vitals.ts`).
+- Kryteria akceptacji: Zdarzenia widoczne w DebugView GA4; rezerwacja generuje `lead_submit_success` i `conversion`; kliknięcia tel./email logują zdarzenia; strona /rezerwacja/dziekujemy istnieje i działa; RUM metryki raportują dane.
+
+2) Persony i intencje wyszukiwania (mapowanie na ścieżki i treści)
+- [DEV] Utwórz strukturę danych intencji w `apps/qursant/src/data/intents.ts` z mapowaniem: informacyjna (poradniki), komercyjna/transakcyjna (kursy, rezerwacja), lokalna (Bydgoszcz), porównawcza (oferty/tryby kursów).
+- [DEV] Dodaj komponent „SummaryBox”/„AnswerBox” dla krótkich odpowiedzi (AIO/FS) w `apps/qursant/src/components/seo/AnswerBox.tsx` i użyj na stronach: `cennik`, `kursy`, `pytania`, `kontakt`.
+- [DEV] Rozszerz meta template w `apps/qursant/src/app/layout.tsx` (title/description) o warianty pod różne intencje (np. „zarezerwuj”, „poznaj”, „porównaj”).
+- [DEV] Ujednolić CTA per intencja (komponent CTA w `components/seo/IntentCta.tsx`) i zastosować na stronach transakcyjnych.
+- Kryteria akceptacji: Plik `intents.ts` istnieje; AnswerBox dostępny i użyty; meta generowane z uwzględnieniem intencji; CTA spójne na stronach money (kursy/rezerwacja/cennik).
+
+3) Analiza SERP (wspieranie typów wyników: AIO, FS, PAA, Map Pack, wideo/obrazy)
+- [DEV] FAQ i PAA: Dodaj sekcje FAQ na stronach `pytania`, `kursy`, `cennik` z komponentem `FaqSection` + schema `FAQPage` (JSON‑LD w `components/seo/StructuredData.tsx`).
+- [DEV] Featured Snippets: W kluczowych stronach dodaj pierwsze akapity definicyjne (70–90 słów) i listy numerowane kroków (np. „Jak zapisać się na kurs?”) — wykorzystaj `AnswerBox`.
+- [DEV] Local/Map Pack: Uzupełnij i wstrzyknij schema `LocalBusiness`/`DrivingSchool` w `layout.tsx` lub na `kontakt/page.tsx` z danymi z `apps/qursant/src/constants/contact.ts` (NAP, geo, godziny, telefon, URL GBP).
+- [DEV] Obrazy/Wideo: Upewnij się, że `VideoObject` (dla `public/videos/main_video.mp4`) i `ImageObject` (hero, kluczowe obrazy) są dostępne przez `StructuredData.tsx`; dodać miniatury i alt.
+- [DEV] Uporządkuj `apps/qursant/src/app/robots.txt` i `sitemap.ts`, aby zawierały nowe/istniejące ważne URL (FAQ, poradniki, strony lokalne).
+- Kryteria akceptacji: Rich Results Test — brak błędów dla `FAQPage`, `LocalBusiness`, `VideoObject`, `ImageObject`; w SERP pojawiają się FAQ (po indeksacji); sitemap zawiera nowe URL.
+
+4) Audyt konkurencji (wsparcie techniczne)
+- [DEV] Dodaj źródłowe pliki danych do analizy: `config/keywords.csv`, `config/competitors.csv` z polami: fraza, intencja, typ SERP, konkurent, URL.
+- [DEV] Przygotuj lekki podgląd danych w dev: strona wewnętrzna `/seo/audyt` (chroniona przez `NODE_ENV!=='production'`) renderująca CSV (do pracy analityka SEO).
+- [DEV] Dodaj moduł eksportu mapy treści (z punktu 5) do CSV (`apps/qursant/scripts/export-topical-map.ts`).
+- Kryteria akceptacji: Pliki CSV istnieją; `/seo/audyt` renderuje listę w dev; skrypt eksportuje mapę treści do CSV bez błędów.
+
+5) Topical map i architektura treści (huby/klastry/FAQ)
+- [DEV] Utwórz hub poradnikowy: `apps/qursant/src/app/poradnik/page.tsx` z listą kategorii (np. Egzamin, Kursy i tryby, Cennik i finansowanie, Jazdy doszkalające, Formalności).
+- [DEV] Stwórz routing dla artykułów klastra: `apps/qursant/src/app/poradnik/[slug]/page.tsx` + dane w `apps/qursant/src/data/poradnik/*.mdx` (MDX) lub `.ts` (content jako data) — prosty CMS plikowy.
+- [DEV] Dodaj breadcrumbs globalnie (komponent `components/nav/Breadcrumbs.tsx`) + schema `BreadcrumbList`; użyj w `layout.tsx` i stronach klastrów.
+- [DEV] Zaktualizuj `Navbar.tsx` i `Footer.tsx`, dodając link do hubu „Poradnik”.
+- [DEV] Zaktualizuj `sitemap.ts`, by automatycznie dodawał URL z katalogu `poradnik` (odczyt plików/danych).
+- [DEV] W treści klastrów dodaj sekcje FAQ (komponent z pkt 3) i linkowanie wewnętrzne: hub → klastry → artykuły i między artykułami.
+- Kryteria akceptacji: `/poradnik` i `/poradnik/[slug]` działają; breadcrumbs widoczne i poprawne; schema `BreadcrumbList` poprawna; sitemap ma nowe wpisy; linkowanie wewnętrzne istnieje.
+
+Uwagi implementacyjne
+- Zachowaj lekkość JS: komponenty SEO/JSON‑LD bez ciężkich zależności; ładuj skrypty analityczne asynchronicznie.
+- Wersjonuj zmiany SEO (changelog) i po wdrożeniu zgłoś `sitemap` w GSC.

@@ -1,0 +1,72 @@
+SEO — Zadania techniczne dla punktów 61–70 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Tailwind, monorepo Nx. Źródło: config/SEO.txt (pkt 61–70) i config/DOCUMENTATION.txt.
+
+61) Dostępność (WCAG 2.2) — kontrasty, focus, alt/label, nagłówki
+- [DEV] ESLint A11y: dodaj plugin `eslint-plugin-jsx-a11y` do `apps/qursant/eslint.config.mjs` oraz reguły (role, aria, alt, label, heading-order).
+- [DEV] Focus i skip link: w `apps/qursant/src/app/layout.tsx` dodaj link „Przejdź do treści” (skip to main) i widoczne style focus (`:focus-visible`) w `globals.css`.
+- [DEV] Landmarks: zapewnij `header/main/footer/nav` na stronach; uzupełnij `aria-label` dla nawigacji (`Navbar.tsx`, `Footer.tsx`).
+- [DEV] Formularze: w `rezerwacja/page.tsx` zapewnij powiązane `label for/id`, opisy błędów, role/aria-live dla komunikatów.
+- [DEV] Kontrast: rozszerz `theme.css`/Tailwind config o zmienne kontrastu; test Lighthouse A11y „zielony”.
+- [DEV] Test: zintegrować `jest-axe` lub test E2E z `cypress-axe` dla wybranych stron.
+- Kryteria akceptacji: brak krytycznych błędów A11y; skip link działa; formularz dostępny z klawiatury i czytników.
+
+62) Interstitiale/pop‑upy (Page Experience) — brak inwazyjności
+- [DEV] CMP/cookie: jeśli istnieje, przebuduj na lekki pasek u dołu, bez blokady interakcji; renderuj pod foldem lub z rezerwacją miejsca.
+- [DEV] Modale: audytuj modal(e); zakaz pełnoekranowych overlay na mobile nad foldem; zamykalność ESC/klik w tło; trapping focus poprawny.
+- [DEV] Lazy inicjalizacja: wszelkie widżety zewnętrzne (chat, mapy) inicjuj po interakcji/scrollu.
+- Kryteria akceptacji: brak intrusive interstitials wg. manualnego przeglądu mobilnego; Lighthouse PE bez ostrzeżeń.
+
+63) Gęstość elementów nad foldem — priorytet treści
+- [DEV] Układ hero: zapewnij, że nad foldem znajduje się H1 + kluczowa treść/CTA; banery/promocje przenieś poniżej lub zmniejsz.
+- [DEV] Lazy assets: obrazy/elementy ciężkie poniżej folda ładuj lazy; utrzymaj rozmiar hero <= ~120KB po optymalizacjach.
+- [DEV] Test: zrzut ekranu mobile (DevTools) — ocena czytelności i stosunku treść:dekoracje.
+- Kryteria akceptacji: nad foldem brak przeładowania grafiką; wyraźne CTA i informacja.
+
+64) „noindex” dla treści niskiej wartości (wyniki wyszukiwania, testowe, staging, facety bez treści)
+- [DEV] Meta robots dynamicznie: util `apps/qursant/src/lib/robots.ts` z funkcją `shouldNoIndex(pathname, searchParams)`; użyj w `generateMetadata` stron listowych (galeria/poradnik) i ewentualnych wyników wyszukiwarki wewnętrznej (jeśli zostanie dodana).
+- [DEV] robots.txt: upewnij się, że `apps/qursant/src/app/robots.txt` blokuje `/api/` i `/seo/` (dev), a w stagingu blokuje `/` (wg env) — patrz wcześniejsze zadania.
+- [DEV] X‑Robots‑Tag: dla plików binarnych/PDF (jeśli dodane) ustaw nagłówki `noindex` w route handlerach lub `headers()`.
+- Kryteria akceptacji: strony testowe/facetowe bez wartości mają `noindex,follow`; robots.txt bez konfliktu z kluczowymi stronami.
+
+65) 404/410 i monitoring martwych linków
+- [DEV] Niestandardowy 404: dodaj `apps/qursant/src/app/not-found.tsx` z linkami do kluczowych sekcji, wyszukiwaniem wewnętrznym (jeśli będzie) i CTA kontaktu.
+- [DEV] 410: dodaj route handler `apps/qursant/src/app/gone/[...slug]/route.ts` zwracający 410 dla świadomie usuniętych stron; w `config/redirects.json` utrzymuj mapę 301/410.
+- [DEV] Link checker: skrypt `apps/qursant/scripts/check-internal-404.ts` — crawl znanych stron, wykryj linki wewnętrzne zwracające 404/410; raport `config/internal-404.csv`.
+- Kryteria akceptacji: 404 ma przyjazny UX; 410 dostępne dla deprecjacji; raport po wdrożeniu „zero” błędnych linków.
+
+66) Monitoring uptime i 5xx — alerty
+- [DEV] Healthcheck: dodaj `apps/qursant/src/app/api/health/route.ts` zwracający `{status:'ok', time}` i kod 200.
+- [DEV] Vercel/cron: skonfiguruj (zewnętrznie) ping co 5–10 min. do `/api/health`; w repo dodaj `config/monitoring.md` z instrukcją.
+- [DEV] 5xx logger: middleware lub handler błędów API logujący stack do konsoli (Vercel) z `requestId`. Opcjonalnie webhook do Slack (dokumentacja w `monitoring.md`).
+- Kryteria akceptacji: health endpoint działa; istnieje procedura monitoringu; 5xx logowane z kontekstem.
+
+67) GA4 i GSC — konfiguracja i zdarzenia SEO
+- [DEV] GA4: w `apps/qursant/src/app/layout.tsx` dodaj `next/script` z `gtag.js` (id z `NEXT_PUBLIC_GA4_ID`); utwórz `apps/qursant/src/lib/ga.ts` (pageview/event API) i wywołania na `router.events`.
+- [DEV] Zdarzenia: `lead_submit_success`, `call_click`, `email_click`, `gbp_click` (jeśli nie zrobione) — patrz pliki `rezerwacja/page.tsx`, `Navbar.tsx`, `Footer.tsx`, `kontakt/page.tsx`.
+- [DEV] GSC: upewnij się, że meta weryfikacji (jest w DOCUMENTATION) jest osadzona w `layout.tsx`; sitemap-y serwowane i link w robots.txt.
+- Kryteria akceptacji: DebugView GA4 widzi zdarzenia; GSC zweryfikowane; sitemapy zgłaszane bez błędów.
+
+68) Consent Mode v2 (UE) — nieblokujący pomiar
+- [DEV] Stan domyślny: w `layout.tsx` przed `gtag` ustaw `gtag('consent', 'default', { ad_user_data: 'denied', ad_personalization: 'denied', ad_storage: 'denied', analytics_storage: 'denied', wait_for_update: 500 })`.
+- [DEV] Baner zgody: komponent `apps/qursant/src/components/privacy/ConsentBanner.tsx` (lekki, dostępny), zapis stanu w cookie; po akceptacji wywołaj `gtag('consent','update',...)`.
+- [DEV] Minimalny tryb: brak blokowania interakcji; brak CLS; asynchroniczne ładowanie skryptów.
+- [DEV] Dokumentacja: `config/consent-mode.md` (jak działa, jakie stany, jak zmienić zgodę).
+- Kryteria akceptacji: Consent Mode aktywny; GA4 działa z modelowaniem; baner lekki i dostępny.
+
+69) Rank tracking — kluczowe klastry i lokalizacja
+- [DEV] Słowa trackowane: `config/rank-tracking-keywords.csv` (keyword,intent,cluster,landing_url,location='Bydgoszcz,PL').
+- [DEV] GSC API (opcjonalnie): skrypt `apps/qursant/scripts/gsc-positions.ts` (placeholder) pobierający `averagePosition`, `impressions`, `clicks` dla listy słów (wymaga konta serwisowego — opis w `config/gsc-setup.md`).
+- [DEV] Raport: eksport do `config/rank-tracking-report.csv` (pozycja, URL, trend vs poprzedni eksport). Alternatywnie integracja z zewnętrznym narzędziem (opis w `rank-tracking.md`).
+- Kryteria akceptacji: CSV z listą słów istnieje; skrypt generuje raport lub dokumentacja zewn. narzędzia gotowa.
+
+70) Analiza logów — crawl budget, kody odpowiedzi, błędy
+- [DEV] Parser logów: skrypt `apps/qursant/scripts/analyze-logs.ts` — wejście: pliki NDJSON/CSV z Vercel; metryki: top crawlowane URL, 404, 5xx, user‑agenty botów, średnia wielkość HTML.
+- [DEV] Raport: `config/logs-report.csv` + wykryte anomalie (nagły wzrost 404/5xx, crawl na mało wartościowe URL).
+- [DEV] Akcje: na podstawie raportu aktualizuj `redirects.json`, `robots.txt`, `sitemap` (wyklucz zbędne listingi), optymalizuj ważne ścieżki.
+- Kryteria akceptacji: raport generuje się bez błędów; zidentyfikowane 404/5xx i ścieżki do optymalizacji.
+
+Uwagi implementacyjne
+- Preferuj asynchroniczne, lekkie skrypty; unikaj blokowania renderu przez analitykę/banery.
+- Utrzymuj jedną prawdę danych kontaktowych (NAP) w `src/constants/contact.ts` i używaj w UI/schemach.
+- Po wdrożeniu: Lighthouse A11y/PE „zielony”, GA4 DebugView z danymi, GSC bez błędów sitemap/coverage, pierwsze raporty logów/pozycji zapisane w `config/`.

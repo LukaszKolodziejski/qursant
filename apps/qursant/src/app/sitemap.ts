@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { poradnikArticles } from '@/data/poradnik';
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     changeFrequency: 'weekly',
   },
   {
+    url: '/galeria',
+    priority: 0.6,
+    changeFrequency: 'monthly',
+  },
+  {
     url: '/rezerwacja',
     priority: 1.0,
     changeFrequency: 'always',
@@ -41,10 +47,27 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.qursant.com.pl';
 
-  return routes.map(({ url, priority, changeFrequency }) => ({
+  const staticEntries = routes.map(({ url, priority, changeFrequency }) => ({
     url: `${baseUrl}${url}`,
     lastModified: new Date(),
     changeFrequency,
     priority,
   }));
+
+  const poradnikEntries = [
+    {
+      url: `${baseUrl}/poradnik`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    ...poradnikArticles.map((a) => ({
+      url: `${baseUrl}/poradnik/${a.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...staticEntries, ...poradnikEntries];
 }

@@ -13,6 +13,9 @@ import { FaCar, FaGraduationCap } from 'react-icons/fa';
 import Link from 'next/link';
 import { CONTACT } from '@/constants/contact';
 import { PRICES } from '@/constants/prices';
+import AnswerBox from '@/components/seo/AnswerBox';
+import StructuredData from '@/components/seo/StructuredData';
+import SuggestedLinks from '@/components/seo/SuggestedLinks';
 
 export default function PytaniaPage() {
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -208,6 +211,25 @@ export default function PytaniaPage() {
 
   return (
     <div className="min-h-screen">
+      <AnswerBox
+        title="Szybka odpowiedź"
+        text="Znajdziesz tu odpowiedzi na najczęstsze pytania o kurs kat. B: czas trwania, wymagania, egzaminy i koszty. Jeśli czegoś brakuje, skontaktuj się z nami."
+      />
+      {/* FAQ JSON-LD for PAA/FAQ rich results */}
+      <StructuredData
+        id="faqpage-jsonld"
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: sections.flatMap((section) =>
+            section.questions.map((q) => ({
+              '@type': 'Question',
+              name: q.question,
+              acceptedAnswer: { '@type': 'Answer', text: q.answer },
+            }))
+          ),
+        }}
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950">
         <div className="absolute inset-0">
@@ -359,6 +381,12 @@ export default function PytaniaPage() {
               </a>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="relative py-12 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="container mx-auto px-6">
+          <SuggestedLinks currentPath="/pytania" heading="Powiązane strony" />
         </div>
       </section>
     </div>

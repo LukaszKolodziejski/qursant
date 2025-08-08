@@ -1,0 +1,270 @@
+# DOKUMENTACJA PROJEKTU QURSANT
+
+## OPIS PROJEKTU
+
+Projekt Qursant to nowoczesna strona internetowa dla Szkoły Jazdy Qursant z Bydgoszczy, działającej od 2009 roku. Jest to kompleksowa platforma biznesowa dla szkoły jazdy kategorii B, która przeszkoliła ponad 3000 osób. Właścicielem i głównym instruktorem jest Robert Langer.
+
+### CEL BIZNESOWY
+- Promocja usług szkoły jazdy w internecie
+- Umożliwienie online rezerwacji kursów
+- Prezentacja oferty, instruktorów i floty pojazdów
+- Zwiększenie widoczności w wyszukiwarkach (SEO)
+- Ułatwienie kontaktu z potencjalnymi kursantami
+
+### KLIENT
+Szkoła Jazdy Qursant - prywatna szkoła nauki jazdy w Bydgoszczy prowadzona przez Roberta Langera, specjalizująca się w kursach prawa jazdy kategorii B.
+
+## TECHNOLOGIE
+
+### Frontend & Framework
+- **Next.js 15.2.4** - React framework z server-side rendering
+- **React 19.0.0** - Biblioteka UI
+- **TypeScript 5.7.2** - Statyczne typowanie
+- **Tailwind CSS 3.4.3** - Framework CSS utility-first
+
+### Animacje & Interaktywność
+- **Framer Motion 12.6.3** - Biblioteka animacji
+- **React Icons 5.5.0** - Ikony
+- **React Hot Toast 2.5.2** - Powiadomienia
+
+### Mapy i Geolokalizacja
+- **@react-google-maps/api 2.20.6** - Mapy Google
+- **Leaflet 1.9.4** - Alternatywne mapy
+- **@types/leaflet 1.9.17** - Typowania dla Leaflet
+
+### 3D i Multimedia
+- **@react-three/fiber 9.1.2** - React renderer dla Three.js
+- **@react-three/drei 10.0.6** - Pomocnicze komponenty 3D
+- **Three.js 0.175.0** - Biblioteka 3D
+
+### Email i Komunikacja
+- **Nodemailer 7.0.3** - Wysyłanie emaili
+- **Resend 4.5.1** - Serwis emailowy
+
+### Bezpieczeństwo
+- **@hcaptcha/react-hcaptcha 1.12.0** - CAPTCHA
+
+### Zarządzanie projektem
+- **Nx 20.7.1** - Monorepo workspace
+- **ESLint 9.8.0** - Linter
+- **Prettier 2.6.2** - Formatowanie kodu
+
+### Testowanie
+- **Cypress 13.13.0** - Testy E2E
+- **Jest** - Testy jednostkowe
+
+### Build & Deploy
+- **Vercel** - Hosting i deployment
+- **Sharp 0.34.1** - Optymalizacja obrazów
+
+## STRUKTURA PROJEKTU
+
+### Root (/)
+```
+qursant/
+├── apps/                    # Aplikacje w monorepo
+│   ├── qursant/            # Główna aplikacja Next.js
+│   └── qursant-e2e/        # Testy end-to-end
+├── config/                 # Pliki konfiguracyjne z treścią
+├── eslint.config.mjs       # Konfiguracja ESLint
+├── nx.json                 # Konfiguracja Nx workspace
+├── package.json            # Główne zależności
+├── tsconfig.base.json      # Bazowa konfiguracja TypeScript
+└── README.md               # Dokumentacja
+```
+
+### Aplikacja główna (/apps/qursant/)
+```
+apps/qursant/
+├── public/                 # Pliki statyczne
+│   ├── images/            # Zdjęcia (instruktorzy, samochody, etc.)
+│   ├── videos/            # Wideo główne
+│   ├── logo/              # Logo szkoły
+│   └── manifest.json      # PWA manifest
+├── scripts/               # Skrypty pomocnicze
+├── src/                   # Kod źródłowy
+└── konfiguracja aplikacji (next.config.js, tailwind.config.js)
+```
+
+### Kod źródłowy (/src/)
+```
+src/
+├── app/                   # App Router Next.js 13+
+│   ├── api/              # API Routes
+│   │   ├── hello/        # Test endpoint
+│   │   └── send-reservation/ # Wysyłanie rezerwacji
+│   ├── cennik/           # Strona cennika
+│   ├── galeria/          # Galeria zdjęć
+│   ├── kontakt/          # Kontakt + mapa
+│   ├── kursy/            # Opis kursów
+│   ├── o-nas/            # O szkole
+│   ├── pytania/          # FAQ
+│   ├── rezerwacja/       # Formularz rezerwacji
+│   ├── layout.tsx        # Layout główny
+│   ├── page.tsx          # Strona główna
+│   ├── globals.css       # Style globalne
+│   └── sitemap.ts        # Mapa strony dla SEO
+├── components/           # Komponenty React
+│   └── layout/
+│       ├── Navbar.tsx    # Nawigacja
+│       └── Footer.tsx    # Stopka
+├── constants/            # Stałe i konfiguracja
+│   ├── contact.ts        # Dane kontaktowe
+│   ├── course.ts         # Informacje o kursach
+│   ├── emailTemplates.ts # Szablony emaili
+│   ├── prices.ts         # Cennik
+│   └── stats.ts          # Statystyki szkoły
+├── data/                 # Dane aplikacji
+│   └── galleryImages.ts  # Lista zdjęć galerii
+├── hooks/                # Custom React hooks
+│   └── useReservationCounter.ts # Hook licznika miejsc
+├── styles/               # Style CSS
+│   └── theme.css         # Motyw kolorystyczny
+└── types/                # Definicje TypeScript
+    └── gallery.ts        # Typy dla galerii
+```
+
+## KONFIGURACJA PROJEKTU
+
+### Nx Workspace (nx.json)
+- **Plugins**: Next.js, Cypress, ESLint, TypeScript
+- **Target defaults**: Build, serve, test, lint
+- **Named inputs**: Produkcja, development
+- **Nx Cloud ID**: 67f25b7b8491050d2c159215
+
+### Next.js (next.config.js)
+- **Nx integration**: Włączona
+- **Images**: Unoptimized (true), remote patterns dla Unsplash
+- **SVGR**: Wyłączone
+
+### Tailwind CSS (tailwind.config.js)
+- **Plugins**: @tailwindcss/forms, typography, aspect-ratio
+- **Custom colors**: background, text, primary, secondary, accent
+- **Animations**: Custom shine effect
+- **Content paths**: Wszystkie pliki TS/TSX w src/
+
+### TypeScript
+- **Target**: ES2022
+- **Module**: ESNext
+- **Strict mode**: Włączony
+- **Path mapping**: '@/*' → 'src/*'
+
+### ESLint
+- **Configs**: Next.js, Prettier, TypeScript
+- **Plugins**: React, React Hooks, Import, JSX a11y
+
+## KONFIGURACJA APLIKACJI
+
+### SEO i Metadata
+- **Domain**: qursant.com.pl
+- **Title template**: "%s | Szkoła Jazdy Qursant Bydgoszcz"
+- **OpenGraph**: Pełne metadane społecznościowe
+- **Schema.org**: Structured data dla DrivingSchool
+- **Google verification**: 3MjVR8wLcqMo3Ft46oL8xIPPT7ZG9O7H9l78xO2gtgs
+- **Geolocation**: 53.1133239, 18.0069507 (Bydgoszcz)
+
+### PWA
+- **Manifest**: /manifest.json
+- **Apple Web App**: Enabled
+- **Theme color**: #3b82f6
+
+### Deployment (Vercel)
+- **Build command**: nx build qursant
+- **Output directory**: dist/apps/qursant
+- **Environment**: Production
+
+### Assets i Media
+- **Images**: Zorganizowane w kategorie (cars, instructors, office, boss, course)
+- **Videos**: Główne wideo na stronie głównej
+- **Logos**: Białe i kolorowe wersje
+- **Optimization**: Sharp do optymalizacji obrazów
+
+## FUNKCJONALNOŚCI
+
+### Strony główne
+1. **Strona główna** - Hero section, statystyki, opinie, CTA
+2. **O nas** - Historia szkoły, instruktorzy
+3. **Kursy** - Szczegóły kursów prawa jazdy
+4. **Cennik** - Ceny kursów i dodatkowych usług
+5. **Galeria** - Zdjęcia samochodów, instruktorów, biura
+6. **Kontakt** - Formularz, mapa, dane kontaktowe
+7. **Rezerwacja** - Formularz rezerwacji kursu
+8. **FAQ** - Często zadawane pytania
+
+### API Endpoints
+- **GET /api/hello** - Test endpoint
+- **POST /api/send-reservation** - Wysyłanie formularza rezerwacji
+
+### Interaktywność
+- **Animacje**: Smooth scroll, fade-in, hover effects
+- **Responsive design**: Mobile-first approach
+- **Form validation**: Walidacja formularzy
+- **Toast notifications**: Powiadomienia o akcjach
+- **CAPTCHA**: Ochrona przed botami
+
+### SEO Features
+- **Sitemap**: Automatycznie generowana
+- **Robots.txt**: Konfiguracja dla botów
+- **Meta tags**: Kompletne dla każdej strony
+- **Structured data**: Schema.org markup
+- **Performance**: Optymalizacja ładowania
+
+## DANE BIZNESOWE
+
+### Szkoła jazdy
+- **Nazwa**: Szkoła Jazdy Qursant
+- **Właściciel**: Robert Langer
+- **Rok założenia**: 2009
+- **Lokalizacja**: Bydgoszcz, ul. K. Ujejskiego 46a
+- **Telefony**: 600 354 556, 668 302 352
+- **Email**: langer.biuro@poczta.fm
+
+### Statystyki
+- **Przeszkoleni kursanci**: 3000+
+- **Lata doświadczenia**: 15+
+- **Liczba instruktorów**: 7
+- **Zdawalność**: 95%
+- **Flota**: 6 pojazdów Toyota Yaris 2021
+
+### Oferta
+- **Kurs podstawowy kategorii B**: 3350 zł
+- **Kurs ekspresowy kategorii B**: 4150 zł
+- **Teoria**: 30h (2-3 tygodnie)
+- **Praktyka**: 30h (3-5 tygodni)
+- **Doszkalanie**: 110-120 zł/h
+- **Badanie lekarskie**: 200 zł
+
+### Harmonogram
+- **Teoria**: Poniedziałek-Piątek 17:00
+- **Jazdy**: 8:00-20:00 (7 dni w tygodniu)
+- **Biuro**: Pon-Pt 15:00-17:00, Sob 9:00-11:00
+
+## ŚRODOWISKO DEWELOPERSKIE
+
+### Komendy NPM
+```bash
+# Development
+npm run dev          # Uruchomienie deweloperskie
+npm run build        # Build produkcyjny
+npm run start        # Serwer produkcyjny
+
+# Quality
+npm run lint         # ESLint
+npm run lint:fix     # Automatyczne poprawki
+npm run typecheck    # Sprawdzenie TypeScript
+npm run format       # Prettier
+
+# Testing
+npm test             # Testy jednostkowe
+npm run e2e          # Testy E2E
+
+# Analysis
+npm run graph        # Graf zależności Nx
+npm run analyze      # Analiza bundle'a
+```
+
+### Port i URL
+- **Development**: http://localhost:4200
+- **Production**: https://qursant.com.pl
+
+Ten projekt stanowi kompletne rozwiązanie biznesowe dla szkoły jazdy, łączące nowoczesne technologie webowe z praktycznymi potrzebami prowadzenia działalności edukacyjnej w branży motoryzacyjnej.

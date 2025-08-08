@@ -1,0 +1,7 @@
+keyword,intent,cluster,target_url,notes
+"szkoła jazdy bydgoszcz",lokalna,home,"/","map_pack;local;reviews"
+"kurs prawa jazdy bydgoszcz",transakcyjna,kursy,"/kursy","fs;organic"
+"cennik prawa jazdy bydgoszcz",komercyjna,cennik,"/cennik","fs;organic"
+"jazdy doszkalające bydgoszcz",komercyjna,kursy,"/kursy","organic;local"
+"jak zapisać się na kurs prawa jazdy",informacyjna,faq,"/pytania","paa;fs"
+

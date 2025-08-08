@@ -1,0 +1,26 @@
+Krótko: te zmienne pochodzą z Google Analytics 4. Jedna jest obowiązkowa (NEXT_PUBLIC_GA4_ID), druga opcjonalna (GA4_API_SECRET – tylko dla eventów serwerowych).
+Skąd wziąć wartości
+NEXT_PUBLIC_GA4_ID (Measurement ID)
+Wejdź: analytics.google.com → Admin → Account/Property → Data streams → Web → wybierz swój strumień → skopiuj Measurement ID (format: G-XXXXXXX).
+GA4_API_SECRET (Measurement Protocol)
+W tym samym miejscu: Data streams → wybierz swój strumień → Measurement Protocol API secrets → Create → nadaj nazwę i skopiuj Secret.
+Gdzie wpisać w projekcie
+Lokalnie (dev): utwórz plik apps/qursant/.env.local i wklej:
+Następnie zrestartuj npm run dev.
+Vercel (prod/preview): Project Settings → Environment Variables:
+NEXT_PUBLIC_GA4_ID (Production, Preview)
+GA4_API_SECRET (opcjonalnie; Production, Preview)
+Potem redeploy.
+Uwaga:
+Jeśli nie ustawisz GA4_API_SECRET, działają eventy po stronie przeglądarki (page_view, web_vital, call_click, email_click, gbp_click, lead_submit_success z UI). Nie zadziała tylko wysyłka eventu serwerowego z API.
+Gdzie zobaczysz, że działa
+GA4 → Configure → DebugView (natychmiastowe podglądy)
+Odwiedź stronę, kliknij tel:/mailto:/adres na „Kontakt”, wyślij formularz w „Rezerwacja”.
+Zobaczysz eventy: page_view, web_vital, call_click, email_click, gbp_click, lead_submit_success (z UI), a po stronie „/rezerwacja/dziekujemy” dodatkowo conversion.
+GA4 → Realtime (1–2 min opóźnienia)
+Dodatkowo możesz użyć rozszerzenia Chrome „Google Tag Assistant” lub „GA Debugger”.
+Wskazówki:
+Po ustawieniu zmiennych zrestartuj dev server. Adblockery mogą blokować GA – testuj w incognito bez rozszerzeń.
+Upewnij się, że strumień Web w GA4 ma ustawiony poprawny domenowy URL (qursant.com.pl).
+Przeanalizowałem, skąd wziąć identyfikatory GA4 i jak je dodać do projektu (lokalnie i na Vercel).
+Wyjaśniłem, gdzie i jakie eventy zobaczysz (DebugView, Realtime) oraz że GA4_API_SECRET jest opcjonalny (tylko dla eventów serwerowych).

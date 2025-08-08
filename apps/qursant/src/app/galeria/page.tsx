@@ -7,12 +7,19 @@ import {
   useTransform,
 } from 'framer-motion';
 import Image from 'next/image';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, Suspense } from 'react';
+import Link from 'next/link';
+import { useSearchParams, useRouter } from 'next/navigation';
+// Uwaga: generateMetadata nie może być eksportowane z komponentu klienta.
+// Logika blokowania indeksacji dla niepoprawnych stron paginacji jest realizowana poniżej w runtime (router.replace),
+// a meta robots może być kontrolowane przez dedykowany serwerowy wrapper w przyszłym PR.
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 import { galleryImages } from '../../data/galleryImages';
 
-export default function GaleriaPage() {
+function GaleriaPageInner() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [horizontalSlideIndex1, setHorizontalSlideIndex1] = useState(0);
   const [horizontalSlideIndex2, setHorizontalSlideIndex2] = useState(0);
   const [horizontalSlideIndex3, setHorizontalSlideIndex3] = useState(0);
@@ -36,6 +43,29 @@ export default function GaleriaPage() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  // Paginacja siatki — 24/stronę z query ?page=
+  const pageSize = 24;
+  const totalImages = galleryImages.length;
+  const totalPages = Math.max(1, Math.ceil(totalImages / pageSize));
+  const pageParam = searchParams.get('page');
+  const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
+
+  useEffect(() => {
+    if (
+      Number.isNaN(currentPage) ||
+      currentPage < 1 ||
+      currentPage > totalPages
+    ) {
+      router.replace('/galeria');
+    }
+  }, [currentPage, totalPages, router]);
+
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedImages = galleryImages.slice(
+    startIndex,
+    startIndex + pageSize
+  );
 
   // Podział zdjęć poziomych na 3 grupy
   const { horizontalImages1, horizontalImages2, horizontalImages3 } =
@@ -731,6 +761,85 @@ export default function GaleriaPage() {
           </div>
         </div>
       </section>
+
+      {/* Siatka zdjęć z paginacją SEO-friendly */}
+      <section className="bg-white dark:bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+            Galeria zdjęć
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {paginatedImages.map((img) => (
+              <div
+                key={img.src}
+                className="relative aspect-square rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 300px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Paginacja: poprzednia / następna */}
+          <div className="mt-8 flex items-center justify-between">
+            <div>
+              {currentPage > 1 ? (
+                <Link
+                  href={
+                    currentPage - 1 === 1
+                      ? '/galeria'
+                      : `/galeria?page=${currentPage - 1}`
+                  }
+                  rel="prev"
+                  className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  prefetch={false}
+                >
+                  ← Poprzednia
+                </Link>
+              ) : (
+                <span className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 text-gray-400 cursor-not-allowed">
+                  ← Poprzednia
+                </span>
+              )}
+            </div>
+
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              Strona {currentPage} z {totalPages}
+            </p>
+
+            <div>
+              {currentPage < totalPages ? (
+                <Link
+                  href={`/galeria?page=${currentPage + 1}`}
+                  rel="next"
+                  className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  prefetch={false}
+                >
+                  Następna →
+                </Link>
+              ) : (
+                <span className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 text-gray-400 cursor-not-allowed">
+                  Następna →
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+  );
+}
+
+export default function GaleriaPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen" />}>
+      <GaleriaPageInner />
+    </Suspense>
   );
 }

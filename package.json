@@ -8,6 +8,7 @@
     "start": "nx serve qursant --prod",
     "test": "nx test qursant",
     "e2e": "nx e2e qursant-e2e",
+    "seo:check-meta": "tsx apps/qursant/scripts/check-meta-duplicates.ts",
     "lint": "nx lint qursant",
     "clean": "nx reset && rm -rf dist .next node_modules/.cache",
     "format": "nx format:write",
@@ -27,7 +28,11 @@
     "nx-cloud": "nx-cloud",
     "workspace-generator": "nx workspace-generator",
     "vercel-build": "nx build qursant",
-    "gallery": "node apps/qursant/scripts/generateGalleryData.js"
+    "gallery": "node apps/qursant/scripts/generateGalleryData.js",
+    "export:topical-map": "node apps/qursant/scripts/export-topical-map.mjs",
+    "seo:keywords-gap": "tsx apps/qursant/scripts/keyword-gap-report.ts",
+    "seo:import:keywords": "tsx apps/qursant/scripts/import-keywords.ts",
+    "seo:validate:keywords": "VALIDATE_ONLY=1 tsx apps/qursant/scripts/import-keywords.ts"
   },
   "private": true,
   "dependencies": {
@@ -87,6 +92,7 @@
     "prettier": "^2.6.2",
     "sharp": "^0.34.1",
     "tailwindcss": "3.4.3",
+    "tsx": "^4.20.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.19.0"
   },

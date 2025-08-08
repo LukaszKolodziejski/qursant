@@ -1,0 +1,81 @@
+SEO — Zadania techniczne dla punktów 31–40 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx, Tailwind.
+Źródło: config/SEO.txt (pkt 31–40) oraz config/DOCUMENTATION.txt.
+
+31) Renderowanie JS a indeksacja (treść krytyczna bez JS)
+- [DEV] SSR/SSG treści: dopilnuj, aby kluczowe treści (nagłówki, akapity, CTA, ceny, adres/telefon) były renderowane po stronie serwera (Server Components, SSG). Mapę w `kontakt/MapComponent.tsx` ładuj dynamicznie (client) z fallbackiem HTML (adres, godziny, link do trasy Google) widocznym bez JS.
+- [DEV] „No‑JS” fallback: dodaj klasę `no-js` na `<html>` (w `layout.tsx` przez `suppressHydrationWarning` + mały skrypt, lub serwerowo) i przygotuj minimalne style, by CTA/treści były czytelne bez JS.
+- [DEV] Snapshot HTML: skrypt `apps/qursant/scripts/snapshot-html.ts` — pobiera HTML kluczowych stron i sprawdza, czy zawierają treści krytyczne (np. selektory `h1`, `.cta`, `.prices`, `.contact-nap`). Raport do `config/html-snapshots.csv`.
+- [DEV] GSC readiness: unikaj render‑blocking modułów; w konsoli sprawdź, że HTML zawiera treść bez konieczności wykonywania JS.
+- Kryteria akceptacji: snapshot wykazuje obecność kluczowych treści w HTML; strony są czytelne przy wyłączonym JS; mapa ma fallback.
+
+32) Prefetch/Prerender/Preconnect (ostrożnie)
+- [DEV] Preconnect: dodaj w `apps/qursant/src/app/layout.tsx` preconnect do niezbędnych hostów (np. czcionki, mapy):
+  - fonts (jeśli zewnętrzne; preferuj next/font — patrz pkt 33)
+  - maps.googleapis.com (ładowany warunkowo, gdy komponent mapy ma się zainicjować)
+- [DEV] Prefetch routingu: użyj domyślnego `prefetch` w `next/link` tylko dla kluczowych linków w viewport; dla elementów w stopce wyłącz `prefetch={false}`.
+- [DEV] Unikaj `rel=prerender` dla stron bogatych — kosztowny. Zamiast tego zastosuj `router.prefetch` po idle/hover dla ścieżek money.
+- [DEV] QA: skrypt `apps/qursant/scripts/check-preconnect.ts` — weryfikuje obecność i liczbę `<link rel="preconnect">` oraz brak zbędnych wpisów.
+- Kryteria akceptacji: preconnect tylko do krytycznych hostów; brak nadmiarowego prefetch; brak regresji CWV.
+
+33) Czcionki — self‑host, subset, display: swap, ograniczenie wariantów
+- [DEV] Migracja na `next/font`:
+  - jeśli używane są Google Fonts: przejdź na `next/font/google` (np. Inter, Roboto) z `subsets: ['latin', 'latin-ext']`, `display: 'swap'` i ogranicz `weight` do realnie używanych,
+  - lub osadź pliki w `apps/qursant/public/fonts/*` i użyj `next/font/local` (subset PL),
+  - ustaw zmienne CSS (np. `--font-sans`) i podepnij w `globals.css`.
+- [DEV] Preconnect do font hosta usuń po pełnej migracji na self‑host (niepotrzebny).
+- [DEV] Test FOIT/FOUT: sprawdź w DevTools, że nie występuje FOIT; CLS nie wzrasta po załadowaniu fontów.
+- Kryteria akceptacji: czcionki ładują się lokalnie z `next/font`; tylko potrzebne wagi; CLS bez regresji.
+
+34) Struktura nagłówków (H1–H3)
+- [DEV] Komponenty nagłówków: dodaj `apps/qursant/src/components/typography/PageHeader.tsx` (renderuje H1 + opcjonalny opis) oraz `SectionHeader.tsx` (H2/H3 zgodnie z hierarchią).
+- [DEV] Refaktor stron: ustaw pojedynczy H1 na stronę (`page.tsx` każdego route), sekcje jako H2, podsekcje H3. Uporządkuj `apps/qursant/src/app/page.tsx`, `kursy/page.tsx`, `cennik/page.tsx`, `pytania/page.tsx`, `o-nas/page.tsx`, `galeria/page.tsx`, `kontakt/page.tsx`, `rezerwacja/page.tsx`.
+- [DEV] Linter nagłówków: skrypt `apps/qursant/scripts/check-headings.ts` — wykrywa brak H1 lub wiele H1; zgłasza wynik do `config/headings-report.csv`.
+- Kryteria akceptacji: każda strona ma 1×H1, logiczną hierarchię H2/H3; raport lintera czysty.
+
+35) Tytuły (title) — 50–60 znaków, jedna intencja = jeden URL
+- [DEV] Użyj utila `apps/qursant/src/lib/meta.ts` (jeśli nie istnieje — utwórz) do budowy tytułów; dodaj funkcję `ensureTitleLength()` (trim/smart ellipsis) i `assertUniqueTitles()` (w dev/test).
+- [DEV] `generateMetadata`: zapewnij unikalne tytuły dla: `/`, `/kursy`, `/cennik`, `/rezerwacja`, `/pytania`, `/o-nas`, `/galeria`, `/kontakt`, `/poradnik/*`.
+- [DEV] Test/metaraport: skrypt `apps/qursant/scripts/check-titles.ts` — sprawdza długość (50–60), duplikaty i kanibalizację (ten sam motyw/intencja na wielu URL). Raport `config/titles-report.csv`.
+- Kryteria akceptacji: brak duplikatów, długości w widełkach; brak kanibalizacji tematów w tytułach.
+
+36) Meta description — 140–160 znaków, benefit + CTA, bez duplikacji
+- [DEV] W `meta.ts` dodaj `buildDescription()` z szablonami per intencja (informacyjna/transakcyjna/lokalna) i funkcją przycinania do ~155 znaków.
+- [DEV] `generateMetadata`: dodaj/uzupełnij `description` na wszystkich kluczowych stronach i poradniku; unikaj powtórzeń.
+- [DEV] Raport: `apps/qursant/scripts/check-descriptions.ts` — długość, duplikaty, puste opisy. Zapis do `config/descriptions-report.csv`.
+- Kryteria akceptacji: brak pustych/duplikatów; długości ~150–160; opisy zawierają korzyść i CTA.
+
+37) Dane strukturalne — baza (Organization/LocalBusiness, WebSite + SitelinksSearchBox, BreadcrumbList)
+- [DEV] Komponent JSON‑LD: `apps/qursant/src/components/seo/StructuredData.tsx` z funkcjami renderującymi:
+  - `Organization` (nazwa, logo, URL, social),
+  - `WebSite` z `potentialAction: SearchAction` (SitelinksSearchBox),
+  - `BreadcrumbList` dynamicznie z breadcrumbs komponentu.
+- [DEV] Wstrzyknij `Organization` i `WebSite` globalnie w `layout.tsx`; `BreadcrumbList` na każdej stronie z breadcrumb.
+- [DEV] Walidacja: Rich Results Test (manualnie) + skrypt `apps/qursant/scripts/validate-schema.ts` (lint JSON‑LD, obecność pól).
+- Kryteria akceptacji: brak błędów/ostrzeżeń w Rich Results Test; schemy pojawiają się na stronach.
+
+38) Dane strukturalne — treści (Article/BlogPosting, FAQPage, HowTo, VideoObject, ImageObject)
+- [DEV] Poradnik: dla `/poradnik/*` generuj `Article`/`BlogPosting` (autor, data, tytuł, opis, obrazek). Autorzy zdefiniowani w `apps/qursant/src/data/authors.ts`.
+- [DEV] FAQ: na stronach z FAQ (`/pytania`, sekcje FAQ na kursach/cenniku) dodaj `FAQPage` (zgodnie z wytycznymi — bez nadużyć).
+- [DEV] HowTo: dla artykułów typu „jak zdać egzamin”/„jak się zapisać” — `HowTo` z krokami + ewentualny `estimatedCost`.
+- [DEV] Video/Image: jeśli na stronie obecne — dodaj `VideoObject`/`ImageObject` (tytuł, opis, thumbnailUrl/url, width/height).
+- Kryteria akceptacji: Rich Results Test dla przykładowych stron (poradnik, pytania) bez błędów; schemy zgodne z contentem.
+
+39) Dane strukturalne — lokalne (DrivingSchool)
+- [DEV] `LocalBusiness`/`DrivingSchool`: w `kontakt/page.tsx` i ewentualnie na stronie głównej dodaj JSON‑LD z `name`, `url`, `telephone`, `address` (`PostalAddress`), `geo`, `openingHoursSpecification`. Dane z `src/constants/contact.ts` i `DOCUMENTATION.txt`.
+- [DEV] Opinie/oceny: nie dodawaj samodzielnie generowanych `AggregateRating`, chyba że posiadasz wiarygodne źródło i zgodę (zachowaj zgodność z wytycznymi).
+- [DEV] Spójność: NAP w treści strony musi odpowiadać danym w JSON‑LD; aktualizuj w jednym miejscu (source of truth) i propaguj.
+- Kryteria akceptacji: Rich Results Test pozytywny; dane zgodne z widoczną treścią i GBP.
+
+40) Dane strukturalne — usługi/zdarzenia (Service/Product/Event)
+- [DEV] Service: na `kursy/page.tsx` dla poszczególnych trybów kursu dodaj `Service` (nazwa, opis, `areaServed: Bydgoszcz`, `provider` → `Organization/DrivingSchool`).
+- [DEV] Event: dodaj JSON‑LD `Event` dla najbliższych terminów kursów (źródło: nowy plik `config/events.json` z datami startów; renderuj tylko przyszłe eventy). Wartości: `name`, `startDate`, `location` (adres), `offers` (cena), `eventStatus`.
+- [DEV] Product (opcjonalnie): jeżeli kurs traktowany jako „produkt” — można dodać `Product`+`Offer` na stronach z cennikiem, ale zgodnie z wytycznymi (realne ceny, dostępność).
+- [DEV] Walidacja: Rich Results Test dla stron `kursy`/`cennik` z Service/Event.
+- Kryteria akceptacji: schemy Service/Event poprawne i zgodne z treścią; brak ostrzeżeń krytycznych.
+
+Uwagi implementacyjne
+- JSON‑LD wstrzykuj jako `<script type="application/ld+json">` z bezpiecznym serializowaniem.
+- Trzymaj dane organizacji i NAP w jednym pliku źródłowym (`src/constants/contact.ts`), używaj w schemach i treści.
+- Po wdrożeniu: sprawdź Rich Results Test i GSC (Enhancements), a także brak regresji CWV po dodaniu skryptów JSON‑LD.

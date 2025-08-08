@@ -1,0 +1,61 @@
+SEO — Zadania techniczne dla punktów 11–15 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx. Źródło wymagań: config/SEO.txt (punkty 11–15) i config/DOCUMENTATION.txt.
+
+11) Schemat linkowania wewnętrznego (hub→klaster, klaster↔klaster, breadcrumbs, linki w treści)
+- [DEV] Konfiguracja mapy linków: utwórz `apps/qursant/src/data/internal-links.ts` z definicją hubów (np. Poradnik, Kursy) i powiązanych klastrów/URL.
+- [DEV] Nawigacja klastrów: utwórz `apps/qursant/src/components/seo/ClusterNav.tsx` (lista linków w obrębie klastra + link do hubu) i zastosuj na stronach klastrów/artykułów.
+- [DEV] Linki kontekstowe: dodaj do kluczowych stron (home, kursy, cennik, rezerwacja, pytania, o-nas, kontakt) po 3–6 linków w treści do powiązanych sekcji/FAQ/poradników (bez sekcji „pustych linków”).
+- [DEV] Cross‑linking: na stronach „Kursy” i „Cennik” dodaj linki do „Rezerwacja” i powiązanych artykułów z Poradnika; z „Pytania” linki do odpowiednich sekcji usług.
+- [DEV] Wymuś breadcrumbs globalnie (jeśli brak) i zgodny `BreadcrumbList` (JSON‑LD) — patrz wcześniejsze zadania 5/8.
+- Kryteria akceptacji: każda money page zawiera min. 5 kontekstowych linków; klastery mają `ClusterNav`; breadcrumbs obecne i poprawne.
+
+12) Profil anchorów wewnętrznych (opisowe, zróżnicowane, bez nadmiaru exact‑match)
+- [DEV] Komponent `SmartLink`: utwórz `apps/qursant/src/components/seo/SmartLink.tsx` (wrap nad `next/link`), który:
+  - wymaga opisowego `children` (tekst anchoru),
+  - opcjonalnie przyjmuje `intent` i `cluster` (do analizy pokrycia),
+  - dokłada `aria-label` gdy anchor jest krótki.
+- [DEV] Linter anchorów: skrypt `apps/qursant/scripts/check-anchors.ts` analizujący TSX i ostrzegający o generykach typu: „kliknij tutaj”, „sprawdź”, „więcej”, „tutaj”.
+- [DEV] Refaktor kluczowych stron na `SmartLink` (Navbar, Footer, Kursy, Cennik, Rezerwacja, Pytania, O nas, Kontakt) — zastąp surowe `<Link>`/`<a>`.
+- [DEV] Raport pokrycia: skrypt `apps/qursant/scripts/anchor-coverage.ts` — zlicza linki wewnętrzne per strona i sprawdza, czy money pages mają ≥5 linków kontekstowych.
+- Kryteria akceptacji: skrypt lintera nie raportuje generycznych anchorów; raport pokrycia „zielony” dla money pages.
+
+13) Mapy witryny: index + strony + obrazy + wideo (autoaktualizacja)
+- [DEV] Indeks sitemap: dodaj route `apps/qursant/src/app/sitemap.xml/route.ts` zwracający XML z odnośnikami do:
+  - `/sitemap-pages.xml`, `/sitemap-images.xml`, `/sitemap-videos.xml` (absolute URL do domeny produkcyjnej).
+- [DEV] Strony: `apps/qursant/src/app/sitemap-pages.xml/route.ts` — generuj z listy znanych ścieżek (home, kursy, cennik, poradnik hub i artykuły, galeria, pytania, kontakt, rezerwacja). Użyj `lastmod` (data pliku lub stała) i `changefreq`.
+- [DEV] Obrazy: `apps/qursant/src/app/sitemap-images.xml/route.ts` — skan `apps/qursant/public/images/**` (cars, instructors, office, boss, course) i twórz wpisy z `<image:image>` (url, title/alt z nazwy pliku).
+- [DEV] Wideo: `apps/qursant/src/app/sitemap-videos.xml/route.ts` — uwzględnij `public/videos/main_video.mp4` (miniatura, tytuł, opis, długość jeśli dostępna).
+- [DEV] Skrypt build: `npm run seo:build-sitemaps` (opcjonalnie pre-build) dla walidacji poprawności i limitów (≤50k URL / 50MB).
+- Kryteria akceptacji: pliki sitemap dostępne z przeglądarki, walidują się w GSC; indeks wskazuje 3 podrzędne sitemap.
+
+14) robots.txt: zasady crawl + wskazanie sitemap
+- [DEV] Zaktualizuj `apps/qursant/src/app/robots.txt`:
+  - `User-agent: *`
+  - `Allow: /`
+  - `Disallow: /api/`
+  - `Disallow: /seo/` (pane­le dev)
+  - (opcjonalnie) `Disallow: /*?page=*` dla paginacji, jeśli niechciane w indeksie (po analizie) — preferuj tylko stronę 1
+  - `Sitemap: https://qursant.com.pl/sitemap.xml`
+- [DEV] Wariant staging: jeżeli `process.env.NEXT_PUBLIC_ENV !== 'production'`, serwuj `Disallow: /` (opcjonalnie przenieś do dynamicznego route robots, zamiast pliku statycznego).
+- Kryteria akceptacji: robots.txt zawiera dyrektywę `Sitemap` i nie blokuje stron kluczowych; GSC nie zgłasza konfliktów.
+
+15) HTTPS wszędzie, kanonikalizacja hosta i bezpieczeństwo nagłówków
+- [DEV] Redirecty host/HTTPS w `apps/qursant/next.config.js`:
+  - 301 z `www.qursant.com.pl` → `https://qursant.com.pl/:path*` (has host match),
+  - 301 z HTTP → HTTPS (jeśli Vercel nie wymusza globalnie, dodać regułę warunkową),
+  - 301 z podwójnych ukośników i końcowych slashy → kanoniczny.
+- [DEV] Nagłówki bezpieczeństwa `headers()` w `next.config.js` (produkcyjnie):
+  - `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `X-Content-Type-Options: nosniff`
+  - `X-Frame-Options: DENY`
+  - `Permissions-Policy: accelerometer=(), camera=(), geolocation=(), microphone=()` (dopasować do faktycznych potrzeb)
+- [DEV] Checker mixed‑content: skrypt `apps/qursant/scripts/check-mixed-content.ts` skanujący repo pod `http://` zasoby i raportujący wystąpienia.
+- [DEV] Test e2e: sprawdź, że wejście na `http://qursant.com.pl/` daje 301 do `https://qursant.com.pl/` oraz że `www.` jest przekierowany do hosta kanonicznego.
+- Kryteria akceptacji: 301 zadziała dla ww. przypadków; nagłówki obecne w prod; brak mieszanej zawartości w głównych stronach.
+
+Uwagi implementacyjne
+- Generatory XML zwracaj z `Content-Type: application/xml; charset=utf-8` i bez BOM.
+- Używaj absolutnych URL z domeną produkcyjną (`https://qursant.com.pl`).
+- Po wdrożeniu: zgłoś `sitemap.xml` w GSC, zweryfikuj robots, sprawdź przekierowania i nagłówki w devtools.

@@ -24,6 +24,7 @@ import {
   getExperienceYears,
   formatNumber,
 } from '@/constants/stats';
+import SuggestedLinks from '@/components/seo/SuggestedLinks';
 
 const instruktorzy = [
   {
@@ -492,6 +493,11 @@ export default function AboutPage() {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+      <section className="relative py-12 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="container mx-auto px-6">
+          <SuggestedLinks currentPath="/o-nas" heading="Zobacz także" />
         </div>
       </section>
     </div>

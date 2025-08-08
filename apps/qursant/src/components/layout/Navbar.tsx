@@ -14,13 +14,13 @@ export default function Navbar() {
 
   const navigation = [
     { name: 'Strona główna', href: '/' },
-    { name: 'O nas', href: '/o-nas' },
     { name: 'Kursy', href: '/kursy' },
-    { name: 'Galeria', href: '/galeria' },
     { name: 'Cennik', href: '/cennik' },
+    { name: 'Poradnik', href: '/poradnik' },
+    { name: 'Galeria', href: '/galeria' },
     { name: 'Pytania', href: '/pytania' },
-    { name: 'Rezerwacja', href: '/rezerwacja' },
     { name: 'Kontakt', href: '/kontakt' },
+    { name: 'Rezerwacja', href: '/rezerwacja' },
   ];
 
   // Blokowanie scrollowania gdy menu jest otwarte

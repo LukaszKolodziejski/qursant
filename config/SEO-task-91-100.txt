@@ -1,0 +1,70 @@
+SEO — Zadania techniczne dla punktów 91–100 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel. Źródło: config/SEO.txt (pkt 91–100) i config/DOCUMENTATION.txt.
+
+91) Porządek w canonicalach (filtry/paginacja) — brak zwrotnych i do 404/301
+- [DEV] QA canonicali: skrypt `apps/qursant/scripts/check-canonicals-integrity.ts` — crawl znane URL (home, money, poradnik, galeria paginacja) i weryfikuje:
+  - canonical nie wskazuje na 404/410/301,
+  - paginacja: `page=1` → canonical do URL bez param, `page>1` → self‑canonical,
+  - filtry (jeśli będą): canonical do wersji bazowej bez parametrów.
+- [DEV] Test E2E: sprawdź obecność jednego `<link rel="canonical">` na stronę i brak duplikatów.
+- Kryteria akceptacji: skrypt raportuje 0 błędów; canonicale spójne na listach/filtrach.
+
+92) Kanoniczne URL bez parametrów śledzących (utm, gclid)
+- [DEV] Util: rozszerz `apps/qursant/src/lib/canonical.ts` o czyszczenie `utm_*`, `gclid`, `fbclid` i dowolnych nieznanych trackingów.
+- [DEV] Redirecty: w `apps/qursant/src/middleware.ts` (lub `redirects()` w `next.config.js`) 301 do kanonicznego bez parametrów, z wyjątkiem dozwolonych (np. `?page=`).
+- [DEV] Linter: skrypt `apps/qursant/scripts/check-canonical-params.ts` — wykrywa kanoniczne z parametrami; raport `config/canonical-params.csv`.
+- Kryteria akceptacji: brak parametrów w canonicalach; wejście na URL z UTM skutkuje 301 do czystego.
+
+93) Duplikacja językowa/regionalna — hreflang + canonical do tej samej wersji językowej
+- [DEV] Util `apps/qursant/src/lib/hreflang.ts`: generowanie `alternates.languages` (na teraz `pl-PL` + `x-default` → PL) i walidacja dopasowania `canonical` do tej samej wersji.
+- [DEV] Skrypt QA: `apps/qursant/scripts/check-hreflang-canonical.ts` — sprawdza, czy hreflang nie wskazuje na inny język/region niż canonical; raport `config/hreflang-report.csv`.
+- Kryteria akceptacji: hreflang poprawny; canonical i hreflang zgodne.
+
+94) UGC — oznaczanie i moderacja; noindex dla stron profilowych thin
+- [DEV] Komponent `UGCContent`: `apps/qursant/src/components/seo/UGCContent.tsx` — render treści UGC (opinie/komentarze) z sanitacją HTML i linkami `rel="ugc nofollow noopener"`.
+- [DEV] Moderacja: struktura danych UGC `apps/qursant/src/data/ugc.ts` z polami `approved`, `source`, `createdAt`; renderuj tylko zatwierdzone.
+- [DEV] Meta: jeżeli kiedykolwiek powstaną strony profilowe użytkowników — dodaj `noindex,follow` w `generateMetadata` i wyklucz z sitemap.
+- Kryteria akceptacji: wszystkie linki UGC mają `rel=ugc`; brak indeksacji thin profile pages (jeśli istnieją).
+
+95) Author Pages + Editorial Guidelines
+- [DEV] Autorzy: upewnij się, że istnieje `apps/qursant/src/app/autor/[slug]/page.tsx` i `apps/qursant/src/data/authors.ts` (bio, kwalifikacje, zdjęcie). Dodaj komponent `AuthorBadge.tsx` z podpisem i linkiem do strony autora.
+- [DEV] Wytyczne redakcyjne: dodaj `config/editorial-guidelines.md` (proces: research, weryfikacja, źródła, aktualizacje, styl, tony komunikacji).
+- [DEV] Linkowanie: z artykułów poradnika i money pages linkuj do autora oraz do wytycznych (w stopce „Polityka redakcyjna”).
+- Kryteria akceptacji: strony autorów widoczne i linkowane; dokument wytycznych w repo; podpis autora obecny.
+
+96) Strona „Dlaczego nam ufać” (Trust/Proof)
+- [DEV] Nowa strona: `apps/qursant/src/app/dlaczego-nam-ufac/page.tsx` — sekcje: certyfikaty, członkostwa, nagrody, referencje (wideo/zdjęcia), case studies, partnerzy.
+- [DEV] Linki: dodaj do `Footer.tsx` i ewentualnie sekcji na home; atrybuty `rel` dla zewnętrznych odnośników.
+- [DEV] Schema: uzupełnij `Organization` o `sameAs` (social/GBP) i ewentualne `award`.
+- Kryteria akceptacji: strona działa; linki dodane; schema zaktualizowana.
+
+97) Pliki: robots.txt, security.txt, humans.txt, ads.txt
+- [DEV] robots.txt: (weryfikacja) w `apps/qursant/src/app/robots.txt` — `Sitemap: https://qursant.com.pl/sitemap.xml` i zasady z wcześniejszych zadań.
+- [DEV] security.txt: route `apps/qursant/src/app/.well-known/security.txt/route.ts` z danymi kontaktowymi (email, polityka, Preferred-Languages: pl, en).
+- [DEV] humans.txt: dodaj `apps/qursant/public/humans.txt` (zespół, technologia, kontakt).
+- [DEV] ads.txt/app-ads.txt: jeśli brak monetyzacji reklamowej — dodaj puste z komentarzem lub dokument `config/ads-policy.md` (na kiedy i jak dodać).
+- Kryteria akceptacji: pliki serwują się pod właściwymi ścieżkami; walidują się w narzędziach zewnętrznych.
+
+98) 301/302 — polityka: 302 wyłącznie tymczasowe; przegląd kwartalny; brak łańcuchów
+- [DEV] Skrypt przeglądu: `apps/qursant/scripts/check-redirects.ts` — z `next.config.js`/`redirects.json` listuje wszystkie reguły i wykrywa 302 oraz łańcuchy (współpraca z `check-redirect-chains.ts`).
+- [DEV] Raport: `config/redirects-audit.csv` (source, destination, type, chain-length, note: FIX/OK).
+- [DEV] Testy: Cypress — krytyczne stare URL → pojedynczy 301 do kanonicznego; brak wielokrotnych 3xx.
+- Kryteria akceptacji: raport bez 302 (poza dozwolonymi przypadkami tymczasowymi); brak łańcuchów.
+
+99) Monitoring indeksacji — Coverage GSC, anomalie, soft 404
+- [DEV] Skrypt `apps/qursant/scripts/indexation-monitor.ts` — porównuje listę z `sitemap` z odpowiedziami HTTP (fetch) i tworzy `config/indexation-report.csv` (URL, status, in_sitemap, in_fetch, note).
+- [DEV] GSC API (opcjonalnie): dokument `config/gsc-api.md` (jak pobierać Coverage/Impressions); jeżeli dostępne — skrypt konsolidujący Coverage.
+- [DEV] Alerty: jeśli wykryto soft 404 (200 z treścią „nie znaleziono”) — wypisz ostrzeżenia; sugeruj 404/410 lub poprawę treści.
+- Kryteria akceptacji: raport generuje się; nie ma rozjazdu sitemap ↔ realnie dostępne; brak soft 404 na money pages.
+
+100) Dokument „Deprecjacja treści” — kryteria 301/410 i proces
+- [DEV] Dokument `config/deprecjacja-tresci.md` — kryteria: brak sesji/GA4, brak linków wewn./zewn., brak pozycji → ACTION: 301 (konsolidacja) lub 410 (usunięcie), właściciel, termin.
+- [DEV] Skrypt sugestii: `apps/qursant/scripts/content-deprecation-suggest.ts` — na bazie `content-audit.csv` i (opcjonalnie) GSC/GA4 tworzy listę kandydatów i proponuje cel 301.
+- [DEV] Wdrożenie: aktualizacja `redirects.json` i/lub dodanie trasy 410 (`/gone/...`).
+- Kryteria akceptacji: dokument dostępny; skrypt generuje listę; wdrożenia prowadzone wg procesu.
+
+Uwagi implementacyjne
+- Preferuj lekkie skrypty i narzędzia dev; nie wpływaj negatywnie na CWV.
+- Ścieżki `.well-known/` muszą zachować poprawną strukturę (security.txt/ads.txt, jeśli używane).
+- Po wdrożeniu: sprawdź robots i pliki tekstowe, raport canonicali i indeksacji; potwierdź w GSC brak anomalii.

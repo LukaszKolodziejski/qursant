@@ -12,10 +12,14 @@ import {
 } from 'react-icons/hi';
 import Link from 'next/link';
 import { useReservationCounter } from '@/hooks/useReservationCounter';
+import { gaEvent } from '@/lib/ga';
+import { useRouter } from 'next/navigation';
+import SuggestedLinks from '@/components/seo/SuggestedLinks';
 
 export default function RezerwacjaPage() {
   const { remainingPlaces, progressWidth, currentDate } =
     useReservationCounter();
+  const router = useRouter();
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -84,6 +88,9 @@ export default function RezerwacjaPage() {
         toast.success('Rezerwacja została wysłana pomyślnie!', {
           duration: 5000,
         });
+        gaEvent('lead_submit_success', {
+          page_path: '/rezerwacja',
+        });
         setFormData({
           name: '',
           email: '',
@@ -91,6 +98,8 @@ export default function RezerwacjaPage() {
           month: monthOptions[0],
           agreement: false,
         });
+        // Przekierowanie na stronę podziękowania
+        router.push('/rezerwacja/dziekujemy');
       } else {
         // Pokazujemy główny komunikat o błędzie
         toast.error(
@@ -309,6 +318,11 @@ export default function RezerwacjaPage() {
               </div>
             </form>
           </motion.div>
+        </div>
+      </section>
+      <section className="relative py-12 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="container mx-auto px-6">
+          <SuggestedLinks currentPath="/rezerwacja" heading="Zobacz także" />
         </div>
       </section>
     </div>

@@ -1,0 +1,70 @@
+SEO — Zadania techniczne dla punktów 130–139 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel. Źródło: config/SEO.txt (pkt 130–139) i config/DOCUMENTATION.txt.
+
+130) Strony z terminami (kursy/wydarzenia) — Event schema + archiwizacja
+- [DEV] Dane terminów: dodaj `config/events.json` (name, startDate, endDate?, location, price, url). Utrzymuj tylko przyszłe i najświeższe archiwalne.
+- [DEV] UI: w `apps/qursant/src/app/kursy/page.tsx` dodaj sekcję „Najbliższe terminy” (lista z datą, miejscem, przyciskiem Rezerwuj) + link do pełnej listy `/kursy/terminy` (nowa strona SSG).
+- [DEV] JSON‑LD: generuj `Event`/`Offer` dla przyszłych terminów (tylko przyszłe; archiwum bez schemy Event). Implementacja w `components/seo/StructuredData.tsx`.
+- [DEV] Archiwizacja: starsze niż „dziś” ukryj z listy domyślnej; osobny route `/kursy/terminy/archiwum` — `noindex` i wykluczone z sitemap.
+- Kryteria akceptacji: Event JSON‑LD poprawny (Rich Results OK); przyszłe terminy widoczne; archiwum dostępne, ale bez indeksacji.
+
+131) Kontakt — dojazd/parking/dostępność (UX + Local SEO)
+- [DEV] W `apps/qursant/src/app/kontakt/page.tsx` dodaj sekcje: „Dojazd”, „Parking”, „Dostępność” (windy, wejścia, godziny niskiego ruchu), „Transport publiczny”.
+- [DEV] MapComponent: dodaj markery punktów wejścia/parkingu (statycznie w danych) i linki „Trasa →” (z UTM) do Google Maps.
+- [DEV] Schema LocalBusiness: uzupełnij `amenityFeature`/`hasMap`/`openingHoursSpecification` w JSON‑LD.
+- Kryteria akceptacji: sekcje widoczne i kompletne; schema przechodzi walidację; linki do trasy działają.
+
+132) Ścieżka konwersji — micro‑CTA, sticky CTA (mobile), krótszy formularz
+- [DEV] Komponenty CTA: `apps/qursant/src/components/cta/StickyCta.tsx` (mobile, fixed bottom, aria‑hide na focus), `InlineCta.tsx` (mikro‑CTA w treści hubów i poradnika).
+- [DEV] Formularz rezerwacji: zredukuj liczbę pól do minimum (imię, tel, email opcjonalnie, termin), walidacja po blur/debounce; `aria-live` dla błędów; blokada wielokrotnych submitów.
+- [DEV] Śledzenie: zdarzenia GA4 (`lead_submit_success`, `cta_click_sticky`, `cta_click_inline`).
+- Kryteria akceptacji: CTR CTA rośnie (pomiar), formularz szybszy i dostępny; brak podwójnych submitów.
+
+133) Ochrona formularzy — anty‑spam, walidacja, INP
+- [DEV] hCaptcha: upewnij się, że `@hcaptcha/react-hcaptcha` użyte w `rezerwacja/page.tsx`; weryfikacja serwerowa w `api/send-reservation/route.ts` (sekret z env).
+- [DEV] Honeypot + rate‑limit: dodaj ukryte pole (honeypot) i prosty rate limit (np. 1/min/IP) po stronie API (cache w pamięci/kv).
+- [DEV] INP: ogranicz re‑render pól; debounce onChange; walidacja po blur; `requestIdleCallback` dla niekrytycznych inicjalizacji.
+- [DEV] Anty‑spam w treści: filtruj niedozwolone domeny w polach tekstowych (biała lista znaków/regexy).
+- Kryteria akceptacji: skuteczna weryfikacja hCaptcha; brak widocznego laga podczas wpisywania (INP ≤ 200 ms w RUM); mniejsza liczba spamu.
+
+134) Długie treści — spis treści (TOC), sekcje, tl;dr
+- [DEV] Komponent `TableOfContents.tsx`: generuje TOC z H2/H3 i anchorami; sticky na desktopie; dostępny (klawiatura, aria‑current).
+- [DEV] Sekcja „tl;dr”: krótka synteza na początku artykułu (komponent `TlDr.tsx`), z linkami do sekcji.
+- [DEV] Automaty kotwic: funkcja dodająca `id` do nagłówków w artykułach (poradnik). Linki kopiowalne.
+- Kryteria akceptacji: TOC działa na długich wpisach; brak konfliktów id; wzrost scroll‑depth/czytelnictwa (jeśli mierzony).
+
+135) Wersje drukuj/PDF — canonical/noindex + metadane PDF
+- [DEV] Print: dla dedykowanych widoków drukuj (jeśli dodane) ustaw `meta robots noindex` i `<link rel="canonical">` do wersji HTML.
+- [DEV] PDF: przy generowaniu statycznych PDF w `public/resources/` dodaj metadane (Title, Author, Subject, Keywords) i stopkę z linkiem do strony HTML.
+- [DEV] X‑Robots‑Tag: serwuj nagłówek `noindex` dla PDF (route `headers()` lub serwis statyczny jeśli wspiera). Linkuj z PDF do HTML.
+- Kryteria akceptacji: PDF nie są indeksowane; canonical wskazuje HTML; pliki mają komplet metadanych.
+
+136) Polityka obrazów hero — stałe wymiary, preload, CSS image‑set
+- [DEV] Komponent `HeroImage.tsx`: wrapper `next/image` z ustalonym aspect‑ratio (np. 16/9) i `priority`; alternatywnie tło CSS z `image-set()` (1x/2x/avif/webp) i stała wysokość kontenera.
+- [DEV] Preload tylko 1 hero/stronę; usuń zbędne preloade.
+- [DEV] Standaryzacja wysokości: spójne rozmiary hero na money i głównych stronach (unikaj CLS); test na mobile.
+- Kryteria akceptacji: brak shiftów; właściwy preload; spójny wygląd hero.
+
+137) Treści sponsorowane/afiliacyjne — oznaczenia i atrybuty
+- [DEV] Komponent `SponsoredLabel.tsx` ("Materiał sponsorowany"/"Link afiliacyjny"); użyj nad blokami sponsorowanymi.
+- [DEV] Linki: dla sponsorowanych/afiliacyjnych wymuś `rel="sponsored noopener"`; dla UGC `rel="ugc"` (wykorzystaj `SmartExternalLink`).
+- [DEV] Disclosure: sekcja polityki współprac (`/reklama-wspolpraca`) z zasadami ujawniania.
+- Kryteria akceptacji: wszystkie sponsorowane bloki/linki oznaczone; zgodność z wytycznymi Google.
+
+138) AIO (AI Overviews) — klarowne listy korzyści/cen/kroków/warunków
+- [DEV] Money pages: dodaj komponenty `BenefitsList.tsx`, `KeyFactsTable.tsx` i `StepsList.tsx` (jeśli nie ma) z krótkimi, jednoznacznymi punktami (max ~7) i sekcją „Warunki/Ograniczenia”.
+- [DEV] AnswerBox: na money i kluczowych artykułach — 40–80 słów odpowiedzi na główne pytanie (zgodne z treścią na stronie).
+- [DEV] Dane: spójność cen i warunków z `src/constants/prices.ts`; aktualizuj centralnie.
+- Kryteria akceptacji: bloki AIO‑friendly obecne; zgodność danych; brak sprzeczności w meta/treści.
+
+139) Kontekst lokalny — dzielnice/partnerzy/zdjęcia miejsca
+- [DEV] Sekcja „Lokalnie w Bydgoszczy”: na money/poradnik dodaj komponent `LocalContext.tsx` (dzielnice, punkty orientacyjne, czasy dojazdu, partnerzy lokalni), zdjęcia z `public/images/local/`.
+- [DEV] Linkowanie: linki do stron lokalizacyjnych (jeśli wdrożone w pkt 54); mapy z konkretnym pinem dzielnicy.
+- [DEV] Media: zdjęcia własne podpisane (caption) i z ALT; unikalność względem innych stron.
+- Kryteria akceptacji: sekcje lokalne obecne i autentyczne; wzrost trafności lokalnej; zgodność z LocalBusiness schema.
+
+Uwagi implementacyjne
+- JSON‑LD i nowe komponenty SEO muszą być lekkie; unikaj regresji CWV (testuj hero/CTA/mapy na mobile).
+- Dane o cenach, NAP, eventach trzymaj w `src/constants`/`config/*.json` i reużywaj w UI + schemach.
+- Po wdrożeniu: Rich Results (Event/LocalBusiness) zielone; brak indeksacji PDF; monitoruj INP/CLS po dodaniu CTA i TOC.

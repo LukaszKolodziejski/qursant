@@ -1,0 +1,74 @@
+SEO — Zadania techniczne dla punktów 120–129 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel. Źródło: config/SEO.txt (pkt 120–129) i config/DOCUMENTATION.txt.
+
+120) Changelog SEO — korelacja z GSC/GA4/CWV
+- [DEV] Plik `config/seo-changelog.md` — szablon wpisu (data, zakres zmian, strony, oczekiwany wpływ, właściciel).
+- [DEV] Snapshot metryk: skrypt `apps/qursant/scripts/seo-snapshot.ts` — przed/po wdrożeniu zapisuje do `config/seo-snapshots/` (PSI API: LCP/INP/CLS dla kluczowych URL; opcjonalnie GA4/GSC jeśli dostępne klucze — dokument `config/metrics-setup.md`).
+- [DEV] Hook wdrożeniowy: komenda `npm run seo:snapshot` do uruchomienia w dniu deployu; dopisz linki do snapshotów w changelogu.
+- Kryteria akceptacji: istnieje changelog; snapshoty zapisują się dla stron money; możliwa korelacja zmian z metrykami.
+
+121) Playbook aktualizacji algorytmicznych (spadki → hipotezy → poprawki → A/B)
+- [DEV] Dokument `config/alg-playbook.md` — checklista: weryfikacja Coverage/GSC, ruch organic, CWV, treści z ostatnich 30–60 dni, profil linków; macierz hipotez i priorytetów.
+- [DEV] Skrypt `apps/qursant/scripts/alg-drop-report.ts` — konsoliduje dostępne raporty (GSC CSV, CrUX/PSI json z `config/crux/`, rank‑tracking); tworzy `config/alg-drop-report.md` (tabela „przed/po”).
+- [DEV] Procedura A/B (techniczna): opis `config/ab-testing-tech.md` (na małych zakresach, wariant meta/hero, czas trwania, kryteria stopu; bez cloakingu).
+- Kryteria akceptacji: playbook kompletny; raport z danych generuje się; jest proces A/B.
+
+122) Edukacja zespołu + checklisty w procesach
+- [DEV] Plan szkoleń: `config/training-plan.md` (2×/rok; tematy: CWV, dane strukturalne, money pages, Local SEO, bezpieczeństwo).
+- [DEV] Integracja checklist: odnośniki do `config/publication-checklist.md` i `config/deploy-policy.md` w `README.md`; szablon PR `config/pr-template.md` (todo/checkboxy SEO).
+- [DEV] Widok dev: `/seo/panel-wiedzy` (dev‑only) z linkami do wszystkich dokumentów SEO w `config/`.
+- Kryteria akceptacji: dostępne dokumenty i PR template; panel wiedzy w dev działa.
+
+123) Panel SEO (dev) — agregacja metryk i raportów
+- [DEV] Strona `apps/qursant/src/app/seo/dashboard/page.tsx` (render tylko w dev) agregująca:
+  - CrUX/PSI (z `config/crux-report.csv`),
+  - CWV RUM (jeśli zapisujesz do pliku),
+  - rank‑tracking (`config/rank-tracking-report.csv`),
+  - indeksacja (`config/indexation-report.csv`),
+  - linki (outbound, external‑links report),
+  - publikacje (staleness, velocity).
+- [DEV] Parser CSV/JSON lekki (import local files); bez zewnętrznych ciężkich bibliotek.
+- Kryteria akceptacji: dashboard ładuje pliki lokalne i pokazuje podstawowe wykresy/ tabele; widoczny tylko w dev.
+
+124) Przegląd profilu linków — ostrożny disavow
+- [DEV] Plik wejściowy: `config/backlinks.csv` (domain,url,target,anchor,first_seen,last_seen,source).
+- [DEV] Skrypt `apps/qursant/scripts/backlinks-audit.ts` — heurystyki: TLD, anchor spam, liczność z jednej domeny, katalogi masowe; raport `config/backlinks-report.csv`.
+- [DEV] Polityka disavow: `config/disavow-policy.md` (kiedy używać, ryzyka); generator `config/disavow.txt` (manualny export z raportu — bez automatycznego wysyłania).
+- Kryteria akceptacji: raport powstaje; polityka jasna; brak automatycznego disavow bez decyzji SEO.
+
+125) Zgodność prawno‑regulacyjna (RODO, cookies, polityki) + CMP performance
+- [DEV] Inwentaryzacja cookies: skrypt `apps/qursant/scripts/cookies-inventory.ts` — wykrywa `document.cookie`/Set‑Cookie i listę cookies; zapis do `config/cookies-inventory.csv`.
+- [DEV] Strony polityk: upewnij się, że istnieje `polityka-prywatnosci`, `polityka-cookies` (linki w stopce); Consent Mode v2 wdrożony lekko (patrz wcześniejsze zadania).
+- [DEV] Performance CMP: test Lighthouse z i bez zgody — raport `config/cmp-perf-report.md` (wpływ na CWV, ciężar skryptów).
+- Kryteria akceptacji: cookies zinwentaryzowane; polityki dostępne; CMP nie psuje CWV.
+
+126) Spójność brandu — tone of voice, styl, meta i OG
+- [DEV] Dokument `config/brand-guide.md` — tone, przykłady sformułowań, słowa zakazane, styl nagłówków.
+- [DEV] Meta/OG: uzupełnij `src/lib/meta.ts` o predefiniowane szablony nagłówków i opisów zgodnych z brand guide; enforce w `generateMetadata`.
+- [DEV] UI copy: dodaj plik `apps/qursant/src/constants/copy.ts` (CTA/zwroty) i użyj w komponentach, by uniknąć rozjazdów stylu.
+- Kryteria akceptacji: spójne tytuły/opisy; CTA jednolite; brand guide w repo.
+
+127) Wytyczne UGC — moderacja, anty‑spam, schemy
+- [DEV] Dokument `config/ugc-guidelines.md` — zasady dodawania/wyświetlania treści UGC (co dopuszczalne, jak oznaczać linki, jak usuwać).
+- [DEV] Skrypt `apps/qursant/scripts/ugc-spam-check.ts` — prosty filtr słów/URL; raport `config/ugc-spam-report.csv`.
+- [DEV] Render UGC: wykorzystaj komponent `UGCContent` (rel=ugc nofollow, sanitize) i schemy `Review` tylko tam, gdzie to zgodne z wytycznymi.
+- Kryteria akceptacji: polityka UGC wdrożona; raporty działają; brak niesformatowanych linków w UGC.
+
+128) Content hubs — nawigacja, słownik pojęć, ścieżki nauki
+- [DEV] Hub nawigacyjny: komponent `apps/qursant/src/components/seo/HubNav.tsx` — sekcje: Kluczowe pytania, Tematy pokrewne, Najczęściej czytane; wstaw na `/poradnik`.
+- [DEV] Słownik: trasa `apps/qursant/src/app/slownik/[term]/page.tsx` (+ indeks `/slownik`) i dane `apps/qursant/src/data/glossary.ts` (definicje, linki do artykułów).
+- [DEV] Ścieżki nauki: komponent `LearningPath.tsx` (lista kroków/artykułów) dla grupy tematów (np. „Od zapisu do egzaminu”).
+- Kryteria akceptacji: `/poradnik` ma HubNav; `/slownik` działa; artykuły linkują do definicji i ścieżek.
+
+129) Helpful content — media własne, how‑to, checklisty PDF, transkrypcje
+- [DEV] How‑to: komponent `HowToSteps.tsx` + JSON‑LD `HowTo` dla instrukcji (np. zapis, badania lekarskie, egzaminy) z obrazkami kroków (własne zdjęcia, jeśli możliwe).
+- [DEV] Checklisty do pobrania: generuj statyczne PDF w `public/resources/` (eksport ze źródeł `.mdx`/`.ts` lub ręcznie); komponent `DownloadCard` z rozmiarem pliku.
+- [DEV] Transkrypcje: dla osadzonych wideo dodaj transkrypcję na stronie (i/lub `track vtt`); link do pobrania.
+- [DEV] Zdjęcia własne: folder `public/images/howto/` i zasada dodawania własnych kadrów do kroków.
+- Kryteria akceptacji: strony zawierają how‑to z krokami i JSON‑LD; dostępne PDF checklist; wideo mają transkrypcje; media własne obecne.
+
+Uwagi implementacyjne
+- Panele/strony w `/seo/*` muszą być dev‑only (env‑gating). Skrypty raportowe działają lokalnie i zapisują wyniki do `config/`.
+- Dbaj o lekkość (brak ciężkich bibliotek do CSV/wykresów); unikaj wpływu na CWV produkcji.
+- Po wdrożeniu: uzupełnij `seo-changelog.md`, uruchom snapshoty i dodaj raporty do dashboardu dev.

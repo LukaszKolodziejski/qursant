@@ -1,0 +1,161 @@
+Mistrzowski plan SEO (sierpień 2025) — kompletna lista zadań do pozycji #1 w konkurencyjnych branżach
+
+Uwaga: Zadania są pogrupowane tematycznie, ale numerowane ciągiem dla wygody zarządzania. Traktuj to jako roadmapę wdrożeń (90–120 dni), a następnie proces ciągły.
+
+1) Ustal cele biznesowe i KPI SEO (ruch z organic, zapytania/lead, przychód, CPA, udział w SERP) z horyzontem 3–12 miesięcy.
+2) Zdefiniuj persony i intencje wyszukiwania (informacyjna, nawigacyjna, komercyjna, transakcyjna, lokalna, porównawcza).
+3) Wykonaj analizę SERP dla topowych fraz: typy wyników (AIO/AI Overviews, Featured Snippets, PAA, Map Pack, wideo, obrazy, recenzje).
+4) Przeprowadź audyt konkurencji (content, linki, CWV, IA, schemy, topical authority, tempo publikacji, profil marki).
+5) Zbuduj topical map (klastry tematyczne) i architekturę treści (huby → klastry → artykuły wspierające + FAQ).
+6) Dobierz słowa kluczowe: trzonowe, długiego ogona, semantycznie powiązane, pytania; pogrupuj w klastry i przypisz do URL.
+7) Oceń trudność i potencjał słów (wolumen, trend, CPC, SERP features, konkurencja) — zbalansuj mix short/mid/long‑tail.
+8) Zaprojektuj architekturę informacji (IA): płytkie drzewo, logiczne kategorie, huby, okruszki (breadcrumbs), paginacje.
+9) Zaprojektuj strukturę adresów URL: krótkie, czytelne, z myślnikami, z docelowymi słowami; unikaj parametrów w treściach kanonicznych.
+10) Zdefiniuj standardy meta (title, description) — unikalne, atrakcyjne, bez kanibalizacji, dopasowane do intencji.
+11) Zaprojektuj schemat linkowania wewnętrznego: hub→klaster, klaster↔klaster powiązany, breadcrumbs, nawigacja, linki w treści.
+12) Zaplanuj profil anchorów wewnętrznych: opisowe, zróżnicowane, nieprzesadnie exact match.
+13) Zaimplementuj mapy witryny: sitemap.xml indeks, sitemap_pages, sitemap_images, sitemap_videos; aktualizacja automatyczna.
+14) Skonfiguruj robots.txt: zezwól na kluczowe ścieżki, blokuj bazy wyników/facety; wskaż lokalizację sitemap.
+15) Wymuś HTTPS wszędzie (HSTS), napraw mixed content, stałe 301 z wersji http→https, www↔non‑www, slashy.
+16) Wdróż kanonikalizację (rel=canonical) na wszystkich stronach; rozwiąż duplikacje (parametry, sortowania, paginacje).
+17) Skonfiguruj paginacje: unikaj duplikacji, pokaż numery stron, linki prev/next dla UX (sygnał informacyjny, nie rankingowy).
+18) Steruj faceted navigation: parametry indeksowane tylko dla wartościowych kombinacji; reszta noindex, follow + kanoniczne do wersji głównej.
+19) Usuń/thin content: konsoliduj, 301 do lepszych URL lub 410; unikaj sierot (orphan pages) — każdy URL min. 2–3 linki wewnętrzne.
+20) Przygotuj politykę redirectów: stałe 301, brak łańcuchów i pętli; utrzymuj mapę migracji.
+21) Ustal TTFB < 0,8 s (mobile) na 75. percentylu; monitoruj na poziomie edge/CDN.
+22) Core Web Vitals — cel: LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1 (75. percentyl, mobile i desktop).
+23) Zidentyfikuj zasób LCP i wdróż: preload, optymalizację obrazu/hero, priority, kompresję, szybki TTFB, krytyczny CSS.
+24) Zredukuj INP: minimalizacja JS, priorytetyzacja interakcji, kolejkowanie zadań, usunięcie długich tasków, optymalizacja event handlerów.
+25) Zredukuj CLS: rezerwuj wymiary mediów, używaj aspect-ratio, unikaj dynamicznych wstawek nad foldem, stabilne fonty (font-display: swap).
+26) Włącz HTTP/2 lub HTTP/3, Brotli/gzip; optymalizuj cache (immutable, stale‑while‑revalidate), ETag/Last‑Modified.
+27) Obrazy: formaty AVIF/WebP, responsywne srcset/sizes, kompresja, lazy‑load poniżej folda, zachowanie wymiarów.
+28) Wideo: kompresja, streaming HLS/DASH, miniatury, preload=metadata, napisowe SRT/VTT, transkrypcje.
+29) Krytyczne CSS nad foldem, deferral CSS/JS; eliminacja render‑blocking; podział bundli; usunięcie nieużywanego kodu.
+30) SSR/SSG lub hybryda dla stron lądowania i treści; unikaj ciężkiego hydratowania, stosuj progressive enhancement.
+31) Renderowanie JS a indeksacja: treść krytyczna dostępna bez JS; sprawdź HTML w GSC (pobierz/renderuj) i w logach.
+32) Przygotuj strategię prefetch/prerender (ostrożnie), rel=preconnect do krytycznych originów (CDN, czcionki, API).
+33) Uporządkuj czcionki: self‑host, subsety, font-display: swap, ogranicz liczbę krój/weight; preconnect do font host.
+34) Nagłówki: jedna H1 na stronę, logiczna hierarchia H2–H3; dopasuj do intencji i zapytań użytkowników.
+35) Tytuły: 50–60 znaków, unikalne, testowane pod CTR; bez kanibalizacji — jedna intencja = jeden URL.
+36) Opisy meta: 140–160 znaków, benefit‑driven, CTA, dopasowane do SERP features; nie duplikuj.
+37) Dane strukturalne — baza: Organization/LocalBusiness, WebSite + SitelinksSearchBox, BreadcrumbList.
+38) Dane strukturalne — treści: Article/BlogPosting, FAQPage, HowTo, VideoObject, ImageObject (zgodne z wytycznymi).
+39) Dane strukturalne — lokalne: LocalBusiness (np. DrivingSchool), PostalAddress, GeoCoordinates, OpeningHours, AggregateRating (bez nadużyć).
+40) Dane strukturalne — e‑com/usługi: Product/Service, Offer, Review, Rating, ShippingDetails (jeśli dotyczy), Event (terminy).
+41) Waliduj schemy: Google Rich Results Test, Schema Markup Validator; rozwiąż ostrzeżenia/błędy.
+42) Przygotuj pod AIO (AI Overviews): jasne definicje, akapity 40–80 słów, listy kroków, tabele; sekcje Q&A; dane ustrukturyzowane.
+43) Przygotuj pod Featured Snippets: bezpośrednie odpowiedzi (who/what/how), definicje w 1–2 zdaniach, listy numerowane, krótkie kroki.
+44) Przygotuj pod PAA (People Also Ask): nagłówki w formie pytań; krótkie odpowiedzi; linkowanie do sekcji.
+45) Zbuduj E‑E‑A‑T: strony autorów (bio, doświadczenie), strona O nas, polityki (redakcyjna, prywatności, reklam), kontakt, realne NAP.
+46) Ujawniaj źródła: bibliografia, cytowania, daty „opublikowano” i „aktualizowano”, odpowiedzialność merytoryczna.
+47) YMYL (jeśli dotyczy): przegląd ekspercki przed publikacją; unikaj porad med/fin bez kwalifikacji; disclaimers.
+48) Zaplanuj kalendarz publikacji: tempo publikacji (np. 4–8 treści/miesiąc), aktualizacje evergreen, utrzymanie top stron.
+49) Zdefiniuj szablony treści: strony usług, lokalizacje, porównania, poradniki, check‑listy, studia przypadków, FAQ, glosariusz.
+50) Wdróż internal linking playbook: 5–10 linków kontekstowych/stronę, linki do hubu i między klastrami, breadcrumbs.
+51) Usuń kanibalizację: scalenie duplikujących URL, relokacja słów kluczowych, przekierowania 301.
+52) Optymalizuj obrazy pod SEO: nazwy plików opisowe, ALT kontekstowy, podpisy (captions) tam gdzie sensowne.
+53) Optymalizuj fragmenty list i tabel — zwiększ szanse na rich results i featured snippets.
+54) Twórz strony lokalne (jeśli multi‑miasto): unikalne value (case studies, zdjęcia, opinie, ceny, harmonogramy, mapy osadzane).
+55) Local SEO: zoptymalizuj Google Business Profile (kategorie, usługi, opisy, zdjęcia/wideo, UTM w linku, atrybuty, produkty/usługi).
+56) Local SEO: zbieraj i moderuj opinie; odpowiadaj; proś o słowa kluczowe w treści opinii, ale naturalnie; polityka anty‑spam.
+57) Local SEO: posty w GBP (aktualności, oferty, wydarzenia) 1–4/msc; Q&A w GBP; spójność NAP w cytowaniach.
+58) Local SEO: schema LocalBusiness zgodna z GBP; spójność godzin, telefonu, adresu; embed mapy.
+59) International SEO (jeśli dotyczy): hreflang (lang‑region), x‑default, dopasowanie walut, telefonów, formatów; lokalne słowa.
+60) International SEO: wybór struktury (subfoldery preferowane), konsekwencja w linkowaniu i mapach witryny.
+61) Zadbaj o dostępność (WCAG 2.2): kontrasty, focus, alt, label, nagłówki; poprawia UX i sygnały zachowań.
+62) Usuń inwazyjne interstitiale, zwłaszcza na mobile; ogranicz pop‑upy; zgodność z wytycznymi Page Experience.
+63) Ogranicz density reklam/elementów ciężkich nad foldem; zachowaj priorytet dla treści głównej.
+64) Zaimplementuj logikę noindex dla niskowartościowych typów (wyniki wewn. wyszukiwarki, filtry bez treści, testowe, staging).
+65) Uporządkuj 404/410: przyjazne strony błędów z nawigacją; monitoruj i naprawiaj linki wewnętrzne.
+66) Skonfiguruj monitoring uptime (SLA), 5xx błędy; alerty dla anomalii ruchu i indeksacji.
+67) Włącz GA4 (z poprawnym tagowaniem kampanii) i GSC; skonfiguruj zdarzenia i cele konwersji SEO.
+68) Włącz Consent Mode v2 (UE) i zadbaj o pomiar w warunkach ograniczonej zgody (modelowanie konwersji, serwerowy GTM — jeśli możliwe).
+69) Wdróż śledzenie pozycji i udziału w głosie (rank tracking) dla priorytetowych klastrów i lokalizacji.
+70) Analizuj logi serwera: crawl budget, kody odpowiedzi, renderowanie, błędy; optymalizuj ważne ścieżki.
+71) Wdróż raport CWV z CrUX (RUM) i web‑vitals w analityce; celuj w 75. percentyl „good”.
+72) Ustal politykę aktualizacji treści: rewizja co 6–12 miesięcy lub przy spadkach; popraw merytorykę, dane, daty, multimedia.
+73) Utwórz centrum zasobów (Resource center): poradniki, checklisty, kalkulatory; treści link‑worthy (digital PR magnety).
+74) Digital PR: kampanie oparte na danych, raporty branżowe, narzędzia darmowe, partnerstwa lokalne; outreach white‑hat.
+75) Link earning: treści oryginalne (badania, mapy, case studies), kolaboracje, podcasty, webinary, sponsorowane z atrybutami.
+76) Zasady atrybutów linków: rel=nofollow/sponsored/ugc gdzie wymagane; transparentność i zgodność z wytycznymi.
+77) Unikaj schematów linków: PBN, farmy gościnne, masowe katalogi, wynajmy linków; ryzyko filtrów/aktualizacji anty‑spam.
+78) Zapobiegnij Site Reputation Abuse: nie hostuj niskiej jakości treści stron trzecich w celu pozycjonowania na cudzy temat.
+79) Produkt/Recenzje (o ile dotyczy): unikalne opisy, specyfikacje, zdjęcia własne, recenzje zweryfikowane, Product/Review schema zgodnie z wytycznymi.
+80) Wideo SEO: VideoObject, transkrypcje, rozdziały (Key Moments, SeekToAction), miniatury o wysokiej jakości, osadzenia zwracające SEO.
+81) Obrazy w SERP: ImageObject, alt, kontekst, EXIF usunięty/neutralny; grafiki pomocne w AIO (wykresy, tabele, infografiki).
+82) Fragmenty E‑E‑A‑T w treści: doświadczenie z pierwszej ręki, zdjęcia własne, studia przypadków, praktyczne checklisty.
+83) Strony pieniężne (money pages): pełne informacje (cena, zakres, korzyści, dowody, FAQ, CTA, polityki, schemy); brak ukrytych kosztów.
+84) Blog/poradnik: content research PAA/Reddit/fora; unikaj generyków; pokaż praktykę i lokalny kontekst.
+85) Testuj CTR meta: warianty title/description; unikaj click‑bait nieadekwatny do treści.
+86) Zoptymalizuj nawigację: menu logiczne, wewnętrzna wyszukiwarka z indeksacją off (noindex dla wyników), okruszki.
+87) Utrzymuj spójność danych kontaktowych (NAP) na stronie, GBP i cytowaniach; format międzynarodowy telefonu.
+88) Zastosuj lastmod w sitemapach i poprawnie aktualizuj daty na stronach (bez sztucznego podbijania).
+89) Zaplanuj migracje i wdrożenia: pre‑prod crawl, mapa 301, testy A/B techniczne poza obszarami krytycznymi, okno wdrożeń.
+90) Zaimplementuj politykę bezpieczeństwa nagłówków (CSP, X‑Frame‑Options, Referrer‑Policy); poprawa zaufania i stabilności.
+91) Zadbaj o porządek w canonicalach między wersjami filtrów/paginacji; unikaj kanonicali zwrotnych i wskazań na 404/301.
+92) Usuń parametry śledzące z kanonicznych URL (utm, gclid); kanoniczny zawsze czysty.
+93) Zarządzaj duplikacją językową/regionalną: hreflang + kanoniczny do tej samej wersji językowej.
+94) Oznacz UGC i moderuj komentarze/fora; rel=ugc i noindex dla profilowych thin pages, jeśli bez wartości.
+95) Przygotuj Author Pages i Editorial Guidelines; linkuj z treści; podpisuj materiały ekspertów.
+96) Utwórz stronę „Dlaczego nam ufać” (Trust/Proof): certyfikaty, członkostwa, nagrody, referencje, case studies.
+97) Zadbaj o pliki robots.txt, security.txt, humans.txt (opcjonalnie) oraz ads.txt/app‑ads.txt (jeśli monetyzacja reklamowa).
+98) Uporządkuj logikę błędów 301/302: 302 tylko tymczasowe; przegląd raz na kwartał; skracaj łańcuchy.
+99) Zaimplementuj monitoring indeksacji: liczba zaindeksowanych URL vs. publikowane, Coverage w GSC, anomalie i soft 404.
+100) Przygotuj dokument „deprecjacja treści”: kiedy konsolidować, 301, 410; kryteria: brak sesji, brak linków, brak pozycji.
+101) Zadbaj o szybkość backendu: indeksy DB, cache aplikacyjny, edge caching, minimalizacja cold starts funkcji.
+102) Wdróż strategie obrazów dla CWV: priorytet hero, formaty next‑gen, preloading tylko krytycznych, lazy dla reszty.
+103) Audyt JS: usuń nieużywane biblioteki, analityki duplikaty, heavy widgety; migruj do lżejszych alternatyw.
+104) Zoptymalizuj mapy (np. Google Maps): lazy load, statyczny placeholder, ładowanie na interakcję.
+105) Testuj na wolnych urządzeniach (mid‑range Android); optymalizacje ukierunkowane na realne warunki.
+106) Zaplanuj content velocity: min. 1–2 klastery/miesiąc + aktualizacje top money pages co 3–6 miesięcy.
+107) Stwórz checklistę publikacji: tytuł, H1, meta, schema, obrazy, alt, linki wewn., FAQ, AIO/FS alignment, lastmod, internal review.
+108) Opracuj guidelines dla AI‑asystowanych treści: fakt‑checking, plagiat 0%, unikalne wnioski/zdjęcia, podpis autora.
+109) Zabezpiecz przed crawlowaniem zasobów bez wartości (kosztownych): duże JSON, endpointy admin, logi — blokady/Disallow i auth.
+110) Ustandaryzuj breadcrumbs: zgodność z URL i strukturą IA; schema BreadcrumbList na każdej stronie.
+111) Przygotuj stronę FAQ globalną i lokalne sekcje FAQ w kluczowych klastrach; schema FAQPage zgodnie z wytycznymi (bez nadużyć).
+112) Zapewnij spójność językową i regionalną (PL/PL‑PL); lang w HTML, locale w meta, poprawne formaty dat i cen.
+113) Zaimplementuj Open Graph i Twitter Cards — lepsza dystrybucja, wyższy CTR po udostępnieniach.
+114) Wdróż politykę obrazów unikalnych dla stron pieniężnych i lokalnych (autentyczne zdjęcia, znaki wodne, EXIF neutralny).
+115) Stwórz stronę „Opinie” z dowodami (wideo, zdjęcia), linkuj do niej z money pages i GBP; schema Review/AggregateRating (zgodnie z zasadami).
+116) Dodaj tablice porównań i kalkulatory — zwiększają link‑worthiness i AIO/FS capture.
+117) Zrób audyt dostępności linków i nawigacji klawiaturą, focus management — lepsze INP i UX.
+118) Wdróż politykę performance budget (KB na stronę, liczba requestów, TBT/INP limity) i CI performance.
+119) Skonfiguruj testy Lighthouse/PSI w CI dla kluczowych stron; alerty gdy spadek poniżej progów.
+120) Dokumentuj każdy większy deploy (changelog SEO) — koreluj z metrykami GSC/GA4 i CWV.
+121) Przygotuj playbook przy aktualizacjach algorytmicznych: analiza spadków, hipotezy, priorytety poprawek, eksperymenty A/B.
+122) Edukuj zespół (content/dev/design/support) — szkolenie z SEO 2× rocznie; egzekwuj checklisty w procesach.
+123) Zbuduj panel SEO (Looker/GA4 + GSC + CrUX): widoczność, pozycje, udział w SERP features, CWV, indeksacja, błędy.
+124) Regularnie przeglądaj profil linków: odrzuć toksyczne tylko w razie konieczności (ostrożnie z disavow), raportuj anomalie.
+125) Zapewnij zgodność prawno‑regulacyjną (RODO, cookies, polityki); CMP nie może niszczyć CWV (asynchroniczne, lekkie).
+126) Zadbaj o spójność brandu w treściach (tone of voice, styl), co wspiera rozpoznawalność i naturalne linkowanie.
+127) Przygotuj wytyczne dla UGC (moderacja, anty‑spam, schemy, widoczność tylko wartościowego UGC).
+128) Zaprojektuj content hubs z nawigacją po kluczowych pytaniach, słownikiem pojęć i ścieżkami nauki/zakupu.
+129) Zapewnij helpful content: realne zdjęcia, procesy krok‑po‑kroku, checklisty do pobrania (PDF) i transkrypcje.
+130) Dla stron z terminami (kursy, wydarzenia): schema Event, aktualne daty, bilety/rezerwacje, archiwizacja po terminie.
+131) Dla firm lokalnych: strona Kontakt z mapą, parkingiem, dojazdem, dostępnością (windy), komunikacją miejską, godzinami ruchu.
+132) Zoptymalizuj ścieżkę konwersji: mikro‑CTA w treści, sticky CTA na mobile, krótkie formularze, testy A/B; mierz organic‑to‑lead.
+133) Zabezpiecz formularze (spam/bot), unikaj błędów walidacji; przy błędach — zachowuj dane; popraw INP na interakcjach.
+134) Dla treści długich: spis treści (anchor links), skróty sekcji, tl;dr; poprawa UX i Pogo‑sticking signals.
+135) Zastosuj canonical do wersji drukuj/PDF i noindex dla nich; PDF z metadanymi i linkiem do strony HTML.
+136) Wdróż politykę obrazów hero: stałe wymiary, preloading hero, tło jako CSS z image-set gdzie adekwatne.
+137) Rzetelnie oznacz treści sponsorowane i afiliacyjne (etykiety + rel=sponsored), brak ukrytych reklam.
+138) Optymalizuj dla AI Overviews także poprzez jasne listy korzyści, ceny od/do, kroki, warunki, ograniczenia — czytelne dla LLM.
+139) Zadbaj o kontekst lokalny w treściach (dzielnice, punkty orientacyjne, partnerzy lokalni, zdjęcia miejsca) — silny sygnał lokalny.
+140) Przyspiesz serwer pod mobile 3G/4G; testuj w PSI „mobile” i monitoruj CrUX regionu docelowego.
+141) Zaimplementuj x‑robots‑tag w nagłówkach dla typów binarnych (PDF, DOC) gdy niechciane w indeksie.
+142) Przeglądaj i czyść błędne soft 404 (niska jakość/puste listy); pokaż stan „brak wyników” z rekomendacjami zamiast pustki.
+143) Dla listingów (blog, aktualności): paginacja przewidywalna, canonical na stronę 1, unikaj infinite scroll bez SSR/SEO‑friendly.
+144) Scentralizuj dane kontaktowe w jednej prawdzie (CMS), aby uniknąć rozjazdów (NAP consistency).
+145) Zapewnij breadcrumb w danych strukturalnych dopasowany do ścieżki URL i nawigacji wizualnej.
+146) Wdróż mechanikę related content semantycznie (wektorowe podobieństwo) zamiast wyłącznie najnowszych wpisów.
+147) Włącz cache HTML na edge dla stron statycznych; dla dynamicznych — revalidacja i tagowanie cache.
+148) Dla Next.js/Nuxt itp.: server components/partial hydration; next/image, next/script (defer/afterInteractive), route‑level bundles.
+149) Egzekwuj politykę performance dla third‑party: analityki, chaty, tagi marketingowe — ładuj warunkowo/asynchronicznie.
+150) Ustal proces incident response SEO: kto, co, kiedy, rollback, komunikacja, SLA napraw.
+
+— Koniec listy głównej —
+
+Notatki końcowe:
+- Priorytetyzuj zadania wpływem na: indeksowalność → CWV/UX → dopasowanie intencji/treść → link earning → lokalne sygnały.
+- Mierz postęp co 2 tygodnie; iteruj hipotezy po zmianach algorytmicznych.
+- Zachowaj ostrożność wobec „szybkich” linków — długofalowo liczy się jakość treści, doświadczenie i autorytet.

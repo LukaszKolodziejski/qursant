@@ -1,0 +1,46 @@
+SEO — Zadania techniczne dla punktów 21–25 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx, hosting Vercel, Sharp. Źródło: config/SEO.txt (pkt 21–25), config/DOCUMENTATION.txt.
+
+21) TTFB < 0,8 s (mobile, P75) — serwowanie z edge, SSG/ISR, cache
+- [DEV] SSG/ISR: Dla stron statycznych (`/`, `/kursy`, `/cennik`, `/pytania`, `/o-nas`, `/galeria`, `/kontakt`) włącz generowanie statyczne z `export const revalidate = 86400` lub `revalidatePath` tam, gdzie potrzebne.
+- [DEV] API `send-reservation`: przejrzyj `apps/qursant/src/app/api/send-reservation/route.ts` — upewnij się, że kod jest asynchroniczny, nie blokujący (await‑y na I/O), brak zbędnych importów; timeout guard 10s; logowanie błędów minimalne.
+- [DEV] Headers/cache: w `apps/qursant/next.config.js` dodaj `headers()` z agresywnym cachingiem dla statycznych assets (`/_next/static`, `/public/*`) i `Cache-Control: s-maxage=31536000, immutable`; dla stron HTML: `s-maxage=300, stale-while-revalidate=86400`.
+- [DEV] CDN/edge: wymuś HTTP/2/3 (Vercel domyślnie) i preconnect do krytycznych originów (czcionki, mapy) w `layout.tsx` (`<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>`).
+- [DEV] Minimalizacja middleware: unikaj globalnego `middleware.ts` jeśli nie jest konieczny (każdy middleware dokłada opóźnienie TTFB).
+- Kryteria akceptacji: PSI Mobile P75 TTFB < 0,8 s na kluczowych stronach; brak długotrwałych cold starts; nagłówki cache poprawne.
+
+22) Core Web Vitals: LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1 (P75)
+- [DEV] RUM: w `apps/qursant/src/lib/web-vitals.ts` wyślij LCP/INP/CLS do GA4 (lub własnego endpointu) z etykietą ścieżki; zainicjuj w `layout.tsx` (dynamic import `web-vitals`).
+- [DEV] PSI/CI: dodaj skrypt `npm run seo:cwv` (Lighthouse/PSI API) dla stron: `/`, `/kursy`, `/cennik`, `/rezerwacja`, `/galeria`, `/kontakt`; zapis raportu JSON w `config/cwv/*.json`.
+- [DEV] Budżet wydajności: zdefiniuj `performance-budget.json` (LCP resource < 120KB, JS < 180KB na route, TBT<200ms w lab) — kontrola w CI.
+- Kryteria akceptacji: RUM raportuje P75 w granicach celu po 7–14 dniach; CI nie przechodzi, jeśli przekroczone budżety.
+
+23) LCP — identyfikacja i optymalizacja zasobu LCP (hero)
+- [DEV] Identyfikacja: użyj `web-vitals` + DevTools, by wskazać element LCP na `/` i kluczowych stronach; w `apps/qursant/src/app/page.tsx` ustaw obraz/hero w `next/image` z `priority` i właściwym rozmiarem.
+- [DEV] Preload: w `apps/qursant/src/app/layout.tsx` dodaj `<link rel="preload" as="image" href="/images/old/hero-bg.jpg" imagesrcset="..." imagesizes="...">` lub pozwól `next/image` z `priority` wygenerować preloading; preconnect do hosta obrazów jeśli zewnętrzny.
+- [DEV] Krytyczny CSS: wynieś style nad foldem do pliku krytycznego (Tailwind: ogranicz klasy w hero; unikaj ciężkich efektów nad foldem), usuń zbędne animacje w hero.
+- [DEV] Serwowanie obrazów: AVIF/WebP dla hero, rozdzielczości `srcset/sizes` dopasowane do viewport; brak większych niż potrzebne; kompresja przez Sharp.
+- [DEV] Serwer: TTFB dla zasobów statycznych (hero) z CDN — `Cache-Control: public, max-age=31536000, immutable` (nagłówki).
+- Kryteria akceptacji: PSI/Lab LCP < 2,5 s mobile; RUM wskazuje spadek mediany LCP; brak regresji jakości obrazu (wizualnej pikselizacji).
+
+24) INP — redukcja interakcyjności (blokady JS, długie zadania)
+- [DEV] Redukcja JS: w `apps/qursant/src/app/layout.tsx` i kluczowych stronach przenieś skrypty z `beforeInteractive` do `afterInteractive`/`lazyOnload`; usuń zbędne 3rd party; opóźnij chaty/trackery do interakcji.
+- [DEV] Code‑splitting: rozbij ciężkie komponenty (np. mapa na `kontakt`) przez dynamic import `next/dynamic` z `ssr: false` i `loading` placeholderem ładowanym po scrollu/interakcji.
+- [DEV] Event handlers: zdebounce’uj kosztowne onChange/scroll; unikaj synchronicznego setState w pętli; w formularzu rezerwacji zmniejsz re-render (kontrolowane pola tylko tam, gdzie niezbędne).
+- [DEV] Długie taski: wprowadź `requestIdleCallback`/`setTimeout(0)` do niekrytycznych inicjalizacji; odłóż ciężkie importy na moment po first interaction.
+- [DEV] Preconnect: do zasobów zdalnych używanych po interakcji (np. Google Maps) — preconnect dopiero przed inicjalizacją (progressive enhancement).
+- Kryteria akceptacji: Lab TBT < 200 ms; RUM P75 INP ≤ 200 ms na `/`, `/rezerwacja`, `/kontakt`.
+
+25) CLS — stabilność układu
+- [DEV] Obrazy: wszędzie zdefiniowane wymiary/aspect‑ratio; w `next/image` ustaw `sizes` poprawnie; brak `layout shift` po załadowaniu miniatur w galerii — zastosuj placeholdery blur.
+- [DEV] Czcionki: `next/font` self‑host (subset PL), `display: swap`, rezerwacja miejsca (font metrics); wyłącz FOIT.
+- [DEV] Komponenty dynamiczne: rezerwacja miejsca dla sekcji asynchronicznych (mapa, wideo, toast) — stała wysokość kontenera; wideo z `preload=metadata` i stałym boxem.
+- [DEV] UI: unikaj wstawek nad foldem; bannery/cookie CMP i toasty renderuj pod foldem lub z rezerwacją miejsca; nie przesuwaj CTA po załadowaniu.
+- [DEV] Reklamy (jeśli kiedykolwiek): kontenery o stałych wymiarach + rezerwacja fall‑back.
+- Kryteria akceptacji: PSI/Lab CLS ≤ 0,1; RUM P75 CLS ≤ 0,1; w nagraniach z Performance brak dużych przesunięć.
+
+Uwagi implementacyjne
+- Testuj na profilu „mid‑range Android” w DevTools (CPU 4× throttling, Fast 3G); weryfikuj CrUX po 7–14 dniach.
+- Utrzymuj minimalną liczbę globalnych stylów/skriptów; preferuj komponenty serwerowe, dynamiczne importy i `next/image`.
+- Każda zmiana wydajności powinna mieć wpis w changelogu SEO i porównanie metryk przed/po.

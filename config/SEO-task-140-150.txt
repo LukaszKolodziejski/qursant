@@ -1,0 +1,76 @@
+SEO — Zadania techniczne dla punktów 140–150 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel. Źródło: config/SEO.txt (pkt 140–150) i config/DOCUMENTATION.txt.
+
+140) Mobile performance w realnych warunkach (3G/4G) + PSI Mobile/CrUX
+- [DEV] Skrypt `apps/qursant/scripts/psi-mobile.ts` — uruchamia PSI Mobile dla: `/`, `/kursy`, `/cennik`, `/rezerwacja`, `/kontakt`, `/galeria`; zapis `config/psi-mobile/*.json`.
+- [DEV] RUM per region: w `src/lib/web-vitals.ts` dołącz `navigator.connection.effectiveType` i `deviceMemory` do payloadu; segmentuj w raportach.
+- [DEV] Vercel regions: dokument `config/vercel-regions.md` — upewnij się, że projekt korzysta z edge cache (domyślnie) i brak globalnego middleware.
+- Kryteria akceptacji: mamy raport PSI Mobile; RUM gromadzi `effectiveType`; brak nadmiarowych opóźnień z middleware.
+
+141) X‑Robots‑Tag dla plików binarnych (PDF/DOC) — noindex
+- [DEV] Jeżeli serwujesz pliki przez route: dodaj nagłówek `X-Robots-Tag: noindex` w odpowiednich `route.ts`.
+- [DEV] Dla zasobów statycznych: w `next.config.js -> headers()` dodaj reguły `source: /resources/(.*)`, `headers: [{ key: 'X-Robots-Tag', value: 'noindex' }]`.
+- [DEV] Audyt: skrypt `apps/qursant/scripts/robots-header-audit.ts` — sprawdza HEAD dla PDF w `public/resources/`; raport `config/robots-header-audit.csv`.
+- Kryteria akceptacji: wszystkie PDF mają `X-Robots-Tag: noindex`; audyt bez braków.
+
+142) Soft 404 — obsługa pustych listingów i niszowej jakości
+- [DEV] Listingi (galeria/poradnik): jeśli zapytanie poza zakresem → 404; jeśli lista pusta — UI „Brak wyników” z rekomendacjami (linki do hubu/FAQ) zamiast pustej strony.
+- [DEV] Skrypt `apps/qursant/scripts/soft404-scan.ts` — wykrywa strony 200 z tekstem „brak wyników/pusta” i sugeruje 404/noindex; raport `config/soft404-report.csv`.
+- Kryteria akceptacji: brak soft 404 na money/listach; puste widoki przyjazne i nieindeksowane (jeśli właściwe).
+
+143) Listingi i infinite scroll — kanoniczne i indeksacja
+- [DEV] Paginacja przewidywalna: `/poradnik` i `/galeria` — kanoniczny: strona 1 → bez `?page`, `page>1` → self; tylko strona 1 w sitemap.
+- [DEV] Infinite scroll (jeśli kiedyś): SSR pierwszej strony; kolejne batch’e przez „Załaduj więcej”; `history.pushState` bez zmian canonical.
+- [DEV] QA: skrypt `apps/qursant/scripts/listing-canonical-check.ts` — weryfikuje canonicale i sitemap inclusion; raport `config/listing-canonical.csv`.
+- Kryteria akceptacji: canonicale poprawne; infinite scroll (jeśli użyte) nie psuje SEO; sitemap bez paginacji >1.
+
+144) Jedno źródło NAP/contact i jego propagacja
+- [DEV] `apps/qursant/src/constants/contact.ts`: typy `ContactInfo`, jednoźródłowe NAP (nazwa, adres, tel, email, godziny, geo, link GBP); eksport.
+- [DEV] Użycie: `Navbar.tsx`/`Footer.tsx`, `kontakt/page.tsx`, `StructuredData` (`LocalBusiness`), `OpenGraph/meta` — wszystko importuje z jednego pliku.
+- [DEV] Test: skrypt `apps/qursant/scripts/nap-usage-audit.ts` — sprawdza użycie rozproszonych stringów (tel/adres) w repo i raportuje do `config/nap-usage.csv`.
+- Kryteria akceptacji: brak „twardych” NAP w kodzie poza `contact.ts`.
+
+145) BreadcrumbList zgodny z IA/URL
+- [DEV] Upewnij się, że `components/nav/Breadcrumbs.tsx` odzwierciedla strukturę IA i URL; ostatni element bez linku.
+- [DEV] JSON‑LD: wstrzykuj `BreadcrumbList` na stronach podrzędnych; unikaj dublowania skryptów.
+- [DEV] Lint: `apps/qursant/scripts/breadcrumbs-lint.ts` — sprawdza zgodność segmentów URL z breadcrumb; raport `config/breadcrumbs-lint.csv`.
+- Kryteria akceptacji: breadcrumbs spójne; linter bez błędów.
+
+146) Related content — semantyczne powiązania
+- [DEV] Metadane treści: w danych artykułów dodaj `tags: string[]` i `cluster: string`.
+- [DEV] Util `apps/qursant/src/lib/related-content.ts`: 
+  - prosty scoring: wspólne tagi + dystans w klastrze; fallback do najnowszych,
+  - funkcja `getRelated(slug, limit=3)`.
+- [DEV] Komponent `RelatedContent.tsx` — renderuj na końcu artykułów i money pages (min. 3 linki kontekstowe).
+- Kryteria akceptacji: sekcje powiązane obecne; linkowanie krzyżowe wzmacnia klastry.
+
+147) Edge cache HTML + rewalidacja
+- [DEV] `next.config.js -> headers()`: `Cache-Control` dla HTML: `s-maxage=300, stale-while-revalidate=86400`.
+- [DEV] ISR: na statycznych stronach `export const revalidate = 86400`; ewentualnie `revalidateTag` przy aktualizacjach treści.
+- [DEV] Dokument `config/caching-policy.md` — kiedy ustawiać revalidate, które strony nie podlegają (np. rezerwacja/kontakt, gdy SSR wymagane).
+- Kryteria akceptacji: nagłówki cache obecne; brak niekontrolowanych re‑render; szybkie TTFB z edge.
+
+148) Next.js dobre praktyki — Server Components, next/image/script, bundling per route
+- [DEV] Server Components: maksymalnie serwerowe komponenty dla treści statycznych; klientowe tylko dla interakcji (mapa, formularze).
+- [DEV] next/image: `formats: ['image/avif','image/webp']`, `priority` tylko dla hero; poprawne `sizes`.
+- [DEV] next/script: `strategy='afterInteractive'|'lazyOnload'`; brak `beforeInteractive` poza krytycznymi przypadkami.
+- [DEV] Bundling: dynamic import dla ciężkich sekcji (mapa/wideo) z `ssr:false`; route‑level split.
+- Kryteria akceptacji: spadek JS per route; brak błędów hydration; CWV bez regresji.
+
+149) Third‑party policy — ładowanie warunkowe i asynchroniczne
+- [DEV] Util `apps/qursant/src/lib/load-external.ts`: funkcje do wstrzykiwania skryptów 3rd party po zgodzie/po interakcji (chat, mapa, widgety), z Promise‑based API.
+- [DEV] Linter `apps/qursant/scripts/third-party-audit.ts` — wykrywa bezpośrednie `<script src="...">` w komponentach; wymusza użycie `next/script` lub utila.
+- [DEV] Dokument `config/third-party-policy.md` — lista dozwolonych usług, zasady ładowania, atrybuty, wpływ na CWV.
+- Kryteria akceptacji: brak niekontrolowanych 3rd party; skrypty ładują się warunkowo/asynchronicznie; audyt bez błędów.
+
+150) Incident response SEO — proces i narzędzia
+- [DEV] Dokument `config/seo-incident-response.md` — procedura: identyfikacja (GSC/Analytics/monitoring), izolacja (rollback/feature flag), diagnostyka (raporty: indeksacja, canonicale, CWV, 5xx), naprawa i weryfikacja.
+- [DEV] Zestaw „szybkich raportów”: `npm run seo:snapshot` (PSI/CrUX), `seo:crawl` (preprod‑crawl), `seo:canonicals` (check‑canonicals), `seo:indexation` (indexation-monitor) — komendy w `package.json`.
+- [DEV] Szablony komunikacji: `config/incident-templates.md` — komunikat do klienta, checklist post‑mortem.
+- Kryteria akceptacji: kompletna procedura i komendy dostępne; możliwość szybkiej diagnozy i rollbacku.
+
+Uwagi implementacyjne
+- Utrzymuj minimalny wpływ na CWV; skrypty audytowe uruchamiaj poza runtime prod.
+- Dokumentuj w `seo-changelog.md` istotne wdrożenia i incydenty; koreluj z GSC/GA4.
+- Po wdrożeniu: zweryfikuj PSI Mobile, canonicale listingów, nagłówki cache i X‑Robots‑Tag; przetestuj „quick reports”.

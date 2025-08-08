@@ -11,13 +11,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'O nas', href: '/o-nas' },
+    { name: 'Strona główna', href: '/' },
     { name: 'Kursy', href: '/kursy' },
     { name: 'Cennik', href: '/cennik' },
-    { name: 'Rezerwacja', href: '/rezerwacja' },
+    { name: 'Poradnik', href: '/poradnik' },
+    { name: 'Galeria', href: '/galeria' },
     { name: 'Pytania', href: '/pytania' },
     { name: 'Kontakt', href: '/kontakt' },
+    { name: 'Rezerwacja', href: '/rezerwacja' },
   ];
 
   return (

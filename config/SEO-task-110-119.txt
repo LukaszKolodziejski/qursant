@@ -1,0 +1,70 @@
+SEO — Zadania techniczne dla punktów 110–119 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Tailwind, Vercel. Źródło: config/SEO.txt (pkt 110–119) i config/DOCUMENTATION.txt.
+
+110) Breadcrumbs — ustandaryzowanie i schema BreadcrumbList
+- [DEV] Komponent breadcrumbs: upewnij się, że istnieje `apps/qursant/src/components/nav/Breadcrumbs.tsx` z generowaniem ścieżki na podstawie `pathname` + opcjonalnych metadanych (dla poradnika/lokalizacji).
+- [DEV] Schema: w `apps/qursant/src/components/seo/StructuredData.tsx` dodaj funkcję `renderBreadcrumbList(items)` i wstrzykuj JSON‑LD na stronach z breadcrumbs.
+- [DEV] Spójność: breadcrumbs muszą odzwierciedlać realną strukturę URL i IA; ostatni element bez linku, aria‑label="breadcrumb".
+- [DEV] Test: skrypt `apps/qursant/scripts/check-breadcrumbs.ts` — crawl kilku stron i weryfikuje zgodność ścieżki oraz obecność JSON‑LD.
+- Kryteria akceptacji: breadcrumbs na wszystkich podstronach klastrów/money; schema poprawna; test przechodzi.
+
+111) FAQ globalne i lokalne sekcje FAQ + FAQPage
+- [DEV] Dane FAQ: `apps/qursant/src/data/faq.ts` — sekcja globalna (ogólne pytania) + per klaster/strona (kursy, cennik, rezerwacja, kontakt, poradnikowe artykuły).
+- [DEV] Komponent `FaqSection`: `apps/qursant/src/components/seo/FaqSection.tsx` (jeśli nie ma) — akordeon + integracja ze `StructuredData` (FAQPage JSON‑LD).
+- [DEV] Wdrożenie: dodaj `FaqSection` do `/pytania` (global) oraz money pages i wybranych artykułów (lokalne FAQ).
+- [DEV] QA: Rich Results Test dla przykładowych stron + skrypt `apps/qursant/scripts/faq-lint.ts` (brak pustych odpowiedzi, brak duplikatów pytań).
+- Kryteria akceptacji: FAQ poprawne, zgodne z wytycznymi (bez nadużyć); schemy walidują się.
+
+112) Spójność językowa/region (PL/PL‑PL), lang i locale
+- [DEV] `html lang`: w `apps/qursant/src/app/layout.tsx` ustaw `lang="pl-PL"` na elemencie html (Next metadata lub RootLayout props) i og meta `og:locale` = `pl_PL`.
+- [DEV] Formatowanie: helper `apps/qursant/src/lib/intl.ts` — formaty dat/cen/telefonu dla `pl-PL` (Intl API) i użycie w UI.
+- [DEV] Hreflang: util `apps/qursant/src/lib/hreflang.ts` — `alternates.languages` (na teraz `pl-PL` + `x-default→pl`); spójne z canonical.
+- Kryteria akceptacji: poprawne `lang`, `og:locale`, i alternates; daty i ceny wyświetlane w formacie PL.
+
+113) Open Graph i Twitter Cards — komplet i spójność
+- [DEV] Util meta: rozbuduj `apps/qursant/src/lib/meta.ts` o generowanie OG/Twitter: `og:title`, `og:description`, `og:type`, `og:url`, `og:image` (dynamiczne dla poradnika/money), `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`.
+- [DEV] Dynamic og:image: wykorzystaj endpoint `/api/og` (jeśli wdrożony w pkt 74) do generowania obrazów dla `/poradnik/*` i money pages.
+- [DEV] Walidator: skrypt `apps/qursant/scripts/check-og-tags.ts` — sprawdza obecność krytycznych OG/Twitter na kluczowych stronach; raport `config/og-tags-report.csv`.
+- Kryteria akceptacji: wszystkie kluczowe strony mają poprawne OG/Twitter; obrazy 1200×630 min.; walidator bez błędów.
+
+114) Polityka obrazów unikalnych (hero, lokalne/money)
+- [DEV] Dokument `config/media-policy.md`: zasady użycia zdjęć własnych dla stron pieniężnych i lokalnych (unikalność, EXIF neutralny, znak wodny opcjonalny), lista wymaganych ujęć.
+- [DEV] Repozytorium obrazów: folder `apps/qursant/public/images/own/` z podfolderami `money/`, `local/`, `case/`.
+- [DEV] Linter: skrypt `apps/qursant/scripts/check-unique-hero.ts` — wykrywa powtarzające się hero image pomiędzy money pages i lokalizacjami; raport `config/unique-hero-report.csv`.
+- Kryteria akceptacji: money/local używają unikalnych hero; brak duplikacji między krytycznymi landingami.
+
+115) Strona „Opinie” z dowodami + schema Review/AggregateRating (zgodnie z zasadami)
+- [DEV] `apps/qursant/src/app/opinie/page.tsx`: prezentacja wideo/zdjęć (dowody), cytaty, źródła (GBP/Facebook). Link „Napisz opinię” do GBP.
+- [DEV] Dane: `apps/qursant/src/data/reviews.ts` — tylko zatwierdzone (`approved:true`), `source`, `date`, `rating?` (opcjonalnie).
+- [DEV] Schema: na stronie listy opinii użyj `Review` dla pojedynczych; unikaj `AggregateRating` jeśli brak wiarygodnego źródła/zgody. Jeżeli jednak jest — renderuj tylko na odpowiednich stronach i zgodnie z wytycznymi.
+- Kryteria akceptacji: strona działa, czytelna; Rich Results Test bez błędów; prawidłowe atrybuty linków zewn.
+
+116) Tablice porównań i kalkulatory (link‑worthy)
+- [DEV] Komponenty: `apps/qursant/src/components/seo/ComparisonTable.tsx` (semantyczna tabela z caption/thead/tbody) oraz `apps/qursant/src/app/kalkulator/page.tsx` (jeśli nie ma) — kalkulator kosztów kursu.
+- [DEV] Wdrożenie: na `cennik/page.tsx` dodaj `ComparisonTable` (np. kurs standard vs. ekspres); na `kursy/page.tsx` link do kalkulatora.
+- [DEV] SEO: dodać krótkie `AnswerBox` z wnioskami z porównania; CTA po tabeli.
+- Kryteria akceptacji: tabele dostępne (a11y), mobilne; kalkulator działa; dodane wewnętrzne linki.
+
+117) Audyt dostępności linków i nawigacji klawiaturą (focus management)
+- [DEV] Focus ring: zapewnij `:focus-visible` style w `globals.css`; linki i przyciski mają wyraźny focus.
+- [DEV] Skip links: dodaj `skip to content` (jeśli nie ma) i `skip to nav` dla długich stron.
+- [DEV] Skrypt `apps/qursant/scripts/focus-audit.ts` — sprawdza obecność focusable elements i kolejność tab na wybranych stronach; raport `config/focus-audit.csv`.
+- Kryteria akceptacji: poprawna nawigacja klawiaturą; testy a11y zielone.
+
+118) Performance budget i CI performance
+- [DEV] Plik `config/performance-budget.json` — limity per route: LCP resource < 120KB, JS < 180KB, TBT < 200ms (lab), CLS < 0.1.
+- [DEV] Skrypt `apps/qursant/scripts/perf-budget-check.ts` — łączy dane z Lighthouse/PSI (lab) i RUM (jeśli dostępny), weryfikuje budżety i zwraca kod wyjścia ≠0 przy przekroczeniach (na potrzeby CI).
+- [DEV] Nx pipeline: opis integracji w `config/ci-performance.md` (gdzie uruchamiać, na jakich ścieżkach, progi alertów).
+- Kryteria akceptacji: budżety obowiązują; CI failuje przy przekroczeniu; raporty dostępne w `config/`.
+
+119) Lighthouse/PSI w CI + alerty
+- [DEV] Skrypt `apps/qursant/scripts/run-lh-ci.ts` — uruchamia Lighthouse/PSI dla listy kluczowych URL (mobile) i zapisuje wyniki do `config/lh-ci/*.json`.
+- [DEV] Progi: w `config/performance-budget.json` zdefiniuj minimalne score (np. Performance ≥ 85, Accessibility ≥ 90, Best Practices ≥ 90, SEO ≥ 95).
+- [DEV] Alerty: jeśli CI nie jest dostępne, dodaj `npm run seo:ci` i dokument `config/alerts.md` (jak wysyłać alerty — e‑mail/Slack/webhook).
+- Kryteria akceptacji: istnieje powtarzalny sposób uruchomienia LH/PSI; generują się wyniki; alerty/progi działają.
+
+Uwagi implementacyjne
+- Dbaj o lekkość komponentów SEO (schema/og); minimalizuj wpływ na CWV.
+- Wykorzystaj centralne źródła danych (`src/constants/contact.ts`, `src/lib/meta.ts`, `src/components/seo/*`).
+- Po wdrożeniu: manualnie zweryfikuj Rich Results (FAQ, Breadcrumbs, Review), OG/tw w validatorach oraz a11y fokus/tab order.

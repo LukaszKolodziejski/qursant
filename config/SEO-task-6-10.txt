@@ -1,0 +1,51 @@
+SEO — Zadania techniczne dla punktów 6–10 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx. Źródło wymagań: config/SEO.txt (punkty 6–10) i config/DOCUMENTATION.txt.
+
+6) Słowa kluczowe: dobór, grupowanie, przypisanie do URL
+- [DEV] Repozytorium słów kluczowych: dodaj plik `config/keywords.csv` z kolumnami: `keyword,intent,cluster,target_url,notes` (w UTF‑8).
+- [DEV] Import: dodaj skrypt `apps/qursant/scripts/import-keywords.ts` (Node, ts-node) parsujący CSV do `apps/qursant/src/data/keywords.ts` (eksportowana tablica obiektów) i walidujący ścieżki `target_url`.
+- [DEV] Mapowanie: utwórz util `apps/qursant/src/lib/keywords.ts` (funkcje: `getKeywordsForPath(path)`, `getClusterKeywords(cluster)`), z memoizacją.
+- [DEV] Komponent powiązań: utwórz `apps/qursant/src/components/seo/SuggestedLinks.tsx` renderujący 3–6 linków wewnętrznych powiązanych z aktualną stroną na podstawie klastra/słów.
+- [DEV] Włączenie: użyj `SuggestedLinks` na stronach: `cennik/page.tsx`, `kursy/page.tsx`, `pytania/page.tsx`, `o-nas/page.tsx`, `rezerwacja/page.tsx` (na dole treści, przed stopką).
+- [DEV] Walidator CI: dodaj skrypt `npm run seo:validate:keywords` sprawdzający istnienie docelowych URL oraz brak duplikatów `target_url` w grupie tej samej intencji.
+- Kryteria akceptacji: CSV istnieje; skrypt generuje `src/data/keywords.ts` bez błędów; komponent wyświetla linki tylko do istniejących URL; brak błędów w walidatorze.
+
+7) Ocena trudności i potencjału słów (metadane, przegląd luk)
+- [DEV] Rozszerz `config/keywords.csv` o kolumny: `volume,trend_12m,cpc_pln,kd,serp_features`.
+- [DEV] Panel dev: dodaj stronę `/seo/keywords` (render tylko w `NODE_ENV !== 'production'`) w `apps/qursant/src/app/seo/keywords/page.tsx` z tabelą (filtrowanie po klastrze/intencji, sortowanie po `volume`/`kd`).
+- [DEV] Raport luk: skrypt `apps/qursant/scripts/keyword-gap-report.ts` porównujący `target_url` z rzeczywistymi stronami (odczyt z `src/app/**/page.tsx`) i generujący `config/keyword-gaps.csv` (status: MISSING/OK, rekomendacja URL/hub).
+- [DEV] Znacznik priorytetu: w `keywords.ts` dodaj pole pochodne `priority` (np. HIGH: volume≥200 lub kd≤35 i intent=transakcyjna/lokalna); użyj go do sortowania `SuggestedLinks`.
+- Kryteria akceptacji: `/seo/keywords` działa w dev; raport `keyword-gaps.csv` generuje się i wskazuje brakujące docelowe URL; linki sugerowane respektują priorytet.
+
+8) Architektura informacji (IA): drzewo, nawigacja, paginacje
+- [DEV] Nawigacja: zaktualizuj `Navbar.tsx` i `Footer.tsx` (apps/qursant/src/components/layout/) — stałe wejścia: Strona główna, Kursy, Cennik, Poradnik, Galeria, Pytania, Kontakt, Rezerwacja.
+- [DEV] Breadcrumbs: jeśli nie wdrożone wcześniej, dodaj `apps/qursant/src/components/nav/Breadcrumbs.tsx` + schema `BreadcrumbList` i użyj w `layout.tsx` oraz na stronach klastrów/hubów.
+- [DEV] Galeria — paginacja: w `apps/qursant/src/app/galeria/page.tsx` wprowadź paginację (np. 24 zdjęcia/stronę, query `?page=`); przy paginacji dodaj linki „poprzednia/następna” i zapobiegaj indeksowaniu stron pustych.
+- [DEV] Poradnik — listing: w `apps/qursant/src/app/poradnik/page.tsx` (z pkt 5) dodaj paginację gdy >20 wpisów; elementy sortowania (najnowsze/alfabetycznie).
+- [DEV] Sitemap: zaktualizuj `apps/qursant/src/app/sitemap.ts`, by automatycznie dodawać URL z poradnika i najważniejsze strony; nie dodawaj stron paginacji galerii > strona 1.
+- Kryteria akceptacji: menu odzwierciedla IA; breadcrumbs poprawne; galeria i poradnik mają paginację; sitemap zawiera hub/klastry i kluczowe strony bez nadmiarowych paginacji.
+
+9) Struktura adresów URL: standaryzacja i 301
+- [DEV] Polityka URL: kebab‑case, małe litery, bez spacji/diakrytyków; brak trailing slash.
+- [DEV] Helper: `apps/qursant/src/lib/slug.ts` (funkcje: `toSlug(text)`, `normalizePath(path)`), używany przy generowaniu slugów poradnika.
+- [DEV] Przekierowania 301: w `apps/qursant/next.config.js` dodaj `async redirects()` z regułami:
+  - wielkie litery → małe (`/:path*` doLowerCase via middleware lub konkretne reguły wylistowane),
+  - podwójne ukośniki → pojedynczy,
+  - stare końcówki `.html` → bez rozszerzenia (jeśli wystąpią),
+  - wersje z trailing slash → bez.
+- [DEV] Middleware (opcjonalnie): `apps/qursant/src/middleware.ts` do normalizacji rzadkich przypadków (301) gdy nie da się tego zrobić regułami statycznymi.
+- [DEV] Kanoniczne: dodaj util `apps/qursant/src/lib/canonical.ts` i w `generateMetadata` ustaw `alternates: { canonical: kanonicznyURL }` dla stron dynamicznych.
+- Kryteria akceptacji: test ręczny — nietypowe warianty URL są 301 do kanonicznego; `view-source` pokazuje tag canonical bez parametrów.
+
+10) Standardy meta (title/description): unikalność, intencja, CTR
+- [DEV] Util meta: `apps/qursant/src/lib/meta.ts` z funkcją `buildMeta({ intent, title, description, location })` i szablonami pod intencje (informacyjna, transakcyjna, lokalna, porównawcza).
+- [DEV] `generateMetadata`: na stronach `page.tsx` dla: `/` (home), `/kursy`, `/cennik`, `/rezerwacja`, `/pytania`, `/o-nas`, `/galeria`, `/kontakt` wyeksportuj `generateMetadata` i użyj `buildMeta` (unikalne tytuły ~55–60 znaków, opisy ~150–160, CTA/benefit).
+- [DEV] Walidator duplikacji meta: skrypt `apps/qursant/scripts/check-meta-duplicates.ts` crawl’ujący znane ścieżki i wykrywający powtarzające się title/description; raport `config/meta-duplicates.csv`.
+- [DEV] Testy: dodaj minimalny test E2E (Cypress) sprawdzający obecność unikalnego `<title>` i `<meta name="description">` na kluczowych stronach.
+- Kryteria akceptacji: wszystkie kluczowe strony mają unikalne meta dopasowane do intencji; brak duplikatów w raporcie; test E2E przechodzi.
+
+Uwagi implementacyjne
+- Skrypty uruchamiaj bezinteraktywnie (`tsx`/`ts-node`), wynik zapisuj w `config/*.csv` i `src/data/*.ts`.
+- Pamiętaj o i18n/PL — diakrytyki normalizuj w slugach; w meta używaj naturalnego PL.
+- Po wdrożeniu: przebuduj sitemap i zgłoś w GSC; zweryfikuj Rich Results Test i ręcznie sprawdź 301/kanoniki.

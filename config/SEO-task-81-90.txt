@@ -1,0 +1,70 @@
+SEO — Zadania techniczne dla punktów 81–90 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel. Źródło: config/SEO.txt (pkt 81–90) i config/DOCUMENTATION.txt.
+
+81) Obrazy w SERP — ImageObject, ALT, kontekst, EXIF
+- [DEV] JSON‑LD `ImageObject`: w `apps/qursant/src/components/seo/StructuredData.tsx` dodaj helper `imageObject(url, width, height, caption)` i używaj go dla hero oraz kluczowych obrazów (home, kursy, cennik, poradnik).
+- [DEV] ALT/kontekst: skrypt `apps/qursant/scripts/check-image-context.ts` — sprawdza czy obrazy nad foldem mają opisowy `alt` oraz czy obok znajduje się tekst wyjaśniający (kontrast/caption).
+- [DEV] EXIF: skrypt `apps/qursant/scripts/strip-exif.ts` (dry‑run) wskazuje pliki w `public/images/**` z metadanymi EXIF; przygotuj listę do ponownego zapisu (Sharp) bez EXIF.
+- Kryteria akceptacji: kluczowe strony mają `ImageObject` w JSON‑LD; ALT opisowe; brak wrażliwego EXIF w zasobach.
+
+82) E‑E‑A‑T w treści — doświadczenie z pierwszej ręki, case, checklisty
+- [DEV] Komponent `ExperienceBlock`: `apps/qursant/src/components/seo/ExperienceBlock.tsx` — sekcja „Z naszego doświadczenia” (zdjęcia własne, cytaty instruktora, mini‑case kursanta).
+- [DEV] Checklisty: `apps/qursant/src/components/seo/Checklist.tsx` (semantyczne `<ul>`/`<li>` z ikonami) — użyj na `kursy`, `rezerwacja`, w poradniku („co zabrać na kurs/egzamin”).
+- [DEV] Media własne: wprowadź politykę „własne zdjęcia” dla stron money (plik `config/media-policy.md`) i folder `public/images/case/` na zdjęcia dowodowe.
+- Kryteria akceptacji: money pages zawierają blok doświadczenia/case; checklisty obecne; zdjęcia własne użyte (nie stock).
+
+83) Money pages — komplet informacji (cena, zakres, korzyści, dowody, FAQ, CTA, polityki, schemy)
+- [DEV] Szablon money: `apps/qursant/src/components/content-templates/MoneyPage.tsx` z sekcjami: „Dla kogo”, „Co zawiera”, „Cena”, „Terminy”, „Dowody (opinie/case)”, „FAQ”, „CTA rezerwacja”, „Polityki/warunki”.
+- [DEV] Uzupełnij strony: `apps/qursant/src/app/kursy/page.tsx`, `apps/qursant/src/app/cennik/page.tsx`, `apps/qursant/src/app/rezerwacja/page.tsx` — użyj MoneyPage + właściwe schemy (`Service`, `Offer`, `FAQPage`).
+- [DEV] Brak ukrytych kosztów: dodaj blok „Dodatkowe koszty” (badanie, doszkalanie); aktualizuj `constants/prices.ts`.
+- Kryteria akceptacji: money pages mają komplet sekcji i schemów; CTA widoczne; sekcja kosztów transparentna.
+
+84) Blog/poradnik — research PAA/fora, lokalny kontekst
+- [DEV] Plik `config/topic-research.md` — procedura researchu (PAA, Reddit/fora PL, grupy FB), lista pytań do pokrycia.
+- [DEV] Szablon artykułu poradnika: sekcje „Praktyka instruktora” (lokalne warunki w Bydgoszczy), „Błędy na egzaminie w Bydgoszczy” — komponent `LocalContext.tsx`.
+- [DEV] Lokalne multimedia: folder `public/images/local/` na zdjęcia punktów orientacyjnych, trasy; użyj w poradnikach.
+- Kryteria akceptacji: nowe artykuły zawierają sekcję lokalną i praktyczne porady; checklisty/FAQ w treści.
+
+85) Testy CTR meta — warianty title/description, brak click‑bait
+- [DEV] Framework testów: skrypt `apps/qursant/scripts/ctr-tests.ts` — generuje 2–3 warianty `title/description` na podstawie szablonów w `src/lib/meta.ts` (np. benefit‑first vs. lokalne vs. liczby) i zapisuje do `config/ctr-variants.json`.
+- [DEV] Rotacja wariantów (manualna): util `apps/qursant/src/lib/ab-meta.ts` pozwala w trybie dev/prerender na wybór wariantu per strona (na prod wybór manualny przez commit).
+- [DEV] Raport GSC: (opcjonalnie) `apps/qursant/scripts/gsc-ctr-report.ts` — pobiera CTR/Impressions/Position dla stron money; porównanie przed/po.
+- Kryteria akceptacji: istnieją warianty meta; wdrożony proces ręcznej rotacji i ewaluacji CTR (bez click‑bait niezgodnego z treścią).
+
+86) Nawigacja i wyszukiwarka wewnętrzna
+- [DEV] Nawigacja: zweryfikuj `Navbar.tsx`/`Footer.tsx` — kolejność i nazwy (Strona główna, Kursy, Cennik, Poradnik, Galeria, Pytania, Kontakt, Rezerwacja) oraz breadcrumbs na każdej podstronie.
+- [DEV] Wyszukiwarka: dodaj prostą wyszukiwarkę treści (client‑side) w `apps/qursant/src/components/search/SiteSearch.tsx` indeksując `poradnik` i „Pytania”; wyniki pod `/szukaj`.
+- [DEV] SEO: wyniki `/szukaj` oznacz `noindex,follow`; dodaj ścieżkę do `robots.txt` Disallow (opcjonalnie); linki do wyników używają `SmartLink`.
+- Kryteria akceptacji: nawigacja spójna; wyszukiwarka działa i nie wchodzi do indeksu; breadcrumbs poprawne.
+
+87) NAP consistency — dane kontaktowe spójne wszędzie
+- [DEV] Source of truth: `apps/qursant/src/constants/contact.ts` — ujednolić NAP (nazwa, adres, tel w formacie międzynarodowym +48, email, godziny, link GBP), export.
+- [DEV] Użycie: `Footer.tsx`, `Kontakt`, `Schema LocalBusiness`, `OpenGraph`, `meta`, `Reviews` — import z jednego miejsca.
+- [DEV] Format telefonu: helper `formatPhone('+48 600 354 556')` i link `tel:+48600354556`.
+- Kryteria akceptacji: wszystkie miejsca korzystają z jednego źródła; format tel jednolity; brak rozjazdów.
+
+88) lastmod w sitemapach i daty na stronach
+- [DEV] `apps/qursant/src/app/sitemap.ts` (lub routes XML) — ustaw `lastmod` na podstawie `git last commit` pliku strony lub `dateModified` (fallback bieżąca data tylko przy buildzie treści).
+- [DEV] Daty na stronach: renderuj „Ostatnia aktualizacja” (z pkt 72); nie aktualizuj sztucznie dat bez zmian.
+- [DEV] Test: skrypt `apps/qursant/scripts/check-lastmod.ts` — porównuje `lastmod` w sitemap z datą na stronie; raport niespójności.
+- Kryteria akceptacji: `lastmod` sensowne i spójne z widocznymi datami; brak sztucznego „bumpowania”.
+
+89) Proces migracji/deployów — crawl pre‑prod, mapa 301, A/B, okno wdrożeń
+- [DEV] Pre‑prod crawl: skrypt `apps/qursant/scripts/preprod-crawl.ts` — generuje listę URL i sprawdza statusy 200/301/4xx; raport `config/preprod-crawl.csv`.
+- [DEV] Mapa 301: utrzymuj `config/redirects.json`; test łańcuchów (`check-redirect-chains.ts`) przed deployem.
+- [DEV] A/B techniczne: jeśli testujesz warianty meta/hero/wydajności — rób to na małych zakresach; dokument `config/deploy-policy.md` (okna wdrożeń poza szczytem, rollback plan).
+- Kryteria akceptacji: procedury opisane; crawl czysty; brak łańcuchów 301; A/B kontrolowane.
+
+90) Nagłówki bezpieczeństwa (CSP, X‑Frame‑Options, Referrer‑Policy)
+- [DEV] `apps/qursant/next.config.js` → `headers()` (prod):
+  - `Content-Security-Policy` (ostrożnie, zacznij od `default-src 'self'; img-src 'self' data: https:; media-src 'self' https:; font-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; connect-src 'self' https:`) — doprecyzuj hosty po audycie,
+  - `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: geolocation=(), camera=(), microphone=()`.
+- [DEV] Raport CSP (opcjonalnie): tryb `Content-Security-Policy-Report-Only` w pierwszym etapie; analiza w `config/csp-reporting.md`.
+- [DEV] Test e2e: sprawdź brak blokad funkcji krytycznych (mapa, GA4) i brak naruszeń w konsoli.
+- Kryteria akceptacji: nagłówki obecne; brak regresji funkcjonalności; Lighthouse Security bez ostrzeżeń.
+
+Uwagi implementacyjne
+- Dbaj o minimalny wpływ nowych skryptów/JSON‑LD na CWV; mierzyć w RUM.
+- Utrzymuj jedną prawdę danych (NAP/meta) w `src/constants` i `src/lib`.
+- Po wdrożeniu: Rich Results (ImageObject/Service), GSC Coverage/Enhancements, skany pre‑prod i CTR‑testy odnotowane w `config/`.

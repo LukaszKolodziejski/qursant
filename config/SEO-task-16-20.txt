@@ -1,0 +1,53 @@
+SEO — Zadania techniczne dla punktów 16–20 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx. Źródło wymagań: config/SEO.txt (punkty 16–20) i config/DOCUMENTATION.txt.
+
+16) Kanonikalizacja (rel=canonical) + eliminacja duplikacji
+- [DEV] Util kanoniczny: utwórz `apps/qursant/src/lib/canonical.ts` z funkcjami:
+  - `getOrigin(): string` — zwraca origin na podstawie `NEXT_PUBLIC_SITE_URL` (fallback prod domena).
+  - `toCanonicalPath(url: URL): string` — usuwa parametry śledzące (utm_*, gclid), normalizuje trailing slash i wielkość liter.
+  - `getCanonicalUrl(pathnameOrUrl: string): string` — zwraca pełny kanoniczny URL.
+- [DEV] Włączanie w meta: w każdej kluczowej stronie (`/`, `kursy`, `cennik`, `rezerwacja`, `pytania`, `o-nas`, `galeria`, `kontakt`, oraz dynamiczne jak poradnik) użyj `generateMetadata` i ustaw `alternates.canonical` poprzez util.
+- [DEV] Middleware (opcjonalnie): `apps/qursant/src/middleware.ts` — zdejmuje parametry UTM/GCLID (301 do kanonicznego) z wyjątkiem dozwolonych (np. `?page=` dla paginacji).
+- [DEV] Test: skrypt `apps/qursant/scripts/check-canonical.ts` crawl’uje znane URL i weryfikuje obecność jednego, poprawnego `<link rel="canonical">` bez parametrów śledzących.
+- Kryteria akceptacji: na wszystkich money pages i listach obecny jest poprawny canonical; UTM i gclid nie trafiają do kanonicznych; test przechodzi.
+
+17) Paginacja (uniknięcie duplikacji + UX prev/next)
+- [DEV] Galeria: w `apps/qursant/src/app/galeria/page.tsx` dodaj paginację po query `?page=` (np. 24 zdjęcia/strona). Zaimplementuj linki „Poprzednia/Następna” z atrybutem `rel="prev"/"next"` oraz widoczne numery stron.
+- [DEV] Kanoniczne: dla `page>1` ustaw canonical na aktualny URL (samokanoniczny), dla `page=1` na URL bez parametru.
+- [DEV] Noindex dla pustych: jeśli `page` wykracza poza zakres (pusta strona) — zwracaj 404 (nie `200 noindex`).
+- [DEV] Sitemap: nie dodawaj stron `?page>` do sitemap (tylko strona 1). Upewnij się, że `sitemap.ts` to respektuje.
+- [DEV] Komponent paginacji reużywalny: `apps/qursant/src/components/nav/Pagination.tsx` (przyjmuje current/total i generuje URL z zachowaniem innych dozwolonych parametrów).
+- Kryteria akceptacji: poprawne canonicale na stronach list; brak indeksacji pustych stron; paginacja działa i jest dostępna (aria-labels, focus).
+
+18) Faceted navigation (parametry/filtrowanie): indeksowanie tylko wartościowych kombinacji
+- [DEV] Polityka parametrów: utwórz `apps/qursant/src/lib/params-policy.ts` z:
+  - `ALLOWED_INDEXED_PARAMS: Record<string, string[]>` — whitelist kombinacji indeksowalnych (na start pusta/ograniczona),
+  - `shouldIndex(url: URL): boolean` — logika decydująca o meta `robots` i canonical.
+- [DEV] Meta robots dla filtrów: na stronach list (np. galeria/poradnik, gdy pojawią się filtry) ustaw `meta name="robots" content="noindex,follow"` dla nie-whitelistowanych kombinacji; canonical zawsze do wersji podstawowej bez parametrów.
+- [DEV] Robots.txt (jeśli potrzebne): rozważ `Disallow: /*?*` dla specyficznych wzorców filtrów, jeśli generują szum (po analizie logów/GSC).
+- [DEV] QA: przygotuj `apps/qursant/scripts/check-facets.ts` — generuje przykładowe URL facetów i sprawdza: `noindex,follow` + canonical do bazowego.
+- Kryteria akceptacji: filtry nie generują zduplikowanych indeksowalnych stron; canonical do bazowego; QA skrypt „zielony”.
+
+19) Thin content i sieroty (orphan pages): konsolidacja i linkowanie
+- [DEV] Audyt zawartości: skrypt `apps/qursant/scripts/content-audit.ts` — dla znanych stron pobiera:
+  - liczbę słów w treści głównej,
+  - liczbę linków wewnętrznych (wyjściowych i przychodzących — na podstawie prostego grafu z parsowania TSX),
+  - flagi: THIN (<250 słów), ORPHAN (0–1 linków przychodzących), DUPLICATE TITLE.
+  Zapisuje raport do `config/content-audit.csv`.
+- [DEV] Konsolidacja: przygotuj `config/redirects.json` z mapowaniem URL do 301 (scalające duplikaty/kanibalizacje). Wczytaj w `next.config.js` (redirects).
+- [DEV] „Related content”: dodaj sekcję powiązanych treści na stronach poradnika/money (jeżeli brak) — minimalnie 3 linki wewnętrzne do kontekstowych treści.
+- [DEV] 404/410: dla świadomie usuniętych stron zwracaj 410 (route handler) zamiast 404, jeśli to deprecjacja; usuń linki wewnętrzne do nieistniejących stron.
+- Kryteria akceptacji: raport wskazuje brak ORPHAN dla stron kluczowych (≥2–3 linki przychodzące); brak THIN na money pages; wdrożone 301 dla scalanych.
+
+20) Polityka przekierowań (301) — brak łańcuchów i pętli, mapa migracji
+- [DEV] Centralne reguły: w `apps/qursant/next.config.js` załaduj `config/redirects.json` i zwróć dynamiczne `redirects()` (source→destination, permanent: true).
+- [DEV] Detector łańcuchów: skrypt `apps/qursant/scripts/check-redirect-chains.ts` — wykrywa łańcuchy/pętle (A→B→C) i raportuje do `config/redirect-chains.csv`.
+- [DEV] Testy e2e (Cypress): przypadki krytyczne (stare URL usług/miast) zwracają pojedynczy 301 do kanonicznego; brak kolejnych 3xx.
+- [DEV] Dokument migracji: `config/migration-map.md` — tabela: „stary URL” → „nowy URL” + powód (kanibalizacja/scalenie/zmiana IA).
+- Kryteria akceptacji: brak łańcuchów/pętli w raporcie; testy e2e przechodzą; zmiany udokumentowane.
+
+Uwagi implementacyjne
+- W utilach URL pracuj na obiekcie `URL` (node/web) dla odporności na przypadki brzegowe.
+- Nie dodawaj filtrów/facetów do sitemap; canonical i robots traktuj spójnie.
+- Po wdrożeniu: prześlij `sitemap.xml` w GSC, sprawdź Coverage (soft 404, Duplicate without user‑selected canonical), przejrzyj logi po 7–14 dniach.

@@ -1,0 +1,108 @@
+config/SEO-task-1-5.txt
+config/SEO-task-6-10.txt
+config/SEO-task-11-15.txt
+config/SEO-task-16-20.txt
+config/SEO-task-21-25.txt
+config/SEO-task-25-30.txt
+config/SEO-task-31-40.txt
+config/SEO-task-41-50.txt
+config/SEO-task-51-60.txt
+config/SEO-task-61-70.txt
+config/SEO-task-71-80.txt
+config/SEO-task-81-90.txt
+config/SEO-task-91-100.txt
+config/SEO-task-101-109.txt
+config/SEO-task-110-119.txt
+config/SEO-task-120-129.txt
+config/SEO-task-130-139.txt
+config/SEO-task-140-150.txt
+
+DOCUMENTATION
+
+Zapoznaj się z plikiem: DOCUMENTATION.txt żeby zrozumieć projekt. A następnie dam Ci dokłade zadanie czym masz się zajmować.
+
+
+-----------------
+
+Powtórzenia/duże nakładki tematyczne (scalić lub oznaczyć jako „core” + „rozszerzenia”)
+Canonical/hreflang/parametry:
+16 (kanonikalizacja), 91 (QA canonicali), 92 (czyszczenie UTM/gclid), 93 (hreflang zgodny z canonical)
+Paginacja/listingi:
+17 (paginacja), 143 (kanoniczne listingów/infinite scroll)
+Robots/Noindex/X‑Robots‑Tag:
+14 (robots.txt), 64 (noindex niskiej wartości), 97 (robots.txt pliki well-known), 109 (blokowanie crawlu zasobów kosztownych), 141 (X‑Robots‑Tag dla PDF)
+Sitemapy/lastmod:
+13 (sitemapy), 88 (lastmod + spójność dat), 13/97 (dyrektywa Sitemap w robots)
+Breadcrumbs:
+37 (BreadcrumbList w bazowych schematach), 110 (standaryzacja breadcrumbs), 145 (spójność BreadcrumbList z IA/URL)
+FAQ:
+38 (FAQPage w treści), 44 (sekcje PAA/FAQ), 111 (globalne/lokalne FAQ + walidacja)
+Local SEO/LocalBusiness/GBP:
+39 (LocalBusiness schema), 55–58 (GBP + opinie + schema), 131 (Kontakt – dojazd/parking/dostępność), 139 (kontekst lokalny)
+Internal linking:
+11 (schemat linków wew.), 50 (playbook internal linking), 146 (related content)
+Obrazy:
+27 (optymalizacja obrazów), 52 (ALT/nazwy), 81 (ImageObject), 114 (unikalne obrazy), 136 (polityka hero)
+Wideo:
+28 (wideo technicznie), 80 (VideoObject/rozdziały/SeekToAction)
+OG/Twitter:
+74 (dynamiczne og:image), 113 (pełny OG/Twitter)
+Wydajność/CWV (nie duplikaty, ale rodzina spójnych zadań):
+21–26, 29–33, 101–105, 117–119, 136, 147–149 (komplementarne)
+Priorytetyzacja: które zadania w której wiązce
+1) Indeksowalność (crawl → index → kanonikalność)
+13, 14, 15, 16, 17, 18, 19, 20
+31 (krytyczna treść bez JS)
+41 (walidacja schem – ułatwia zrozumienie, po indeksacji)
+64, 65, 66 (noindex, 404/410, stabilność)
+70, 71 (logi/CrUX – obserwacja efektu)
+88, 89 (lastmod, pre‑prod crawl)
+91, 92, 93 (canonical/hreflang/UTM)
+97, 99, 100 (pliki well‑known, monitoring indeksacji, deprecjacje)
+109, 141, 142, 143 (blokady kosztów, X‑Robots, soft‑404, listingi)
+147, 150 (cache HTML – budżet crawlu; procedury incydentowe)
+2) CWV/UX (wydajność, responsywność, dostępność)
+21–26 (TTFB, CWV, LCP/INP/CLS, protokoły/kompresja)
+27–30 (obrazy, wideo, krytyczne CSS/JS, SSR/SSG)
+33 (czcionki)
+61–63 (a11y, interstitiale, density nad foldem)
+101–105 (backend, obrazy krytyczne, audyt JS, mapa lazy, testy lab)
+117–119 (focus, budżety perf, LH/PSI w CI)
+136 (polityka hero)
+147–149 (cache, best practices Next.js, third‑party policy)
+132–133 (UX i INP formularzy/CTA – też konwersja)
+3) Dopasowanie intencji/treść (semantyka, meta, schemy, E‑E‑A‑T)
+1–12 (strategie: KPI, persony, intencje, IA, URL, meta standardy)
+34–36 (H1–H3, title, description)
+37–40 (Organization/WebSite/BreadcrumbList; Article/FAQ/HowTo/Video/Image; Local/Service/Event)
+42–44 (AIO, Featured Snippets, PAA)
+45–47 (E‑E‑A‑T, źródła, YMYL)
+48–50 (kalendarz, szablony, internal linking)
+52–54 (ALT/nazwy, listy/tabele, strony lokalne)
+72–75 (aktualizacje, zasoby, PR, link‑worthy)
+80–86 (wideo, E‑E‑A‑T bloki, money pages kompletne, lokalny kontekst, testy CTR, nawigacja/wyszukiwarka)
+95, 96 (Autorzy, „Dlaczego nam ufać”)
+108, 126 (AI‑asystowane treści, brand guide)
+128–129 (hubs, słownik, how‑to/checklisty/transkrypcje)
+130, 134–135, 138 (Eventy, TOC/tl;dr, polityka PDF, bloki AIO)
+4) Link earning (pozyskiwanie linków, governance)
+73–76 (zasoby/kalkulator, media/RSS/og:image, kalkulator PDF/case/embed, atrybuty rel)
+77–78 (anti‑spam, site reputation)
+81 (ImageObject – też SERP w Images)
+115–116 (opinie + Review zgodnie z zasadami, tabele porównań/kalkulatory)
+124 (audyt profilu linków, polityka disavow)
+5) Lokalne sygnały (GBP, NAP, strony lokalne, kontekst)
+39, 55–58 (LocalBusiness, GBP, opinie, NAP checker/consistency)
+59–60 (i18n/hreflang – opcjonalnie)
+87 (jedno źródło NAP)
+131 (Kontakt: dojazd/parking/dostępność)
+139 (sekcje lokalne w treści)
+54 (lokalizacje/dzielnice – tylko jeśli realnie unikalna wartość)
+69 (rank tracking lokalny)
+130 (eventy lokalne przy kursach)
+Krótka rekomendacja kolejności wdrożeń (praktyczne „co po kolei”)
+Faza 1 — indeksowalność: 13–20, 31, 64–66, 91–93, 99–100, 142–143
+Faza 2 — CWV/UX: 21–26, 27–30, 33, 101–105, 118–119, 147–149, 136
+Faza 3 — meta/treści/schemy: 34–36, 37–40, 42–44, 45–47, 83 (money), 85 (CTR)
+Faza 4 — lokalne: 39, 55–58, 87, 131, 139, 54
+Faza 5 — link earning: 73–76, 115–116, 124

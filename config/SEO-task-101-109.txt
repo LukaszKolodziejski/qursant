@@ -1,0 +1,68 @@
+SEO — Zadania techniczne dla punktów 101–109 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel, Nodemailer/Resend, Sharp. Źródło: config/SEO.txt (pkt 101–109) i config/DOCUMENTATION.txt.
+
+101) Szybkość backendu — cache, minimalizacja cold starts, lekkie bundlowanie
+- [DEV] API `send-reservation`: przejrzyj `apps/qursant/src/app/api/send-reservation/route.ts`:
+  - przenieś ciężkie importy do lazy (dynamic `import(...)`) wykonywanych dopiero przy POST,
+  - usuń zbędne zależności; upewnij się, że logika I/O jest asynchroniczna,
+  - dodaj timeout guard (np. 10s) i obsługę błędów bez kosztownych stack trace w odpowiedzi.
+- [DEV] Cache na edge/ISR: dla stron statycznych ustaw `export const revalidate = 86400` (lub sensowny) i cache nagłówki HTML (`s-maxage=300, stale-while-revalidate=86400`) w `next.config.js/headers()`.
+- [DEV] Minimalizacja cold starts: wynieś wspólne utilsy do modułów bez side‑effects; unikaj globalnego `middleware.ts` jeśli niepotrzebny.
+- [DEV] Analiza bundla funkcji: skrypt `apps/qursant/scripts/api-bundle-size.ts` (użyj `@vercel/nft`/`packlist`) — raport rozmiaru bundla API i zależności do `config/api-bundle-report.csv`.
+- Kryteria akceptacji: mniejszy bundle API; brak długich cold starts; poprawne nagłówki cache; raport bundla wygenerowany.
+
+102) Strategie obrazów dla CWV — priorytety, formaty next‑gen, preload tylko krytycznych
+- [DEV] Hero: na stronach z hero (`app/page.tsx` itd.) użyj `next/image` z `priority` tylko dla głównego kadru; usuń zbędne preloade; kontroluj rozmiar (AVIF/WebP).
+- [DEV] Preload: w `layout.tsx` dodaj `<link rel="preload" as="image">` wyłącznie dla jednego obrazu hero (jeśli nie zapewnia tego `next/image`).
+- [DEV] Lazy: wszystkie obrazy poniżej folda pozostają lazy (domyślne w `next/image`).
+- [DEV] Test: skrypt `apps/qursant/scripts/critical-images-audit.ts` — wykrywa nadmiarowe preloade i obrazy LCP > 120 KB; raport `config/critical-images.csv`.
+- Kryteria akceptacji: PSI nie raportuje „Preload key requests” i „Properly size images”; LCP niepogorszony.
+
+103) Audyt JS — usunięcie balastu, duplikatów analityk, ciężkich widgetów
+- [DEV] Analiza pakietu: uruchom `npm run analyze` (Nx) i zapisz wyniki do `config/bundle-analyze.html`.
+- [DEV] Skrypt `apps/qursant/scripts/js-audit.ts` — wykrywa duplikaty loaderów/analityk, importy całych bibliotek zamiast modułów (np. całe `lodash`), duże paczki >80 KB; raport `config/js-audit.csv` z rekomendacjami.
+- [DEV] Refaktor: zamień ciężkie biblioteki na lżejsze alternatywy; dziel importy ikon; usuń nieużywane zależności z `package.json`.
+- Kryteria akceptacji: zmniejszenie JS per route (home < ~180 KB); brak duplikatów analityk; raport audit czysty.
+
+104) Mapy — lazy load, statyczny placeholder, ładowanie na interakcję
+- [DEV] `apps/qursant/src/app/kontakt/MapComponent.tsx`:
+  - wyświetl statyczny placeholder (obraz mapy z pinezką z `public/images/office/*`) w stałym kontenerze `aspect-ratio` bez CLS,
+  - załaduj Google Maps dopiero po interakcji (klik „Pokaż mapę”/scroll do sekcji), dynamic import z `ssr:false`,
+  - preconnect do Maps tylko tuż przed inicjalizacją.
+- [DEV] Dodaj „Otwórz w Google Maps” z UTM.
+- Kryteria akceptacji: brak CLS; mapa nie ładuje się w tle bez interakcji; UX poprawny na mobile.
+
+105) Testy na wolnych urządzeniach — profil „mid‑range Android”
+- [DEV] Skrypt Lighthouse: `apps/qursant/scripts/lab-mobile-tests.ts` — uruchamia Lighthouse/PSI w profilu Moto G4/Fast 3G na stronach: `/`, `/kursy`, `/cennik`, `/rezerwacja`, `/kontakt` i zapisuje JSON do `config/lab/*.json`.
+- [DEV] Dokument `config/perf-testing.md` — procedura ręcznych testów w DevTools (CPU 4× throttling, 1,5× RAM), jak interpretować metryki.
+- Kryteria akceptacji: posiadamy lab‑raporty; regresje wykrywane w CI/manualnie; działania korygujące planowane.
+
+106) Content velocity — plan publikacji i aktualizacji
+- [DEV] `config/content-velocity.json` — plan na 3–6 miesięcy: min. 1–2 klastry/miesiąc + harmonogram aktualizacji money pages.
+- [DEV] Widok dev: `/seo/calendar` (jeśli nie dodany) — pokazuje velocity i status (DRAFT/READY/PUBLISHED/UPDATE DUE).
+- [DEV] Automatyczne tickery: skrypt `apps/qursant/scripts/velocity-reminder.ts` — generuje przypomnienia (log/CSV) dla zbliżających się terminów.
+- Kryteria akceptacji: plan istnieje; widok i przypomnienia działają; velocity utrzymywane.
+
+107) Checklista publikacji — automaty i PR checklist
+- [DEV] `config/publication-checklist.md` — lista: Title (50–60), H1, meta desc (150–160), schema (właściwe), obrazy (AVIF/WebP, ALT, wymiary), linki wewn., FAQ, AnswerBox/FS alignment, lastmod, Author/Updated, JSON‑LD valid, OG/og:image, OpenGraph, testy A11y/CWV.
+- [DEV] Skrypt `apps/qursant/scripts/check-publication.ts` — sprawdza stronę pod kątem checklisty (parsuje SSR HTML i JSON‑LD) i generuje `config/publication-report.csv`.
+- [DEV] (Opcjonalnie) PR template w repo `config/pr-template.md` do kopiowania do narzędzia VCS.
+- Kryteria akceptacji: raport publikacji zielony dla nowych stron; proces publikacji usystematyzowany.
+
+108) Guidelines dla treści AI‑asystowanych — jakość, podpis, plagiat 0%
+- [DEV] Dokument `config/ai-content-guidelines.md` — zasady: fact‑checking, źródła, unikalne wnioski/zdjęcia, podpis autora, styl marki, zakaz generowania bez weryfikacji, zakaz publikowania „thin” treści.
+- [DEV] Skrypt `apps/qursant/scripts/ai-content-check.ts` — kontrola metadanych artykułów: wymagane `authorId`, `sources`, `dateModified`; ostrzeżenia jeśli brak.
+- [DEV] UI: w szablonach treści renderuj wyraźny podpis i sekcję źródeł; brak publikacji bez autora.
+- Kryteria akceptacji: każda treść posiada autora i źródła; raport „AI content check” bez błędów; zgodność z dokumentem.
+
+109) Blokowanie crawl kosztownych zasobów — Disallow + auth + nagłówki
+- [DEV] robots.txt: dodaj/utrzymaj `Disallow:` dla ścieżek niewartościowych/kosztownych (np. `/api/`, `/seo/`, `/logs`, `/debug` — jeśli istnieją).
+- [DEV] X‑Robots‑Tag: dla ciężkich JSON/PDF (jeśli w przyszłości) zwracaj `noindex` nagłówkiem w route handlerach.
+- [DEV] Auth: chronione ścieżki dev (np. `/seo/*`) zabezpieczone env‑gatingiem (render tylko `NODE_ENV!=='production'`).
+- [DEV] Skrypt `apps/qursant/scripts/crawl-cost-audit.ts` — wykrywa duże pliki w `public/` (>1 MB) i endpointy API o czasie >2 s; raport `config/crawl-cost.csv`.
+- Kryteria akceptacji: robots i nagłówki poprawne; brak indeksacji ciężkich zasobów; raport kosztów „zielony”.
+
+Uwagi implementacyjne
+- Zmiany wydajności i polityk publikacji dokumentuj w `config/` (changelog). Mierz wpływ zmian (RUM/CrUX/GSC).
+- Utrzymuj minimalny wpływ na CWV — szczególnie przy dodawaniu skryptów audytowych/raportowych (uruchamiaj poza runtime prod).

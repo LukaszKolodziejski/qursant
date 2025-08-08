@@ -1,0 +1,56 @@
+SEO — Zadania techniczne dla punktów 25–30 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx, Tailwind, Sharp, hosting Vercel.
+Źródło: config/SEO.txt (pkt 25–30) oraz config/DOCUMENTATION.txt.
+
+25) CLS — stabilność układu (aspect‑ratio, fonty, dynamiczne sekcje)
+- [DEV] Obrazy: wszędzie stosuj `next/image` z określonym `width/height` lub `fill` + `sizes`; dodaj `placeholder="blur"` dla miniatur (galeria, sekcje listowe).
+- [DEV] Aspect ratio: dodaj klasy Tailwind `aspect-[w/h]` lub CSS `aspect-ratio` dla kontenerów obrazów/wideo; dla galerii wymuś stały box elementu.
+- [DEV] Czcionki: przenieś na `next/font` (self‑host, subset PL), `display: swap`; w razie potrzeby ustaw font metrics (size-adjust, ascent-override) aby zredukować shift.
+- [DEV] Komponenty dynamiczne: w `kontakt/MapComponent.tsx` i osadzeniach wideo ustaw stałą wysokość kontenera; dla toastów/banerów (cookies/CMP) zarezerwuj miejsce lub renderuj pod foldem.
+- [DEV] UI: unikaj wstawek nad foldem po onload; bądź konsekwentny z wysokościami hero i CTA.
+- Kryteria akceptacji: PSI/Lab CLS ≤ 0,1 na kluczowych stronach; RUM P75 CLS ≤ 0,1 po 7–14 dniach; brak widocznych przesunięć w nagraniach Performance.
+
+26) Protokoły/kompresja/cache — HTTP/2/3, Brotli, ETag, cache
+- [DEV] Nagłówki cache: w `apps/qursant/next.config.js` ustaw `headers()`:
+  - dla `/_next/static/*` i `/public/*` → `Cache-Control: public, max-age=31536000, immutable`
+  - dla stron HTML → `Cache-Control: public, s-maxage=300, stale-while-revalidate=86400`
+- [DEV] ETag/Compression: korzystaj z domyślnej kompresji Vercel (Brotli/gzip) i ETag; nie wyłączaj kompresji w routes API.
+- [DEV] Preconnect: w `layout.tsx` dodaj `<link rel="preconnect">` do hostów czcionek/zasobów zewnętrznych (tylko niezbędne) z `crossOrigin="anonymous"`.
+- [DEV] Vary: dla responsywnych obrazów i treści ustaw `Vary: Accept, Accept-Encoding` (nagłówki globalne w `headers()`), jeśli wymagane przez serwowanie formatów.
+- Kryteria akceptacji: nagłówki obecne i poprawne; PSI pokazuje kompresję Brotli; brak ostrzeżeń o krótkim cache statycznych zasobów.
+
+27) Obrazy — AVIF/WebP, srcset/sizes, lazy‑load, rozmiar
+- [DEV] Konfiguracja: w `apps/qursant/next.config.js` ustaw `images: { formats: ['image/avif','image/webp'], deviceSizes: [360, 640, 828, 1080, 1200, 1920], imageSizes: [64, 96, 128, 256, 384] }`.
+- [DEV] Migracja: zastąp `<img>` → `next/image` w: `app/page.tsx`, `app/galeria/page.tsx`, `components/layout/*` (logo może pozostać jako `Image` z `priority` jeśli LCP).
+- [DEV] Alt i nazwy: uzupełnij `alt` kontekstowe; sprawdź nazwy plików w `public/images/**` (kebab‑case, opisowe); usuń zbędne EXIF.
+- [DEV] Lazy: `loading="lazy"` (domyślne w `next/image`) dla obrazów poniżej folda; `priority` tylko dla jednego hero na stronę.
+- [DEV] Audit rozmiarów: skrypt `apps/qursant/scripts/audit-images.ts` — wykrywa obrazy renderowane większe niż kontener (>20%) i listuje do poprawy.
+- Kryteria akceptacji: PSI nie raportuje „properly size images” i „serve images in next‑gen formats”; LCP nie pogorszone.
+
+28) Wideo — kompresja, streaming, poster, transkrypcje
+- [DEV] Odtwarzacz: w miejscach osadzeń wideo użyj `<video>` z `preload="metadata"`, `controls`, `poster` (miniatura z `public/videos/...jpg`), stały box (aspect‑ratio), brak autoodtwarzania.
+- [DEV] Transkrypcje: dodaj plik napisów `.vtt` (PL) do głównego wideo (`<track kind="subtitles" srclang="pl" default>`); opublikuj transkrypcję jako sekcję tekstową na stronie.
+- [DEV] Streaming (opcjonalnie): rozważ przygotowanie wersji HLS/DASH (jeśli rozmiar MP4 > ~10–20 MB) i serwowanie adaptacyjne; w przeciwnym razie zoptymalizuj MP4 CRF.
+- [DEV] Schema: uzupełnij `VideoObject` (JSON‑LD) dla głównego wideo (tytuł, opis, thumbnailUrl, uploadDate, duration) — `components/seo/StructuredData.tsx`.
+- Kryteria akceptacji: PSI nie raportuje „video not optimized”; wideo ładuje się z posterem bez skoku layoutu; dostępne napisy PL.
+
+29) Krytyczne CSS/JS — eliminacja blokady renderu, podział bundli, usuwanie balastu
+- [DEV] Skrypty: używaj `next/script` z `strategy="afterInteractive"`/`lazyOnload`; usuń `beforeInteractive` jeśli nie niezbędne; przenieś ciężkie 3rd party na interakcję.
+- [DEV] Dynamic import: dla ciężkich komponentów (mapy, galerie z lightbox, carousels) użyj `next/dynamic` z `ssr:false` i `loading` placeholderem.
+- [DEV] Krytyczne CSS: zredukuj CSS nad foldem – unikaj ciężkich efektów/animacji w hero; Tailwind Purge jest włączony — usuń nieużywane klasy custom.
+- [DEV] Analiza bundle: dodaj skrypt `npm run analyze` (jest w dok.) i raportuj największe moduły; usuń nieużywane zależności; dziel importy ikon (tree‑shaking w react‑icons).
+- [DEV] Preload tylko krytycznych zasobów (1 obraz hero, 1 font); usuń zbędne `<link rel="preload">` jeśli nie przynosi zysku.
+- Kryteria akceptacji: Lighthouse „Eliminate render‑blocking resources” zielone; spadek JS per route (home < 180 KB); brak regresji stylów.
+
+30) SSR/SSG/hybryda + progressive enhancement
+- [DEV] SSG/ISR: strona główna, kursy, cennik, poradnik, pytania, o nas — generuj statycznie (`revalidate` dzienny); rezerwacja i kontakt — SSR tylko tam, gdzie konieczne (np. dynamiczne sloty), w pozostałym SSG.
+- [DEV] Server Components: maksymalnie wykorzystaj serwerowe komponenty w App Router (UI bez interaktywności jako serwerowe), klientowe tylko dla interakcji (formularze, mapa).
+- [DEV] Progressive enhancement: funkcje JS (mapa, animacje) inicjuj po interakcji/scrollu; zapewnij treść i kluczowe CTA w HTML bez JS.
+- [DEV] Hydration koszt: ogranicz liczbę klientowych komponentów nad foldem; dziel layout na sekcje server/client; wprowadź `suppressHydrationWarning` tylko gdy konieczne.
+- [DEV] Test: porównaj TTFB/LCP/INP przed/po; utrzymaj poprawność SEO (meta/JSON‑LD) po przeniesieniu do server components.
+- Kryteria akceptacji: TTFB/LCP nie rośnie po migracji; kluczowe treści dostępne bez JS; brak błędów hydration w konsoli.
+
+Uwagi implementacyjne
+- Testuj na profilu „mid‑range Android” i mobilnym PSI; monitoruj RUM (web‑vitals) po wdrożeniu.
+- Zmiany w nagłówkach/konfiguracji planuj poza godzinami szczytu; dokumentuj wpływ w changelogu SEO.

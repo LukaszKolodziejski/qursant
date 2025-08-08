@@ -1,0 +1,71 @@
+SEO — Zadania techniczne dla punktów 71–80 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, Nx, Vercel. Źródło: config/SEO.txt (pkt 71–80) i config/DOCUMENTATION.txt.
+
+71) CWV z CrUX (field data) + RUM web‑vitals
+- [DEV] RUM web‑vitals: jeśli nie wdrożone — dodaj `apps/qursant/src/lib/web-vitals.ts` i inicjację w `layout.tsx` (wysyłka LCP/INP/CLS do GA4 lub własnego endpointu z page_path, device).
+- [DEV] CrUX/PSI API: skrypt `apps/qursant/scripts/crux-report.ts` pobierający field data (LCP/INP/CLS) dla kluczowych URL (`/`, `/kursy`, `/cennik`, `/rezerwacja`, `/kontakt`, `/galeria`) z PageSpeed Insights API (wymaga `PSI_API_KEY`). Zapis JSON/CSV do `config/crux/*.json` i `config/crux-report.csv`.
+- [DEV] Progi: skrypt dodaje kolumnę `p75_category` (good/needs-improvement/poor). Dokument `config/crux-readme.md` z instrukcją klucza API i harmonogramem zbierania (np. 1×/tydz.).
+- Kryteria akceptacji: RUM wysyła metryki; skrypt generuje raport dla kluczowych stron; P75 docelowo w kategorii „good”.
+
+72) Polityka aktualizacji treści (rewizje 6–12 m‑cy, po spadkach)
+- [DEV] Daty publikacji/aktualizacji: dodaj pola `datePublished`, `dateModified` do stron (money + poradnik). Dla poradnika trzymaj metadane w pliku danych/MDX frontmatter.
+- [DEV] Baner „Ostatnia aktualizacja”: komponent `apps/qursant/src/components/seo/LastUpdated.tsx` — renderuj pod H1. Uzupełnij `Article`/`BlogPosting` `dateModified`.
+- [DEV] Staleness checker: skrypt `apps/qursant/scripts/content-staleness.ts` skanujący daty i tworzący `config/content-stale.csv` (URL, dni od aktualizacji, rekomendacja UPDATE/OK). Opcjonalnie wykrywa spadki z GSC (jeśli zintegrowane).
+- Kryteria akceptacji: każda strona ma `dateModified`; raport starych treści generuje się; widoczny baner aktualizacji.
+
+73) Centrum zasobów (Resource center): poradniki, checklisty, kalkulatory
+- [DEV] Strona hub: `apps/qursant/src/app/zasoby/page.tsx` z sekcjami: Check‑listy (PDF), Szablony, Kalkulatory, Raporty.
+- [DEV] Pliki do pobrania: katalog `apps/qursant/public/resources/` (PDF/CSV); komponent listy z ikonami i rozmiarem pliku.
+- [DEV] Kalkulator kosztów kursu: `apps/qursant/src/app/kalkulator/page.tsx` (prosty kalkulator ceny: kurs + jazdy doszkalające + badanie). Schemat `HowTo` (opcjonalnie) i sekcja CTA do rezerwacji.
+- [DEV] Link‑worthy: sekcja „Raporty” — placeholder raportu (np. „Zdawalność egzaminów w Bydgoszczy 2025”) z własnym URL (DRAFT, noindex do czasu publikacji).
+- Kryteria akceptacji: `/zasoby` i `/kalkulator` działają; pliki do pobrania serwowane; na money/poradnik dodane linki do zasobów.
+
+74) Digital PR: press kit, RSS, dynamiczne OG, strony „Media”
+- [DEV] Strona Media: `apps/qursant/src/app/media/page.tsx` — press kit (logo, key facts, zdjęcia, dane kontaktowe dla mediów), linki do zasobów/raportów.
+- [DEV] RSS: feed poradnika `apps/qursant/src/app/feed.xml/route.ts` (RSS 2.0) — najnowsze artykuły; `Content-Type: application/rss+xml`.
+- [DEV] Dynamiczne og:image: route `apps/qursant/src/app/api/og/route.ts` (Satori/OG Image) — generuje obraz tytułu artykułu/strony do udostępnień.
+- [DEV] UTM helper: `apps/qursant/src/lib/utm.ts` — budowa linków PR (utm_source=pr&utm_medium=referral&utm_campaign=raporty) i użycie w Media.
+- Kryteria akceptacji: `/media` dostępne; feed działa; og:image generuje grafiki dla /poradnik/* i money pages.
+
+75) Link earning: narzędzia/treści przyciągające linki
+- [DEV] Kalkulator/kalkulator PDF: dodaj przycisk „Pobierz kalkulację PDF” (render HTML→PDF po stronie klienta lub link do statycznego wzoru z danymi); zachowaj lekkość (bez ciężkich libów jeśli możliwe).
+- [DEV] Case study: dodaj szablon `apps/qursant/src/app/case/[slug]/page.tsx` (historia kursanta, zdjęcia, wideo). Dodaj sekcję „Udostępnij” (social share) z OG.
+- [DEV] Widget „Zapisz się teraz” (embed): `/api/embed/cta` zwracający fragment HTML z przyciskiem rezerwacji + instrukcja osadzenia (dla partnerów lokalnych). Dodaj `rel=nofollow` w instrukcji, jeśli partnerskie.
+- Kryteria akceptacji: powstała sekcja/strony, które można linkować; embed działa i jest lekki.
+
+76) Atrybuty linków: rel=nofollow/sponsored/ugc — governance + automat
+- [DEV] `SmartExternalLink`: komponent `apps/qursant/src/components/seo/SmartExternalLink.tsx` — domyślnie `rel="noopener"`; parametry `kind: 'sponsored'|'ugc'|'follow'` dokładają właściwy `rel`.
+- [DEV] Linter linków zewn.: skrypt `apps/qursant/scripts/check-external-links.ts` — wykrywa brak `rel` przy linkach wychodzących i raportuje do `config/external-links-report.csv`.
+- [DEV] Governance: dokument `config/link-policy.md` — zasady atrybutów i kiedy używać; przykłady.
+- Kryteria akceptacji: brak brakujących `rel` na zewnętrznych linkach; komponent użyty w miejscach zewnętrznych odnośników.
+
+77) Anty‑spam linkowy — unikaj schematów
+- [DEV] Skrypt sanity check: `apps/qursant/scripts/outbound-domains-audit.ts` — listuje domeny zewnętrzne w repo i liczność linków; ostrzega o masowych katalogach, farmach.
+- [DEV] Banner ostrzegawczy (dev): podczas build dev wypisz ostrzeżenia, jeżeli wykryto podejrzane domeny/duże natężenie linków z jednej domeny.
+- [DEV] Dokument `config/anti-spam-links.md` — zakazane praktyki (PBN, wynajem linków), jak oznaczać sponsorowane.
+- Kryteria akceptacji: raport domen działa; brak podejrzanych wzorców w repo; dokumentacja dostępna.
+
+78) Site Reputation Abuse — ochrona reputacji domeny
+- [DEV] Autorzy whitelisted: `apps/qursant/src/data/authors.ts` — tylko zaufani autorzy; w plikach poradnika wymagaj `authorId` z whitelisty.
+- [DEV] Build guard: skrypt `apps/qursant/scripts/guard-reputation.ts` — fail build, gdy wykryje treści „guest post” w katalogu poradnika z nieautoryzowanym autorem lub metadane `sponsored: true` bez oznaczeń w UI.
+- [DEV] Oznaczenia sponsorowanych: komponent `SponsoredLabel` (UI + `rel=sponsored`) dla treści opłacanych.
+- Kryteria akceptacji: build guard działa; treści mają poprawne oznaczenia; brak publikacji niskiej jakości stron trzecich.
+
+79) Produkt/Recenzje — Service/Review zgodnie z wytycznymi
+- [DEV] Strona `opinie` (jeśli nie ma) — patrz wcześniejsze zadania; render tylko zweryfikowanych opinii; źródło zaznaczone (GBP/Facebook), link do oryginału.
+- [DEV] Schema: na `opinie/page.tsx` można dodać `Review` dla pojedynczych opinii; unikać `AggregateRating` jeśli brak uprawnień/wiarygodnego źródła.
+- [DEV] Service schema: na `kursy/page.tsx` opisz usługę (nazwa, opis, areaServed, provider). Na `cennik/page.tsx` podaj `Offer` przy `Service` (cena „od”).
+- Kryteria akceptacji: schemy zgodne z treścią; brak naruszeń wytycznych; UI opinii przejrzysty.
+
+80) Wideo SEO — VideoObject, rozdziały, SeekToAction, miniatury
+- [DEV] JSON‑LD `VideoObject` dla `public/videos/main_video.mp4` — `name`, `description`, `thumbnailUrl` (wygeneruj miniaturę do `public/videos/main_video.jpg`), `uploadDate`, `duration`, `contentUrl`, `embedUrl` (jeśli osadzony), `publisher`.
+- [DEV] Rozdziały (Key Moments): dodaj dane rozdziałów — komponent `VideoChapters.tsx` i JSON‑LD `hasPart` (`Clip` z `startOffset`/`name`). Dodaj linki do sekcji z czasem.
+- [DEV] SeekToAction: jeśli odtwarzacz wspiera zapytania `?t=` lub `#t=` — dodaj `SeekToAction` `target: https://qursant.com.pl/sciezka-wideo?t={seek_to_second_number}`.
+- [DEV] Poster i stabilny box: `<video preload="metadata" poster="/videos/main_video.jpg">` + stały `aspect-ratio` i kontrola CLS.
+- Kryteria akceptacji: Rich Results Test dla VideoObject OK; wideo ma miniaturę, rozdziały i nie powoduje CLS; SeekToAction poprawny.
+
+Uwagi implementacyjne
+- Dokumentuj klucze i integracje w `config/*.md` (PSI API, GSC, GA4). Nie blokuj renderu przez skrypty raportujące.
+- Dbaj o spójność danych (autorzy, NAP) — jedna prawda w `src/constants`/`src/data`.
+- Po wdrożeniu: przejrzyj GSC (Enhancements, Video), raport CrUX, odśwież sitemapę i monitoruj web‑vitals (RUM).

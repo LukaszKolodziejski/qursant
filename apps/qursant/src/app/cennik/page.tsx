@@ -1,18 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import {
   HiOutlineDocumentText,
   HiOutlineAcademicCap,
-  HiLightningBolt,
   HiOutlineCheck,
   HiOutlineGift,
 } from 'react-icons/hi';
 import { FaCar } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { CONTACT } from '@/constants/contact';
+import FaqSection from '@/components/seo/FaqSection';
 import { PRICES } from '@/constants/prices';
+import AnswerBox from '@/components/seo/AnswerBox';
+import IntentCta from '@/components/seo/IntentCta';
+import SuggestedLinks from '@/components/seo/SuggestedLinks';
 
 export default function CennikPage() {
   const [currentDate, setCurrentDate] = useState('');
@@ -48,6 +50,18 @@ export default function CennikPage() {
 
   return (
     <div className="min-h-screen">
+      <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-8">
+        <div className="container mx-auto px-6">
+          <AnswerBox
+            title="Jakie są ceny kursów prawa jazdy w Qursant?"
+            text={`Kurs podstawowy kosztuje ${PRICES.COURSE.BASIC} zł, a ekspresowy ${PRICES.COURSE.EXPRESS} zł. Oferujemy możliwość płatności w 5 ratach bez dodatkowych opłat oraz przejrzyste warunki bez ukrytych kosztów.`}
+          />
+        </div>
+      </section>
+      <AnswerBox
+        title="Szybka odpowiedź"
+        text="Sprawdź aktualne ceny kursów prawa jazdy, porównaj tryby nauki i wybierz najlepszą opcję dla siebie. Oferujemy płatności ratalne i jasne zasady bez ukrytych kosztów."
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950">
         <div className="absolute inset-0">
@@ -116,12 +130,7 @@ export default function CennikPage() {
                   Elastyczny harmonogram
                 </li>
               </ul>
-              <Link
-                href="/rezerwacja"
-                className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                Zapisz się na kurs
-              </Link>
+              <IntentCta intent="transactional" />
             </motion.div>
 
             {/* Kurs Ekspresowy */}
@@ -159,12 +168,10 @@ export default function CennikPage() {
                   Intensywne szkolenie
                 </li>
               </ul>
-              <Link
-                href="/rezerwacja"
+              <IntentCta
+                intent="transactional"
                 className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                Wybierz kurs ekspresowy
-              </Link>
+              />
             </motion.div>
           </div>
 
@@ -342,9 +349,29 @@ export default function CennikPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* FAQ + CTA Section */}
       <section className="relative py-16 bg-gradient-to-b from-blue-950 to-gray-900">
         <div className="container mx-auto px-6">
+          <FaqSection
+            items={[
+              {
+                question: 'Co zawiera cena kursu?',
+                answer:
+                  'Materiały dydaktyczne, 30h teorii, 30h praktyki, egzaminy wewnętrzne oraz wsparcie instruktora.',
+              },
+              {
+                question: 'Czy są dodatkowe opłaty?',
+                answer: `Należy uwzględnić badanie lekarskie (${PRICES.ADDITIONAL.MEDICAL_EXAM} zł) i opłaty za egzamin państwowy.`,
+              },
+              {
+                question: 'Jak działają raty?',
+                answer:
+                  'Płatności można rozłożyć na 5 wygodnych rat – bez dodatkowych kosztów.',
+              },
+            ]}
+            heading="FAQ o cenach"
+            className="mb-12"
+          />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -361,16 +388,20 @@ export default function CennikPage() {
               Zarezerwuj swoje miejsce już dziś!
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/rezerwacja"
+              <IntentCta
+                intent="transactional"
                 className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                Zapisz się na kurs
-                <HiLightningBolt className="ml-2" />
-              </Link>
+              />
             </div>
           </motion.div>
         </div>
+      </section>
+      <section className="relative py-12 bg-gradient-to-b from-gray-900 to-gray-950">
+        <SuggestedLinks
+          currentPath="/cennik"
+          className=""
+          heading="Zobacz także"
+        />
       </section>
     </div>
   );

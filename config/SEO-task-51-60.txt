@@ -1,0 +1,73 @@
+SEO — Zadania techniczne dla punktów 51–60 (projekt: Szkoła Jazdy Qursant)
+
+Kontekst: Next.js (apps/qursant), App Router, monorepo Nx. Źródło: config/SEO.txt (pkt 51–60) i config/DOCUMENTATION.txt.
+
+51) Kanibalizacja — konsolidacja, relokacja słów, 301
+- [DEV] Audyt kanibalizacji: skrypt `apps/qursant/scripts/cannibalization-audit.ts` — wykorzysta `config/keywords.csv` i przeskanuje tytuły/H1; raport `config/cannibalization-report.csv` (fraza → lista URLi, rekomendacja strony kanonicznej).
+- [DEV] Konsolidacja: przygotuj `config/redirects.json` (stary→nowy URL). Załaduj w `apps/qursant/next.config.js` w `async redirects()` jako `permanent: true`.
+- [DEV] Refaktor linków: zaktualizuj linkowanie wewnętrzne na stronach objętych scaleniem; usuń odwołania do usuniętych URL.
+- [DEV] Kanoniczne: upewnij się, że `generateMetadata` wskazuje poprawny canonical; brak self‑referencyjnych błędów do 404/301.
+- Kryteria akceptacji: raport po wdrożeniu nie zawiera konfliktów; stare URL zwracają pojedynczy 301; brak duplikujących się tytułów/H1.
+
+52) Obrazy — SEO (nazwy, ALT, podpisy)
+- [DEV] Linter ALT: skrypt `apps/qursant/scripts/check-image-alt.ts` — wykrywa obrazy bez `alt` i sugeruje wartość na podstawie kontekstu (props/plik). Raport `config/image-alt-report.csv`.
+- [DEV] Nazwy plików: audyt `public/images/**` — skrypt `apps/qursant/scripts/rename-images.ts` (dry‑run) proponujący kebab‑case opisowe nazwy (bez spacji/PL diakrytyków); wygeneruj mapę rename.
+- [DEV] Komponent `FigCaptionImage`: `apps/qursant/src/components/seo/FigCaptionImage.tsx` — wrapper nad `next/image` z opcjonalnym podpisem (caption) i źródłem.
+- [DEV] Migracja: w kluczowych stronach zastąp `<Image>` tam, gdzie ma sens, na `FigCaptionImage` (np. zdjęcia instruktorów/samochodów w galeriach/„O nas”).
+- Kryteria akceptacji: brak obrazów bez ALT na money pages; sensowne podpisy w miejscach kontekstowych; raport ALT czysty.
+
+53) Fragmenty list i tabel — semantyka i FS
+- [DEV] Komponenty: `apps/qursant/src/components/seo/KeyFactsTable.tsx` (semantyczne `<table>`, `<thead>`, `<th scope>`), `ProsConsList.tsx` (semantyczne `<ul>` z ikonami), `StepsList.tsx` (jeśli nie ma) dla procesów.
+- [DEV] Wstawienia: na `cennik/page.tsx` dodaj `KeyFactsTable` z zakresem cen/elementami pakietu; na `kursy/page.tsx` — `StepsList` „Jak zapisać się na kurs”.
+- [DEV] Dostępność: dodaj `caption` i `aria-describedby` dla tabel; zapewnij kontrast i fokus.
+- Kryteria akceptacji: Lighthouse A11y dla tabel/list na zielono; fragmenty są zwiezłe i pomagają w FS.
+
+54) Strony lokalne (multi‑miasto, jeśli dotyczy) — przygotowanie i Bydgoszcz+dzielnice
+- [DEV] Szablon lokalizacji: `apps/qursant/src/app/lokalizacja/[slug]/page.tsx` (SSG) + dane w `apps/qursant/src/data/locations.ts` (nazwa dzielnicy/obszaru, treść unikalna, zdjęcia lokalne, dojazd, parking, opinie, ceny/harmonogram jeśli różne).
+- [DEV] Unikalność: wymagaj minimum unikalnych elementów (zdjęcia własne z `public/images/office/`, case lokalne, opinie z danego obszaru). Odrzuć tworzenie „doorway pages”.
+- [DEV] Mapy i NAP: embed mapy z markerem; dane NAP z `src/constants/contact.ts`; schemy `LocalBusiness` spójne z globalnymi.
+- [DEV] Linkowanie: dodaj sekcję „Obsługiwane obszary” na `/kontakt` z linkami do lokalizacji.
+- Kryteria akceptacji: co najmniej 1 pilotażowa strona (np. „Bydgoszcz — Fordon”) z unikalną wartością; brak duplikacji treści.
+
+55) Google Business Profile (GBP) — integracje po stronie www
+- [DEV] Link do GBP z UTM: w `Footer.tsx`/`Kontakt` dodaj link do profilu GBP z UTM (`utm_source=website&utm_medium=organic&utm_campaign=gbp`).
+- [DEV] Sekcja danych GBP: na `kontakt/page.tsx` dodaj block z: godziny otwarcia, telefon, adres, link „Trasa →” z UTM do Google Maps.
+- [DEV] CTA „Dodaj opinię”: link do formularza opinii Google (z parametrem placeid, jeśli dostępny) w sekcji „Opinie”.
+- [DEV] Zdjęcia: moduł siatki zdjęć z GBP (na razie statycznie z `public/images/office/`), podpisany jako „Zobacz więcej w Google”.
+- Kryteria akceptacji: linki z UTM działają; sekcja GBP na kontakcie kompletna; CTA do opinii dostępne i widoczne.
+
+56) Opinie — moderacja, prezentacja, schema (zgodnie z wytycznymi)
+- [DEV] Strona `apps/qursant/src/app/opinie/page.tsx` — prezentacja wybranych opinii (tekst + autor + źródło + data). Dane w `apps/qursant/src/data/reviews.ts` (źródło: GBP/Facebook — import ręczny).
+- [DEV] Moderacja: przygotuj prosty format danych z polem `approved: boolean`; renderuj tylko zatwierdzone; sanitize treść (usuwanie HTML).
+- [DEV] Schema: NA STRONIE GŁÓWNEJ nie dodawaj `AggregateRating`, jeśli źródło nie spełnia zasad. Możesz dodać `Review` przy konkretnych treściach (case studies) zgodnie z zasadami.
+- [DEV] Link „Napisz opinię” (do GBP) i „Zobacz wszystkie opinie w Google”.
+- Kryteria akceptacji: strona działa; brak auto‑generowanego aggregate na money pages; poprawne atrybuty linków zewnętrznych.
+
+57) GBP posty i Q&A — odbicie na stronie + NAP consistency
+- [DEV] `config/gbp-posts.json` i `config/gbp-qa.json` — pliki do ręcznego zrzutu treści postów i pytań/odpowiedzi.
+- [DEV] Strony: `/aktualnosci` (lista postów z `gbp-posts.json`) i `/pytania` (sekcja „Pytania od klientów” z `gbp-qa.json`).
+- [DEV] NAP checker: skrypt `apps/qursant/scripts/check-nap-consistency.ts` — porównuje `src/constants/contact.ts` z danymi w JSON (godziny/telefon/adres), raportuje rozjazdy.
+- Kryteria akceptacji: aktualności/Q&A renderują się poprawnie; raport NAP „zielony”.
+
+58) Schema LocalBusiness zgodna z GBP + embed mapy
+- [DEV] JSON‑LD `DrivingSchool`/`LocalBusiness` (patrz wcześniejsze zadania) — uzupełnij `openingHoursSpecification`, `geo`, `sameAs` (linki do GBP i social), `image` (zdjęcia własne).
+- [DEV] Embed mapy: na `kontakt/page.tsx` wdroż stały rozmiar kontenera (bez CLS) + link „Pokaż w Google Maps” z UTM.
+- [DEV] Spójność: używaj tych samych danych z `src/constants/contact.ts` w schemach i w UI; test Rich Results.
+- Kryteria akceptacji: brak ostrzeżeń krytycznych w Rich Results Test; mapa bez przesunięć layoutu.
+
+59) International SEO (opcjonalnie) — hreflang i i18n (scaffolding)
+- [DEV] Scaffolding i18n: przygotuj `apps/qursant/src/i18n/config.ts` (domyślnie `pl-PL`), możliwość rozszerzenia o inne języki w przyszłości.
+- [DEV] `hreflang`: util `apps/qursant/src/lib/hreflang.ts` zwracający linki alternates dla dostępnych wersji; na teraz tylko `pl-PL` + `x-default` (wskazują na PL).
+- [DEV] Meta: dodaj do `generateMetadata` `alternates.languages` zgodnie z util; nie publikuj innych języków dopóki brak treści.
+- Kryteria akceptacji: brak błędów; gotowość do łatwego dodania wersji językowych.
+
+60) International SEO — struktura i konsekwencja (przyszłościowo)
+- [DEV] Struktura subfolderów: jeżeli pojawi się en/de — `/en/*` `/de/*` (subfoldery), wspólny `sitemap.xml` z indeksami per język.
+- [DEV] Linkowanie: nawigacja i breadcrumbs muszą wskazywać odpowiednie wersje językowe; nie mieszaj języków w jednym URL.
+- [DEV] Format danych: przygotuj helpery formatowania dat/cen/telefonów per locale (Intl API) — `apps/qursant/src/lib/intl.ts`.
+- Kryteria akceptacji: mechanizmy przygotowane; brak wpływu na obecną wersję PL; dokumentacja krótkiej ścieżki dodania nowego języka w `config/i18n-readme.md`.
+
+Uwagi implementacyjne
+- Dostosuj zakres zadań 54, 59–60 do realnych potrzeb (obecnie 1 lokalizacja PL — Bydgoszcz). Nie generuj doorway pages.
+- Zewnętrzne linki (GBP, social) taguj UTM, gdzie ma sens; dodaj `rel="noopener nofollow"` gdy właściwe.
+- Po wdrożeniu: sprawdź Rich Results (LocalBusiness), przejdź checklistę NAP, i przejrzyj raporty GSC (Enhancements, Coverage).
