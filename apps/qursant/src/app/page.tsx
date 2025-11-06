@@ -6,6 +6,7 @@ import StatsSection from '@/components/home/StatsSection';
 import ProcessSection from '@/components/home/ProcessSection';
 import CourseOverviewSection from '@/components/home/CourseOverviewSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
+import LocalSEOSection from '@/components/home/LocalSEOSection';
 import FAQSection from '@/components/home/FAQSection';
 import ContactCTASection from '@/components/home/ContactCTASection';
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ProcessSection />
       <CourseOverviewSection />
       <TestimonialsSection />
+      <LocalSEOSection />
       <FAQSection />
       <ContactCTASection />
     </>
