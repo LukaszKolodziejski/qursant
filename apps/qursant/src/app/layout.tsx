@@ -144,6 +144,22 @@ export default function RootLayout({ children }: Props) {
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': 'https://www.qursant.com.pl#website',
+              url: 'https://www.qursant.com.pl',
+              name: 'Szkoła Jazdy Qursant Bydgoszcz',
+              inLanguage: 'pl-PL',
+              publisher: {
+                '@id': 'https://www.qursant.com.pl',
+              },
+            }),
+          }}
+        />
         <meta
           name="google-site-verification"
           content="3MjVR8wLcqMo3Ft46oL8xIPPT7ZG9O7H9l78xO2gtgs"

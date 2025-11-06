@@ -11,6 +11,7 @@ import {
 } from 'react-icons/hi';
 import { FaCar, FaGraduationCap } from 'react-icons/fa';
 import Link from 'next/link';
+import Script from 'next/script';
 import { CONTACT } from '@/constants/contact';
 import { PRICES } from '@/constants/prices';
 
@@ -201,6 +202,21 @@ export default function PytaniaPage() {
     },
   ];
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: sections
+      .flatMap((s) => s.questions)
+      .map((q) => ({
+        '@type': 'Question',
+        name: q.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: q.answer,
+        },
+      })),
+  } as const;
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -208,6 +224,11 @@ export default function PytaniaPage() {
 
   return (
     <div className="min-h-screen">
+      <Script
+        id="faq-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950">
         <div className="absolute inset-0">

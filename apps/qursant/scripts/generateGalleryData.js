@@ -88,9 +88,6 @@ async function generateGalleryData() {
           Math.floor(Math.random() * categoryInfo.descriptions.length)
         ];
 
-      // Wyciągnij numer ze nazwy pliku (np. z "photo-123.jpg" wyciągnie "123")
-      const photoNumber = file.match(/\d+/)[0];
-
       imagesData.push({
         src: `/images/${category}/${file}`,
         alt: `${categoryInfo.title}`,

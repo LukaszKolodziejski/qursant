@@ -79,7 +79,7 @@ export default function HeroSection() {
 
   return (
     <section
-      ref={mainRef as any}
+      ref={mainRef}
       data-homepage
       className="relative w-full min-h-screen overflow-x-hidden"
     >

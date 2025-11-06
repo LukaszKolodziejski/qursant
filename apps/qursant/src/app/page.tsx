@@ -1,6 +1,5 @@
 'use client';
 
-import Script from 'next/script';
 import HeroSection from '@/components/home/HeroSection';
 import FleetSection from '@/components/home/FleetSection';
 import StatsSection from '@/components/home/StatsSection';
@@ -13,7 +12,6 @@ import ContactCTASection from '@/components/home/ContactCTASection';
 export default function HomePage() {
   return (
     <>
-      <Script id="schema-org" type="application/ld+json" />
       <HeroSection />
       <FleetSection />
       <StatsSection />

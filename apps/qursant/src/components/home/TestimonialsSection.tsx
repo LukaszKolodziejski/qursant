@@ -5,6 +5,13 @@ import Link from 'next/link';
 import { FaQuoteRight } from 'react-icons/fa';
 
 export default function TestimonialsSection() {
+  type Testimonial = {
+    name: string;
+    role: string;
+    quote: string;
+    stars: number;
+    link?: string;
+  };
   return (
     <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-12 sm:py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0">
@@ -30,37 +37,39 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              name: 'Anna',
-              role: 'Kategoria B',
-              quote:
-                'Nie sądziłam, że uda mi się kiedykolwiek zdać prawo jazdy a stało się tak jeszcze za pierwszym razem, Pan Robert bardzo cierpliwy, miły, instruktor na wielki medal. Serdecznie zachęcam i polecam Szkołę jazdy Qursant.',
-              stars: 5,
-            },
-            {
-              name: 'Piotr',
-              role: 'Kategoria B',
-              quote:
-                'Nie mając do tej pory dotyczenia z kierownicą, a dzięki Panu Rafałowi wystarczyło 30 godzin i egzamin zdany za 1 podejściem. Serdecznie polecam Szkołę jazdy Qursant.',
-              stars: 5,
-            },
-            {
-              name: 'Karolina',
-              role: 'Kategoria B',
-              quote:
-                'Świetna szkoła jazdy! Egzamin zdany za pierwszym razem, a instruktor Rafał to prawdziwy profesjonalista świetnie przygotowuje do egzaminu i doskonale zna przepisy. Polecam!',
-              stars: 5,
-            },
-            {
-              name: 'Więcej opinii',
-              role: '',
-              quote:
-                'Sprawdź wszystkie opinie naszych kursantów na portalu SuperPrawoJazdy',
-              link: 'https://www.superprawojazdy.pl/szkola-jazdy-qursant,5277.htm',
-              stars: 5,
-            },
-          ].map((testimonial, index) => (
+          {(
+            [
+              {
+                name: 'Anna',
+                role: 'Kategoria B',
+                quote:
+                  'Nie sądziłam, że uda mi się kiedykolwiek zdać prawo jazdy a stało się tak jeszcze za pierwszym razem, Pan Robert bardzo cierpliwy, miły, instruktor na wielki medal. Serdecznie zachęcam i polecam Szkołę jazdy Qursant.',
+                stars: 5,
+              },
+              {
+                name: 'Piotr',
+                role: 'Kategoria B',
+                quote:
+                  'Nie mając do tej pory dotyczenia z kierownicą, a dzięki Panu Rafałowi wystarczyło 30 godzin i egzamin zdany za 1 podejściem. Serdecznie polecam Szkołę jazdy Qursant.',
+                stars: 5,
+              },
+              {
+                name: 'Karolina',
+                role: 'Kategoria B',
+                quote:
+                  'Świetna szkoła jazdy! Egzamin zdany za pierwszym razem, a instruktor Rafał to prawdziwy profesjonalista świetnie przygotowuje do egzaminu i doskonale zna przepisy. Polecam!',
+                stars: 5,
+              },
+              {
+                name: 'Więcej opinii',
+                role: '',
+                quote:
+                  'Sprawdź wszystkie opinie naszych kursantów na portalu SuperPrawoJazdy',
+                link: 'https://www.superprawojazdy.pl/szkola-jazdy-qursant,5277.htm',
+                stars: 5,
+              },
+            ] as Testimonial[]
+          ).map((testimonial, index) => (
             <Link
               key={index}
               href="https://www.superprawojazdy.pl/szkola-jazdy-qursant,5277.htm"
@@ -102,7 +111,7 @@ export default function TestimonialsSection() {
                       <svg
                         key={i}
                         className={`w-4 h-4 ${
-                          i < (testimonial as any).stars
+                          i < testimonial.stars
                             ? 'text-yellow-400'
                             : 'text-gray-400'
                         }`}
