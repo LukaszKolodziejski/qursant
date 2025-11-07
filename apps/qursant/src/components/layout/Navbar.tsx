@@ -17,6 +17,7 @@ export default function Navbar() {
     { name: 'O nas', href: '/o-nas' },
     { name: 'Kursy', href: '/kursy' },
     { name: 'Galeria', href: '/galeria' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Cennik', href: '/cennik' },
     { name: 'Pytania', href: '/pytania' },
     { name: 'Rezerwacja', href: '/rezerwacja' },

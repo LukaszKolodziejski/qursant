@@ -28,7 +28,11 @@
     "workspace-generator": "nx workspace-generator",
     "vercel-build": "nx build qursant",
     "gallery": "node apps/qursant/scripts/generateGalleryData.js",
-    "blogs": "node scripts/generate-60-blogs.js"
+    "blog": "node scripts/generate-blog-week.js",
+    "blog:list": "ls -lh apps/qursant/data/blog-content/ | grep week",
+    "blog:stats": "echo '📊 Statystyki blogów:' && find apps/qursant/data/blog-content -name 'week-*.json' | wc -l | xargs -I {} echo '   Tygodni: {}' && echo '   Blogów: ~7 na tydzień' && find apps/qursant/data/blog-content -name 'week-*.json' | wc -l | xargs -I {} echo '   Łącznie: ~$(({}*7))' || echo 'Brak blogów'",
+    "blog:clean": "rm -rf apps/qursant/data/blog-content/week-*.json && echo '✅ Wyczyszczono wszystkie blogi'",
+    "blog:help": "echo '\n📝 Komendy do zarządzania blogami:\n\n  npm run blog <numer>     - Generuj tydzień (np. npm run blog 4)\n  npm run blog:list        - Lista wygenerowanych tygodni\n  npm run blog:stats       - Statystyki blogów\n  npm run blog:clean       - Usuń wszystkie blogi\n  npm run blog:help        - Ta pomoc\n'"
   },
   "private": true,
   "dependencies": {

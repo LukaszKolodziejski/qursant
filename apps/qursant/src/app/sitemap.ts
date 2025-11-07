@@ -60,8 +60,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  // Dynamiczne strony blogów (tylko opublikowane)
-  const blogPosts = getPosts({ publishedOnly: true, limit: 1000 });
+  // Dynamiczne strony blogów (wszystkie opublikowane do dziś)
+  const blogPosts = getPosts({ limit: 1000 });
   const now = new Date();
   const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return {
       url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.updatedAt || post.createdAt),
+      lastModified: new Date(post.publishDate),
       // Nowe blogi (ostatnie 7 dni) → 'daily' (Google sprawdza częściej!)
       // Starsze blogi → 'weekly' (już stabilne)
       changeFrequency: isRecent ? ('daily' as const) : ('weekly' as const),

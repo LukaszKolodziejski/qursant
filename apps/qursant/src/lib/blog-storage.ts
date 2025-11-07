@@ -1,55 +1,125 @@
-// System przechowywania blogów - JSON file storage
-// W przyszłości można zamienić na bazę danych
+// ===================================================================
+// SYSTEM PRZECHOWYWANIA BLOGÓW - TYGODNIOWY + LAZY LOADING
+// ===================================================================
+// ZALETY:
+// 1. Lazy loading - ładujemy tylko potrzebne tygodnie (wydajność!)
+// 2. Małe pliki JSON - łatwe do zarządzania i generowania przez AI
+// 3. Skalowalne - 1000+ blogów = ~143 plików po 7 blogów
+// 4. Proste dodawanie nowych tygodni przez AI
+// ===================================================================
 
 import fs from 'fs';
 import path from 'path';
-import { BlogPost, BlogFilters } from '@/types/blog';
+import { BlogPost, BlogWeek, BlogFilters } from '@/types/blog';
 
-// Ścieżka do pliku z blogami
-// W Next.js: process.cwd() już jest w apps/qursant, więc tylko 'data'
-const BLOG_DATA_PATH = path.join(process.cwd(), 'data', 'blog-posts.json');
+// Folder z plikami tygodniowymi
+const BLOG_WEEKS_DIR = path.join(process.cwd(), 'data', 'blog-content');
 
-// Inicjalizacja pliku jeśli nie istnieje
-function initializeBlogStorage() {
-  const dataDir = path.join(process.cwd(), 'data');
+// Cache dla załadowanych tygodni (optymalizacja)
+const weekCache = new Map<number, BlogWeek>();
 
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+// ===================================================================
+// GŁÓWNE FUNKCJE
+// ===================================================================
+
+/**
+ * Pobiera wszystkie dostępne tygodnie (numerki plików)
+ */
+export function getAvailableWeeks(): number[] {
+  if (!fs.existsSync(BLOG_WEEKS_DIR)) {
+    return [];
   }
 
-  if (!fs.existsSync(BLOG_DATA_PATH)) {
-    fs.writeFileSync(BLOG_DATA_PATH, JSON.stringify([], null, 2));
+  const files = fs.readdirSync(BLOG_WEEKS_DIR);
+  const weeks = files
+    .filter((f) => f.startsWith('week-') && f.endsWith('.json'))
+    .map((f) => parseInt(f.replace('week-', '').replace('.json', '')))
+    .filter((n) => !isNaN(n))
+    .sort((a, b) => a - b);
+
+  return weeks;
+}
+
+/**
+ * Wczytuje konkretny tydzień (z cache)
+ */
+export function loadWeek(weekNumber: number): BlogWeek | null {
+  // Sprawdź cache
+  if (weekCache.has(weekNumber)) {
+    const cached = weekCache.get(weekNumber);
+    if (cached) return cached;
+  }
+
+  const weekPath = path.join(BLOG_WEEKS_DIR, `week-${weekNumber}.json`);
+
+  if (!fs.existsSync(weekPath)) {
+    return null;
+  }
+
+  try {
+    const data = fs.readFileSync(weekPath, 'utf-8');
+    const week = JSON.parse(data) as BlogWeek;
+
+    // Zapisz do cache
+    weekCache.set(weekNumber, week);
+
+    return week;
+  } catch (error) {
+    console.error(`Błąd wczytywania week-${weekNumber}.json:`, error);
+    return null;
   }
 }
 
-// Odczyt wszystkich postów
+/**
+ * Pobiera wszystkie posty (ze wszystkich tygodni)
+ * UWAGA: Używaj tylko gdy naprawdę potrzebujesz wszystkich!
+ */
 export function getAllPosts(): BlogPost[] {
-  initializeBlogStorage();
+  const weeks = getAvailableWeeks();
+  const allPosts: BlogPost[] = [];
 
-  const data = fs.readFileSync(BLOG_DATA_PATH, 'utf-8');
-  const posts = JSON.parse(data);
-
-  return posts;
-}
-
-// Zapis wszystkich postów
-function savePosts(posts: BlogPost[]) {
-  fs.writeFileSync(BLOG_DATA_PATH, JSON.stringify(posts, null, 2));
-}
-
-// Pobierz posty z filtrowaniem
-export function getPosts(filters?: BlogFilters): BlogPost[] {
-  let posts = getAllPosts();
-  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-
-  // Filtruj po dacie publikacji (tylko opublikowane)
-  if (filters?.publishedOnly !== false) {
-    posts = posts.filter(
-      (post) =>
-        post.status === 'published' ||
-        (post.status === 'scheduled' && post.publishDate <= today)
-    );
+  for (const weekNum of weeks) {
+    const week = loadWeek(weekNum);
+    if (week) {
+      allPosts.push(...week.posts);
+    }
   }
+
+  return allPosts;
+}
+
+/**
+ * Pobiera posty z filtrowaniem - OPTYMALIZOWANE!
+ * Ładuje tylko tygodnie w zakresie dat jeśli podano dateFrom/dateTo
+ */
+export function getPosts(filters?: BlogFilters): BlogPost[] {
+  const today = new Date().toISOString().split('T')[0];
+  let posts: BlogPost[] = [];
+
+  // Jeśli podano zakres dat, ładujemy tylko odpowiednie tygodnie
+  if (filters?.dateFrom || filters?.dateTo) {
+    const weeks = getAvailableWeeks();
+
+    for (const weekNum of weeks) {
+      const week = loadWeek(weekNum);
+      if (!week) continue;
+
+      // Sprawdź czy tydzień mieści się w zakresie
+      const weekStart = week.startDate;
+      const weekEnd = week.endDate;
+
+      if (filters.dateFrom && weekEnd < filters.dateFrom) continue;
+      if (filters.dateTo && weekStart > filters.dateTo) continue;
+
+      posts.push(...week.posts);
+    }
+  } else {
+    // Wczytaj wszystkie posty
+    posts = getAllPosts();
+  }
+
+  // Filtruj po dacie publikacji (tylko opublikowane do dziś)
+  posts = posts.filter((post) => post.publishDate <= today);
 
   // Filtruj po kategorii
   if (filters?.category) {
@@ -58,12 +128,7 @@ export function getPosts(filters?: BlogFilters): BlogPost[] {
 
   // Filtruj po tagu
   if (filters?.tag) {
-    posts = posts.filter((post) => post.tags.includes(filters.tag || ''));
-  }
-
-  // Filtruj wyróżnione
-  if (filters?.featured) {
-    posts = posts.filter((post) => post.featured === true);
+    posts = posts.filter((post) => post.tags.includes(filters.tag as string));
   }
 
   // Sortuj po dacie publikacji (najnowsze pierwsze)
@@ -81,106 +146,66 @@ export function getPosts(filters?: BlogFilters): BlogPost[] {
   return posts.slice(startIndex, startIndex + pageSize);
 }
 
-// Pobierz pojedynczy post po slug
+/**
+ * Pobiera pojedynczy post po slug - OPTYMALIZOWANE!
+ * Szuka w tydzień po tygodniu (lazy loading)
+ */
 export function getPostBySlug(slug: string): BlogPost | null {
-  const posts = getAllPosts();
-  const today = new Date().toISOString().split('T')[0];
+  const weeks = getAvailableWeeks();
 
-  const post = posts.find((p) => p.slug === slug);
+  for (const weekNum of weeks) {
+    const week = loadWeek(weekNum);
+    if (!week) continue;
 
-  if (!post) return null;
-
-  // Sprawdź czy post jest opublikowany
-  if (
-    post.status === 'draft' ||
-    (post.status === 'scheduled' && post.publishDate > today)
-  ) {
-    return null; // Nie pokazuj nieopublikowanych
+    const post = week.posts.find((p) => p.slug === slug);
+    if (post) {
+      // Sprawdź czy już opublikowany
+      const today = new Date().toISOString().split('T')[0];
+      if (post.publishDate <= today) {
+        return post;
+      }
+      return null; // Nie pokazuj przyszłych postów
+    }
   }
 
-  return post;
+  return null;
 }
 
-// Pobierz posty dla strony głównej (ostatnie 5)
+/**
+ * Pobiera posty dla strony głównej (ostatnie 5 opublikowanych)
+ */
 export function getFeaturedPosts(limit = 5): BlogPost[] {
-  return getPosts({ publishedOnly: true, limit, page: 1 });
+  return getPosts({ limit, page: 1 });
 }
 
-// Dodaj nowy post
-export function addPost(post: BlogPost): BlogPost {
-  const posts = getAllPosts();
-  const now = new Date().toISOString();
-
-  const newPost: BlogPost = {
-    ...post,
-    id: post.id || generateId(),
-    slug: post.slug || generateSlug(post.title),
-    createdAt: now,
-    updatedAt: now,
-  };
-
-  posts.push(newPost);
-  savePosts(posts);
-
-  return newPost;
-}
-
-// Aktualizuj post
-export function updatePost(
-  id: string,
-  updates: Partial<BlogPost>
-): BlogPost | null {
-  const posts = getAllPosts();
-  const index = posts.findIndex((p) => p.id === id);
-
-  if (index === -1) return null;
-
-  posts[index] = {
-    ...posts[index],
-    ...updates,
-    updatedAt: new Date().toISOString(),
-  };
-
-  savePosts(posts);
-  return posts[index];
-}
-
-// Usuń post
-export function deletePost(id: string): boolean {
-  const posts = getAllPosts();
-  const filtered = posts.filter((p) => p.id !== id);
-
-  if (filtered.length === posts.length) return false;
-
-  savePosts(filtered);
-  return true;
-}
-
-// Pobierz statystyki
+/**
+ * Pobiera statystyki blogów
+ */
 export function getBlogStats() {
-  const posts = getAllPosts();
+  const allPosts = getAllPosts();
   const today = new Date().toISOString().split('T')[0];
 
   return {
-    total: posts.length,
-    published: posts.filter(
-      (p) =>
-        p.status === 'published' ||
-        (p.status === 'scheduled' && p.publishDate <= today)
-    ).length,
-    scheduled: posts.filter(
-      (p) => p.status === 'scheduled' && p.publishDate > today
-    ).length,
-    draft: posts.filter((p) => p.status === 'draft').length,
+    total: allPosts.length,
+    published: allPosts.filter((p) => p.publishDate <= today).length,
+    scheduled: allPosts.filter((p) => p.publishDate > today).length,
+    weeks: getAvailableWeeks().length,
   };
 }
 
-// Helper functions
-function generateId(): string {
-  return `post-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+/**
+ * Pobiera posty z konkretnego tygodnia
+ */
+export function getPostsByWeek(weekNumber: number): BlogPost[] {
+  const week = loadWeek(weekNumber);
+  return week ? week.posts : [];
 }
 
-function generateSlug(title: string): string {
+// ===================================================================
+// HELPER FUNCTIONS
+// ===================================================================
+
+export function generateSlug(title: string): string {
   return title
     .toLowerCase()
     .replace(/ą/g, 'a')
@@ -195,4 +220,15 @@ function generateSlug(title: string): string {
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
     .trim();
+}
+
+export function generatePostId(publishDate: string, slug: string): string {
+  return `${publishDate}-${slug}`;
+}
+
+/**
+ * Czyści cache (użyj po dodaniu nowych tygodni)
+ */
+export function clearCache() {
+  weekCache.clear();
 }

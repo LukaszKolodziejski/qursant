@@ -88,16 +88,14 @@ export default function NewsSection() {
             <Link href={`/blog/${posts[0].slug}`}>
               <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
                 {/* Zdjęcie */}
-                {posts[0].image && (
-                  <div className="relative w-full h-64 lg:h-auto overflow-hidden">
-                    <Image
-                      src={posts[0].image.url}
-                      alt={posts[0].image.alt}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                )}
+                <div className="relative w-full h-64 lg:h-auto overflow-hidden">
+                  <Image
+                    src={`/images/${posts[0].image}`}
+                    alt={posts[0].title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
 
                 {/* Treść */}
                 <div className="p-8 flex flex-col justify-center">
@@ -151,16 +149,14 @@ export default function NewsSection() {
               <Link href={`/blog/${post.slug}`}>
                 <div className="group bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:transform hover:scale-105 h-full flex flex-col">
                   {/* Zdjęcie */}
-                  {post.image && (
-                    <div className="relative w-full h-40 overflow-hidden">
-                      <Image
-                        src={post.image.url}
-                        alt={post.image.alt}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                  )}
+                  <div className="relative w-full h-40 overflow-hidden">
+                    <Image
+                      src={`/images/${post.image}`}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
 
                   {/* Treść */}
                   <div className="p-4 flex-1 flex flex-col">

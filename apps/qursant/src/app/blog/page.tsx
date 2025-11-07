@@ -129,16 +129,14 @@ export default function BlogPage() {
                   <Link href={`/blog/${post.slug}`}>
                     <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:transform hover:scale-105">
                       {/* Zdjęcie */}
-                      {post.image && (
-                        <div className="relative w-full h-48 overflow-hidden">
-                          <Image
-                            src={post.image.url}
-                            alt={post.image.alt}
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
-                        </div>
-                      )}
+                      <div className="relative w-full h-48 overflow-hidden">
+                        <Image
+                          src={`/images/${post.image}`}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
 
                       {/* Treść */}
                       <div className="p-6">

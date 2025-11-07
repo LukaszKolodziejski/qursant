@@ -1,15 +1,15 @@
-// API endpoint dla pojedynczego bloga - GET, PUT, DELETE
+// ===================================================================
+// API ENDPOINT DLA POJEDYNCZEGO BLOGA
+// ===================================================================
+// Tylko GET - blogi są w plikach JSON (read-only)
+// ===================================================================
 
 import { NextRequest, NextResponse } from 'next/server';
-import {
-  getPostBySlug,
-  updatePost,
-  deletePost,
-  getAllPosts,
-} from '@/lib/blog-storage';
+import { getPostBySlug } from '@/lib/blog-storage';
 
-// Cache API na 1 godzinę - poprawia performance!
+// Rewalidacja co 1 godzinę
 export const revalidate = 3600;
+export const dynamic = 'force-dynamic'; // Musi być dynamic żeby czytać pliki z dysku
 
 // GET /api/blog/[id] - Pobierz pojedynczy blog
 export async function GET(
@@ -19,13 +19,8 @@ export async function GET(
   try {
     const { id } = await params;
 
-    // Spróbuj znaleźć po slug lub id
-    let post = getPostBySlug(id);
-
-    if (!post) {
-      const posts = getAllPosts();
-      post = posts.find((p) => p.id === id) || null;
-    }
+    // Znajdź post po slug (optymalizowane - lazy loading!)
+    const post = getPostBySlug(id);
 
     if (!post) {
       return NextResponse.json(
@@ -53,76 +48,7 @@ export async function GET(
   }
 }
 
-// PUT /api/blog/[id] - Aktualizuj blog
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params;
-    const body = await request.json();
-
-    const updatedPost = updatePost(id, body);
-
-    if (!updatedPost) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Blog nie został znaleziony',
-        },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({
-      success: true,
-      data: updatedPost,
-      message: 'Blog został zaktualizowany',
-    });
-  } catch (error) {
-    console.error('Error updating blog post:', error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: 'Błąd podczas aktualizacji bloga',
-      },
-      { status: 500 }
-    );
-  }
-}
-
-// DELETE /api/blog/[id] - Usuń blog
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params;
-
-    const success = deletePost(id);
-
-    if (!success) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Blog nie został znaleziony',
-        },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({
-      success: true,
-      message: 'Blog został usunięty',
-    });
-  } catch (error) {
-    console.error('Error deleting blog post:', error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: 'Błąd podczas usuwania bloga',
-      },
-      { status: 500 }
-    );
-  }
-}
+// ===================================================================
+// PUT i DELETE nie są potrzebne - blogi są w plikach JSON (read-only)
+// Jeśli chcesz edytować/usunąć - edytuj plik week-XX.json bezpośrednio
+// ===================================================================

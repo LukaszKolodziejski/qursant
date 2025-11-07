@@ -1,4 +1,5 @@
 import './globals.css';
+import '@/styles/blog.css';
 import { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';

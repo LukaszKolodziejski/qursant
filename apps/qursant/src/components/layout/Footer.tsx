@@ -14,6 +14,7 @@ export default function Footer() {
     { name: 'Home', href: '/' },
     { name: 'O nas', href: '/o-nas' },
     { name: 'Kursy', href: '/kursy' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Cennik', href: '/cennik' },
     { name: 'Rezerwacja', href: '/rezerwacja' },
     { name: 'Pytania', href: '/pytania' },

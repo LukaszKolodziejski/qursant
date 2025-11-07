@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Script from 'next/script';
 import { BlogPost } from '@/types/blog';
+import { BlogContent } from '@/components/blog/BlogContent';
 import {
   HiOutlineCalendar,
   HiOutlineClock,
@@ -14,12 +15,65 @@ import {
   HiOutlineShare,
 } from 'react-icons/hi';
 
+// SEO: Dynamiczne meta tagi dla każdego bloga
+// UWAGA: To musi być w osobnym pliku bo używa useParams (client-side)
+// Alternatywnie można użyć middleware lub getStaticProps
+
 export default function BlogPostPage() {
   const params = useParams();
   const slug = params.slug as string;
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+
+  // SEO: Dynamiczne meta tagi
+  useEffect(() => {
+    if (post) {
+      // Aktualizuj title
+      document.title =
+        post.seo?.metaTitle || `${post.title} | Szkoła Jazdy Qursant Bydgoszcz`;
+
+      // Aktualizuj meta description
+      const metaDescription = document.querySelector(
+        'meta[name="description"]'
+      );
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          'content',
+          post.seo?.metaDescription || post.excerpt
+        );
+      }
+
+      // Aktualizuj meta keywords
+      const metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (metaKeywords && post.seo?.keywords) {
+        metaKeywords.setAttribute('content', post.seo.keywords.join(', '));
+      }
+
+      // Aktualizuj og:title
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute('content', post.title);
+      }
+
+      // Aktualizuj og:description
+      const ogDescription = document.querySelector(
+        'meta[property="og:description"]'
+      );
+      if (ogDescription) {
+        ogDescription.setAttribute('content', post.excerpt);
+      }
+
+      // Aktualizuj og:image
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage) {
+        ogImage.setAttribute(
+          'content',
+          `https://www.qursant.com.pl/images/${post.image}`
+        );
+      }
+    }
+  }, [post]);
 
   useEffect(() => {
     if (!slug) return;
@@ -103,15 +157,13 @@ export default function BlogPostPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-950 via-indigo-950 to-gray-900">
       {/* Hero z obrazkiem */}
       <section className="relative h-[60vh] overflow-hidden">
-        {post.image && (
-          <Image
-            src={post.image.url}
-            alt={post.image.alt}
-            fill
-            className="object-cover"
-            priority
-          />
-        )}
+        <Image
+          src={`/images/${post.image}`}
+          alt={post.title}
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/80 to-transparent"></div>
 
         <div className="relative z-10 container mx-auto px-6 h-full flex items-end pb-12">
@@ -178,14 +230,14 @@ export default function BlogPostPage() {
               {post.excerpt}
             </motion.div>
 
-            {/* Główna treść */}
-            <motion.article
+            {/* Główna treść - NOWE KOMPONENTY! */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="prose prose-lg prose-invert max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            >
+              <BlogContent post={post} />
+            </motion.div>
 
             {/* Tagi */}
             {post.tags && post.tags.length > 0 && (
@@ -239,16 +291,14 @@ export default function BlogPostPage() {
                   className="group"
                 >
                   <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:transform hover:scale-105">
-                    {relatedPost.image && (
-                      <div className="relative w-full h-40">
-                        <Image
-                          src={relatedPost.image.url}
-                          alt={relatedPost.image.alt}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
+                    <div className="relative w-full h-40">
+                      <Image
+                        src={`/images/${relatedPost.image}`}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="p-4">
                       <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2 group-hover:text-blue-300 transition-colors">
                         {relatedPost.title}
@@ -276,13 +326,11 @@ export default function BlogPostPage() {
               '@type': 'BlogPosting',
               headline: post.title,
               description: post.excerpt,
-              image: `https://www.qursant.com.pl${post.image.url}`,
+              image: `https://www.qursant.com.pl/images/${post.image}`,
               datePublished: post.publishDate,
-              dateModified: post.updatedAt || post.createdAt,
               author: {
                 '@type': 'Person',
-                name: post.author.name,
-                jobTitle: post.author.role,
+                name: post.author,
               },
               publisher: {
                 '@type': 'Organization',
