@@ -7,6 +7,7 @@ import ProcessSection from '@/components/home/ProcessSection';
 import CourseOverviewSection from '@/components/home/CourseOverviewSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import LocalSEOSection from '@/components/home/LocalSEOSection';
+import NewsSection from '@/components/home/NewsSection';
 import FAQSection from '@/components/home/FAQSection';
 import ContactCTASection from '@/components/home/ContactCTASection';
 
@@ -20,6 +21,7 @@ export default function HomePage() {
       <CourseOverviewSection />
       <TestimonialsSection />
       <LocalSEOSection />
+      <NewsSection />
       <FAQSection />
       <ContactCTASection />
     </>
