@@ -11,6 +11,7 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const { remainingPlaces, monthName } = useReservationCounter();
 
   useEffect(() => {
@@ -23,8 +24,17 @@ export default function HeroSection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Lazy load video - ładuj dopiero po 1 sekundzie (dla lepszego LCP)
   useEffect(() => {
-    if (!videoRef?.current) {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!videoRef?.current || !shouldLoadVideo) {
       return;
     }
 
@@ -52,7 +62,7 @@ export default function HeroSection() {
       }
       clearTimeout(timer);
     };
-  }, [isVideoLoaded]);
+  }, [isVideoLoaded, shouldLoadVideo]);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: isMobile ? 30 : 60 },
@@ -88,21 +98,23 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(67,56,202,0.4),transparent_50%)] z-10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.4),transparent_50%)] z-10"></div>
 
-        <div className="absolute inset-0 overflow-hidden">
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className={`object-cover w-full h-full transform translate-y-20 ${
-              isVideoLoaded ? 'opacity-100' : 'opacity-0'
-            } transition-opacity duration-1000`}
-          >
-            <source src="/videos/main_video.mp4" type="video/mp4" />
-          </video>
-        </div>
+        {shouldLoadVideo && (
+          <div className="absolute inset-0 overflow-hidden">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              className={`object-cover w-full h-full transform translate-y-20 ${
+                isVideoLoaded ? 'opacity-100' : 'opacity-0'
+              } transition-opacity duration-1000`}
+            >
+              <source src="/videos/main_video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        )}
 
         {!isVideoLoaded && (
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center text-white">
