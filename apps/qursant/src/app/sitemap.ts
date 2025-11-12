@@ -1,6 +1,11 @@
 import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/blog-storage';
 
+// WAŻNE: Wymusza dynamiczne generowanie sitemap przy każdym requescie
+// Dzięki temu sitemap jest zawsze aktualny, nawet gdy dodajemy nowe blogi po deploymencie
+export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Wyłącza cache
+
 const routes = [
   {
     url: '/',

@@ -13,6 +13,7 @@ import path from 'path';
 import { BlogPost, BlogWeek, BlogFilters } from '@/types/blog';
 
 // Folder z plikami tygodniowymi
+// process.cwd() w Next.js już wskazuje na katalog apps/qursant
 const BLOG_WEEKS_DIR = path.join(process.cwd(), 'data', 'blog-content');
 
 // Cache dla załadowanych tygodni (optymalizacja)
