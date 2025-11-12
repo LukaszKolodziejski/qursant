@@ -104,7 +104,7 @@ export default function ProcessSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Image
-              src="/images/cars/photo-78.jpg"
+              src="/images/cars/photo-78.webp"
               alt="Prawo jazdy"
               width={800}
               height={600}

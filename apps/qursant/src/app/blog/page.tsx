@@ -1,43 +1,66 @@
-'use client';
-
-import { motion } from 'framer-motion';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { BlogPost } from '@/types/blog';
+import { getPosts } from '@/lib/blog-storage';
+import { BlogCategory } from '@/types/blog';
 import {
   HiOutlineCalendar,
   HiOutlineClock,
   HiOutlineTag,
 } from 'react-icons/hi';
 
-export default function BlogPage() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+// ===================================================================
+// SERVER COMPONENT - SEO OPTIMIZED!
+// ===================================================================
+// Google widzi wszystkie linki do blogów od razu w HTML!
+// Filtry kategorii przez URL params = SEO friendly!
+// ===================================================================
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const params = new URLSearchParams();
-        if (selectedCategory) params.append('category', selectedCategory);
-        params.append('limit', '20');
+type Props = {
+  searchParams: Promise<{ category?: string }>;
+};
 
-        const response = await fetch(`/api/blog?${params}`);
-        const data = await response.json();
+// Meta tags dla strony bloga
+export const metadata: Metadata = {
+  title: 'Blog i Aktualności - Szkoła Jazdy Qursant Bydgoszcz',
+  description:
+    'Blog szkoły jazdy w Bydgoszczy ➤ Porady dla kursantów ➤ Aktualności ➤ Jak zdać egzamin ➤ Informacje o nauce jazdy ✓ Sprawdź najnowsze wpisy!',
+  keywords:
+    'blog szkoła jazdy, porady nauka jazdy, jak zdać egzamin bydgoszcz, aktualności szkoła jazdy, blog qursant',
+  openGraph: {
+    title: 'Blog i Aktualności - Szkoła Jazdy Qursant Bydgoszcz',
+    description:
+      'Blog szkoły jazdy w Bydgoszczy. Porady, aktualności i wszystko o nauce jazdy.',
+    url: 'https://www.qursant.com.pl/blog',
+    type: 'website',
+  },
+};
 
-        if (data.success) {
-          setPosts(data.data.posts);
-        }
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+export default async function BlogPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const selectedCategory = params.category;
 
-    fetchPosts();
-  }, [selectedCategory]);
+  // Walidacja kategorii - upewnij się że to prawidłowy BlogCategory
+  const validCategories: BlogCategory[] = [
+    'poradniki',
+    'ceny',
+    'prawo',
+    'egzaminy',
+    'porady',
+    'aktualnosci',
+    'lokalne',
+  ];
+  const category: BlogCategory | undefined =
+    selectedCategory &&
+    validCategories.includes(selectedCategory as BlogCategory)
+      ? (selectedCategory as BlogCategory)
+      : undefined;
+
+  // Pobierz posty bezpośrednio z plików (server-side)
+  const posts = getPosts({
+    category,
+    limit: 100, // Pokaż wszystkie opublikowane
+  });
 
   const categories = [
     { value: 'poradniki', label: 'Poradniki' },
@@ -49,14 +72,6 @@ export default function BlogPage() {
     { value: 'lokalne', label: 'Lokalne' },
   ];
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-950 to-gray-900 flex items-center justify-center">
-        <div className="text-white text-2xl">Ładowanie...</div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-950 via-indigo-950 to-gray-900">
       {/* Hero Section */}
@@ -64,12 +79,7 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-300">
                 Blog i Aktualności
@@ -78,24 +88,24 @@ export default function BlogPage() {
             <p className="text-xl text-blue-200 max-w-2xl mx-auto">
               Porady, aktualności i wszystko o nauce jazdy w Bydgoszczy
             </p>
-          </motion.div>
+          </div>
 
-          {/* Filtry kategorii */}
+          {/* Filtry kategorii - SEO friendly links! */}
           <div className="flex flex-wrap gap-3 justify-center">
-            <button
-              onClick={() => setSelectedCategory(null)}
+            <Link
+              href="/blog"
               className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                selectedCategory === null
+                !selectedCategory
                   ? 'bg-blue-500 text-white'
                   : 'bg-white/10 text-blue-200 hover:bg-white/20'
               }`}
             >
               Wszystkie
-            </button>
+            </Link>
             {categories.map((cat) => (
-              <button
+              <Link
                 key={cat.value}
-                onClick={() => setSelectedCategory(cat.value)}
+                href={`/blog?category=${cat.value}`}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   selectedCategory === cat.value
                     ? 'bg-blue-500 text-white'
@@ -103,7 +113,7 @@ export default function BlogPage() {
                 }`}
               >
                 {cat.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -114,18 +124,12 @@ export default function BlogPage() {
         <div className="container mx-auto px-6">
           {posts.length === 0 ? (
             <div className="text-center text-blue-200 text-xl">
-              Brak blogów do wyświetlenia
+              Brak blogów w tej kategorii
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post, index) => (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group"
-                >
+              {posts.map((post) => (
+                <div key={post.id} className="group">
                   <Link href={`/blog/${post.slug}`}>
                     <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:transform hover:scale-105">
                       {/* Zdjęcie */}
@@ -176,7 +180,7 @@ export default function BlogPage() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
           )}

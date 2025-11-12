@@ -78,7 +78,31 @@ async function generateGalleryData() {
       .readdirSync(categoryPath)
       .filter((file) => /^photo-\d+\.(jpg|jpeg|png|webp)$/i.test(file));
 
+    // Group files by photo number to prefer .webp over .jpg
+    const photoMap = new Map();
     for (const file of files) {
+      const match = file.match(/^(photo-\d+)\.(jpg|jpeg|png|webp)$/i);
+      if (match) {
+        const photoName = match[1];
+        const extension = match[2].toLowerCase();
+
+        // Prefer WebP > PNG > JPEG/JPG
+        const existing = photoMap.get(photoName);
+        if (!existing) {
+          photoMap.set(photoName, file);
+        } else {
+          const existingExt = existing.split('.').pop().toLowerCase();
+          // WebP has highest priority, then PNG, then JPG
+          const priority = { webp: 3, png: 2, jpg: 1, jpeg: 1 };
+          if (priority[extension] > priority[existingExt]) {
+            photoMap.set(photoName, file);
+          }
+        }
+      }
+    }
+
+    // Process only the preferred version of each photo
+    for (const file of photoMap.values()) {
       const filePath = path.join(categoryPath, file);
       const metadata = await getImageMetadata(filePath);
 

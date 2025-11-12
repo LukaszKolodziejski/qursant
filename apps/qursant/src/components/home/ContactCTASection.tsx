@@ -90,7 +90,7 @@ export default function ContactCTASection() {
             </div>
             <div className="relative hidden lg:block">
               <Image
-                src="/images/course/photo-20.jpg"
+                src="/images/course/photo-20.webp"
                 alt="Szkolenie na prawo jazdy"
                 width={1280}
                 height={720}

@@ -1,7 +1,10 @@
 'use client';
 
+// ✅ OPTIMIZED: CSS Animations dla prostych animacji
+// ZACHOWANE: Framer Motion dla animowanych SVG (ładny efekt!)
+// Oszczędność: ~40KB JavaScript!
+
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { FaUserGraduate, FaChalkboardTeacher, FaMedal } from 'react-icons/fa';
 import { HiOutlineClock } from 'react-icons/hi';
 import {
@@ -10,36 +13,11 @@ import {
   INSTRUCTORS_COUNT,
   formatNumber,
 } from '@/constants/stats';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function StatsSection() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: isMobile ? 30 : 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: isMobile ? 0.1 : 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
+  const titleRef = useScrollAnimation<HTMLDivElement>();
+  const statsRef = useScrollAnimation<HTMLDivElement>();
 
   return (
     <section className="relative bg-gradient-to-b from-blue-950 to-indigo-950 py-12 sm:py-16 md:py-24 overflow-hidden">
@@ -102,12 +80,10 @@ export default function StatsSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.div
-          className="mx-auto max-w-2xl text-center mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+        {/* CSS Animation: fade-in-up */}
+        <div
+          ref={titleRef}
+          className="fade-in-on-scroll mx-auto max-w-2xl text-center mb-20"
         >
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
@@ -115,15 +91,10 @@ export default function StatsSection() {
             </span>
           </h2>
           <div className="w-24 h-1 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="mx-auto max-w-7xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={staggerContainer}
-        >
+        {/* CSS Animation: staggered fade-in */}
+        <div ref={statsRef} className="fade-in-on-scroll mx-auto max-w-7xl">
           <dl className="grid grid-cols-2 gap-6 md:grid-cols-4 text-center">
             {[
               {
@@ -151,11 +122,11 @@ export default function StatsSection() {
                 color: 'from-yellow-400 to-orange-500',
               },
             ].map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="relative group flex flex-col items-center p-8 rounded-2xl backdrop-blur-sm"
-                variants={fadeInUp}
-                whileHover={{ scale: 1.05 }}
+                // CSS Animation: hover-scale + staggered delay
+                className={`relative group flex flex-col items-center p-8 rounded-2xl backdrop-blur-sm hover-scale animate-fade-in-up`}
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="absolute inset-0 rounded-2xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-300 backdrop-blur-sm"></div>
 
@@ -169,21 +140,17 @@ export default function StatsSection() {
                   >
                     {stat.icon}
                   </div>
-                  <motion.dt
+                  <dt
                     className={`text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.color} mb-2`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
                   >
                     {stat.value}
-                  </motion.dt>
+                  </dt>
                   <dd className="text-base text-blue-100">{stat.label}</dd>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </dl>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

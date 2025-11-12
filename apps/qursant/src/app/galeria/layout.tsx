@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.qursant.com.pl/images/cars/photo-78.jpg',
+        url: 'https://www.qursant.com.pl/images/cars/photo-78.webp',
         width: 1200,
         height: 630,
         alt: 'Samochody szkoleniowe Szkoła Jazdy Qursant Bydgoszcz',

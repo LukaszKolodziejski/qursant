@@ -1,11 +1,19 @@
 import './globals.css';
 import '@/styles/blog.css';
+import '@/styles/animations.css'; // ← Optimized CSS animations!
 import { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-const inter = Inter({ subsets: ['latin', 'latin-ext'] });
+// OPTYMALIZACJA FONTÓW - Font Display Swap dla lepszego FCP/LCP
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap', // Pokazuje fallback font natychmiast, potem zamienia
+  preload: true, // Preload dla szybszego ładowania
+  fallback: ['system-ui', 'arial', 'sans-serif'],
+  variable: '--font-inter',
+});
 
 export const viewport: Viewport = {
   themeColor: '#3b82f6',
@@ -47,7 +55,7 @@ export const metadata: Metadata = {
       'Profesjonalna szkoła jazdy w Bydgoszczy ➤ 95% zdawalność ➤ Doświadczeni instruktorzy ➤ Nowoczesne samochody ✓ Zapisz się na kurs prawa jazdy już dziś!',
     images: [
       {
-        url: 'https://www.qursant.com.pl/images/instructors/photo-1.jpg',
+        url: 'https://www.qursant.com.pl/images/instructors/photo-1.webp',
         width: 1200,
         height: 630,
         alt: 'Szkoła Jazdy Qursant Bydgoszcz',

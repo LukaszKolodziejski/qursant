@@ -1,53 +1,25 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { BlogPost } from '@/types/blog';
+import { getFeaturedPosts } from '@/lib/blog-storage';
 import {
   HiOutlineCalendar,
   HiOutlineClock,
   HiOutlineArrowRight,
 } from 'react-icons/hi';
 
+// ===================================================================
+// SERVER COMPONENT - SEO OPTIMIZED!
+// ===================================================================
+// Google widzi wszystkie linki do blogów od razu w HTML!
+// ===================================================================
+
 export default function NewsSection() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Pobierz najnowsze 5 blogów bezpośrednio z plików (server-side)
+  const posts = getFeaturedPosts(5);
 
-  useEffect(() => {
-    fetchLatestPosts();
-  }, []);
-
-  const fetchLatestPosts = async () => {
-    try {
-      const response = await fetch('/api/blog?limit=5&publishedOnly=true');
-      const data = await response.json();
-
-      if (data.success) {
-        setPosts(data.data.posts);
-      }
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <section className="bg-gradient-to-b from-indigo-950 to-blue-950 py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center text-blue-200">
-            Ładowanie aktualności...
-          </div>
-        </div>
-      </section>
-    );
-  }
-
+  // Nie pokazuj sekcji jeśli brak postów
   if (posts.length === 0) {
-    return null; // Nie pokazuj sekcji jeśli brak postów
+    return null;
   }
 
   return (
@@ -59,13 +31,7 @@ export default function NewsSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-300">
               Aktualności i Blog
@@ -74,17 +40,11 @@ export default function NewsSection() {
           <p className="text-blue-200 max-w-2xl mx-auto">
             Najnowsze porady, informacje i aktualności ze Szkoły Jazdy Qursant
           </p>
-        </motion.div>
+        </div>
 
         {/* Featured post (pierwszy) */}
         {posts[0] && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
+          <div className="mb-12">
             <Link href={`/blog/${posts[0].slug}`}>
               <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
                 {/* Zdjęcie */}
@@ -133,19 +93,13 @@ export default function NewsSection() {
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </div>
         )}
 
         {/* Pozostałe posty (4) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {posts.slice(1, 5).map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+          {posts.slice(1, 5).map((post) => (
+            <div key={post.id}>
               <Link href={`/blog/${post.slug}`}>
                 <div className="group bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:transform hover:scale-105 h-full flex flex-col">
                   {/* Zdjęcie */}
@@ -183,18 +137,12 @@ export default function NewsSection() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* CTA do bloga */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <Link
             href="/blog"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105"
@@ -202,7 +150,7 @@ export default function NewsSection() {
             Zobacz wszystkie aktualności
             <HiOutlineArrowRight className="ml-2" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
