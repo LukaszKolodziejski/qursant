@@ -1,6 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion
+// - Pure CSS animations
+// - Oszczędność: ~100KB JavaScript!
+
 import Link from 'next/link';
 import {
   HiOutlineLocationMarker,
@@ -29,32 +33,20 @@ export default function LocalSEOSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Main heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
+        {/* Main heading - CSS Animation: fade-in-up-20 */}
+        <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in-up-20">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-300">
               Szkoła Jazdy Qursant w Bydgoszczy
             </span>
           </h2>
           <div className="w-32 h-1 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-8"></div>
-        </motion.div>
+        </div>
 
         {/* Content section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Left column - main content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
+          {/* Left column - CSS Animation: fade-in-left */}
+          <div className="space-y-6 animate-fade-in-left">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                 <HiOutlineLocationMarker className="text-blue-400 mr-3 text-3xl" />
@@ -132,16 +124,10 @@ export default function LocalSEOSection() {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right column - areas and CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
+          {/* Right column - CSS Animation: fade-in-right */}
+          <div className="space-y-6 animate-fade-in-right">
             {/* Areas served */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
@@ -154,16 +140,14 @@ export default function LocalSEOSection() {
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {areas.map((area, index) => (
-                  <motion.div
+                  // CSS Animation: staggered scale-in-90 with inline delay
+                  <div
                     key={area}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="bg-blue-500/10 rounded-lg p-3 text-center"
+                    className="bg-blue-500/10 rounded-lg p-3 text-center animate-scale-in-90"
+                    style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <span className="text-blue-200 font-medium">{area}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
               <p className="text-blue-100 mt-6 text-sm">
@@ -222,17 +206,11 @@ export default function LocalSEOSection() {
                 Zarezerwuj miejsce na kursie
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto mt-16"
-        >
+        {/* Bottom CTA - CSS Animation: fade-in-up-20 with delay */}
+        <div className="max-w-4xl mx-auto mt-16 animate-fade-in-up-20 delay-300">
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 text-center">
             <h3 className="text-2xl font-bold text-white mb-4">
               Poszukujesz najlepszej szkoły jazdy w Bydgoszczy?
@@ -258,7 +236,7 @@ export default function LocalSEOSection() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

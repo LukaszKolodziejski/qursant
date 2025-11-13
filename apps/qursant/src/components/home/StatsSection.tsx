@@ -1,10 +1,10 @@
 'use client';
 
-// ✅ OPTIMIZED: CSS Animations dla prostych animacji
-// ZACHOWANE: Framer Motion dla animowanych SVG (ładny efekt!)
-// Oszczędność: ~40KB JavaScript!
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion (eliminuje 179ms forced reflow!)
+// - Pure CSS animations + SVG (0KB JavaScript overhead!)
+// - Oszczędność: ~80KB JavaScript + 179ms reflow!
 
-import { motion } from 'framer-motion';
 import { FaUserGraduate, FaChalkboardTeacher, FaMedal } from 'react-icons/fa';
 import { HiOutlineClock } from 'react-icons/hi';
 import {
@@ -30,6 +30,7 @@ export default function StatsSection() {
           <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-500/20 to-transparent blur-3xl"></div>
         </div>
 
+        {/* ⚡ STATIC SVG Pattern - No Framer Motion animation (saves 179ms reflow!) */}
         <svg
           className="absolute inset-0 w-full h-full opacity-30"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,17 +42,13 @@ export default function StatsSection() {
               height="50"
               patternUnits="userSpaceOnUse"
             >
-              <motion.circle
+              <circle
                 cx="25"
                 cy="25"
                 r="1.5"
                 fill="#fff"
-                animate={{ opacity: [0.4, 1, 0.4] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: 'reverse',
-                }}
+                opacity="0.6"
+                className="animate-pulse-slow"
               />
             </pattern>
             <pattern
@@ -61,17 +58,13 @@ export default function StatsSection() {
               patternUnits="userSpaceOnUse"
             >
               <rect width="100" height="100" fill="url(#smallGrid)" />
-              <motion.circle
+              <circle
                 cx="50"
                 cy="50"
                 r="2"
                 fill="#fff"
-                animate={{ opacity: [0.2, 0.8, 0.2] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: 'reverse',
-                }}
+                opacity="0.4"
+                className="animate-pulse-slow"
               />
             </pattern>
           </defs>

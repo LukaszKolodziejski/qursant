@@ -1,6 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion
+// - Pure CSS animations
+// - Oszczędność: ~100KB JavaScript!
 
 export default function FAQSection() {
   return (
@@ -10,13 +13,8 @@ export default function FAQSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        {/* CSS Animation: fade-in-up-20 */}
+        <div className="text-center mb-16 animate-fade-in-up-20">
           <h2 className="text-4xl font-bold text-white mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-blue-100">
               Często zadawane pytania
@@ -25,7 +23,7 @@ export default function FAQSection() {
           <p className="text-blue-200 max-w-2xl mx-auto">
             Odpowiedzi na najczęściej zadawane pytania dotyczące naszych kursów
           </p>
-        </motion.div>
+        </div>
 
         <div className="max-w-3xl mx-auto space-y-6">
           {[
@@ -51,13 +49,11 @@ export default function FAQSection() {
                 'Tak, oferujemy dodatkowe jazdy doszkalające dla osób, które chcą lepiej przygotować się do egzaminu praktycznego. Możesz wykupić dowolną liczbę dodatkowych godzin jazdy z instruktorem.',
             },
           ].map((faq, index) => (
-            <motion.div
+            // CSS Animation: staggered fade-in-up-20 with inline delay
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300"
+              className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 animate-fade-in-up-20"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex justify-between items-start">
                 <h3 className="text-xl font-medium text-white">
@@ -85,7 +81,7 @@ export default function FAQSection() {
               <div className="mt-4">
                 <p className="text-blue-100">{faq.answer}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

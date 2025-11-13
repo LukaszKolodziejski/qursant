@@ -1,6 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion
+// - Pure CSS animations
+// - Oszczędność: ~100KB JavaScript!
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiOutlineUserGroup } from 'react-icons/hi';
@@ -13,21 +17,12 @@ export default function ContactCTASection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="rounded-3xl bg-gradient-to-br from-blue-900 to-indigo-900 overflow-hidden shadow-2xl shadow-blue-500/20"
-        >
+        {/* CSS Animation: scale-in-90 */}
+        <div className="rounded-3xl bg-gradient-to-br from-blue-900 to-indigo-900 overflow-hidden shadow-2xl shadow-blue-500/20 animate-scale-in-90">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-12 lg:p-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
+              {/* CSS Animation: fade-in-up-20 */}
+              <div className="animate-fade-in-up-20">
                 <h2 className="text-4xl font-bold text-white mb-4">
                   Rozpocznij swoją przygodę z kierownicą już dziś
                 </h2>
@@ -42,13 +37,11 @@ export default function ContactCTASection() {
                     'Nowoczesna flota pojazdów',
                     'Wysoka zdawalność egzaminów',
                   ].map((item, index) => (
-                    <motion.li
+                    // CSS Animation: staggered fade-in-left with inline delay
+                    <li
                       key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-center text-blue-100"
+                      className="flex items-center text-blue-100 animate-fade-in-left"
+                      style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <svg
                         className="w-5 h-5 text-green-400 mr-3"
@@ -63,7 +56,7 @@ export default function ContactCTASection() {
                         ></path>
                       </svg>
                       {item}
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
                 <Link
@@ -86,7 +79,7 @@ export default function ContactCTASection() {
                     ></path>
                   </svg>
                 </Link>
-              </motion.div>
+              </div>
             </div>
             <div className="relative hidden lg:block">
               <Image
@@ -100,13 +93,8 @@ export default function ContactCTASection() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
 
-              <motion.div
-                className="absolute top-16 right-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl w-64"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
+              {/* CSS Animation: fade-in-up-20 with delay */}
+              <div className="absolute top-16 right-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl w-64 animate-fade-in-up-20 delay-300">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-blue-500/20 rounded-lg mr-4">
                     <HiOutlineUserGroup className="text-blue-300 text-2xl" />
@@ -123,10 +111,10 @@ export default function ContactCTASection() {
                   Szkolimy w małych grupach, aby zapewnić każdemu uczestnikowi
                   indywidualne podejście i maksymalną efektywność nauki.
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

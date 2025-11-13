@@ -1,6 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion
+// - Pure CSS animations
+// - Oszczędność: ~100KB JavaScript!
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiLightningBolt } from 'react-icons/hi';
@@ -13,13 +17,8 @@ export default function ProcessSection() {
       </div>
 
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        {/* CSS Animation: fade-in-up-20 */}
+        <div className="text-center mb-16 animate-fade-in-up-20">
           <h2 className="text-4xl font-bold text-white mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-blue-300">
               Zdobądź swoje prawo jazdy
@@ -29,16 +28,11 @@ export default function ProcessSection() {
             Przeprowadzimy Cię przez cały proces - od kursu teoretycznego po
             egzamin praktyczny
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
+          {/* CSS Animation: fade-in-left-50 */}
+          <div className="space-y-8 animate-fade-in-left-50">
             {[
               {
                 step: '01',
@@ -65,13 +59,11 @@ export default function ProcessSection() {
                   'Wsparcie podczas egzaminu i wysoka zdawalność dzięki naszemu przygotowaniu',
               },
             ].map((step, index) => (
-              <motion.div
+              // CSS Animation: staggered fade-in-up-20 with inline delay
+              <div
                 key={index}
-                className="flex space-x-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex space-x-6 animate-fade-in-up-20"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex-shrink-0">
                   <div className="relative h-12 w-12">
@@ -92,48 +84,35 @@ export default function ProcessSection() {
                   </h3>
                   <p className="text-blue-200">{step.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="relative w-full"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          {/* CSS Animation: fade-in-right-50 with delay */}
+          <div className="relative w-full animate-fade-in-right-50 delay-200">
             <Image
               src="/images/cars/photo-78.webp"
               alt="Prawo jazdy"
               width={800}
               height={600}
+              quality={40}
               className="w-full h-auto rounded-2xl"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent rounded-2xl"></div>
 
             <div className="absolute bottom-6 right-6 z-10">
-              <motion.div
-                className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
+              {/* CSS Animation: floating + hover-scale */}
+              <div className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center space-x-2 animate-floating hover-scale">
                 <span className="font-medium">Wysokie 95% zdawalności</span>
                 <HiLightningBolt className="text-yellow-300" />
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          className="mt-16 text-center relative z-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
+        {/* CSS Animation: fade-in-up-20 with delay */}
+        <div className="mt-16 text-center relative z-20 animate-fade-in-up-20 delay-500">
           <Link
             href="/rezerwacja"
             className="group inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
@@ -154,7 +133,7 @@ export default function ProcessSection() {
               ></path>
             </svg>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

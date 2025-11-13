@@ -469,6 +469,7 @@ export default function ONasContent({
                 alt="Wyposażenie Qursant"
                 width={800}
                 height={600}
+                quality={40}
                 className="w-full h-auto rounded-2xl"
                 priority
               />

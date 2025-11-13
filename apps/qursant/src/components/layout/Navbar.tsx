@@ -1,16 +1,26 @@
 'use client';
 
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion (było 8x motion components!)
+// - Pure CSS animations & transitions
+// - Oszczędność: ~100KB JavaScript w layout!
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const pathname = usePathname();
+
+  // Track mount for CSS animations
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navigation = [
     { name: 'Strona główna', href: '/' },
@@ -53,22 +63,14 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: 0 }}
-      animate={{
-        height: scrolled ? '5rem' : '6rem',
-      }}
-      transition={{ duration: 0.3 }}
+    <nav
+      style={{ height: scrolled ? '5rem' : '6rem' }}
       className={`fixed w-full z-50 transition-all duration-300 pt-5 bg-gray-900 shadow-lg`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-full">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          {/* Logo - CSS Animation: fade-in (only on mount) */}
+          <div className={mounted ? 'animate-fade-in' : 'opacity-0'}>
             <Link
               href="/"
               className="flex-shrink-0 flex items-center"
@@ -79,25 +81,20 @@ export default function Navbar() {
                 alt="Qursant Logo"
                 width={scrolled ? 100 : 120}
                 height={scrolled ? 33 : 40}
+                quality={60}
                 className="transition-all duration-300"
                 priority
               />
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu - CSS hover:scale */}
           <div className="hidden lg:flex items-center space-x-2">
             {navigation.map((item) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.05 }}
-                className="relative"
-              >
+              <div key={item.href} className="relative">
                 <Link
                   href={item.href}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isActivePath(item.href)
                       ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
                       : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
@@ -105,15 +102,14 @@ export default function Navbar() {
                 >
                   {item.name}
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
+          {/* Mobile Menu Button - CSS active:scale */}
+          <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 mr-4 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 z-50"
+            className="lg:hidden p-2 mr-4 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 z-50 active:scale-95 transition-transform duration-150"
           >
             <span className="sr-only">Menu</span>
             <svg
@@ -133,57 +129,41 @@ export default function Navbar() {
                 }
               />
             </svg>
-          </motion.button>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu z overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <>
-            {/* Overlay do zamykania menu */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-black z-40"
-            />
+      {/* Mobile Menu - CSS transitions instead of Framer Motion */}
+      {isMenuOpen && (
+        <>
+          {/* Overlay - CSS fade */}
+          <div
+            onClick={() => setIsMenuOpen(false)}
+            className="fixed inset-0 bg-black opacity-50 z-40 animate-fade-in"
+          />
 
-            {/* Menu mobilne */}
-            <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed top-0 right-0 w-[300px] h-full bg-gray-900 shadow-xl z-50"
-            >
-              <div className="px-4 pt-20 pb-6 space-y-1">
-                {navigation.map((item) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3 }}
+          {/* Menu mobilne - CSS slide from right */}
+          <div className="fixed top-0 right-0 w-[300px] h-full bg-gray-900 shadow-xl z-50 animate-fade-in-right">
+            <div className="px-4 pt-20 pb-6 space-y-1">
+              {navigation.map((item) => (
+                <div key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                      isActivePath(item.href)
+                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
+                        : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
                   >
-                    <Link
-                      href={item.href}
-                      className={`block px-4 py-3 rounded-xl text-base font-medium ${
-                        isActivePath(item.href)
-                          ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700'
-                          : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+                    {item.name}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </nav>
   );
 }

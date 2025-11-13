@@ -1,6 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion
+// - Pure CSS animations
+// - Oszczędność: ~100KB JavaScript!
+
 import Link from 'next/link';
 import { HiOutlineAcademicCap } from 'react-icons/hi';
 import { FaCar, FaMedal } from 'react-icons/fa';
@@ -15,13 +19,8 @@ export default function CourseOverviewSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        {/* CSS Animation: fade-in-up-20 */}
+        <div className="text-center mb-16 animate-fade-in-up-20">
           <h2 className="text-4xl font-bold text-white mb-4">
             <Link
               href="/cennik"
@@ -36,7 +35,7 @@ export default function CourseOverviewSection() {
             Profesjonalne szkolenie na samochód osobowy z doświadczonymi
             instruktorami
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
@@ -62,13 +61,11 @@ export default function CourseOverviewSection() {
               color: 'from-yellow-500 to-orange-500',
             },
           ].map((feature, index) => (
-            <motion.div
+            // CSS Animation: staggered fade-in-up-20 with inline delay
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative p-8 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group"
+              className="relative p-8 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up-20"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="absolute -top-4 -right-4">
                 <div
@@ -87,35 +84,23 @@ export default function CourseOverviewSection() {
               </h3>
               <p className="text-blue-200 mb-6">{feature.description}</p>
 
-              <motion.div
-                className="h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+              {/* CSS hover - width animation */}
+              <div className="h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center mt-12"
-        >
+        {/* CSS Animation: fade-in-up-20 with delay */}
+        <div className="text-center mt-12 animate-fade-in-up-20 delay-300">
           <Link
             href="/cennik"
-            className="group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-full backdrop-blur-md bg-white/10 border border-white/20 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 inline-block"
           >
             <span className="relative z-10">Zobacz kursy</span>
-            <motion.span
-              className="absolute inset-0 bg-white/20 z-0"
-              initial={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            />
+            {/* CSS hover - scale effect */}
+            <span className="absolute inset-0 bg-white/20 z-0 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

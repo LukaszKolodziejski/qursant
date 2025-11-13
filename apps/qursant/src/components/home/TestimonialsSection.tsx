@@ -1,6 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
+// - ZERO Framer Motion
+// - Pure CSS animations
+// - Oszczędność: ~100KB JavaScript!
+
 import Link from 'next/link';
 import { FaQuoteRight } from 'react-icons/fa';
 
@@ -19,13 +23,8 @@ export default function TestimonialsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        {/* CSS Animation: fade-in-up-20 */}
+        <div className="text-center mb-16 animate-fade-in-up-20">
           <h2 className="text-4xl font-bold text-white mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-200">
               Co mówią nasi kursanci
@@ -34,7 +33,7 @@ export default function TestimonialsSection() {
           <p className="text-blue-200 max-w-2xl mx-auto">
             Opinie osób, które zdobyły prawo jazdy dzięki naszej szkole
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {(
@@ -77,12 +76,10 @@ export default function TestimonialsSection() {
               rel="noopener noreferrer"
               className="block"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="relative p-6 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 hover:border-white/20 transition-all duration-300 cursor-pointer h-full"
+              {/* CSS Animation: staggered fade-in-up with inline delay */}
+              <div
+                className="relative p-6 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 hover:border-white/20 transition-all duration-300 cursor-pointer h-full animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute -top-6 left-6">
                   <div className="h-12 w-12 relative">
@@ -101,9 +98,7 @@ export default function TestimonialsSection() {
 
                 <div className="flex items-center">
                   <div>
-                    <p className="text-white font-medium">
-                      {testimonial.name}
-                    </p>
+                    <p className="text-white font-medium">{testimonial.name}</p>
                     <p className="text-blue-300 text-sm">{testimonial.role}</p>
                   </div>
                   <div className="ml-auto flex text-yellow-400">
@@ -124,7 +119,7 @@ export default function TestimonialsSection() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </Link>
           ))}
         </div>

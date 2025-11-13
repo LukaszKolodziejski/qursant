@@ -43,6 +43,7 @@ export default function Footer() {
                 alt="Qursant - Szkoła Jazdy"
                 width={120}
                 height={40}
+                quality={60}
                 className="h-10 w-auto"
                 priority
               />
