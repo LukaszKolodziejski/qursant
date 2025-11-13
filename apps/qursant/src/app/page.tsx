@@ -10,16 +10,32 @@ import dynamic from 'next/dynamic';
 import { CONTACT } from '@/constants/contact';
 
 // ===================================================================
-// ABOVE THE FOLD - Ładuj natychmiast (krytyczne dla LCP)
+// ABOVE THE FOLD - Tylko HeroSection (krytyczny dla LCP)
 // ===================================================================
 import HeroSection from '@/components/home/HeroSection';
-import FleetSection from '@/components/home/FleetSection';
-import StatsSection from '@/components/home/StatsSection';
-import NewsSection from '@/components/home/NewsSection';
 
 // ===================================================================
-// BELOW THE FOLD - Lazy load (oszczędność ~200KB JS!)
+// BELOW THE FOLD - Aggressive lazy load (oszczędność ~400KB JS!)
+// PERFORMANCE BOOST: Tylko HeroSection ładuje się od razu!
 // ===================================================================
+const FleetSection = dynamic(() => import('@/components/home/FleetSection'), {
+  loading: () => (
+    <div className="min-h-[500px] bg-gradient-to-b from-indigo-900 to-blue-950" />
+  ),
+});
+
+const StatsSection = dynamic(() => import('@/components/home/StatsSection'), {
+  loading: () => (
+    <div className="min-h-[400px] bg-gradient-to-b from-blue-950 to-indigo-950" />
+  ),
+});
+
+const NewsSection = dynamic(() => import('@/components/home/NewsSection'), {
+  loading: () => (
+    <div className="min-h-[500px] bg-gradient-to-b from-indigo-950 to-blue-950" />
+  ),
+});
+
 const ProcessSection = dynamic(
   () => import('@/components/home/ProcessSection'),
   {
