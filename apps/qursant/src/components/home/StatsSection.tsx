@@ -95,7 +95,7 @@ export default function StatsSection() {
 
         {/* CSS Animation: staggered fade-in */}
         <div ref={statsRef} className="fade-in-on-scroll mx-auto max-w-7xl">
-          <dl className="grid grid-cols-2 gap-6 md:grid-cols-4 text-center">
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 text-center">
             {[
               {
                 icon: <FaUserGraduate />,
@@ -137,19 +137,20 @@ export default function StatsSection() {
                 <div className="relative z-10">
                   <div
                     className={`text-4xl bg-gradient-to-br ${stat.color} rounded-xl p-4 text-white mb-5 shadow-lg`}
+                    aria-hidden="true"
                   >
                     {stat.icon}
                   </div>
-                  <dt
+                  <p
                     className={`text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.color} mb-2`}
                   >
                     {stat.value}
-                  </dt>
-                  <dd className="text-base text-blue-100">{stat.label}</dd>
+                  </p>
+                  <p className="text-base text-blue-100">{stat.label}</p>
                 </div>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </section>

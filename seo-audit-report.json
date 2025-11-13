@@ -1,0 +1,172 @@
+{
+  "timestamp": "2025-11-12T20:02:14.443Z",
+  "score": 143,
+  "maxScore": 148,
+  "percentage": "96.6",
+  "grade": "A+",
+  "checks": [
+    {
+      "category": "Struktura",
+      "name": "Root Layout",
+      "passed": true,
+      "points": 10,
+      "message": "✅ Root Layout istnieje",
+      "suggestion": null
+    },
+    {
+      "category": "Struktura",
+      "name": "Homepage",
+      "passed": true,
+      "points": 10,
+      "message": "✅ Homepage istnieje",
+      "suggestion": null
+    },
+    {
+      "category": "Struktura",
+      "name": "robots.txt",
+      "passed": true,
+      "points": 5,
+      "message": "✅ robots.txt istnieje",
+      "suggestion": null
+    },
+    {
+      "category": "Struktura",
+      "name": "Sitemap",
+      "passed": true,
+      "points": 10,
+      "message": "✅ Sitemap istnieje",
+      "suggestion": null
+    },
+    {
+      "category": "Struktura",
+      "name": "PWA Manifest",
+      "passed": true,
+      "points": 3,
+      "message": "✅ PWA Manifest istnieje",
+      "suggestion": null
+    },
+    {
+      "category": "Metadata",
+      "name": "Pages with Metadata",
+      "passed": true,
+      "points": 15,
+      "message": "10/10 stron ma metadata (100%)",
+      "suggestion": null
+    },
+    {
+      "category": "Schema.org",
+      "name": "JSON-LD Implementation",
+      "passed": true,
+      "points": 15,
+      "message": "8 plików ze Schema.org (26 typów: BlogPosting, Person, Organization, ImageObject, WebPage, Service, City, Offer, AutomotiveBusiness, PostalAddress, GeoCoordinates, OpeningHoursSpecification, Course, CourseInstance, Place, Audience, DrivingSchool, AggregateRating, WebSite, SearchAction, EntryPoint, BreadcrumbList, ListItem, FAQPage, Question, Answer)",
+      "suggestion": null
+    },
+    {
+      "category": "Schema.org",
+      "name": "Common Schema Types",
+      "passed": true,
+      "points": 10,
+      "message": "4/5 podstawowych typów: Organization, BlogPosting, FAQPage, BreadcrumbList",
+      "suggestion": null
+    },
+    {
+      "category": "Obrazy",
+      "name": "Modern Formats (WebP/AVIF)",
+      "passed": true,
+      "points": 10,
+      "message": "100/103 obrazów w nowoczesnych formatach (97%)",
+      "suggestion": null
+    },
+    {
+      "category": "Obrazy",
+      "name": "Average Image Size",
+      "passed": false,
+      "points": 5,
+      "message": "Średni rozmiar: 304 KB",
+      "suggestion": "Optymalizuj duże obrazy (kompresja, resize)"
+    },
+    {
+      "category": "Sitemap",
+      "name": "Dynamic Sitemap",
+      "passed": true,
+      "points": 10,
+      "message": "✅ Sitemap dynamiczny (auto-update)",
+      "suggestion": null
+    },
+    {
+      "category": "Robots",
+      "name": "Sitemap Reference",
+      "passed": true,
+      "points": 5,
+      "message": "✅ robots.txt zawiera link do sitemap",
+      "suggestion": null
+    },
+    {
+      "category": "Content",
+      "name": "Blog Posts",
+      "passed": true,
+      "points": 5,
+      "message": "3 tygodni blogów (~21 postów)",
+      "suggestion": null
+    },
+    {
+      "category": "Content",
+      "name": "Blog SEO",
+      "passed": true,
+      "points": 5,
+      "message": "✅ Blog ma metadata",
+      "suggestion": null
+    },
+    {
+      "category": "Performance",
+      "name": "Lazy Loading",
+      "passed": true,
+      "points": 5,
+      "message": "1 stron używa lazy loading",
+      "suggestion": null
+    },
+    {
+      "category": "Performance",
+      "name": "Next.js Image Component",
+      "passed": true,
+      "points": 5,
+      "message": "8/8 obrazów używa <Image> (100%)",
+      "suggestion": null
+    },
+    {
+      "category": "Accessibility",
+      "name": "Image Alt Tags",
+      "passed": true,
+      "points": 5,
+      "message": "22/22 obrazów ma alt (100%)",
+      "suggestion": null
+    },
+    {
+      "category": "Mobile",
+      "name": "Viewport Configuration",
+      "passed": true,
+      "points": 5,
+      "message": "✅ Viewport skonfigurowany",
+      "suggestion": null
+    },
+    {
+      "category": "Mobile",
+      "name": "Responsive Design",
+      "passed": true,
+      "points": 5,
+      "message": "21 komponentów używa responsive classes",
+      "suggestion": null
+    },
+    {
+      "category": "Security",
+      "name": "HTTPS URLs",
+      "passed": true,
+      "points": 5,
+      "message": "✅ Wszystkie URLs używają HTTPS",
+      "suggestion": null
+    }
+  ],
+  "suggestions": [
+    "Obrazy - Average Image Size: Optymalizuj duże obrazy (kompresja, resize)"
+  ]
+}

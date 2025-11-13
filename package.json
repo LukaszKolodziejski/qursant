@@ -29,10 +29,16 @@
     "vercel-build": "nx build qursant",
     "gallery": "node apps/qursant/scripts/generateGalleryData.js",
     "blog": "node scripts/generate-blog-week.js",
+    "optimize-images": "node scripts/optimize-images.js",
     "blog:list": "ls -lh apps/qursant/data/blog-content/ | grep week",
     "blog:stats": "echo '📊 Statystyki blogów:' && find apps/qursant/data/blog-content -name 'week-*.json' | wc -l | xargs -I {} echo '   Tygodni: {}' && echo '   Blogów: ~7 na tydzień' && find apps/qursant/data/blog-content -name 'week-*.json' | wc -l | xargs -I {} echo '   Łącznie: ~$(({}*7))' || echo 'Brak blogów'",
     "blog:clean": "rm -rf apps/qursant/data/blog-content/week-*.json && echo '✅ Wyczyszczono wszystkie blogi'",
-    "blog:help": "echo '\n📝 Komendy do zarządzania blogami:\n\n  npm run blog <numer>     - Generuj tydzień (np. npm run blog 4)\n  npm run blog:list        - Lista wygenerowanych tygodni\n  npm run blog:stats       - Statystyki blogów\n  npm run blog:clean       - Usuń wszystkie blogi\n  npm run blog:help        - Ta pomoc\n'"
+    "blog:help": "echo '\n📝 Komendy do zarządzania blogami:\n\n  npm run blog <numer>     - Generuj tydzień (np. npm run blog 4)\n  npm run blog:list        - Lista wygenerowanych tygodni\n  npm run blog:stats       - Statystyki blogów\n  npm run blog:clean       - Usuń wszystkie blogi\n  npm run blog:help        - Ta pomoc\n'",
+    "seo": "node scripts/seo-audit.js",
+    "seo:help": "echo '\n🔍 SEO Audit Tool:\n\n  npm run seo              - Pełna analiza SEO\n  npm run seo:help         - Ta pomoc\n'",
+    "lighthouse": "npx unlighthouse-ci --site http://localhost:3000 --build-static",
+    "lighthouse:prod": "npx unlighthouse-ci --site https://www.qursant.com.pl --build-static",
+    "audit": "echo '\n🔍 Dostępne audyty:\n\n  npm run seo              - Szybki audit SEO (pliki, 2s)\n  npm run lighthouse       - Pełny audit Lighthouse (localhost, 2-5 min)\n  npm run lighthouse:prod  - Pełny audit Lighthouse (produkcja, 2-5 min)\n'"
   },
   "private": true,
   "dependencies": {
@@ -77,6 +83,7 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "@types/nodemailer": "^6.4.17",
+    "@unlighthouse/cli": "^0.17.4",
     "autoprefixer": "10.4.13",
     "cypress": "^13.13.0",
     "eslint": "^9.8.0",
@@ -90,6 +97,7 @@
     "nx": "20.7.1",
     "postcss": "8.4.38",
     "prettier": "^2.6.2",
+    "puppeteer": "^24.29.1",
     "sharp": "^0.34.1",
     "tailwindcss": "3.4.3",
     "typescript": "~5.7.2",

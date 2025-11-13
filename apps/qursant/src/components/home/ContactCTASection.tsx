@@ -112,7 +112,7 @@ export default function ContactCTASection() {
                     <HiOutlineUserGroup className="text-blue-300 text-2xl" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">Małe grupy</h4>
+                    <p className="text-white font-medium">Małe grupy</p>
                     <p className="text-blue-200 text-sm">
                       Indywidualne podejście
                     </p>

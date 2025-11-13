@@ -36,12 +36,11 @@ export default function Footer() {
             <Link
               href="/"
               className="flex items-center justify-center sm:justify-start"
-              aria-label="home"
+              aria-label="Przejdź do strony głównej Qursant"
             >
-              <span className="sr-only">logo</span>
               <Image
                 src="/logo/logo.png"
-                alt="logo"
+                alt="Qursant - Szkoła Jazdy"
                 width={120}
                 height={40}
                 className="h-10 w-auto"
@@ -172,7 +171,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/lukasz-kolodziejski/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 transition-colors"
+              className="text-blue-300 hover:text-blue-200 underline decoration-blue-300/50 hover:decoration-blue-200 underline-offset-2 transition-colors font-medium"
             >
               Łukasz Kołodziejski
             </a>

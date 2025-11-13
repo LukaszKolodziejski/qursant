@@ -71,7 +71,7 @@ export default function HeroSection() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: 'easeOut',
+        ease: [0, 0, 0.2, 1] as const, // easeOut cubic-bezier
       },
     },
   };
@@ -144,7 +144,11 @@ export default function HeroSection() {
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: [0, 0, 1, 1],
+                }}
               >
                 Prawo jazdy w 2 miesiące!
               </motion.div>

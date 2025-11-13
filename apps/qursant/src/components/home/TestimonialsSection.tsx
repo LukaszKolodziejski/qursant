@@ -101,9 +101,9 @@ export default function TestimonialsSection() {
 
                 <div className="flex items-center">
                   <div>
-                    <h4 className="text-white font-medium">
+                    <p className="text-white font-medium">
                       {testimonial.name}
-                    </h4>
+                    </p>
                     <p className="text-blue-300 text-sm">{testimonial.role}</p>
                   </div>
                   <div className="ml-auto flex text-yellow-400">

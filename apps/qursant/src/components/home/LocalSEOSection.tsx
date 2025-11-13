@@ -180,9 +180,9 @@ export default function LocalSEOSection() {
               </h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-white font-semibold mb-2">
+                  <p className="text-white font-semibold mb-2">
                     🚗 Tryb standardowy
-                  </h4>
+                  </p>
                   <p className="text-blue-100">
                     Kurs prawa jazdy kat. B w Bydgoszczy trwa średnio 2-3
                     miesiące. Obejmuje 30 godzin teorii oraz 30 godzin praktyki.
@@ -191,9 +191,9 @@ export default function LocalSEOSection() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">
+                  <p className="text-white font-semibold mb-2">
                     ⚡ Tryb ekspresowy
-                  </h4>
+                  </p>
                   <p className="text-blue-100">
                     Dla osób, które mają pilną potrzebę zdobycia prawa jazdy,
                     oferujemy kurs ekspresowy. Dzięki intensywnym zajęciom (5-7
