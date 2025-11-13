@@ -3,14 +3,53 @@
 const { withNx } = require('@nx/next');
 
 /**
+ * ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED CONFIG ⚡⚡⚡
+ * - Compiler optimizations
+ * - Package import optimization
+ * - React strict mode dla production
+ * - Security headers
+ *
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
   nx: {
-    // Set this to true if you would like to use SVGR
-    // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+
+  // ===================================================================
+  // 🚀 PERFORMANCE OPTIMIZATIONS
+  // ===================================================================
+
+  // React Compiler Optimizations
+  reactStrictMode: true,
+  poweredByHeader: false,
+
+  // Optimize Package Imports - reduce bundle size
+  optimizePackageImports: [
+    'react-icons',
+    'react-icons/hi',
+    'react-icons/fa',
+    'react-icons/bs',
+  ],
+
+  // Compiler Options
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === 'production'
+        ? {
+            exclude: ['error', 'warn'],
+          }
+        : false,
+  },
+
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['react-icons', 'leaflet'],
+  },
+
+  // ===================================================================
+  // 🖼️ IMAGE OPTIMIZATION
+  // ===================================================================
   images: {
     remotePatterns: [
       {
