@@ -1,5 +1,5 @@
 export const COURSE = {
-  NEXT_START_DATE: '1 grudnia 2025',
+  NEXT_START_DATE: '5 stycznia 2026',
   START_TIME: '17:00',
   DURATION: {
     THEORY: {
