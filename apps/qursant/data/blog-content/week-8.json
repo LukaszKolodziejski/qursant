@@ -1,0 +1,587 @@
+{
+  "week": 8,
+  "startDate": "2025-12-23",
+  "endDate": "2025-12-29",
+  "posts": [
+    {
+      "id": "2025-12-23-wyjazdy-swiateczne-bezpieczenstwo",
+      "slug": "wyjazdy-swiateczne-bezpieczenstwo",
+      "title": "Jazda w okresie świątecznym - jak uniknąć korków i stresu?",
+      "excerpt": "Świąteczne wyjazdy to często korki, pośpiech i trudne warunki. Jak bezpiecznie dojechać do rodziny na wigilię? Poradnik przetrwania na drodze.",
+      "publishDate": "2025-12-23",
+      "author": "Robert Langer",
+      "category": "poradniki",
+      "tags": [
+        "święta",
+        "bezpieczna jazda",
+        "podróż",
+        "zima",
+        "pakowanie samochodu"
+      ],
+      "image": "cars/photo-77.webp",
+      "sections": [
+        {
+          "heading": "Świąteczna gorączka na drogach",
+          "paragraphs": [
+            "Okres przedświąteczny to czas wzmożonego ruchu na drogach całej Polski. Wszyscy spieszą się do bliskich, wiozą prezenty, choinki i świąteczne potrawy. Niestety, pośpiech w połączeniu z zimowymi warunkami to mieszanka wybuchowa. Statystyki policyjne co roku odnotowują w tym okresie wzrost liczby kolizji.",
+            "W szkole jazdy Qursant zawsze powtarzamy: lepiej dojechać 15 minut później, niż nie dojechać wcale. Przygotowanie do świątecznej podróży zaczyna się jeszcze przed przekręceniem kluczyka w stacyjce."
+          ]
+        },
+        {
+          "heading": "Pakowanie samochodu - sztuka tetris",
+          "paragraphs": [
+            "Bezpieczeństwo zaczyna się od bagażnika. Źle zapakowany bagaż w razie gwałtownego hamowania staje się śmiercionośnym pociskiem. Prezenty, walizki i jedzenie muszą być zabezpieczone. Najcięższe przedmioty układaj na dnie bagażnika, dosunięte do oparcia tylnej kanapy. Jeśli wieziesz narty, koniecznie użyj boxa dachowego lub specjalnego uchwytu - przewożenie ich luzem w kabinie jest skrajnie niebezpieczne."
+          ]
+        },
+        {
+          "heading": "Planowanie trasy i czasu",
+          "paragraphs": [
+            "Największe korki tworzą się zazwyczaj w dzień wyjazdu (23/24 grudnia). Jeśli możesz, wyjedź wcześnie rano lub późnym wieczorem, gdy ruch jest mniejszy. Sprawdź prognozę pogody na całej trasie - w Bydgoszczy może padać deszcz, ale 100 km dalej może już być śnieżyca. Miej w zanadrzu trasę alternatywną na wypadek zablokowania głównej drogi przez wypadek."
+          ]
+        },
+        {
+          "heading": "Kultura i spokój za kierownicą",
+          "paragraphs": [
+            "Święta to czas życzliwości - przenieś ją też na drogę. Wpuść kierowcę włączającego się do ruchu, nie trąb bez potrzeby, podziękuj awaryjnymi za uprzejmość. Agresja rodzi agresję, a spokój pozwala bezpieczniej dotrzeć do celu. Pamiętaj, że w okresie świątecznym na drogach pojawia się wielu 'niedzielnych kierowców', którzy na co dzień jeżdżą rzadko - bądź dla nich wyrozumiały."
+          ]
+        }
+      ],
+      "tips": [
+        "Nie jedź w kurtce zimowej - krępuje ruchy i sprawia, że pasy bezpieczeństwa nie przylegają prawidłowo do ciała",
+        "Zabierz termos z kawą i przekąski - stanie w korku na autostradzie może potrwać dłużej niż myślisz",
+        "Sprawdź poziom płynu do spryskiwaczy i zabierz zapas - zimą zużywa się go litrami",
+        "Wyczyść dokładnie wszystkie szyby i reflektory przed wyjazdem",
+        "Jeśli wieziesz choinkę na dachu - zamocuj ją czubkiem do tyłu, aby nie stawiała oporu powietrza i nie uszkodziła gałęzi"
+      ],
+      "faq": [
+        {
+          "q": "Jak przewozić jedzenie w samochodzie?",
+          "a": "Garnki i pojemniki z jedzeniem najlepiej umieścić w skrzynce lub kartonie w bagażniku, aby się nie przesuwały. Unikaj stawiania gorących potraw na fotelach - gwałtowne hamowanie może spowodować poparzenie pasażerów."
+        },
+        {
+          "q": "Czy choinka wewnątrz auta jest legalna?",
+          "a": "Tak, o ile nie zasłania widoczności kierowcy, nie utrudnia kierowania i jest stabilnie zamocowana. Nie może też wystawać poza obrys pojazdu w sposób zagrażający bezpieczeństwu."
+        },
+        {
+          "q": "Co zrobić, gdy utknę w zaspie na bocznej drodze?",
+          "a": "Nie gazuj mocno, bo koła wyślizgają lód. Spróbuj 'bujnąć' autem (przód-tył). Jeśli to nie pomaga, podłóż pod koła napędowe dywaniki samochodowe - dadzą chwilową przyczepność."
+        },
+        {
+          "q": "Kiedy jest największy ruch przed świętami?",
+          "a": "Szczyt wyjazdowy to zazwyczaj popołudnie 23 grudnia i poranek 24 grudnia. Powroty kumulują się 26 grudnia po południu."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Bezpieczne wyjazdy świąteczne - Poradnik kierowcy 2025",
+        "metaDescription": "Jak bezpiecznie dojechać na święta? Pakowanie auta, unikanie korków, jazda zimą. Praktyczne porady od szkoły jazdy Qursant.",
+        "keywords": [
+          "wyjazdy świąteczne samochodem",
+          "bezpieczna podróż na święta",
+          "jak spakować auto",
+          "korki przed świętami",
+          "zima na drodze"
+        ]
+      }
+    },
+    {
+      "id": "2025-12-24-voucher-na-prawo-jazdy-prezent",
+      "slug": "voucher-na-prawo-jazdy-prezent",
+      "title": "Voucher na kurs prawa jazdy - idealny prezent pod choinkę?",
+      "excerpt": "Szukasz wyjątkowego prezentu last minute? Kurs prawa jazdy to inwestycja w przyszłość. Sprawdź, dlaczego voucher to świetny pomysł na gwiazdkę.",
+      "publishDate": "2025-12-24",
+      "author": "Robert Langer",
+      "category": "ceny",
+      "tags": [
+        "prezent",
+        "voucher",
+        "prawo jazdy",
+        "święta",
+        "inwestycja"
+      ],
+      "image": "cars/photo-3.webp",
+      "sections": [
+        {
+          "heading": "Prezent, który zmienia życie",
+          "paragraphs": [
+            "Kolejne skarpetki, perfumy czy sweter? A może w tym roku podarować coś, co zostanie z obdarowanym na całe życie? Kurs prawa jazdy to nie tylko nauka prowadzenia samochodu - to podarowanie niezależności, mobilności i nowych możliwości zawodowych. To jeden z niewielu prezentów, który jest jednocześnie praktyczny, rozwojowy i niezwykle ekscytujący.",
+            "W szkole Qursant w okresie przedświątecznym obserwujemy ogromne zainteresowanie voucherami prezentowymi. Rodzice kupują je dla wchodzących w dorosłość dzieci, partnerzy dla swoich drugich połówek, a dziadkowie dokładają się wnukom do ich pierwszego poważnego życiowego celu."
+          ]
+        },
+        {
+          "heading": "Ile to kosztuje i jak działa voucher?",
+          "paragraphs": [
+            "Voucher nie musi pokrywać od razu całego kosztu kursu. W Qursant oferujemy elastyczność - możesz wykupić bon na pełen kurs, na pierwszą ratę lub na określoną kwotę (np. 500 zł, 1000 zł), która pomniejszy koszt szkolenia. To świetne rozwiązanie, gdy na prezent zrzuca się cała rodzina.",
+            "Dla osób, które już mają prawo jazdy, ale boją się jeździć, świetnym prezentem jest pakiet jazd doszkalających. To szansa na przełamanie strachu pod okiem spokojnego profesjonalisty i powrót za kierownicę po latach."
+          ]
+        },
+        {
+          "heading": "Dlaczego teraz? Ceny w 2026",
+          "paragraphs": [
+            "Kupując kurs lub wpłacając zaliczkę jeszcze w 2025 roku, gwarantujesz sobie obecną cenę. Jak pisaliśmy w poprzednich artykułach, prognozy na 2026 rok przewidują wzrost cen kursów ze względu na rosnące koszty paliwa i pracy. Voucher kupiony w grudniu jest więc nie tylko prezentem, ale i mądrą decyzją ekonomiczną, 'zamrażającą' cenę usługi."
+          ]
+        },
+        {
+          "heading": "Elegancka forma",
+          "paragraphs": [
+            "W szkole Qursant dbamy o to, by prezent wyglądał wyjątkowo. Nasze vouchery są elegancko wydrukowane, zapakowane w ozdobną kopertę i gotowe do położenia pod choinką. Możemy je również wysłać w formie elektronicznej do samodzielnego wydruku - idealne rozwiązanie dla tych, którzy przypomnieli sobie o prezencie w Wigilię rano!"
+          ]
+        }
+      ],
+      "tips": [
+        "Upewnij się, że obdarowany rzeczywiście chce zrobić prawo jazdy - nic na siłę",
+        "Sprawdź termin ważności vouchera - w Qursant jest to zazwyczaj 12 miesięcy, co daje dużą swobodę",
+        "Możesz spersonalizować voucher, dodając dedykację lub wybierając konkretnego instruktora",
+        "Jeśli nie stać Cię na cały kurs, voucher na 'Start' (np. materiały + wykłady) to też świetny początek",
+        "Dla pasjonatów motoryzacji polecamy vouchery na szkolenia z jazdy bezpiecznej lub ekojazdy"
+      ],
+      "faq": [
+        {
+          "q": "Czy voucher można zwrócić, jeśli prezent się nie spodoba?",
+          "a": "Zasady zwrotu zależą od regulaminu promocji. W Qursant zazwyczaj umożliwiamy zwrot niewykorzystanego vouchera w ciągu 14-30 dni lub zamianę na inne usługi."
+        },
+        {
+          "q": "Czy voucher obejmuje badania lekarskie?",
+          "a": "Standardowo voucher obejmuje szkolenie (teoria + praktyka). Badania lekarskie są usługą zewnętrzną płatną bezpośrednio lekarzowi, chyba że w ofercie zaznaczono inaczej."
+        },
+        {
+          "q": "Czy mogę kupić voucher online?",
+          "a": "Tak! Wystarczy skontaktować się z nami mailowo lub telefonicznie, opłacić przelewem, a voucher wyślemy na maila w kilka minut."
+        },
+        {
+          "q": "Dla kogo jest pakiet jazd doszkalających?",
+          "a": "Dla każdego, kto ma prawo jazdy, ale czuje się niepewnie. To świetny prezent np. dla żony, która chce wrócić do prowadzenia auta po urodzeniu dziecka, albo dla męża, który chce podszkolić parkowanie."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Voucher na prawo jazdy - Prezent na święta 2025",
+        "metaDescription": "Szukasz pomysłu na prezent? Voucher na kurs prawa jazdy lub jazdy doszkalające to inwestycja w przyszłość. Kup online w Qursant Bydgoszcz.",
+        "keywords": [
+          "prezent na święta",
+          "voucher na prawo jazdy",
+          "bon podarunkowy kurs prawa jazdy",
+          "prezent dla osiemnastolatka",
+          "jazdy doszkalające prezent"
+        ]
+      }
+    },
+    {
+      "id": "2025-12-25-przepisy-drogowe-europa-zima",
+      "slug": "przepisy-drogowe-europa-zima",
+      "title": "Przepisy drogowe w innych krajach Europy - wyjazd na narty",
+      "excerpt": "Planujesz narty w Alpach lub Tatrach Słowackich? Sprawdź, jakie wyposażenie musisz mieć w aucie i jakie mandaty grożą za granicą.",
+      "publishDate": "2025-12-25",
+      "author": "Robert Langer",
+      "category": "prawo",
+      "tags": [
+        "wyjazd za granicę",
+        "przepisy europa",
+        "wyposażenie samochodu",
+        "mandaty",
+        "narty"
+      ],
+      "image": "instructors/photo-15.webp",
+      "sections": [
+        {
+          "heading": "Zimowy wyjazd zagraniczny - co kraj to obyczaj",
+          "paragraphs": [
+            "Zimowy urlop w Austrii, Włoszech czy na Słowacji to marzenie wielu narciarzy. Jednak wyjazd własnym samochodem wymaga znajomości lokalnych przepisów, które potrafią znacznie różnić się od polskich. Niewiedza nie zwalnia z odpowiedzialności, a mandaty w strefie Euro potrafią zrujnować wakacyjny budżet.",
+            "W szkole Qursant przygotowujemy kierowców nie tylko do jazdy po Bydgoszczy. Dziś krótki przewodnik po najpopularniejszych kierunkach narciarskich."
+          ]
+        },
+        {
+          "heading": "Opony zimowe i łańcuchy",
+          "paragraphs": [
+            "W Polsce opony zimowe nie są obowiązkowe (choć zalecane). Za granicą bywa inaczej:",
+            "• **Niemcy:** Obowiązek opon zimowych w warunkach zimowych (śnieg, lód). Opony muszą mieć symbol 3PMSF (płatek śniegu na tle góry) - samo M+S już nie wystarcza dla opon wyprodukowanych od 2018 roku.",
+            "• **Austria:** Obowiązek opon zimowych od 1 listopada do 15 kwietnia w warunkach zimowych. Łańcuchy są obowiązkowe na drogach oznaczonych znakiem, gdy jest śnieg.",
+            "• **Czechy i Słowacja:** Obowiązek opon zimowych od 1 listopada do 31 marca, jeśli na drodze jest śnieg lub lód, lub warunki na to wskazują.",
+            "Brak odpowiednich opon w przypadku kolizji czy zatorowania drogi może skutkować gigantyczną karą i problemami z ubezpieczeniem."
+          ]
+        },
+        {
+          "heading": "Winiety i opłaty drogowe",
+          "paragraphs": [
+            "Większość sąsiadów Polski ma płatne autostrady w systemie winietowym. Czechy, Słowacja, Austria, Słowenia, Węgry - wszędzie tam kupisz winietę elektroniczną (e-vignette). Najlepiej zrobić to oficjalnie przez internet przed wyjazdem, unikając pośredników naliczających prowizje. Szwajcaria nadal korzysta z naklejek na szybę (ważne rok). Pamiętaj, by kupić winietę ZANIM wjedziesz na płatny odcinek - kamery sczytują tablice automatycznie."
+          ]
+        },
+        {
+          "heading": "Wyposażenie obowiązkowe - pułapki",
+          "paragraphs": [
+            "Polska gaśnica i trójkąt to za mało. Na Słowacji musisz mieć kamizelkę odblaskową dla KAŻDEGO pasażera w kabinie (nie w bagażniku!). W Czechach wymagany jest komplet żarówek i bezpieczników zapasowych (choć dla aut z ksenonami/LED często odstępuje się od tego). W Austrii apteczka musi być w solidnym pudełku i hermetycznie zapakowana. Warto doposażyć auto w 'zestaw europejski'."
+          ]
+        }
+      ],
+      "tips": [
+        "Wykup dodatkowe ubezpieczenie Assistance na Europę - holowanie z autostrady w Niemczech czy Austrii kosztuje fortunę",
+        "Zabierz papierową wersję polisy OC - w niektórych sytuacjach policja woli papier",
+        "Sprawdź ważność dowodu osobistego wszystkich pasażerów (dzieci też!) - strefa Schengen nie zwalnia z obowiązku posiadania dokumentu",
+        "W Austrii wideorejestratory są nielegalne - lepiej zdejmij kamerkę z szyby",
+        "Przestrzegaj limitów prędkości - fotoradary za granicą są bezlitosne, a mandaty przychodzą do Polski"
+      ],
+      "faq": [
+        {
+          "q": "Czy opony całoroczne są uznawane za granicą?",
+          "a": "Tak, pod warunkiem, że posiadają symbol alpejski (płatek śniegu na tle trzech szczytów - 3PMSF). Oznaczenie tylko M+S może nie być honorowane jako zimowe w Niemczech czy Austrii."
+        },
+        {
+          "q": "Czy muszę mieć łańcuchy śniegowe?",
+          "a": "W regionach górskich (Alpy, Tatry) łańcuchy są obowiązkowym wyposażeniem. Nawet jeśli ich nie użyjesz, policja może skontrolować ich posiadanie. Muszą być dopasowane do rozmiaru kół."
+        },
+        {
+          "q": "Jaki jest limit alkoholu we krwi za granicą?",
+          "a": "Różnie. Czechy, Słowacja, Węgry - 0,0 promila (bezwzględna trzeźwość). Austria, Niemcy, Włochy - zazwyczaj 0,5 promila, ale dla młodych kierowców często 0,0. Nie ryzykuj, nie pij."
+        },
+        {
+          "q": "Gdzie kupić winiety?",
+          "a": "Najlepiej na oficjalnych stronach państwowych operatorów dróg. Unikaj stron pośredników, które doliczają wysokie marże. Winiety można też kupić na stacjach paliw przed granicą."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Przepisy drogowe w Europie - Wyjazd na narty 2025",
+        "metaDescription": "Jedziesz na narty samochodem? Sprawdź przepisy w Austrii, Czechach, Słowacji i Niemczech. Wymagane wyposażenie, opony zimowe i winiety.",
+        "keywords": [
+          "przepisy drogowe europa",
+          "wyposażenie samochodu za granicą",
+          "opony zimowe austria niemcy",
+          "winiety 2025",
+          "mandaty za granicą"
+        ]
+      }
+    },
+    {
+      "id": "2025-12-26-egzamin-w-zime-czy-warto",
+      "slug": "egzamin-w-zime-czy-warto",
+      "title": "Czy warto zdawać egzamin w okresie zimowym?",
+      "excerpt": "Boisz się zdawać egzamin zimą? Niepotrzebnie! Zima ma swoje plusy, które mogą ułatwić zdobycie prawa jazdy. Obalamy mity.",
+      "publishDate": "2025-12-26",
+      "author": "Robert Langer",
+      "category": "egzaminy",
+      "tags": [
+        "egzamin na prawo jazdy",
+        "zima",
+        "egzamin zimą",
+        "strategia",
+        "porady"
+      ],
+      "image": "cars/photo-20.webp",
+      "sections": [
+        {
+          "heading": "Zima nie taka straszna jak ją malują",
+          "paragraphs": [
+            "Wielu kursantów celowo przesuwa egzamin na wiosnę, bojąc się śniegu i śliskiej nawierzchni. To błąd! Okres zimowy, a szczególnie czas świąteczno-noworoczny, to paradoksalnie jeden z lepszych momentów na zdawanie egzaminu państwowego. W szkole Qursant często obserwujemy wyższą zdawalność właśnie zimą. Dlaczego tak się dzieje?"
+          ]
+        },
+        {
+          "heading": "Wolniej znaczy dokładniej",
+          "paragraphs": [
+            "Zimą cały ruch drogowy zwalnia. Kierowcy jeżdżą ostrożniej, odstępy są większe, a dynamika jazdy spada. Na egzaminie to ogromny plus! Masz więcej czasu na podjęcie decyzji, manewry wykonujesz wolniej, a egzaminator nie będzie wymagał od Ciebie dynamicznego przyspieszania na ośnieżonej jezdni. Prędkość egzaminacyjna rzędu 30-40 km/h jest w pełni uzasadniona warunkami."
+          ]
+        },
+        {
+          "heading": "Brak linii? Mniej błędów!",
+          "paragraphs": [
+            "Gdy spadnie śnieg, linie na jezdni stają się niewidoczne. W takiej sytuacji wiele błędów związanych z najechaniem na linię ciągłą czy niewłaściwym ustawieniem przy krawędzi po prostu nie może być zaliczonych (o ile nie stwarza to zagrożenia). Egzamin staje się bardziej 'życiowy', oparty na ogólnych zasadach ruchu, a mniej na aptekarskiej precyzji co do centymetra."
+          ]
+        },
+        {
+          "heading": "Krótsze kolejki",
+          "paragraphs": [
+            "W okresie świątecznym i ferii zimowych mniej osób decyduje się na egzamin. Oznacza to krótszy czas oczekiwania na termin w WORD Bydgoszcz. Możesz zdać egzamin 'z marszu', bez stresującego czekania miesiącami, co pozwala utrzymać formę po kursie."
+          ]
+        }
+      ],
+      "tips": [
+        "Ubierz się na 'cebulkę', ale tak, by kurtka nie krępowała ruchów. W aucie egzaminacyjnym może być ciepło",
+        "Zmień obuwie na lżejsze do prowadzenia - ciężkie trapery czy kozaki nie dają wyczucia pedałów",
+        "Pamiętaj o dokładnym odśnieżeniu auta na placu (jeśli stoi na zewnątrz) - to część obsługi codziennej",
+        "Włączaj światła mijania, nawet jeśli masz dzienne LED - zimą widoczność jest kluczowa",
+        "Używaj klimatyzacji/nawiewu na szyby, by nie parowały - dobra widoczność to podstawa zaliczenia"
+      ],
+      "faq": [
+        {
+          "q": "Co jeśli na placu manewrowym jest lód?",
+          "a": "WORD ma obowiązek utrzymać plac w stanie umożliwiającym egzaminowanie (odśnieżanie, solenie). Jeśli warunki są skrajnie złe, egzaminy są odwoływane na koszt ośrodka."
+        },
+        {
+          "q": "Czy egzaminator może kazać mi wpaść w poślizg?",
+          "a": "Absolutnie nie! Egzamin sprawdza bezpieczną jazdę. Jeśli wpadniesz w poślizg, to zazwyczaj wina niedostosowania prędkości. Egzaminator dba o bezpieczeństwo swoje i Twoje."
+        },
+        {
+          "q": "Czy zimą egzamin trwa krócej?",
+          "a": "Czasowo trwa tyle samo (min. 25 minut), ale ze względu na mniejszą prędkość przejedziesz krótszy dystans i zaliczysz mniej skrzyżowań. To statystycznie mniej okazji do błędu!"
+        },
+        {
+          "q": "Czy w aucie egzaminacyjnym są opony zimowe?",
+          "a": "Tak, wszystkie pojazdy egzaminacyjne WORD są wyposażone w opony zimowe w sezonie."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Egzamin na prawo jazdy zimą - czy warto zdawać? Opinie",
+        "metaDescription": "Zastanawiasz się nad egzaminem na prawo jazdy zimą? Poznaj zalety i wady zdawania w grudniu i styczniu. Dlaczego zimą może być łatwiej?",
+        "keywords": [
+          "egzamin prawo jazdy zima",
+          "czy warto zdawać zimą",
+          "prawo jazdy w grudniu",
+          "zdawalność zimą",
+          "word bydgoszcz zima"
+        ]
+      }
+    },
+    {
+      "id": "2025-12-27-sylwester-alkohol-kierownica",
+      "slug": "sylwester-alkohol-kierownica",
+      "title": "Sylwester za kierownicą - mity o trzeźwieniu i konsekwencje",
+      "excerpt": "Planujesz powrót autem po imprezie sylwestrowej? Uważaj na 'nieświadomą nietrzeźwość'. Kiedy tak naprawdę możesz wsiąść za kółko?",
+      "publishDate": "2025-12-27",
+      "author": "Robert Langer",
+      "category": "porady",
+      "tags": [
+        "alkohol",
+        "bezpieczeństwo",
+        "sylwester",
+        "trzeźwość",
+        "kac"
+      ],
+      "image": "course/photo-23.webp",
+      "sections": [
+        {
+          "heading": "Nieświadoma nietrzeźwość - cichy zabójca",
+          "paragraphs": [
+            "Zbliża się Sylwester - czas zabawy i toastów. Następnego dnia wielu kierowców czuje się 'dobrze' i wsiada za kierownicę. To błąd! Zjawisko 'nieświadomej nietrzeźwości' (gdy czujesz się trzeźwy, ale alkomat pokazuje co innego) jest jedną z głównych przyczyn porannych zatrzymań po Nowym Roku. W szkole Qursant promujemy zasadę: piłeś? Nie jedź. Również dzień po.",
+            "Metabolizm alkoholu to proces indywidualny i zależy od wagi, płci, posiłków i genów. Żadne 'magiczne sposoby' nie przyspieszą pracy wątroby."
+          ]
+        },
+        {
+          "heading": "Mity o trzeźwieniu",
+          "paragraphs": [
+            "Warto rozprawić się z mitami:",
+            "• **Zimny prysznic i kawa:** Otrzeźwiają umysł, niwelują senność, ale NIE obniżają poziomu alkoholu we krwi.",
+            "• **Tłusty posiłek:** Spowalnia wchłanianie alkoholu (upijasz się wolniej), ale też wydłuża jego metabolizm (trzeźwiejesz dłużej!).",
+            "• **Wysiłek fizyczny:** Wypocenie alkoholu to mit, usuwasz go głównie przez wątrobę (95%), a tylko śladowe ilości przez skórę i oddech.",
+            "Jedyny skuteczny sposób to CZAS. Przeciętny organizm spala 0,1-0,15 promila na godzinę."
+          ]
+        },
+        {
+          "heading": "Wirtualne alkomaty vs rzeczywistość",
+          "paragraphs": [
+            "Internetowe kalkulatory promili są tylko zabawką i dają wynik orientacyjny z ogromnym marginesem błędu. Nigdy nie podejmuj decyzji o jeździe na ich podstawie. Jedynym pewnym sposobem sprawdzenia jest certyfikowany alkomat lub wizyta na komisariacie policji (można tam anonimowo przebadać się alkomatem stacjonarnym)."
+          ]
+        },
+        {
+          "heading": "Konsekwencje prawne",
+          "paragraphs": [
+            "Przypomnijmy: w Polsce dopuszczalny limit to 0,2 promila.",
+            "• **0,2 - 0,5 promila (stan po użyciu):** Wykroczenie. Mandat min. 2500 zł, 15 pkt karnych, zakaz prowadzenia od 6 miesięcy do 3 lat.",
+            "• **Powyżej 0,5 promila (stan nietrzeźwości):** Przestępstwo. Sąd, grzywna uzależniona od dochodów, zakaz prowadzenia min. 3 lata, konfiskata auta (w skrajnych przypadkach) i wpis do kartoteki karnej."
+          ]
+        }
+      ],
+      "tips": [
+        "Jeśli planujesz pić, zaplanuj powrót taksówką lub komunikacją miejską z góry",
+        "Wyznacz 'kierowcę imprezy', który nie pije i odwiezie resztę - zmieniajcie się rolami co imprezę",
+        "Kup dobrej jakości alkomat elektrochemiczny (nie półprzewodnikowy za 50 zł) - to inwestycja w bezpieczeństwo",
+        "Pamiętaj, że kac (zmęczenie, ból głowy) też obniża koncentrację, nawet jeśli masz już 0,0 promila",
+        "Jeśli masz wątpliwości - nie jedź. Ryzyko jest zbyt wielkie"
+      ],
+      "faq": [
+        {
+          "q": "Ile czasu potrzeba na spalenie jednego piwa?",
+          "a": "Średnio około 2-3 godzin, ale to bardzo indywidualne. Po całonocnej imprezie alkohol może utrzymywać się w krwi nawet do późnego popołudnia następnego dnia."
+        },
+        {
+          "q": "Czy mogę iść na policję sprawdzić trzeźwość?",
+          "a": "Tak, większość komend i komisariatów w Bydgoszczy ma w recepcji alkomat stacjonarny dostępny dla obywateli. Badanie jest darmowe i anonimowe (o ile nie przyjechałeś na nie samochodem!)."
+        },
+        {
+          "q": "Czy pasażer może pić alkohol w samochodzie?",
+          "a": "Tak, pasażerowie mogą spożywać alkohol, o ile nie wpływa to na zachowanie kierowcy. Wyjątkiem są instruktorzy nauki jazdy podczas szkolenia - oni muszą być trzeźwi."
+        },
+        {
+          "q": "Czy rowerzystę obowiązują te same limity?",
+          "a": "Tak, limity są te same (0,2 promila), ale kary są inne (mandat zamiast utraty prawa jazdy, chyba że sędzia orzeknie inaczej w przypadku zagrożenia)."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Alkohol a jazda samochodem - Sylwester i Nowy Rok 2025",
+        "metaDescription": "Kiedy można wsiąść za kółko po imprezie? Mity o trzeźwieniu, czas metabolizmu alkoholu i kary za jazdę pod wpływem. Poradnik bezpiecznego powrotu.",
+        "keywords": [
+          "jazda po alkoholu",
+          "kiedy mogę jechać",
+          "kalkulator promili",
+          "kary za alkohol 2025",
+          "sylwester kierowca"
+        ]
+      }
+    },
+    {
+      "id": "2025-12-28-podsumowanie-roku-2025-przepisy",
+      "slug": "podsumowanie-roku-2025-przepisy",
+      "title": "Podsumowanie roku 2025 w przepisach drogowych - co się zmieniło?",
+      "excerpt": "Rok 2025 przyniósł wiele zmian dla kierowców. Konfiskata aut, nowe strefy czystego transportu, zmiany w egzaminach. Robimy wielkie podsumowanie.",
+      "publishDate": "2025-12-28",
+      "author": "Robert Langer",
+      "category": "aktualnosci",
+      "tags": [
+        "przepisy 2025",
+        "prawo drogowe",
+        "podsumowanie roku",
+        "zmiany dla kierowców",
+        "kodeks drogowy"
+      ],
+      "image": "cars/photo-79.webp",
+      "sections": [
+        {
+          "heading": "Rok pełen zmian",
+          "paragraphs": [
+            "Kończący się rok 2025 był intensywny pod względem legislacyjnym. Ustawodawca skupił się na zaostrzaniu kar dla piratów drogowych oraz na ekologii. Dla kursantów i kierowców oznaczało to konieczność ciągłej aktualizacji wiedzy. W szkole Qursant na bieżąco dostosowywaliśmy nasze wykłady do nowej rzeczywistości. Przypomnijmy najważniejsze rewolucje."
+          ]
+        },
+        {
+          "heading": "Konfiskata samochodów pijanych kierowców",
+          "paragraphs": [
+            "To zdecydowanie najgłośniejsza zmiana. Przepisy pozwalające na przepadek pojazdu kierowcom mającym powyżej 1,5 promila (lub recydywistom) weszły w życie i zebrały już pierwsze żniwo. To radykalny, ale skuteczny straszak, który ma wyeliminować z dróg potencjalnych zabójców."
+          ]
+        },
+        {
+          "heading": "Strefy Czystego Transportu (SCT)",
+          "paragraphs": [
+            "W 2025 roku kolejne polskie miasta (w tym zapowiedzi dla Bydgoszczy) zaczęły wdrażać lub konsultować SCT. Ograniczenia dla starych diesli stały się faktem w Krakowie i Warszawie, a trend ten będzie postępował. Kierowcy muszą zwracać uwagę na nowe znaki i naklejki na szybę."
+          ]
+        },
+        {
+          "heading": "Zmiany w egzaminach i szkoleniu",
+          "paragraphs": [
+            "Rok 2025 przyniósł też korekty w systemie szkolenia. Większy nacisk na ekojazdę, nowe pytania w bazie egzaminacyjnej dotyczące systemów bezpieczeństwa (ADAS) oraz doprecyzowanie zasad przerywania egzaminu. Wprowadzono też cyfrowe prawo jazdy jako dokument w pełni równoważny plastikowemu w całej UE (etap wdrażania)."
+          ]
+        },
+        {
+          "heading": "Co nas czeka w 2026?",
+          "paragraphs": [
+            "Patrząc w przyszłość, możemy spodziewać się dalszej cyfryzacji usług (mObywatel), dyskusji o 'zabójstwie drogowym' jako nowym typie przestępstwa oraz kolejnych kroków w stronę elektromobilności. Bądźcie czujni i śledźcie nasz blog!"
+          ]
+        }
+      ],
+      "tips": [
+        "Zainstaluj aplikację mObywatel - w 2025 stała się niezbędnikiem każdego kierowcy",
+        "Sprawdź normę Euro swojego samochodu - może być kluczowa przy wjeździe do centrów dużych miast",
+        "Odśwież wiedzę o pierwszej pomocy - przepisy kładą na to coraz większy nacisk",
+        "Jeśli jeździsz 'na pamięć', uważaj - wiele limitów prędkości i organizacji ruchu zmieniono w tym roku",
+        "Zadbaj o aktualizację nawigacji - nowe odcinki dróg ekspresowych oddane w 2025 zmieniły mapę Polski"
+      ],
+      "faq": [
+        {
+          "q": "Czy w Bydgoszczy obowiązuje SCT?",
+          "a": "Na koniec 2025 roku Bydgoszcz jest w fazie analiz i konsultacji. Nie ma jeszcze aktywnej strefy z zakazem wjazdu, ale warto śledzić lokalne komunikaty."
+        },
+        {
+          "q": "Czy kursy reedukacyjne (punkty karne) nadal działają?",
+          "a": "Tak, po zeszłorocznym przywróceniu, w 2025 roku nadal można raz na pół roku zredukować 6 punktów karnych na płatnym kursie w WORD."
+        },
+        {
+          "q": "Czy muszę wozić prawo jazdy przy sobie?",
+          "a": "W Polsce nie, wystarczy wirtualny dokument w mObywatel lub po prostu dowód osobisty (policja sprawdzi uprawnienia w bazie). Za granicą plastik jest nadal wymagany!"
+        },
+        {
+          "q": "Co to są systemy ADAS?",
+          "a": "To zaawansowane systemy wspomagania kierowcy (np. asystent pasa ruchu, awaryjne hamowanie). Od lipca 2024 wszystkie nowe auta muszą je mieć, a w 2025 roku pytania o nie trafiły szeroko do egzaminów."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Zmiany w przepisach drogowych 2025 - Podsumowanie roku",
+        "metaDescription": "Co zmieniło się dla kierowców w 2025 roku? Konfiskata aut, SCT, nowe egzaminy. Podsumowanie najważniejszych zmian w prawie drogowym.",
+        "keywords": [
+          "przepisy drogowe 2025",
+          "zmiany w prawie jazdy",
+          "konfiskata samochodu",
+          "strefy czystego transportu",
+          "nowe pytania egzaminacyjne"
+        ]
+      }
+    },
+    {
+      "id": "2025-12-29-iluminacje-bydgoszcz-trasa",
+      "slug": "iluminacje-bydgoszcz-trasa",
+      "title": "Bydgoskie iluminacje świąteczne - samochodowa trasa widokowa",
+      "excerpt": "Bydgoszcz nocą wygląda magicznie! Proponujemy trasę samochodową po najpiękniejszych świątecznych iluminacjach w mieście.",
+      "publishDate": "2025-12-29",
+      "author": "Robert Langer",
+      "category": "lokalne",
+      "tags": [
+        "Bydgoszcz",
+        "zwiedzanie",
+        "trasa samochodowa",
+        "święta",
+        "atrakcje"
+      ],
+      "image": "instructors/photo-69.webp",
+      "sections": [
+        {
+          "heading": "Bydgoszcz w świątecznej szacie",
+          "paragraphs": [
+            "Okres między świętami a Nowym Rokiem to idealny czas na wieczorny spacer... lub przejażdżkę! Bydgoszcz co roku zachwyca dekoracjami świetlnymi. Jako szkoła jazdy znamy każdy zakątek miasta, dlatego przygotowaliśmy dla Was propozycję 'Samochodowej Trasy Świątecznej'. To świetny pomysł na rodzinną wycieczkę w ciepłym wnętrzu auta."
+          ]
+        },
+        {
+          "heading": "Przystanek 1: Stary Rynek i Wyspa Młyńska",
+          "paragraphs": [
+            "Zacznijmy od serca miasta. Samochód najlepiej zostawić na parkingu wielopoziomowym przy ul. Pod Blankami (bezpiecznie i blisko). Stąd krótki spacer na Stary Rynek, by zobaczyć główną choinkę miasta, a potem na magiczną Wyspę Młyńską. Iluminacje nad Młynówką i podświetlone spichrze tworzą niepowtarzalny klimat."
+          ]
+        },
+        {
+          "heading": "Przystanek 2: Most Staromiejski i ul. Mostowa",
+          "paragraphs": [
+            "Przejeżdżając przez centrum, zwróć uwagę na dekoracje latarniowe na ul. Focha i Jagiellońskiej. Most Staromiejski z Jerzym Sulimą-Kamińskim patrzącym na przechodniów to punkt obowiązkowy. Warto przejechać ulicą Gdańską (uwaga na tramwaje!), która tradycyjnie jest pięknie udekorowana girlandami."
+          ]
+        },
+        {
+          "heading": "Przystanek 3: Wełniany Rynek i Długa",
+          "paragraphs": [
+            "Jadąc od strony Wałów Jagiellońskich, skręć w okolice Wełnianego Rynku. Odrestaurowane kamienice w świątecznym oświetleniu wyglądają bajkowo. Ulica Długa (deptak) najlepiej wygląda podczas spaceru, ale dojazd w jej okolice pozwala poczuć klimat starego miasta."
+          ]
+        },
+        {
+          "heading": "Dzielnicowe akcenty",
+          "paragraphs": [
+            "Nie tylko centrum świeci! Warto wybrać się na Fordon (Rynek w Starym Fordonie po rewitalizacji wygląda świetnie z iluminacjami) czy zobaczyć choinkę przy Balatonie na Bartodziejach. To doskonała okazja, by poćwiczyć jazdę nocą w przyjemnych okolicznościach!"
+          ]
+        }
+      ],
+      "tips": [
+        "Najlepsza pora na wycieczkę to godzina 19:00-21:00, gdy ruch uliczny jest już mniejszy",
+        "Zabierz pasażerów - kierowca musi patrzeć na drogę, nie na lampki! :)",
+        "Uważaj na pieszych - w okolicach atrakcji świetlnych ludzie często chodzą z głową w górze, nie patrząc na jezdnię",
+        "Sprawdź, gdzie są darmowe parkingi - po godzinie 17:00 strefa płatnego parkowania w Bydgoszczy nie obowiązuje (w dni robocze)",
+        "Zrób sobie zdjęcie z instruktorem Qursant, jeśli spotkasz naszą 'L-kę' na trasie!"
+      ],
+      "faq": [
+        {
+          "q": "Do kiedy świecą się iluminacje?",
+          "a": "Zazwyczaj dekoracje świąteczne w Bydgoszczy są włączone do Święta Trzech Króli (6 stycznia) lub do połowy stycznia."
+        },
+        {
+          "q": "Gdzie najlepiej zaparkować w centrum?",
+          "a": "Polecamy parking przy ul. Pod Blankami, parking przy Operze Nova lub miejsca postojowe na Placu Kościeleckich."
+        },
+        {
+          "q": "Czy wjazd na Stary Rynek jest dozwolony?",
+          "a": "Nie, Stary Rynek jest strefą ruchu pieszego (z wyjątkami dla dostaw/służb). Nie wjeżdżaj tam samochodem, grozi to mandatem!"
+        },
+        {
+          "q": "Czy Rynek w Starym Fordonie jest dostępny dla aut?",
+          "a": "Samą płytę rynku zazwyczaj się omija, ale wokół są miejsca parkingowe i ulice, z których doskonale widać rewitalizację i ozdoby."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Świąteczna Bydgoszcz nocą - Trasa samochodowa 2025",
+        "metaDescription": "Gdzie zobaczyć najpiękniejsze iluminacje w Bydgoszczy? Propozycja trasy samochodowej po świątecznym mieście. Zwiedzanie z Qursant.",
+        "keywords": [
+          "iluminacje Bydgoszcz 2025",
+          "świąteczna Bydgoszcz",
+          "trasa widokowa samochodem",
+          "zwiedzanie Bydgoszczy nocą",
+          "parkingi centrum Bydgoszcz"
+        ]
+      }
+    }
+  ]
+}
