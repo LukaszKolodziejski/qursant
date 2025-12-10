@@ -94,7 +94,7 @@ export function getAllPosts(): BlogPost[] {
  * Ładuje tylko tygodnie w zakresie dat jeśli podano dateFrom/dateTo
  */
 export function getPosts(filters?: BlogFilters): BlogPost[] {
-  const today = new Date().toISOString().split('T')[0];
+  const now = new Date();
   let posts: BlogPost[] = [];
 
   // Jeśli podano zakres dat, ładujemy tylko odpowiednie tygodnie
@@ -119,8 +119,11 @@ export function getPosts(filters?: BlogFilters): BlogPost[] {
     posts = getAllPosts();
   }
 
-  // Filtruj po dacie publikacji (tylko opublikowane do dziś)
-  posts = posts.filter((post) => post.publishDate <= today);
+  // Filtruj po dacie publikacji (tylko opublikowane do teraz z uwzględnieniem godziny)
+  posts = posts.filter((post) => {
+    const publishDate = new Date(post.publishDate);
+    return publishDate <= now;
+  });
 
   // Filtruj po kategorii
   if (filters?.category) {
@@ -153,6 +156,7 @@ export function getPosts(filters?: BlogFilters): BlogPost[] {
  */
 export function getPostBySlug(slug: string): BlogPost | null {
   const weeks = getAvailableWeeks();
+  const now = new Date();
 
   for (const weekNum of weeks) {
     const week = loadWeek(weekNum);
@@ -160,9 +164,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
 
     const post = week.posts.find((p) => p.slug === slug);
     if (post) {
-      // Sprawdź czy już opublikowany
-      const today = new Date().toISOString().split('T')[0];
-      if (post.publishDate <= today) {
+      // Sprawdź czy już opublikowany (z uwzględnieniem godziny)
+      const publishDate = new Date(post.publishDate);
+      if (publishDate <= now) {
         return post;
       }
       return null; // Nie pokazuj przyszłych postów
@@ -184,12 +188,12 @@ export function getFeaturedPosts(limit = 5): BlogPost[] {
  */
 export function getBlogStats() {
   const allPosts = getAllPosts();
-  const today = new Date().toISOString().split('T')[0];
+  const now = new Date();
 
   return {
     total: allPosts.length,
-    published: allPosts.filter((p) => p.publishDate <= today).length,
-    scheduled: allPosts.filter((p) => p.publishDate > today).length,
+    published: allPosts.filter((p) => new Date(p.publishDate) <= now).length,
+    scheduled: allPosts.filter((p) => new Date(p.publishDate) > now).length,
     weeks: getAvailableWeeks().length,
   };
 }

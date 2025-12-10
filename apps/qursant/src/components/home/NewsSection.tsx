@@ -11,10 +11,12 @@ import {
 // SERVER COMPONENT - SEO OPTIMIZED!
 // ===================================================================
 // Google widzi wszystkie linki do blogów od razu w HTML!
+// REVALIDATION: Automatyczne odświeżanie co 20 godzin
 // ===================================================================
 
 export default function NewsSection() {
   // Pobierz najnowsze 5 blogów bezpośrednio z plików (server-side)
+  // Cache jest czyszczony co 20h dzięki revalidate w page.tsx
   const posts = getFeaturedPosts(5);
 
   // Nie pokazuj sekcji jeśli brak postów

@@ -127,13 +127,14 @@ async function generateWeek() {
     const postDate = new Date(weekStartDate);
     postDate.setDate(weekStartDate.getDate() + i);
     const postDateStr = formatDate(postDate);
+    const postDateTimeStr = `${postDateStr}T12:00:00`; // Publikacja o 12:00
 
     const post = {
       id: `${postDateStr}-SLUG`, // AI zmieni na: 2025-11-04-jak-zdac-egzamin
       slug: 'SLUG', // AI zmieni na: jak-zdac-egzamin-na-prawo-jazdy
       title: 'TYTUŁ BLOGA', // AI wypełni
       excerpt: 'Krótki opis bloga (150-200 znaków)...', // AI wypełni
-      publishDate: postDateStr,
+      publishDate: postDateTimeStr, // Publikacja o 12:00 w południe
       author: 'Robert Langer',
       category: categories[i % categories.length], // Rotacja kategorii
       tags: ['szkoła jazdy', 'bydgoszcz', 'prawo jazdy'], // AI doda więcej

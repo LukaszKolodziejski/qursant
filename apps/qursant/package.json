@@ -6,8 +6,8 @@
     "name": "qursant"
   },
   "dependencies": {
-    "next": "~15.2.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "next": "15.5.7",
+    "react": "19.0.1",
+    "react-dom": "19.0.1"
   }
 }

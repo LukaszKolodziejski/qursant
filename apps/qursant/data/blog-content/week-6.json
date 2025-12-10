@@ -8,16 +8,10 @@
       "slug": "przygotowanie-samochodu-do-zimy",
       "title": "Jak przygotować samochód do zimy? Poradnik dla każdego kierowcy",
       "excerpt": "Zima to trudny czas dla Twojego auta. Dowiedz się, co sprawdzić przed pierwszymi mrozami, aby uniknąć porannych niespodzianek i jeździć bezpiecznie.",
-      "publishDate": "2025-12-09",
+      "publishDate": "2025-12-09T12:00:00",
       "author": "Robert Langer",
       "category": "poradniki",
-      "tags": [
-        "zima",
-        "eksploatacja",
-        "bezpieczeństwo",
-        "porady",
-        "samochód"
-      ],
+      "tags": ["zima", "eksploatacja", "bezpieczeństwo", "porady", "samochód"],
       "image": "cars/photo-70.webp",
       "sections": [
         {
@@ -95,7 +89,7 @@
       "slug": "koszt-prawa-jazdy-2026-prognozy",
       "title": "Ile kosztuje prawo jazdy w 2026 roku? Prognozy i analiza cen",
       "excerpt": "Planujesz kurs na prawo jazdy w przyszłym roku? Sprawdź aktualne ceny kursów, egzaminów i badań w Bydgoszczy. Analiza kosztów na 2026 rok.",
-      "publishDate": "2025-12-10",
+      "publishDate": "2025-12-10T12:00:00",
       "author": "Robert Langer",
       "category": "ceny",
       "tags": [
@@ -184,7 +178,7 @@
       "slug": "zmiany-w-przepisach-mlodzi-kierowcy",
       "title": "Zmiany w przepisach dla młodych kierowców – co musisz wiedzieć?",
       "excerpt": "Okres próbny, zielony listek, limity prędkości. Przypominamy najważniejsze przepisy dotyczące młodych kierowców. Uniknij mandatu i utraty uprawnień.",
-      "publishDate": "2025-12-11",
+      "publishDate": "2025-12-11T12:00:00",
       "author": "Robert Langer",
       "category": "prawo",
       "tags": [
@@ -265,7 +259,7 @@
       "slug": "jak-radzic-sobie-ze-stresem-na-egzaminie",
       "title": "Stres na egzaminie – jak sobie z nim radzić? Metody psychologiczne",
       "excerpt": "Trzęsące się ręce i pustka w głowie? Stres to wróg nr 1 na egzaminie na prawo jazdy. Poznaj sprawdzone sposoby na opanowanie nerwów.",
-      "publishDate": "2025-12-12",
+      "publishDate": "2025-12-12T12:00:00",
       "author": "Robert Langer",
       "category": "egzaminy",
       "tags": [
@@ -351,7 +345,7 @@
       "slug": "technika-jazdy-w-nocy-bezpieczenstwo",
       "title": "Technika jazdy w nocy – jak bezpiecznie prowadzić po zmroku?",
       "excerpt": "Jazda nocą wymaga innej techniki i zwiększonej uwagi. Dowiedz się, jak unikać oślepienia, kiedy używać świateł drogowych i jak dostrzec pieszego.",
-      "publishDate": "2025-12-13",
+      "publishDate": "2025-12-13T12:00:00",
       "author": "Robert Langer",
       "category": "porady",
       "tags": [
@@ -431,7 +425,7 @@
       "slug": "najtrudniejsze-skrzyzowania-bydgoszcz-egzamin",
       "title": "Najtrudniejsze skrzyżowania w Bydgoszczy – gdzie oblewają kursanci?",
       "excerpt": "Rondo Fordońskie, Jagiellonów, czy może skrzyżowanie Kamienna/Wyszyńskiego? Poznaj czarne punkty bydgoskich egzaminów i dowiedz się, jak je pokonać.",
-      "publishDate": "2025-12-14",
+      "publishDate": "2025-12-14T12:00:00",
       "author": "Robert Langer",
       "category": "aktualnosci",
       "tags": [
@@ -517,7 +511,7 @@
       "slug": "trasy-egzaminacyjne-fordon-pulapki",
       "title": "Trasy egzaminacyjne na Fordonie – pułapki i miejsca charakterystyczne",
       "excerpt": "Fordon to popularny kierunek egzaminów państwowych. Szerokie aleje, podchwytliwe ronda i strefy zamieszkania. Sprawdź, na co uważać w tej dzielnicy.",
-      "publishDate": "2025-12-15",
+      "publishDate": "2025-12-15T12:00:00",
       "author": "Robert Langer",
       "category": "lokalne",
       "tags": [

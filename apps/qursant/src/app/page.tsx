@@ -14,6 +14,11 @@ import {
 } from '@/lib/schemas/homepage-schemas';
 
 // ===================================================================
+// REVALIDATION - Automatyczne odświeżanie co 20 godzin
+// ===================================================================
+export const revalidate = 72000; // 20 godzin w sekundach
+
+// ===================================================================
 // ABOVE THE FOLD - Tylko HeroSection (krytyczny dla LCP)
 // ===================================================================
 import HeroSection from '@/components/home/HeroSection';

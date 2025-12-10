@@ -8,7 +8,7 @@
       "slug": "wyjazdy-swiateczne-bezpieczenstwo",
       "title": "Jazda w okresie świątecznym - jak uniknąć korków i stresu?",
       "excerpt": "Świąteczne wyjazdy to często korki, pośpiech i trudne warunki. Jak bezpiecznie dojechać do rodziny na wigilię? Poradnik przetrwania na drodze.",
-      "publishDate": "2025-12-23",
+      "publishDate": "2025-12-23T12:00:00",
       "author": "Robert Langer",
       "category": "poradniki",
       "tags": [
@@ -88,16 +88,10 @@
       "slug": "voucher-na-prawo-jazdy-prezent",
       "title": "Voucher na kurs prawa jazdy - idealny prezent pod choinkę?",
       "excerpt": "Szukasz wyjątkowego prezentu last minute? Kurs prawa jazdy to inwestycja w przyszłość. Sprawdź, dlaczego voucher to świetny pomysł na gwiazdkę.",
-      "publishDate": "2025-12-24",
+      "publishDate": "2025-12-24T12:00:00",
       "author": "Robert Langer",
       "category": "ceny",
-      "tags": [
-        "prezent",
-        "voucher",
-        "prawo jazdy",
-        "święta",
-        "inwestycja"
-      ],
+      "tags": ["prezent", "voucher", "prawo jazdy", "święta", "inwestycja"],
       "image": "cars/photo-3.webp",
       "sections": [
         {
@@ -169,7 +163,7 @@
       "slug": "przepisy-drogowe-europa-zima",
       "title": "Przepisy drogowe w innych krajach Europy - wyjazd na narty",
       "excerpt": "Planujesz narty w Alpach lub Tatrach Słowackich? Sprawdź, jakie wyposażenie musisz mieć w aucie i jakie mandaty grożą za granicą.",
-      "publishDate": "2025-12-25",
+      "publishDate": "2025-12-25T12:00:00",
       "author": "Robert Langer",
       "category": "prawo",
       "tags": [
@@ -253,7 +247,7 @@
       "slug": "egzamin-w-zime-czy-warto",
       "title": "Czy warto zdawać egzamin w okresie zimowym?",
       "excerpt": "Boisz się zdawać egzamin zimą? Niepotrzebnie! Zima ma swoje plusy, które mogą ułatwić zdobycie prawa jazdy. Obalamy mity.",
-      "publishDate": "2025-12-26",
+      "publishDate": "2025-12-26T12:00:00",
       "author": "Robert Langer",
       "category": "egzaminy",
       "tags": [
@@ -332,16 +326,10 @@
       "slug": "sylwester-alkohol-kierownica",
       "title": "Sylwester za kierownicą - mity o trzeźwieniu i konsekwencje",
       "excerpt": "Planujesz powrót autem po imprezie sylwestrowej? Uważaj na 'nieświadomą nietrzeźwość'. Kiedy tak naprawdę możesz wsiąść za kółko?",
-      "publishDate": "2025-12-27",
+      "publishDate": "2025-12-27T12:00:00",
       "author": "Robert Langer",
       "category": "porady",
-      "tags": [
-        "alkohol",
-        "bezpieczeństwo",
-        "sylwester",
-        "trzeźwość",
-        "kac"
-      ],
+      "tags": ["alkohol", "bezpieczeństwo", "sylwester", "trzeźwość", "kac"],
       "image": "course/photo-23.webp",
       "sections": [
         {
@@ -418,7 +406,7 @@
       "slug": "podsumowanie-roku-2025-przepisy",
       "title": "Podsumowanie roku 2025 w przepisach drogowych - co się zmieniło?",
       "excerpt": "Rok 2025 przyniósł wiele zmian dla kierowców. Konfiskata aut, nowe strefy czystego transportu, zmiany w egzaminach. Robimy wielkie podsumowanie.",
-      "publishDate": "2025-12-28",
+      "publishDate": "2025-12-28T12:00:00",
       "author": "Robert Langer",
       "category": "aktualnosci",
       "tags": [
@@ -503,7 +491,7 @@
       "slug": "iluminacje-bydgoszcz-trasa",
       "title": "Bydgoskie iluminacje świąteczne - samochodowa trasa widokowa",
       "excerpt": "Bydgoszcz nocą wygląda magicznie! Proponujemy trasę samochodową po najpiękniejszych świątecznych iluminacjach w mieście.",
-      "publishDate": "2025-12-29",
+      "publishDate": "2025-12-29T12:00:00",
       "author": "Robert Langer",
       "category": "lokalne",
       "tags": [
