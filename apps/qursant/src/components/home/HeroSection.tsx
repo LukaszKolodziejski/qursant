@@ -1,45 +1,89 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import { useReservationCounter } from '@/hooks/useReservationCounter';
 import { getExperienceYears } from '@/constants/stats';
 
 // ===================================================================
-// ⚡⚡⚡ ULTRA PERFORMANCE OPTIMIZED ⚡⚡⚡
-// - ZERO Framer Motion (eliminuje 179ms forced reflow!)
-// - ZERO Video (eliminuje LCP blocking!)
-// - Static Image z quality=40 (zmniejsza 763KB → ~150KB)
-// - Pure CSS animations (0KB JavaScript!)
+// 🎬 VIDEO HERO SECTION - Powrót filmiku w tle!
+// - Wideo w tle odtwarza się automatycznie
+// - Fallback do gradientu podczas ładowania
+// - Pure CSS animations (lekkie animacje bez Framer Motion)
 // ===================================================================
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const { remainingPlaces, monthName } = useReservationCounter();
+
+  useEffect(() => {
+    if (!videoRef?.current) {
+      return;
+    }
+
+    const handleVideoLoaded = () => {
+      setIsVideoLoaded(true);
+    };
+
+    const currentVideo = videoRef.current;
+    currentVideo.addEventListener('loadeddata', handleVideoLoaded);
+
+    // Fallback - jeśli wideo nie załaduje się w 3s, pokaż gradient
+    const timer = setTimeout(() => {
+      if (!isVideoLoaded) {
+        setIsVideoLoaded(true);
+      }
+    }, 3000);
+
+    currentVideo.currentTime = 0;
+    currentVideo.play().catch(() => {
+      setIsVideoLoaded(true);
+    });
+
+    return () => {
+      if (currentVideo) {
+        currentVideo.removeEventListener('loadeddata', handleVideoLoaded);
+      }
+      clearTimeout(timer);
+    };
+  }, [isVideoLoaded]);
 
   return (
     <section
       data-homepage
       className="relative w-full min-h-screen overflow-x-hidden"
     >
-      {/* ⚡ CRITICAL LCP OPTIMIZATION: Static hero image with AGGRESSIVE compression */}
+      {/* 🎬 VIDEO BACKGROUND */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <Image
-          src="/images/cars/car-100.png"
-          alt="Szkoła Jazdy Qursant - Nowoczesne auto szkoleniowe"
-          fill
-          priority
-          fetchPriority="high"
-          quality={40}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1920px"
-          className="object-cover object-center"
-          placeholder="blur"
-          blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
-        />
-
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/70 z-20"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(67,56,202,0.4),transparent_50%)] z-10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.4),transparent_50%)] z-10"></div>
+
+        {/* Video element */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className={`object-cover w-full h-full transform translate-y-20 ${
+              isVideoLoaded ? 'opacity-100' : 'opacity-0'
+            } transition-opacity duration-1000`}
+          >
+            <source src="/videos/main_video.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* Loading fallback */}
+        {!isVideoLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center text-white">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-white"></div>
+          </div>
+        )}
       </div>
 
       <div className="relative z-30 w-full max-w-[100vw] overflow-x-hidden">
