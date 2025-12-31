@@ -1,0 +1,499 @@
+{
+  "week": 9,
+  "startDate": "2025-12-31",
+  "endDate": "2026-01-30",
+  "posts": [
+    {
+      "id": "2025-12-31-parkowanie-rownolegle-mistrzowska-technika",
+      "slug": "parkowanie-rownolegle-mistrzowska-technika",
+      "title": "Parkowanie równoległe - mistrzowska technika dla każdego kierowcy",
+      "excerpt": "Parkowanie równoległe to największy koszmar wielu kierowców. Poznaj sprawdzoną metodę 'trzech punktów', która pozwoli Ci parkować pewnie w każdej sytuacji.",
+      "publishDate": "2025-12-31T12:00:00",
+      "author": "Robert Langer",
+      "category": "poradniki",
+      "tags": [
+        "parkowanie równoległe",
+        "technika parkowania",
+        "manewr",
+        "szkoła jazdy",
+        "bydgoszcz"
+      ],
+      "image": "office/photo-41.webp",
+      "sections": [
+        {
+          "heading": "Dlaczego parkowanie równoległe budzi tyle emocji?",
+          "paragraphs": [
+            "Parkowanie równoległe (potocznie 'równoległak' lub 'parkowanie w zatocę') to manewr, który przeraża nawet doświadczonych kierowców. Statystyki są bezlitosne - to jeden z najczęstszych powodów oblania egzaminu praktycznego i jeden z manewrów, którego kierowcy najchętniej unikają w codziennej jeździe. Dlaczego?",
+            "Powodów jest kilka: ograniczona przestrzeń (zazwyczaj zaledwie 1,5 długości samochodu), konieczność precyzyjnego cofania z jednoczesnym skręcaniem, stres wynikający z obserwujących przechodniów i innych kierowców, oraz strach przed uszkodzeniem własnego lub cudzego auta. W szkole jazdy Qursant w Bydgoszczy doskonale to rozumiemy i nauczyliśmy tysiące kursantów metody, która sprawia, że parkowanie równoległe staje się przewidywalne i powtarzalne."
+          ]
+        },
+        {
+          "heading": "Metoda 'trzech punktów odniesienia' - klucz do sukcesu",
+          "paragraphs": [
+            "W Qursant stosujemy sprawdzoną metodę trzech punktów odniesienia. To technika oparta na konkretnych, łatwych do zapamiętania momentach, w których wykonujesz określone ruchy kierownicą. Eliminuje zgadywanie i opiera się na logice geometrii."
+          ],
+          "list": [
+            "PUNKT 1 - Pozycjonowanie: Zatrzymaj się równolegle do auta, za którym chcesz zaparkować. Odległość między autami: około 50-70 cm. Twoja tylna krawędź drzwi powinna być na wysokości tylnego zderzaka tamtego auta",
+            "PUNKT 2 - Początek cofania: Wsteczny bieg, kierownica DO OPORU w prawo (lub w lewo, jeśli parkujesz po lewej). Cofasz powoli, obserwując prawe lusterko. Gdy tylna część Twojego auta znajdzie się w połowie luki parkingowej, STOP",
+            "PUNKT 3 - Wyrównanie: Kierownica DO OPORU w przeciwną stronę (w lewo). Cofasz dalej, obserwując teraz lewe lusterko. Gdy Twoje auto ustawia się równolegle do krawężnika, PROSTUJ kierownicę i dokończ cofanie",
+            "FINALIZACJA: Jeśli trzeba - wyjedź kawałek do przodu, żeby wyśrodkować auto w luce. Gotowe!"
+          ]
+        },
+        {
+          "heading": "Najczęstsze błędy i jak ich unikać",
+          "paragraphs": [
+            "Pierwszy typowy błąd to za daleko od auta, od którego parkujesz. Jeśli zostawisz metr odstępu zamiast 50-70 cm, promień skrętu będzie za duży i wjedziesz w krawężnik tylnym kołem lub nie zmieścisz się w luce. Drugi błąd to za wczesne lub za późne prostowanie kierownicy w punkcie 3. Jeśli wyprostujesz za wcześnie - staniesz pod kątem, tyłem do krawężnika. Jeśli za późno - przedem wjedziesz na chodnik.",
+            "Trzeci, bardzo częsty błąd to brak obserwacji wszystkich lusterek i okien. Podczas parkowania musisz mieć świadomość, gdzie są wszystkie cztery rogi Twojego auta. Używaj lusterek, obracaj głowę, nie polegaj tylko na czujnikach parkowania. Czwarty błąd - zbyt szybkie cofanie. Ten manewr wymaga spokoju i precyzji. Lepiej cofać centymetr po centymetrze i robić poprawki, niż zahacz cudzą maskę."
+          ]
+        },
+        {
+          "heading": "Parkowanie w trudnych warunkach - Bydgoszcz ma swoje wyzwania",
+          "paragraphs": [
+            "W Bydgoszczy, szczególnie na osiedlach takich jak Bartodzieje czy Kapuściska, miejsca parkingowe bywają bardzo ciasne. Na ulicach takich jak Fordońska czy Jagiellońska w centrum musisz dodatkowo radzić sobie z ruchem innych pojazdów. Kilka praktycznych wskazówek:",
+            "Gdy miejsce jest naprawdę krótkie (ledwo dłuższe niż Twoje auto), parkuj BARDZO powoli, a przy punkcie 2 skręć kierownicę trochę później - pozwoli to na ostrzejszy kąt wjazdu. Jeśli parkujesz na ruchliwej ulicy i za Tobą ktoś czeka, włącz awaryjne i daj znak ręką, że będziesz parkować - większość kierowców poczeka lub Cię ominie. Nie stresuj się! Jeśli nie weszło za pierwszym razem - wyjedź, ustaw się ponownie i spróbuj jeszcze raz. Nawet doświadczeni kierowcy czasem robią dwie-trzy próby."
+          ]
+        }
+      ],
+      "tips": [
+        "Ćwicz na pustym parkingu z pustymi kartonami jako 'samochodami' - zbudujesz pamięć mięśniową bez stresu",
+        "Zawsze patrz przez ramię przy cofaniu, nie tylko w lusterka - masz pełniejszy obraz sytuacji",
+        "Jeśli masz kamerę cofania - używaj jej jako pomocy, ale NIE jako jedynego źródła informacji",
+        "W ciasnym miejscu lepiej stanąć 10 cm dalej od krawężnika niż zahakować oponę",
+        "Wykup godzinę jazdy z instruktorem Qursant tylko na parkowanie - powtórzymy manewr 20-30 razy, aż wejdzie w nawyk"
+      ],
+      "faq": [
+        {
+          "q": "Jak duże musi być miejsce, żebym mógł zaparkować równolegle?",
+          "a": "Minimum 1,5 długości Twojego samochodu. Dla standardowego auta (4,5 m) to około 6,5-7 metrów luki. Jeśli miejsce jest krótsze - nie próbuj, ryzyko uszkodzenia jest zbyt duże."
+        },
+        {
+          "q": "Co zrobić gdy przy cofaniu za szybko skręcam w stronę krawężnika?",
+          "a": "ZATRZYMAJ SIĘ natychmiast. Wyjedź kawałek do przodu z kierownicą skręconą w przeciwną stronę, żeby 'wyprostować' tor, i zacznij cofać ponownie. To się zdarza, nie ma się czego wstydzić."
+        },
+        {
+          "q": "Czy mogę polegać na czujnikach parkowania?",
+          "a": "Czujniki pomagają, ale nie są idealne. Nie wykryją niskiego słupka, małego krawężnika czy roweru opartego o auto. Zawsze używaj również lusterek i obserwacji wzrokowej."
+        },
+        {
+          "q": "Czy da się zaparkować równolegle jednym ruchem bez poprawek?",
+          "a": "Teoretycznie tak, ale w praktyce bardzo rzadko. Większość kierowców (nawet instruktorów!) robi małe poprawki. Nie ma w tym nic złego - ważne, żeby końcowy efekt był prawidłowy."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Parkowanie równoległe - Technika krok po kroku | Qursant",
+        "metaDescription": "Mistrzowska technika parkowania równoległego metodą 3 punktów. Sprawdzone wskazówki od instruktorów szkoły jazdy Qursant Bydgoszcz.",
+        "keywords": [
+          "parkowanie równoległe",
+          "jak parkować równolegle",
+          "technika parkowania",
+          "parkowanie równoległe krok po kroku",
+          "szkoła jazdy Bydgoszcz"
+        ]
+      }
+    },
+    {
+      "id": "2026-01-05-koszty-eksploatacji-pierwszego-samochodu",
+      "slug": "koszty-eksploatacji-pierwszego-samochodu",
+      "title": "Ile kosztuje utrzymanie pierwszego samochodu? Realny budżet miesięczny 2026",
+      "excerpt": "Zakup to jedno, ale ile naprawdę kosztuje utrzymanie auta? Paliwo, ubezpieczenie, przeglądy. Sprawdź realny budżet młodego kierowcy w Bydgoszczy.",
+      "publishDate": "2026-01-05T12:00:00",
+      "author": "Robert Langer",
+      "category": "ceny",
+      "tags": [
+        "koszty samochodu",
+        "utrzymanie auta",
+        "młody kierowca",
+        "budżet",
+        "wydatki"
+      ],
+      "image": "instructors/photo-16.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-01-10-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-01-10T12:00:00",
+      "author": "Robert Langer",
+      "category": "prawo",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "office/photo-56.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-01-15-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-01-15T12:00:00",
+      "author": "Robert Langer",
+      "category": "egzaminy",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "instructors/photo-24.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-01-20-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-01-20T12:00:00",
+      "author": "Robert Langer",
+      "category": "porady",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "office/photo-59.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-01-25-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-01-25T12:00:00",
+      "author": "Robert Langer",
+      "category": "aktualnosci",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "instructors/photo-15.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-01-30-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-01-30T12:00:00",
+      "author": "Robert Langer",
+      "category": "lokalne",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "cars/photo-36.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    }
+  ]
+}

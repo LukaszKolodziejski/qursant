@@ -29,14 +29,31 @@ if (!weekNumber || isNaN(weekNumber)) {
 }
 
 // Data startowa (możesz zmienić)
-const START_DATE = new Date('2025-11-04');
+const START_DATE = new Date('2025-11-05');
 
 // Oblicz daty dla tego tygodnia
-const weekStartDate = new Date(START_DATE);
-weekStartDate.setDate(START_DATE.getDate() + (weekNumber - 1) * 7);
+let weekStartDate;
 
+if (weekNumber <= 8) {
+  // Stary system (weeks 1-8): posty co 1 dzień, weeks co 7 dni
+  weekStartDate = new Date(START_DATE);
+  weekStartDate.setDate(START_DATE.getDate() + (weekNumber - 1) * 7);
+} else {
+  // Nowy system (weeks 9+): posty co 5 dni, weeks co 35 dni
+  const NEW_SYSTEM_START = new Date('2025-12-31'); // Początek week 9
+  weekStartDate = new Date(NEW_SYSTEM_START);
+  weekStartDate.setDate(NEW_SYSTEM_START.getDate() + (weekNumber - 9) * 35);
+}
+
+// Data końcowa = data ostatniego posta
 const weekEndDate = new Date(weekStartDate);
-weekEndDate.setDate(weekStartDate.getDate() + 6);
+if (weekNumber <= 8) {
+  // Weeks 1-8: 7 postów co 1 dzień = ostatni post po 6 dniach
+  weekEndDate.setDate(weekStartDate.getDate() + 6);
+} else {
+  // Weeks 9+: 7 postów co 5 dni = ostatni post po 30 dniach
+  weekEndDate.setDate(weekStartDate.getDate() + 6 * 5);
+}
 
 // Format YYYY-MM-DD
 const formatDate = (date) => date.toISOString().split('T')[0];
@@ -123,9 +140,11 @@ async function generateWeek() {
 
   // Generuj 7 postów (szablon)
   const posts = [];
+  const postInterval = weekNumber <= 8 ? 1 : 5; // Weeks 1-8: co 1 dzień, Weeks 9+: co 5 dni
+  
   for (let i = 0; i < 7; i++) {
     const postDate = new Date(weekStartDate);
-    postDate.setDate(weekStartDate.getDate() + i);
+    postDate.setDate(weekStartDate.getDate() + i * postInterval);
     const postDateStr = formatDate(postDate);
     const postDateTimeStr = `${postDateStr}T12:00:00`; // Publikacja o 12:00
 
@@ -217,7 +236,8 @@ async function generateWeek() {
       weekEndDate
     )}`
   );
-  console.log(`📝 Zawiera 7 postów (po jednym na dzień)`);
+  const postIntervalDesc = weekNumber <= 8 ? 'co 1 dzień' : 'co 5 dni';
+  console.log(`📝 Zawiera 7 postów (${postIntervalDesc})`);
   console.log('🖼️  Losowe, unikalne obrazy WebP dla każdego posta');
   console.log('');
   console.log('📸 Wybrane obrazy:');

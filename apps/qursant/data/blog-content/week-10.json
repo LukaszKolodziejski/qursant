@@ -1,0 +1,476 @@
+{
+  "week": 10,
+  "startDate": "2026-02-04",
+  "endDate": "2026-03-06",
+  "posts": [
+    {
+      "id": "2026-02-04-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-02-04T12:00:00",
+      "author": "Robert Langer",
+      "category": "poradniki",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "course/photo-23.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-02-09-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-02-09T12:00:00",
+      "author": "Robert Langer",
+      "category": "ceny",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "office/photo-48.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-02-14-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-02-14T12:00:00",
+      "author": "Robert Langer",
+      "category": "prawo",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "cars/photo-61.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-02-19-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-02-19T12:00:00",
+      "author": "Robert Langer",
+      "category": "egzaminy",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "cars/photo-77.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-02-24-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-02-24T12:00:00",
+      "author": "Robert Langer",
+      "category": "porady",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "cars/photo-80.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-03-01-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-03-01T12:00:00",
+      "author": "Robert Langer",
+      "category": "aktualnosci",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "instructors/photo-1.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    },
+    {
+      "id": "2026-03-06-SLUG",
+      "slug": "SLUG",
+      "title": "TYTUŁ BLOGA",
+      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "publishDate": "2026-03-06T12:00:00",
+      "author": "Robert Langer",
+      "category": "lokalne",
+      "tags": [
+        "szkoła jazdy",
+        "bydgoszcz",
+        "prawo jazdy"
+      ],
+      "image": "cars/photo-33.webp",
+      "sections": [
+        {
+          "heading": "Wprowadzenie",
+          "paragraphs": [
+            "Tekst wprowadzający...",
+            "Kolejny akapit..."
+          ]
+        },
+        {
+          "heading": "Główna część",
+          "paragraphs": [
+            "Tekst..."
+          ],
+          "list": [
+            "Punkt 1",
+            "Punkt 2",
+            "Punkt 3"
+          ]
+        },
+        {
+          "heading": "Podsumowanie",
+          "paragraphs": [
+            "Tekst podsumowujący..."
+          ]
+        }
+      ],
+      "tips": [
+        "Wskazówka 1",
+        "Wskazówka 2",
+        "Wskazówka 3",
+        "Wskazówka 4",
+        "Wskazówka 5"
+      ],
+      "faq": [
+        {
+          "q": "Pytanie 1?",
+          "a": "Odpowiedź 1..."
+        },
+        {
+          "q": "Pytanie 2?",
+          "a": "Odpowiedź 2..."
+        }
+      ],
+      "seo": {
+        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
+        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "keywords": [
+          "keyword1",
+          "keyword2",
+          "keyword3"
+        ]
+      }
+    }
+  ]
+}
