@@ -141,7 +141,7 @@ async function generateWeek() {
   // Generuj 7 postów (szablon)
   const posts = [];
   const postInterval = weekNumber <= 8 ? 1 : 5; // Weeks 1-8: co 1 dzień, Weeks 9+: co 5 dni
-  
+
   for (let i = 0; i < 7; i++) {
     const postDate = new Date(weekStartDate);
     postDate.setDate(weekStartDate.getDate() + i * postInterval);

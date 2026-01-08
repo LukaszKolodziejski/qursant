@@ -76,15 +76,20 @@ export default function KursyContent() {
           >
             <div className="flex items-center justify-center space-x-4 text-yellow-300 mb-4">
               <HiLightningBolt className="text-3xl" />
-              <h2 className="text-2xl font-semibold">Najbliższy kurs</h2>
+              <h2 className="text-2xl font-semibold">{COURSE.COURSE_NAME}</h2>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-white mb-2">
                 {COURSE.NEXT_START_DATE}
               </p>
-              <p className="text-xl text-blue-200">
+              <p className="text-xl text-blue-200 mb-3">
                 Start o godzinie {COURSE.START_TIME}
               </p>
+              <div className="inline-block bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm rounded-full px-6 py-2 border border-yellow-400/30">
+                <p className="text-2xl font-bold text-yellow-300 animate-pulse">
+                  ⚡ {COURSE.PROMO_TEXT} ⚡
+                </p>
+              </div>
             </div>
             <div className="mt-6 text-center">
               <Link

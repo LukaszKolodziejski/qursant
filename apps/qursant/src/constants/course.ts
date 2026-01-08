@@ -1,5 +1,7 @@
 export const COURSE = {
-  NEXT_START_DATE: '5 stycznia 2026',
+  COURSE_NAME: 'Kurs Feryjny',
+  PROMO_TEXT: 'Teoria w 10 dni!',
+  NEXT_START_DATE: '2 lutego 2026',
   START_TIME: '17:00',
   DURATION: {
     THEORY: {
