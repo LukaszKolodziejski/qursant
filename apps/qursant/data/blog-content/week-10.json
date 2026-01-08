@@ -4,471 +4,514 @@
   "endDate": "2026-03-06",
   "posts": [
     {
-      "id": "2026-02-04-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-02-04-ruszanie-na-wzniesieniu-bezkolizyjnie",
+      "slug": "ruszanie-na-wzniesieniu-bezkolizyjnie",
+      "title": "Ruszanie na wzniesieniu bez stresu – technika z hamulcem ręcznym i bez",
+      "excerpt": "Stoisz pod górkę na ul. Kujawskiej i boisz się, że stoczysz się na auto z tyłu? Poznaj techniki ruszania na wzniesieniu, które opanujesz do perfekcji.",
       "publishDate": "2026-02-04T12:00:00",
       "author": "Robert Langer",
       "category": "poradniki",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "ruszanie pod górę",
+        "hamulec ręczny",
+        "technika jazdy",
+        "egzamin na prawo jazdy",
+        "stres za kierownicą"
       ],
       "image": "course/photo-23.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Wzniesienie – zmora nie tylko kursantów",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Ruszanie na wzniesieniu to jeden z tych manewrów, który budzi największy lęk u początkujących kierowców. Strach przed stoczeniem się pojazdu i uderzeniem w auto stojące z tyłu jest naturalny, ale zupełnie niepotrzebny, jeśli znasz fizykę działania sprzęgła. W Bydgoszczy mamy kilka miejsc, gdzie ta umiejętność jest kluczowa – chociażby podjazd pod Rondo Kujawskie czy ul. Stromą.",
+            "W szkole Qursant uczymy dwóch metod ruszania pod górę: klasycznej z użyciem hamulca pomocniczego (ręcznego) oraz bardziej zaawansowanej, tzw. ruszania 'z samego sprzęgła' lub 'z hamulca nożnego'. Obie są skuteczne, ale na egzaminie państwowym musisz wykonać to zadanie konkretnie z użyciem hamulca ręcznego."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Metoda egzaminacyjna: Ruszanie z hamulca ręcznego",
           "paragraphs": [
-            "Tekst..."
+            "To najbezpieczniejszy sposób, który gwarantuje, że auto nie cofnie się ani o centymetr. Kluczem jest synchronizacja trzech elementów: gazu, sprzęgła i zwolnienia hamulca."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Zaciągnij hamulec ręczny i wrzuć pierwszy bieg",
+            "Dodaj delikatnie gazu (do ok. 2000 obrotów) – silnik musi mieć siłę, by uciągnąć auto pod górę",
+            "Powoli puszczaj sprzęgło do tzw. momentu brania – poczujesz, że przód auta lekko się unosi, a obroty minimalnie spadają",
+            "W tym momencie trzymaj sprzęgło nieruchomo i zdecydowanie zwolnij hamulec ręczny",
+            "Auto zacznie ruszać – wtedy płynnie puść resztę sprzęgła i dodaj więcej gazu"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Najczęstsze błędy – dlaczego auto gaśnie?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Najczęstszym błędem jest zbyt szybkie puszczenie sprzęgła po zwolnieniu ręcznego. Pamiętaj: moment 'brania' to chwila, w której musisz 'zamrozić' nogę na sprzęgle na 1-2 sekundy. Drugi błąd to zbyt mało gazu. Pod górkę silnik potrzebuje więcej mocy niż na płaskim terenie. Nie bój się dźwięku silnika – 2000-2500 obrotów to standard przy ruszaniu na stromym podjeździe."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Ćwicz wyczucie sprzęgła na płaskim terenie – musisz wiedzieć dokładnie, w którym punkcie auto zaczyna 'ciągnąć'",
+        "Na egzaminie nie spiesz się – masz prawo do dwóch prób na wzniesieniu",
+        "Jeśli auto zaczyna się toczyć do tyłu – natychmiast wciśnij hamulec nożny i zaciągnij ręczny, zacznij procedurę od nowa",
+        "W nowoczesnych autach (np. Toyotach w Qursancie) często masz system Hill Holder – on trzyma hamulec za Ciebie przez 2 sekundy",
+        "Patrz przed siebie, a nie na pedały – to pomaga zachować orientację"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy na egzaminie mogę ruszyć bez ręcznego?",
+          "a": "Zadanie egzaminacyjne na placu wyraźnie mówi o ruszeniu z użyciem hamulca pomocniczego. W ruchu miejskim egzaminator zazwyczaj nie wymaga użycia ręcznego, o ile ruszasz sprawnie i bez cofania się."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Ile auto może się cofnąć na wzniesieniu?",
+          "a": "Na placu manewrowym dopuszczalne cofnięcie to ok. 20 cm. Powyżej tej granicy zadanie uznaje się za niewykonane."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Jak ruszać na wzniesieniu? Technika z ręcznym | Qursant",
+        "metaDescription": "Poznaj sprawdzone sposoby na ruszanie pod górę. Instrukcja krok po kroku z hamulcem ręcznym. Zobacz, jak zdać to zadanie w WORD Bydgoszcz.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "ruszanie na wzniesieniu",
+          "zadania egzaminacyjne prawo jazdy",
+          "ruszanie z ręcznego",
+          "jak nie zgasić auta pod górę",
+          "nauk jazdy Bydgoszcz"
         ]
       }
     },
     {
-      "id": "2026-02-09-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-02-09-kurs-standardowy-czy-ekspresowy-porownanie",
+      "slug": "kurs-standardowy-czy-ekspresowy-porownanie",
+      "title": "Kurs ekspresowy vs standardowy – który wybrać i dlaczego?",
+      "excerpt": "Zależy Ci na czasie, czy wolisz uczyć się we własnym tempie? Porównujemy koszty, zalety i wady kursów prawa jazdy w Bydgoszczy.",
       "publishDate": "2026-02-09T12:00:00",
       "author": "Robert Langer",
       "category": "ceny",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "kurs ekspresowy",
+        "cena prawa jazdy",
+        "czas trwania kursu",
+        "prawo jazdy Bydgoszcz",
+        "szkoła jazdy"
       ],
       "image": "office/photo-48.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Czas to pieniądz, ale czy zawsze?",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "W dzisiejszym zabieganym świecie wielu kandydatów na kierowców w Bydgoszczy szuka drogi na skróty. Kursy ekspresowe, obiecujące prawo jazdy w 15-20 dni, kuszą wizją szybkiego uzyskania uprawnień. Z drugiej strony mamy kursy standardowe, trwające zazwyczaj od 2 do 3 miesięcy. Wybór nie jest oczywisty i zależy od Twojej dyspozycyjności, odporności na stres oraz... budżetu.",
+            "W szkole Qursant oferujemy obie formy szkolenia, dbając o to, by jakość nauki była identyczna niezależnie od tempa. Przyjrzyjmy się różnicom, które pomogą Ci podjąć decyzję."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Kurs ekspresowy – dla kogo?",
           "paragraphs": [
-            "Tekst..."
+            "Kurs ekspresowy to jazda niemal codziennie, często po 2-3 godziny. To ogromna dawka wiedzy i praktyki skumulowana w krótkim czasie. Jest to idealne rozwiązanie dla osób, które mają urlop, ferie lub przerwę między semestrami i mogą poświęcić się wyłącznie nauce."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Zaleta: ogromna ciągłość nauki – nie zapominasz tego, co było wczoraj",
+            "Zaleta: szybki termin egzaminu państwowego",
+            "Wada: wysoka cena (zazwyczaj 500-1000 zł drożej niż standard)",
+            "Wada: ryzyko przemęczenia i 'przeładowania' informacjami"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Kurs standardowy – spokojna nauka",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Standardowe szkolenie (jazdy 2-3 razy w tygodniu) pozwala na spokojne 'przetrawienie' każdej lekcji. Masz czas, by w międzyczasie poćwiczyć teorię lub po prostu odpocząć od stresu związanego z ruchem ulicznym. To najczęstszy wybór osób pracujących lub uczących się dziennie."
+          ]
+        },
+        {
+          "heading": "Analiza kosztów 2026",
+          "paragraphs": [
+            "W 2026 roku średnia cena kursu standardowego w Bydgoszczy to ok. 3200-3600 zł. Kurs ekspresowy to wydatek rzędu 4000-4500 zł. Wyższa cena 'ekspresu' wynika z konieczności priorytetowego traktowania kursanta przez instruktora i dopasowania grafiku tak, by jazdy odbywały się codziennie."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Wybierz kurs ekspresowy tylko, jeśli masz naprawdę dużo wolnego czasu – jazdy co 2 dni to nie 'ekspres'",
+        "Sprawdź opinie o zdawalności po kursach szybkich – nie każda szkoła potrafi dobrze uczyć w pośpiechu",
+        "Jeśli czujesz, że potrzebujesz więcej czasu na oswojenie się z autem, postaw na kurs standardowy",
+        "Niezależnie od wyboru, zacznij naukę teorii ZANIM wsiądziesz do auta – zaoszczędzisz czas",
+        "Zapytaj w Qursant o płatność ratalną – obie formy kursu można u nas opłacić w wygodnych ratach"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy kurs ekspresowy ma mniej godzin jazdy?",
+          "a": "Nie, liczba godzin jest identyczna (minimum 30h praktyki). Zmienia się tylko częstotliwość spotkań."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Jak szybko mogę zacząć kurs ekspresowy?",
+          "a": "Zazwyczaj od ręki, po wyrobieniu numeru PKK. W Qursancie staramy się startować w ciągu 3-5 dni od zgłoszenia."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Kurs ekspresowy na prawo jazdy Bydgoszcz – czy warto?",
+        "metaDescription": "Porównanie kursu szybkiego i standardowego. Poznaj ceny, wady i zalety szkolenia ekspresowego w Bydgoszczy. Sprawdź, co wybrać!",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "kurs ekspresowy prawo jazdy Bydgoszcz",
+          "szybkie prawo jazdy",
+          "cena kursu na prawo jazdy",
+          "prawo jazdy w 15 dni",
+          "szkoła jazdy Qursant"
         ]
       }
     },
     {
-      "id": "2026-02-14-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-02-14-przewozenie-dzieci-w-samochodzie-przepisy-2026",
+      "slug": "przewozenie-dzieci-w-samochodzie-przepisy-2026",
+      "title": "Przewożenie dzieci w aucie – aktualne przepisy i bezpieczeństwo 2026",
+      "excerpt": "Kiedy dziecko może jeździć bez fotelika? Czy wolno przewozić malucha na przednim siedzeniu? Poznaj zasady, które chronią życie i Twój portfel.",
       "publishDate": "2026-02-14T12:00:00",
       "author": "Robert Langer",
       "category": "prawo",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "bezpieczeństwo dzieci",
+        "fotelik samochodowy",
+        "przepisy drogowe",
+        "prawo o ruchu drogowym",
+        "rodzic kierowca"
       ],
       "image": "cars/photo-61.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Bezpieczeństwo najmłodszych to priorytet",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Wielu świeżo upieczonych kierowców w Bydgoszczy to młodzi rodzice. Prawo jazdy daje ogromną wygodę w dowożeniu dzieci do żłobka czy przedszkola, ale nakłada też ogromną odpowiedzialność. Przepisy dotyczące przewożenia dzieci w Polsce są restrykcyjne i stale aktualizowane, aby nadążyć za nowymi technologiami w dziedzinie bezpieczeństwa (systemy ISOFIX, i-Size).",
+            "W 2026 roku kluczowym kryterium nie jest już tylko wiek, ale przede wszystkim wzrost dziecka. W szkole Qursant zwracamy uwagę, że prawidłowy montaż fotelika jest równie ważny jak sam fakt jego posiadania."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Kiedy fotelik jest obowiązkowy?",
           "paragraphs": [
-            "Tekst..."
+            "Zgodnie z polskim prawem, dziecko o wzroście mniejszym niż 150 cm musi być przewożone w foteliku bezpieczeństwa lub innym urządzeniu przytrzymującym. Nie ma znaczenia, czy dziecko ma 5, 10 czy 12 lat – dopóki nie 'wyrośnie' powyżej 1,5 metra, musi korzystać z atestowanego fotelika."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Wyjątek 1: Dziecko powyżej 135 cm wzrostu może jechać bez fotelika (tylko na tylnym siedzeniu), jeśli ze względu na masę i wzrost nie mieści się w żadnym dostępnym foteliku (rzadka sytuacja)",
+            "Wyjątek 2: Można przewozić trzecie dziecko (powyżej 3 lat) bez fotelika na tylnym siedzeniu, jeśli dwójka dzieci jedzie w fotelikach i nie ma miejsca na trzeci fotelik (skrajnie niebezpieczne, odradzamy!)",
+            "Bezwzględny zakaz: Nigdy nie przewoź dziecka w foteliku tyłem do kierunku jazdy na przednim siedzeniu przy aktywnej poduszce powietrznej pasażera!"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Mandaty i punkty karne w 2026",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Za przewożenie dziecka niezgodnie z przepisami grozi mandat w wysokości minimum 300 zł oraz aż 6 punktów karnych (za każde dziecko!). Policja w Bydgoszczy często przeprowadza akcje pod szkołami, sprawdzając sposób montażu fotelików. Pamiętaj, że pasy muszą przebiegać przez bark, a nie przez szyję dziecka."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Zawsze sprawdzaj, czy fotelik posiada aktualną homologację ECE R44/04 lub nowszą R129 (i-Size)",
+        "Jeśli kupujesz auto używane, sprawdź czy ma punkty mocowania ISOFIX – to standard od wielu lat",
+        "W miarę możliwości przewoź dzieci na tylnej kanapie – statystycznie jest tam bezpieczniej niż z przodu",
+        "Nigdy nie kupuj fotelika z niepewnego źródła (używanego, powypadkowego) – niewidoczne mikropęknięcia dyskwalifikują go z użycia",
+        "Zdejmuj dziecku grubą kurtkę przed zapięciem pasów w foteliku – pasy muszą przylegać bezpośrednio do ciała"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy można przewozić dziecko na przednim siedzeniu?",
+          "a": "Tak, o ile jest w foteliku. Jeśli fotelik jest montowany tyłem do kierunku jazdy, MUSISZ wyłączyć poduszkę pasażera. Jeśli przodem – poduszka może zostać, ale zaleca się odsunięcie fotela pasażera maksymalnie do tyłu."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Kiedy można zrezygnować z fotelika na rzecz samej podkładki?",
+          "a": "Podkładki (tzw. boostery) są dopuszczalne, ale zapewniają znacznie mniejszą ochronę boczną niż foteliki z oparciem. Zalecamy pełne foteliki tak długo, jak to możliwe."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Przewożenie dzieci w aucie 2026 – Przepisy i mandaty",
+        "metaDescription": "Aktualne zasady przewożenia dzieci w fotelikach. Do jakiego wzrostu fotelik jest obowiązkowy? Sprawdź przepisy 2026 i zadbaj o bezpieczeństwo swojej rodziny.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "przewożenie dzieci przepisy",
+          "do kiedy fotelik w aucie",
+          "mandat za brak fotelika 2026",
+          "fotelik na przednim siedzeniu",
+          "bezpieczeństwo dziecka w samochodzie"
         ]
       }
     },
     {
-      "id": "2026-02-19-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-02-19-lista-kontrolna-na-egzamin-word-bydgoszcz",
+      "slug": "lista-kontrolna-na-egzamin-word-bydgoszcz",
+      "title": "Co zabrać na egzamin w WORD Bydgoszcz? Kompletna lista kontrolna",
+      "excerpt": "Stres przed egzaminem sprawia, że łatwo o czymś zapomnieć. Sprawdź, co musisz mieć przy sobie w dniu 'zero', aby egzaminator dopuścił Cię do jazdy.",
       "publishDate": "2026-02-19T12:00:00",
       "author": "Robert Langer",
       "category": "egzaminy",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "egzamin państwowy",
+        "WORD Bydgoszcz",
+        "dokumenty na prawo jazdy",
+        "przygotowanie do egzaminu",
+        "poradnik kursanta"
       ],
       "image": "cars/photo-77.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Dzień egzaminu – nie daj się zaskoczyć formalnościom",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Przygotowywałeś się miesiącami w szkole Qursant, znasz każdą uliczkę w Bydgoszczy i plac manewrowy masz w małym palcu. Jednak egzamin państwowy w WORD przy ul. Wyszyńskiego zaczyna się jeszcze przed wejściem do samochodu – od weryfikacji dokumentów. Brak dowodu osobistego lub okularów (jeśli masz je wpisane w orzeczenie) to najkrótsza droga do oblania egzaminu bez przejechania metra.",
+            "Abyś mógł skupić się wyłącznie na jeździe, przygotowaliśmy listę rzeczy, o których musisz pamiętać pakując się rano w dniu egzaminu."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Niezbędne dokumenty i akcesoria",
           "paragraphs": [
-            "Tekst..."
+            "Egzaminator musi mieć 100% pewności, że Ty to Ty, oraz że Twój stan zdrowia pozwala na prowadzenie pojazdu w danym momencie."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Dowód osobisty lub paszport (musi być ważny i nieuszkodzony!) – mObywatel jest akceptowany, ale warto mieć też plastik",
+            "Okulary lub soczewki kontaktowe – jeśli w Twoim numerze PKK widnieje kod 01.01 lub 01.06. Bez nich egzaminator nie pozwoli Ci wsiąść za kółko",
+            "Potwierdzenie opłaty za egzamin – jeśli płaciłeś w ostatniej chwili i nie masz pewności, czy system WORD to odnotował",
+            "Wygodne obuwie – unikaj szpilek, ciężkich glanów czy klapek. Najlepsze są buty z płaską, niezbyt grubą podeszwą, w których dobrze czujesz pedał sprzęgła"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "O czym jeszcze warto pamiętać?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Przyjedź do ośrodka minimum 15-20 minut przed planowaną godziną. Spóźnienie powyżej 5 minut zazwyczaj skutkuje anulowaniem egzaminu. W poczekalni staraj się wyciszyć – nie słuchaj opowieści innych kursantów o tym, jak trudny był ich egzamin. Każda jazda jest inna, a Ty jesteś dobrze przygotowany."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Sprawdź datę ważności dowodu osobistego tydzień przed egzaminem",
+        "Zjedz lekkie śniadanie – głód potęguje stres i rozdrażnienie",
+        "Wyłącz telefon całkowicie przed wejściem do samochodu egzaminacyjnego",
+        "Jeśli masz długie włosy – upnij je tak, by egzaminator widział, że obracasz głowę sprawdzając lusterka",
+        "Weź ze sobą małą butelkę wody niegazowanej – suchość w ustach to częsty objaw stresu"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy mogę zdawać egzamin mając tylko aplikację mObywatel?",
+          "a": "Tak, obecnie WORD Bydgoszcz akceptuje tożsamość potwierdzoną w aplikacji, ale dla własnego spokoju warto mieć przy sobie fizyczny dokument."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Co jeśli zapomnę okularów, a mam je wpisane w PKK?",
+          "a": "Egzamin zostanie przerwany przed rozpoczęciem z wynikiem negatywnym. Jest to traktowane jako nieprzystąpienie do egzaminu z winy kandydata."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Co zabrać na egzamin na prawo jazdy Bydgoszcz? Checklist",
+        "metaDescription": "Dokumenty, ubiór, okulary – sprawdź czego wymaga WORD Bydgoszcz w dniu egzaminu praktycznego. Pobierz darmową listę kontrolną dla kursanta.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "dokumenty na egzamin prawo jazdy",
+          "WORD Bydgoszcz egzamin",
+          "czy można zdawać z mObywatel",
+          "kod 01.01 prawo jazdy",
+          "buty na egzamin na prawo jazdy"
         ]
       }
     },
     {
-      "id": "2026-02-24-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-02-24-bezpieczna-jazda-we-mgle-bydgoszcz",
+      "slug": "bezpieczna-jazda-we-mgle-bydgoszcz",
+      "title": "Jazda we mgle – jak nie stracić orientacji i jeździć bezpiecznie?",
+      "excerpt": "Gęsta mgła nad Brdą to w Bydgoszczy częsty widok. Dowiedz się, jak prawidłowo używać świateł i dlaczego wzrok we mgle potrafi płatać figle.",
       "publishDate": "2026-02-24T12:00:00",
       "author": "Robert Langer",
       "category": "porady",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "jazda we mgle",
+        "bezpieczeństwo",
+        "światła przeciwmgłowe",
+        "technika jazdy",
+        "trudne warunki"
       ],
       "image": "cars/photo-80.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Mgła – biała ściana zagrożeń",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Luty i marzec w Bydgoszczy to czas, kiedy mgły pojawiają się nagle, szczególnie w okolicach doliny Wisły i Brdy. Dla kierowcy, zwłaszcza początkującego, gęsta mgła to jedno z najtrudniejszych wyzwań. Tracimy nie tylko widoczność, ale i orientację przestrzenną – trudno ocenić prędkość innych pojazdów oraz odległość do skrzyżowania.",
+            "W szkole Qursant uczymy, że we mgle oczy męczą się znacznie szybciej. Kluczem do przetrwania jest odpowiednie użycie świateł i drastyczne zwiększenie dystansu od poprzedzającego auta."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Światła przeciwmgłowe – kiedy włączyć, a kiedy wyłączyć?",
           "paragraphs": [
-            "Tekst..."
+            "To najczęstszy błąd kierowców. Nadużywanie tylnego światła przeciwmgłowego oślepia jadących z tyłu i sprawia, że nie widzą oni Twoich świateł STOP. Z kolei zapominanie o nim w gęstej mgle sprawia, że jesteś niewidoczny."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Tylne światło przeciwmgłowe: włączamy TYLKO gdy widoczność spadnie poniżej 50 metrów (to ok. 2-3 słupki pikietażowe)",
+            "Przednie światła przeciwmgłowe: możesz włączyć już przy lekkim zamgleniu, doświetlają one pobocze i linię krawędziową",
+            "Nigdy nie używaj świateł drogowych ('długich') we mgle – światło odbije się od cząsteczek wody i stworzy przed Tobą 'białą ścianę', przez którą nic nie zobaczysz",
+            "Pamiętaj o wyłączeniu tylnego przeciwmgłowego, gdy tylko widoczność się poprawi lub gdy ktoś jedzie tuż za Tobą w korku"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Zasada ograniczonego zaufania do własnych zmysłów",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "We mgle Twoje poczucie prędkości jest zaburzone. Często wydaje Ci się, że jedziesz powoli, podczas gdy na liczniku jest 70 km/h. Sprawdzaj prędkościomierz regularnie. Jeśli mgła jest tak gęsta, że nie widzisz pasów na jezdni – zjedź na najbliższy parking lub stację benzynową i poczekaj. Żaden pośpiech nie jest wart ryzyka karambolu."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Uchyl lekko szybę – w gęstej mgle warto polegać na słuchu (usłyszysz nadjeżdżający pojazd, zanim go zobaczysz)",
+        "Utrzymuj szyby w idealnej czystości – smugi rozpraszają światło i dodatkowo pogarszają widoczność",
+        "Obserwuj linie na jezdni (krawędziową i środkową) – one pomogą Ci utrzymać tor jazdy",
+        "Włącz wycieraczki – mgła osadza się na szybie jak drobny deszcz",
+        "Jeśli musisz się zatrzymać na poboczu – włącz światła awaryjne i, jeśli to możliwe, opuść pojazd, stając za barierą energochłonną"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy we mgle mogę jechać na światłach do jazdy dziennej?",
+          "a": "Absolutnie NIE. Światła do jazdy dziennej zazwyczaj nie włączają tylnych lamp pozycyjnych, co czyni Cię niewidocznym od tyłu. Zawsze przełącz na światła mijania."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Jak ocenić te 50 metrów widoczności?",
+          "a": "Na drogach krajowych i autostradach słupki pikietażowe (biało-czerwone) są ustawione co 100 metrów. Jeśli nie widzisz kolejnego słupka – widoczność jest mniejsza niż 100 metrów."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Jak jeździć we mgle? Zasady używania świateł 2026",
+        "metaDescription": "Bezpieczna technika jazdy w gęstej mgle. Kiedy włączyć tylne światło przeciwmgłowe? Poznaj porady instruktora Qursant Bydgoszcz i uniknij kolizji.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "jazda we mgle przepisy",
+          "światła przeciwmgłowe kiedy",
+          "bezpieczeństwo na drodze zima",
+          "widoczność 50 metrów",
+          "technika jazdy Bydgoszcz"
         ]
       }
     },
     {
-      "id": "2026-03-01-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-03-01-samochody-elektryczne-w-szkoleniu-kierowcow",
+      "slug": "samochody-elektryczne-w-szkoleniu-kierowcow",
+      "title": "Samochody elektryczne w szkołach jazdy – czy warto uczyć się na elektryku?",
+      "excerpt": "Cisza, brak biegów i ogromne przyspieszenie. Sprawdź, jak wygląda szkolenie na autach EV i czy w Bydgoszczy warto zdawać egzamin automatem.",
       "publishDate": "2026-03-01T12:00:00",
       "author": "Robert Langer",
       "category": "aktualnosci",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "samochody elektryczne",
+        "prawo jazdy automat",
+        "przyszłość motoryzacji",
+        "szkolenie kierowców",
+        "EV"
       ],
       "image": "instructors/photo-1.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Elektryczna rewolucja puka do drzwi",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Rok 2026 przynosi coraz więcej samochodów elektrycznych na ulice Bydgoszczy. Wraz z nimi zmienia się sposób, w jaki myślimy o nauce jazdy. Coraz więcej szkół, w tym Qursant, rozważa wprowadzanie pojazdów elektrycznych (EV) do swojej floty. Jazda 'elektrykiem' to zupełnie inne doświadczenie niż prowadzenie tradycyjnego diesla czy benzyny.",
+            "Dla kursanta wybór auta elektrycznego oznacza przede wszystkim rezygnację z manualnej skrzyni biegów. Warto jednak wiedzieć, jakie konsekwencje niesie to za sobą w kontekście uprawnień i techniki jazdy."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Zalety i wady nauki na samochodzie elektrycznym",
           "paragraphs": [
-            "Tekst..."
+            "Główną cechą aut elektrycznych jest brak tradycyjnej skrzyni biegów (mają one napęd bezpośredni lub prostą przekładnię automatyczną). Dla wielu osób, które boją się, że auto zgaśnie na skrzyżowaniu pod Operą Nova, jest to zbawienie."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Zaleta: brak stresu związanego ze sprzęgłem i zmianą biegów – możesz skupić się w 100% na drodze",
+            "Zaleta: cisza i płynność jazdy, co znacznie obniża poziom zmęczenia podczas 2-godzinnej lekcji",
+            "Zaleta: poznanie nowoczesnej technologii, rekuperacji i systemów multimedialnych",
+            "Wada: egzamin na automacie (w tym EV) skutkuje wpisaniem kodu 78 do prawa jazdy – nie wolno Ci wtedy prowadzić aut z manualem",
+            "Wada: inna charakterystyka hamowania (rekuperacja) wymaga przyzwyczajenia"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Kod 78 – czy to ograniczenie?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "W 2026 roku coraz mniej osób postrzega kod 78 (prawo jazdy tylko na automat) jako wadę. Rynek aut używanych i nowych w Polsce szybko nasyca się automatami i elektrykami. Jeśli wiesz, że Twoje przyszłe auto będzie miało automatyczną skrzynię, nauka na elektryku w Qursancie może być najszybszą i najmniej stresującą drogą do zdobycia 'prawka'."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Jeśli boisz się skrzyni biegów – spróbuj jednej lekcji na aucie elektrycznym lub automacie",
+        "Pamiętaj, że z kodu 78 można zrezygnować, zdając później tylko egzamin praktyczny na manualu (bez powtarzania teorii)",
+        "W aucie elektrycznym uważaj na pieszego – przy małych prędkościach auto jest niemal niesłyszalne!",
+        "Naucz się 'jazdy jednym pedałem' (One Pedal Drive) – to świetna funkcja wielu aut EV",
+        "Sprawdź mapę ładowarek w Bydgoszczy (Focus, Zielone Arkady, Myślęcinek) – jako przyszły użytkownik EV musisz znać infrastrukturę"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy egzamin na aucie elektrycznym jest trudniejszy?",
+          "a": "Wręcz przeciwnie! Odpadają zadania związane ze sprzęgłem i zmianą biegów, co eliminuje ok. 30% najczęstszych błędów na egzaminie."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Czy WORD Bydgoszcz ma samochody elektryczne?",
+          "a": "WORD systematycznie modernizuje flotę. Obecnie większość egzaminów na automat odbywa się na autach hybrydowych lub elektrycznych dostarczanych przez szkoły jazdy."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Nauka jazdy samochodem elektrycznym – czy warto? 2026",
+        "metaDescription": "Elektryczne eLki w Bydgoszczy. Poznaj wady i zalety szkolenia na autach EV. Dowiedz się, co oznacza kod 78 w prawie jazdy i dlaczego automat to przyszłość.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "samochód elektryczny nauka jazdy",
+          "prawo jazdy na automat Bydgoszcz",
+          "kod 78 prawo jazdy",
+          "egzamin na elektryku",
+          "szkoła jazdy Qursant EV"
         ]
       }
     },
     {
-      "id": "2026-03-06-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-03-06-najlepsze-trasy-na-niedzielna-przejazdzke-bydgoszcz",
+      "slug": "najlepsze-trasy-na-niedzielna-przejazdzke-bydgoszcz",
+      "title": "Najlepsze trasy na niedzielną przejażdżkę wokół Bydgoszczy – TOP 5",
+      "excerpt": "Gdzie wyjechać za miasto, by poćwiczyć płynną jazdę i cieszyć się widokami? Sprawdź najciekawsze trasy w okolicach Bydgoszczy dla świeżych kierowców.",
       "publishDate": "2026-03-06T12:00:00",
       "author": "Robert Langer",
       "category": "lokalne",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "Bydgoszcz okolice",
+        "wycieczka samochodowa",
+        "trasy widokowe",
+        "nauka jazdy w trasie",
+        "gdzie pojechać autem"
       ],
       "image": "cars/photo-33.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Czas ruszyć poza miasto!",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Zdobycie prawa jazdy w Qursancie otwiera przed Tobą nie tylko ulice Bydgoszczy, ale całą mapę regionu. Pierwsze samodzielne wyjazdy poza miasto to doskonały sposób na oswojenie się z wyższymi prędkościami, wyprzedzaniem i jazdą po drogach o różnej nawierzchni. Okolice Bydgoszczy oferują mnóstwo pięknych tras, które łączą przyjemne z pożytecznym – dają radość z jazdy i pozwalają budować doświadczenie.",
+            "Nasi instruktorzy przygotowali zestawienie 5 najciekawszych tras wylotowych z Bydgoszczy, które są bezpieczne i atrakcyjne turystycznie. Idealne na niedzielne popołudnie za kółkiem."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "TOP 5 tras dla początkującego kierowcy",
           "paragraphs": [
-            "Tekst..."
+            "Każda z tych tras ma inną charakterystykę – od szerokich dróg krajowych, po malownicze, kręte dróżki w Dolinie Dolnej Wisły."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Trasa 1: Bydgoszcz – Ostromecko (przez most w Fordonie). Krótka, ale treściwa. W Ostromecku czeka na Ciebie piękny pałac i duży, wygodny parking, na którym spokojnie poćwiczysz manewry",
+            "Trasa 2: Bydgoszcz – Koronowo (nad Zalew Koronowski). Świetna droga do ćwiczenia utrzymywania stałej prędkości. Sam wjazd do Koronowa przez stary most to ciekawe doświadczenie",
+            "Trasa 3: Kierunek na Piechcin. Przejazd przez Puszczę Bydgoską to test koncentracji (uważaj na zwierzynę!). W nagrodę zobaczysz 'polskie Malediwy' w Piechcinie",
+            "Trasa 4: Dolina Dolnej Wisły (Bydgoszcz – Strzelce Dolne – Chełmno). Jedna z najpiękniejszych tras widokowych w regionie. Dużo zakrętów, wzniesień i pięknych panoram",
+            "Trasa 5: Bydgoszcz – Nakło nad Notecią (starą drogą nr 10). Pozwala poczuć klimat mniejszych miejscowości i poćwiczyć jazdę przez liczne tereny zabudowane"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Bezpieczeństwo w pierwszej trasie",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Zanim wyruszysz, sprawdź stan płynów i ciśnienie w oponach. Jeśli jedziesz w nieznane – używaj nawigacji, ale nie ufaj jej bezgranicznie, zawsze patrz na znaki. Pamiętaj, że poza miastem prędkości są większe, więc droga hamowania drastycznie się wydłuża. Zachowaj bezpieczny odstęp!"
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Zabierz ze sobą pasażera, który ma prawo jazdy – będzie Twoim wsparciem i 'drugą parą oczu'",
+        "Planuj wyjazd tak, by wrócić przed zmrokiem – jazda w nocy na nieznanej trasie jest znacznie trudniejsza",
+        "W Ostromecku i Koronowie są świetne miejsca na kawę – zrób sobie przerwę, by nie dopuścić do zmęczenia",
+        "Umieść 'zielony listek' na szybie – kierowcy na trasie będą bardziej wyrozumiali dla Twoich spokojniejszych manewrów",
+        "Nie spiesz się – niedzielna przejażdżka to relaks, a nie wyścig"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy na autostradę A1 mogę wyjechać sam tuż po egzaminie?",
+          "a": "Możesz, przepisy na to pozwalają. Jednak zalecamy pierwszą jazdę autostradową odbyć z kimś doświadczonym, aby nauczyć się bezpiecznego włączania do ruchu i oceny prędkości innych aut."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Gdzie najlepiej zatankować przed wyjazdem z Bydgoszczy?",
+          "a": "Największy wybór stacji z wygodnym podjazdem masz przy wylotówkach: ul. Szubińska, ul. Fordońska oraz ul. Toruńska."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Gdzie pojechać autem pod Bydgoszcz? Trasy dla kierowców",
+        "metaDescription": "Poznaj najpiękniejsze trasy samochodowe w okolicach Bydgoszczy. Ostromecko, Koronowo, Piechcin. Przewodnik dla początkujących kierowców od Qursant.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "trasy samochodowe Bydgoszcz",
+          "gdzie na wycieczkę autem kujawsko-pomorskie",
+          "nauka jazdy poza miastem",
+          "Ostromecko pałac dojazd",
+          "Zalew Koronowski trasa"
         ]
       }
     }

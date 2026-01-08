@@ -109,389 +109,427 @@
       "image": "instructors/photo-16.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Utrzymanie auta to nie tylko paliwo",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Wielu młodych kierowców tuż po zdaniu egzaminu w Bydgoskim WORD skupia się wyłącznie na cenie zakupu wymarzonego samochodu. Niestety, posiadanie własnych czterech kółek to studnia bez dna, jeśli nie zaplanujesz budżetu z głową. W 2026 roku, przy obecnych cenach usług i energii, koszty te są wyższe niż jeszcze kilka lat temu.",
+            "W szkole jazdy Qursant często powtarzamy naszym kursantom: 'Prawo jazdy to klucz do wolności, ale samochód to stałe zobowiązanie finansowe'. Przyjrzyjmy się realnym kosztom, które będziesz musiał ponosić co miesiąc i co roku, aby Twoje auto było sprawne i bezpieczne."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Stałe wydatki - ubezpieczenie i przeglądy",
           "paragraphs": [
-            "Tekst..."
+            "Największym jednorazowym kosztem dla młodego kierowcy jest ubezpieczenie OC. Brak zniżek i status 'młodego kierowcy' sprawiają, że stawki w Bydgoszczy mogą wahać się od 1500 do nawet 3500 zł rocznie, zależnie od pojemności silnika. Do tego dochodzi badanie techniczne (ok. 100 zł) oraz roczny serwis olejowy (300-600 zł)."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Ubezpieczenie OC: od 150 do 300 zł miesięcznie (rozłożone na raty)",
+            "Badanie techniczne: ok. 8 zł miesięcznie",
+            "Serwis olejowy i filtry: ok. 40 zł miesięcznie",
+            "Fundusz na nagłe naprawy: min. 100 zł miesięcznie"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Paliwo - ile wydasz na dojazdy w Bydgoszczy?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Przyjmując, że będziesz dojeżdżać do pracy lub na uczelnię w obrębie Bydgoszczy (np. z Fordonu do Centrum) i robić ok. 1000 km miesięcznie, przy średnim spalaniu 7l/100km, koszt paliwa wyniesie ok. 450-550 zł miesięcznie. Warto rozważyć auto z instalacją LPG, co może obniżyć ten koszt o niemal połowę, choć wiąże się z droższym przeglądem."
+          ]
+        },
+        {
+          "heading": "Podsumowanie budżetu",
+          "paragraphs": [
+            "Realny koszt utrzymania sprawnego, bezpiecznego auta segmentu B (np. Toyota Yaris czy Ford Fiesta) dla młodego kierowcy w Bydgoszczy to około 800-1100 zł miesięcznie. To kwota, którą musisz mieć 'na czysto' po opłaceniu innych zobowiązań. Pamiętaj, że oszczędzanie na hamulcach czy oponach to oszczędzanie na własnym bezpieczeństwie."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Zawsze miej odłożone 1000 zł 'żelaznej rezerwy' na nagłą awarię",
+        "Tankuj na sprawdzonych stacjach w Bydgoszczy, unikaj najtańszego paliwa niewiadomego pochodzenia",
+        "Sprawdzaj ciśnienie w oponach co miesiąc - złe ciśnienie zwiększa spalanie o ok. 5%",
+        "Dopisanie doświadczonego współwłaściciela (np. rodzica) do dowodu może obniżyć OC o połowę",
+        "Prowadź dziennik kosztów w aplikacji na telefonie - szybko zobaczysz, gdzie uciekają pieniądze"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy warto kupić auto z dieslem na pierwsze auto?",
+          "a": "Tylko jeśli robisz trasy powyżej 30 km w jedną stronę. W mieście (korki w Bydgoszczy na Fordońskiej) diesel szybciej się zużywa i generuje wysokie koszty naprawy osprzętu."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Ile kosztuje przerejestrowanie auta?",
+          "a": "W Bydgoskim Urzędzie Miasta to koszt ok. 160 zł (z nowymi tablicami) lub ok. 80 zł (jeśli zostawiasz stare tablice)."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Koszty utrzymania auta 2026 - Budżet młodego kierowcy",
+        "metaDescription": "Zestawienie realnych kosztów eksploatacji samochodu. Ile wydasz na paliwo, OC i naprawy w Bydgoszczy? Sprawdź przed zakupem.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "koszty utrzymania auta",
+          "ubezpieczenie OC młody kierowca",
+          "ile kosztuje paliwo miesięcznie",
+          "budżet na samochód",
+          "pierwsze auto wydatki"
         ]
       }
     },
     {
-      "id": "2026-01-10-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-01-10-zatrzymanie-prawa-jazdy-przepisy",
+      "slug": "zatrzymanie-prawa-jazdy-przepisy",
+      "title": "Kiedy możesz stracić prawo jazdy? Aktualne przepisy 2026",
+      "excerpt": "Przekroczenie prędkości, punkty karne, a może stan techniczny? Dowiedz się, w jakich sytuacjach policja może zatrzymać Twoje uprawnienia i jak ich nie stracić.",
       "publishDate": "2026-01-10T12:00:00",
       "author": "Robert Langer",
       "category": "prawo",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "zatrzymanie prawa jazdy",
+        "przepisy drogowe",
+        "punkty karne",
+        "mandaty",
+        "prawo"
       ],
       "image": "office/photo-56.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Zatrzymanie uprawnień - co warto wiedzieć?",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Zdobycie prawa jazdy w Qursant Bydgoszcz to powód do dumy, ale utrzymanie go wymaga dyscypliny. Polskie prawo przewiduje kilka sytuacji, w których policja może zatrzymać Twój dokument elektronicznie lub fizycznie. W 2026 roku przepisy są jeszcze bardziej restrykcyjne, szczególnie w kwestii bezpieczeństwa pieszych i rażących naruszeń prędkości.",
+            "Warto znać swoje prawa, ale przede wszystkim obowiązki, aby uniknąć stresującej sytuacji na drodze i konieczności ponownego zdawania egzaminu."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Najczęstsze przyczyny utraty 'prawka'",
           "paragraphs": [
-            "Tekst..."
+            "Najbardziej znaną przyczyną jest przekroczenie prędkości o ponad 50 km/h w obszarze zabudowanym. W Bydgoszczy, na szerokich trasach jak ul. Kamienna czy Fordońska, łatwo o chwilę nieuwagi, która skutkuje utratą dokumentu na 3 miesiące."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Przekroczenie prędkości o 50+ km/h w mieście - 3 miesiące bez jazdy",
+            "Przekroczenie limitu 24 punktów karnych (lub 20 dla kierowców w 1. roku)",
+            "Jazda pod wpływem alkoholu lub środków odurzających",
+            "Spowodowanie wypadku lub rażącego zagrożenia w ruchu lądowym",
+            "Przewożenie zbyt dużej liczby pasażerów (minimum 3 osoby ponad limit)"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Procedura zatrzymania dokumentu",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Obecnie policja nie zabiera fizycznego plastiku, lecz dokonuje wpisu w systemie CEPiK. Od tego momentu Twoje uprawnienia są zawieszone. Jeśli mimo to wsiądziesz za kółko, okres kary zostanie przedłużony do 6 miesięcy, a kolejna wpadka oznacza całkowite cofnięcie uprawnień i konieczność przejścia kursu od nowa."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Monitoruj swój stan punktów w aplikacji mObywatel",
+        "Zwalniaj przed każdym przejściem dla pieszych - w 2026 mandaty za to są rekordowe",
+        "Jeśli stracisz uprawnienia na 3 miesiące - NIE RYZYKUJ jazdy, kamery monitoringu w Bydgoszczy wyłapują takie auta",
+        "W przypadku błędu policji, masz prawo do odwołania się od decyzji administracyjnej w ciągu 14 dni",
+        "Pamiętaj o zerowej tolerancji dla alkoholu - limit 0.2 promila to dla bezpieczeństwa 0.0"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy po 3 miesiącach muszę zdawać egzamin ponownie?",
+          "a": "Nie, jeśli zatrzymanie trwało tylko 3 miesiące. Uprawnienia zostają odblokowane automatycznie po opłaceniu opłaty ewidencyjnej w urzędzie."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Co jeśli przekroczę punkty karne?",
+          "a": "Zostaniesz skierowany na egzamin kontrolny (teoria i praktyka) oraz badania psychologiczne. To praktycznie powtórka całego stresu egzaminacyjnego."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Utrata prawa jazdy 2026 - Za co policja zabiera uprawnienia?",
+        "metaDescription": "Aktualne powody zatrzymania prawa jazdy. Prędkość, punkty karne, pasażerowie. Dowiedz się, jak nie stracić prawka i co robić po zatrzymaniu.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "zatrzymanie prawa jazdy",
+          "utrata uprawnień kierowca",
+          "punkty karne 2026",
+          "mandat za prędkość",
+          "przepisy drogowe Bydgoszcz"
         ]
       }
     },
     {
-      "id": "2026-01-15-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-01-15-jak-ocenia-egzaminator-word-bydgoszcz",
+      "slug": "jak-ocenia-egzaminator-word-bydgoszcz",
+      "title": "Jak ocenia egzaminator? Kulisy egzaminu w WORD Bydgoszcz",
+      "excerpt": "Czym różni się błąd od błędu skutkującego przerwaniem egzaminu? Dowiedz się, na co zwraca uwagę egzaminator i jak uniknąć najczęstszych pomyłek.",
       "publishDate": "2026-01-15T12:00:00",
       "author": "Robert Langer",
       "category": "egzaminy",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "egzaminator WORD",
+        "egzamin praktyczny",
+        "ocena egzaminu",
+        "prawo jazdy Bydgoszcz",
+        "porady egzaminacyjne"
       ],
       "image": "instructors/photo-24.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Egzaminator to też człowiek, ale ma swoje zasady",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Większość kursantów przed egzaminem w Bydgoskim WORD przy ul. Wyszyńskiego wyobraża sobie egzaminatora jako surowego sędziego, który tylko czeka na najmniejszy błąd. Rzeczywistość jest inna: zadaniem egzaminatora jest sprawdzenie, czy Twoja jazda jest bezpieczna dla Ciebie i innych uczestników ruchu.",
+            "W szkole Qursant uczymy nie tylko techniki jazdy, ale też zrozumienia kryteriów oceny. Wiedza o tym, co jest traktowane jako błąd drobny, a co kończy egzamin, znacząco obniża stres i pomaga skupić się na tym, co naprawdę ważne."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Błąd mniejszy vs Błąd krytyczny",
           "paragraphs": [
-            "Tekst..."
+            "Na egzaminie państwowym możesz popełnić jeden błąd w danej kategorii zadań (np. przy parkowaniu) i nadal zdać. Dopiero drugie powtórzenie tego samego błędu skutkuje wynikiem negatywnym. Istnieją jednak sytuacje, w których egzaminator musi przerwać jazdę natychmiast."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Błąd mniejszy: zgaszenie silnika, brak kierunkowskazu przy manewrze, najechanie na linię (nie przejechanie)",
+            "Błąd krytyczny: wymuszenie pierwszeństwa, zignorowanie czerwonego światła, wyprzedzanie na przejściu dla pieszych",
+            "Błąd krytyczny: stworzenie bezpośredniego zagrożenia (egzaminator musi użyć hamulca)",
+            "Zignorowanie poleceń egzaminatora lub wjazd pod zakaz"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Na co egzaminator zwraca uwagę najbardziej?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Oprócz twardych przepisów, egzaminator ocenia Twoją pewność za kierownicą i tzw. dynamikę jazdy. Jeśli będziesz jechać 30 km/h na drodze, gdzie można jechać 50 km/h, utrudniając ruch - możesz zostać oceniony negatywnie. Kluczowa jest również obserwacja: egzaminator widzi każde Twoje spojrzenie w lusterka lub jego brak. Pokaż mu, że wiesz, co dzieje się dookoła samochodu."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Jeśli popełnisz błąd (np. zgaśnie Ci silnik) - nie panikuj! Spokojnie odpal i jedź dalej, to tylko jeden błąd",
+        "Słuchaj uważnie poleceń, jeśli czegoś nie dosłyszysz - poproś o powtórzenie",
+        "Podczas egzaminu 'rozmawiaj' z egzaminatorem swoją jazdą - pokazuj wyraźnie, że patrzysz w lusterka",
+        "Pamiętaj o zatrzymaniu się na strzałce warunkowej - w Bydgoszczy to częsty powód oblania",
+        "Bądź kulturalny - dobre wrażenie od samego wejścia do auta pomaga budować atmosferę współpracy"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy egzaminator może rozmawiać ze mną podczas jazdy?",
+          "a": "Może, ale nie musi. Większość egzaminatorów ogranicza się do wydawania poleceń, aby Cię nie rozpraszać. Jeśli on zacznie rozmowę, możesz odpowiedzieć, ale skup się przede wszystkim na drodze."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Co jeśli uważam, że ocena była niesprawiedliwa?",
+          "a": "Masz prawo do złożenia odwołania od wyniku egzaminu w terminie 14 dni. Egzaminy są nagrywane, więc materiał dowodowy jest zawsze dostępny."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Zasady oceny egzaminu na prawo jazdy - WORD Bydgoszcz",
+        "metaDescription": "Poznaj kulisy pracy egzaminatora. Za co można oblać, a co jest wybaczane? Praktyczny przewodnik po egzaminie praktycznym w Bydgoszczy.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "kryteria oceny egzaminu",
+          "egzaminator WORD Bydgoszcz",
+          "błąd krytyczny prawo jazdy",
+          "jak zdać egzamin praktyczny",
+          "arkusz przebiegu egzaminu"
         ]
       }
     },
     {
-      "id": "2026-01-20-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-01-20-ecodriving-jak-jezdzic-ekonomicznie",
+      "slug": "ecodriving-jak-jezdzic-ekonomicznie",
+      "title": "Ecodriving - jak oszczędzać paliwo i dbać o silnik? Poradnik 2026",
+      "excerpt": "Wysokie ceny paliw? Poznaj zasady ekonomicznej jazdy. Dowiedz się, jak proste nawyki mogą obniżyć spalanie o 20% i przedłużyć życie Twojego auta.",
       "publishDate": "2026-01-20T12:00:00",
       "author": "Robert Langer",
       "category": "porady",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "ecodriving",
+        "oszczędność paliwa",
+        "technika jazdy",
+        "ekonomia",
+        "ekologia"
       ],
       "image": "office/photo-59.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Ecodriving to nie tylko ekologia, to czysty zysk",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "W 2026 roku oszczędna jazda to już nie moda, a konieczność. Ecodriving to zestaw prostych technik, które pozwalają na płynne poruszanie się w ruchu miejskim (szczególnie w tak zakorkowanym mieście jak Bydgoszcz) przy jednoczesnym minimalizowaniu zużycia podzespołów samochodu.",
+            "W Szkole Jazdy Qursant uczymy tych zasad od pierwszej lekcji. Dzięki nim nasi kursanci nie tylko zdają egzamin (gdzie ecodriving jest oceniany!), ale stają się świadomymi kierowcami, którzy nie marnują pieniędzy na stacji benzynowej."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Złote zasady ekonomicznej jazdy",
           "paragraphs": [
-            "Tekst..."
+            "Najważniejszą zasadą jest jazda przewidująca. Obserwuj drogę kilkaset metrów przed sobą. Jeśli widzisz, że na skrzyżowaniu (np. na Rondzie Jagiellonów) zmienia się światło na czerwone - nie przyspieszaj, tylko puść nogę z gazu i tocz się na biegu."
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Hamowanie silnikiem: zawsze puszczaj gaz wcześniej, zamiast gwałtownie hamować przed światłami",
+            "Wczesna zmiana biegów: wrzucaj wyższy bieg jak najszybciej (zazwyczaj przy 2000-2500 obr./min)",
+            "Stała prędkość: unikaj szarpania, gwałtownych przyspieszeń i niepotrzebnych zmian pasów",
+            "Prawidłowe ciśnienie w oponach: zbyt niskie ciśnienie to opór, który kosztuje Cię dodatkowe litry paliwa",
+            "Wyłączanie silnika: jeśli postój trwa dłużej niż 30 sekund, warto wyłączyć silnik (o ile nie masz systemu start-stop)"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Hamowanie silnikiem - o co w tym chodzi?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "To najprostsza metoda oszczędzania. Gdy zdejmujesz nogę z gazu, zostawiając auto na biegu, dopływ paliwa do silnika zostaje całkowicie odcięty. Samochód toczy się, a Ty jedziesz za darmo. Wiele osób popełnia błąd 'wrzucając na luz' - wtedy silnik musi spalać paliwo, aby podtrzymać obroty jałowe. Pamiętaj: luz to wróg Twojego portfela!"
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Wyrzuć z bagażnika zbędne rzeczy - każde dodatkowe 50 kg to większe spalanie",
+        "Używaj klimatyzacji z głową - przy małych prędkościach w mieście lepiej uchylić okno",
+        "Przy wyższych prędkościach na trasie zamknij okna - opór powietrza jest wtedy ważniejszy niż klimatyzacja",
+        "Planuj trasę przed wyjazdem - unikaj stania w korkach na moście Bernardyńskim w godzinach szczytu",
+        "Utrzymuj bezpieczny odstęp - pozwala on na płynne wytracanie prędkości bez używania hamulca"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy ecodriving niszczy silnik lub dwumasę?",
+          "a": "Wręcz przeciwnie! Płynna jazda i brak gwałtownych szarpnięć przedłużają życie podzespołów. Jedynie jazda na zbyt niskich obrotach (tzw. 'duszenie silnika') może być szkodliwa - trzeba czuć swój samochód."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Ile paliwa realnie mogę zaoszczędzić?",
+          "a": "Stosując wszystkie zasady ecodrivingu, możesz obniżyć średnie spalanie w mieście nawet o 15-25%. Przy dzisiejszych cenach paliwa to kilkaset złotych oszczędności rocznie."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Zasady Ecodrivingu - Jak oszczędzać paliwo? Porady Qursant",
+        "metaDescription": "Naucz się jeździć ekonomicznie. Techniki ecodrivingu, hamowanie silnikiem, planowanie trasy. Sprawdź, jak płacić mniej za paliwo w Bydgoszczy.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "ecodriving zasady",
+          "ekonomiczna jazda",
+          "hamowanie silnikiem",
+          "jak oszczędzać paliwo",
+          "ekologiczna jazda samochodem"
         ]
       }
     },
     {
-      "id": "2026-01-25-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-01-25-nowoczesne-systemy-adas-2026",
+      "slug": "nowoczesne-systemy-adas-2026",
+      "title": "Systemy ADAS – Twoi nowi asystenci za kierownicą. Co potrafią auta w 2026?",
+      "excerpt": "Kamery, radary, czujniki. Dowiedz się, jak działają nowoczesne systemy bezpieczeństwa ADAS i dlaczego warto umieć z nich korzystać (ale im nie ufać bezgranicznie).",
       "publishDate": "2026-01-25T12:00:00",
       "author": "Robert Langer",
       "category": "aktualnosci",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "ADAS",
+        "bezpieczeństwo",
+        "technologie",
+        "samochody 2026",
+        "systemy wspomagające"
       ],
       "image": "instructors/photo-15.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Rewolucja bezpieczeństwa w Twoim aucie",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Jeszcze kilka lat temu systemy takie jak asystent pasa ruchu czy automatyczne hamowanie były domeną aut luksusowych. W 2026 roku, dzięki unijnym przepisom i rozwojowi technologii, systemy ADAS (Advanced Driver Assistance Systems) są standardem nawet w najmniejszych miejskich samochodach, którymi jeździsz na kursie w Qursant Bydgoszcz.",
+            "Warto wiedzieć, jak te systemy działają, ponieważ z jednej strony mogą uratować życie, a z drugiej – mogą zaskoczyć niedoświadczonego kierowcę gwałtowną reakcją (np. szarpnięciem kierownicy przy najechaniu na linię)."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Najważniejsze systemy ADAS w nowoczesnym aucie",
           "paragraphs": [
-            "Tekst..."
+            "Współczesne samochody są naszpikowane elektroniką, która widzi więcej niż ludzkie oko. Oto asystenci, z którymi najpewniej spotkasz się w swoim pierwszym samochodzie:"
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "AEB (Autonomous Emergency Braking): system automatycznego hamowania, gdy wykryje przeszkodę, a kierowca nie zareaguje",
+            "LKA (Lane Keep Assist): asystent utrzymania pasa ruchu, który delikatnie koryguje tor jazdy, jeśli zaczniesz zjeżdżać z pasa bez kierunkowskazu",
+            "BSD (Blind Spot Detection): system monitorowania martwego pola – dioda w lusterku ostrzega o aucie, którego nie widzisz",
+            "ACC (Adaptive Cruise Control): aktywny tempomat, który sam utrzymuje bezpieczny odstęp od auta przed Tobą",
+            "RCTA (Rear Cross Traffic Alert): bezcenny przy wyjeżdżaniu tyłem z parkingu pod galerią Focus Mall – ostrzega o autach nadjeżdżających z boku"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Zasada ograniczonego zaufania do elektroniki",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "W szkole Qursant uczymy: systemy bezpieczeństwa to POMOC, a nie ZASTĘPSTWO dla kierowcy. Kamera może zostać oślepiona przez słońce, radar może nie wykryć pieszego w gęstej mgle, a czujniki parkowania mogą nie 'widzieć' cienkiego słupka. Pamiętaj, że to Ty odpowiadasz za pojazd. Korzystaj z technologii, ale zawsze trzymaj ręce na kierownicy i oczy dookoła głowy."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Naucz się rozpoznawać ikony systemów na desce rozdzielczej – musisz wiedzieć, kiedy asystent jest aktywny",
+        "Jeśli system LKA Cię irytuje szarpnięciami – sprawdź, czy nie najeżdżasz na linie bez kierunkowskazu (to częsty błąd!)",
+        "Dbaj o czystość szyb i zderzaków – brudne czujniki i kamery działają gorzej lub wcale",
+        "Przed zakupem auta sprawdź, jakie systemy ma na pokładzie – to realnie wpływa na Twoje bezpieczeństwo",
+        "Pamiętaj: systemy ADAS nie zwalniają Cię z obowiązku patrzenia w lusterka!"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy na egzaminie mogę korzystać z kamery cofania?",
+          "a": "Możesz traktować ją jako pomoc, ale egzaminator musi widzieć, że obserwujesz otoczenie przez okna i w lusterkach. Poleganie wyłącznie na ekranie to błąd."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Czy asystent pasa ruchu sam skręca w zakrętach?",
+          "a": "Nie, on tylko koryguje tor jazdy na prostych i łagodnych łukach. Na ostrym zakręcie system się wyłączy, dlatego zawsze musisz kierować sam."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Systemy bezpieczeństwa ADAS 2026 - Jak działają w aucie?",
+        "metaDescription": "Poznaj nowoczesnych asystentów kierowcy. AEB, LKA, martwe pole. Dowiedz się, jak technologia ADAS pomaga unikać wypadków na drodze.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "systemy ADAS w samochodzie",
+          "asystent pasa ruchu jak działa",
+          "automatyczne hamowanie AEB",
+          "technologie w samochodach 2026",
+          "bezpieczeństwo czynne w aucie"
         ]
       }
     },
     {
-      "id": "2026-01-30-SLUG",
-      "slug": "SLUG",
-      "title": "TYTUŁ BLOGA",
-      "excerpt": "Krótki opis bloga (150-200 znaków)...",
+      "id": "2026-01-30-gdzie-na-przerwe-podczas-nauk-jazdy-bydgoszcz",
+      "slug": "gdzie-na-przerwe-podczas-nauk-jazdy-bydgoszcz",
+      "title": "Gdzie na przerwę i kawę podczas jazd? Bydgoskie miejsca dla kursantów",
+      "excerpt": "Długa trasa, intensywne manewry – każdemu należy się chwila odpoczynku. Poznaj najlepsze miejsca w Bydgoszczy na szybką przerwę podczas kursu.",
       "publishDate": "2026-01-30T12:00:00",
       "author": "Robert Langer",
       "category": "lokalne",
       "tags": [
-        "szkoła jazdy",
-        "bydgoszcz",
-        "prawo jazdy"
+        "Bydgoszcz lokalne",
+        "przerwa na kawę",
+        "kursant porady",
+        "nauka jazdy Bydgoszcz",
+        "miejsca w Bydgoszczy"
       ],
       "image": "cars/photo-36.webp",
       "sections": [
         {
-          "heading": "Wprowadzenie",
+          "heading": "Odpoczynek to część szkolenia",
           "paragraphs": [
-            "Tekst wprowadzający...",
-            "Kolejny akapit..."
+            "Jazdy w szkole Qursant Bydgoszcz trwają zazwyczaj dwie godziny zegarowe. To czas intensywnego wysiłku intelektualnego – musisz obserwować znaki, innych kierowców, pieszych i jednocześnie kontrolować maszynę. Zmęczenie obniża koncentrację, co widać szczególnie w drugiej godzinie zajęć.",
+            "Warto wiedzieć, że w trakcie jazd masz prawo do krótkiej przerwy (np. na toaletę czy szybką kawę). Nasi instruktorzy doskonale znają Bydgoszcz i wiedzą, gdzie można się zatrzymać, aby nie tracić czasu w korkach, a jednocześnie chwilę odetchnąć."
           ]
         },
         {
-          "heading": "Główna część",
+          "heading": "Sprawdzone punkty postojowe dla kursantów",
           "paragraphs": [
-            "Tekst..."
+            "Wybór miejsca na przerwę zależy od tego, w jakiej części miasta aktualnie ćwiczymy. Oto najpopularniejsze 'przystanki' naszych kursantów:"
           ],
           "list": [
-            "Punkt 1",
-            "Punkt 2",
-            "Punkt 3"
+            "Okolice WORD (ul. Wyszyńskiego): Stacja Orlen lub McDonald's – idealne na szybką kawę przed powrotem do biura szkoły",
+            "Dzielnica Fordon: Stacje benzynowe przy ul. Akademickiej lub Andersa – mają wygodne parkingi, gdzie można bezpiecznie zostawić eLkę",
+            "Centrum (okolice Jagiellońskiej): Parking przy Focus Mall – doskonałe miejsce, by przy okazji przerwy poćwiczyć parkowanie w ciasnych miejscach",
+            "Myślęcinek: Parking przy Zoo – jeśli mamy chwilę, to najlepsze miejsce na oddech świeżym powietrzem przed trudnymi rondami",
+            "Błonie / Szwederowo: Stacje paliw przy ul. Szubińskiej – łatwy wjazd i wyjazd, co jest ważne dla początkujących"
           ]
         },
         {
-          "heading": "Podsumowanie",
+          "heading": "Jak mądrze wykorzystać przerwę?",
           "paragraphs": [
-            "Tekst podsumowujący..."
+            "Przerwa to nie tylko kawa. To moment, w którym możesz na spokojnie omówić z instruktorem trudną sytuację, która wydarzyła się 15 minut wcześniej na skrzyżowaniu. Bez stresu związanego z prowadzeniem, przy zgaszonym silniku, wiedza wchodzi do głowy znacznie lepiej. Wykorzystaj ten czas, by zadać pytania, których bałeś się zadać w trakcie jazdy."
           ]
         }
       ],
       "tips": [
-        "Wskazówka 1",
-        "Wskazówka 2",
-        "Wskazówka 3",
-        "Wskazówka 4",
-        "Wskazówka 5"
+        "Zawsze pytaj instruktora o możliwość przerwy, jeśli czujesz, że tracisz koncentrację – to Twoje bezpieczeństwo",
+        "Wybieraj miejsca z dużym parkingiem – unikniesz stresu przy parkowaniu podczas przerwy",
+        "Krótka gimnastyka (kilka skłonów, krążenia ramion) po godzinie siedzenia w aucie zdziała cuda",
+        "Pamiętaj o nawodnieniu! Butelka wody w schowku to podstawa każdego kierowcy",
+        "Jeśli pijesz kawę – unikaj tej najmocniejszej, która może wywołać drżenie rąk przy operowaniu sprzęgłem"
       ],
       "faq": [
         {
-          "q": "Pytanie 1?",
-          "a": "Odpowiedź 1..."
+          "q": "Czy czas przerwy wlicza się do czasu jazdy?",
+          "a": "Tak, zgodnie z przepisami 2 godziny szkolenia to czas od wejścia do auta do zakończenia zajęć. Krótka przerwa jest jednak niezbędna dla zachowania higieny pracy i lepszej nauki."
         },
         {
-          "q": "Pytanie 2?",
-          "a": "Odpowiedź 2..."
+          "q": "Gdzie w Bydgoszczy są najwygodniejsze toalety dla kierowców?",
+          "a": "Zeczydowanie na nowoczesnych stacjach benzynowych (Orlen, Shell, BP) oraz w galeriach handlowych (Focus, Zielone Arkady)."
         }
       ],
       "seo": {
-        "metaTitle": "TYTUŁ BLOGA - Szkoła Jazdy Qursant Bydgoszcz",
-        "metaDescription": "Krótki opis bloga do meta description (max 160 znaków)...",
+        "metaTitle": "Przerwa podczas nauk jazdy Bydgoszcz - Najlepsze miejsca",
+        "metaDescription": "Gdzie zatrzymać się na kawę podczas jazd w Bydgoszczy? Sprawdzone punkty postojowe dla kursantów. Jak odpoczywać, by jeździć bezpieczniej.",
         "keywords": [
-          "keyword1",
-          "keyword2",
-          "keyword3"
+          "nauka jazdy Bydgoszcz przerwa",
+          "gdzie na kawę Bydgoszcz kierowca",
+          "WORD Bydgoszcz okolice",
+          "odpoczynek podczas kursu prawa jazdy",
+          "stacje benzynowe Bydgoszcz toalety"
         ]
       }
     }
