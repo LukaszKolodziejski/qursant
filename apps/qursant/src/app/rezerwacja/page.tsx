@@ -299,7 +299,15 @@ export default function RezerwacjaPage() {
 
   return (
     <div className="min-h-screen">
-      <Toaster position="top-center" />
+      <Toaster 
+        position="bottom-center" 
+        toastOptions={{
+          style: {
+            maxWidth: '90vw',
+            margin: '0 auto 20px auto',
+          },
+        }}
+      />
 
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950">
@@ -360,9 +368,9 @@ export default function RezerwacjaPage() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-8 border border-blue-500/20"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {/* Imię i nazwisko */}
                 <div>
                   <label className="flex items-center text-white mb-2">
@@ -408,7 +416,7 @@ export default function RezerwacjaPage() {
                     <select
                       value={countryCode}
                       onChange={(e) => handleCountryCodeChange(e.target.value as CountryCode)}
-                      className="px-3 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-blue-500 min-w-[100px]"
+                      className="px-2 sm:px-3 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-blue-500 text-sm sm:text-base shrink-0"
                     >
                       <option value="+48" className="bg-gray-900">🇵🇱 +48</option>
                       <option value="+380" className="bg-gray-900">🇺🇦 +380</option>
@@ -418,7 +426,7 @@ export default function RezerwacjaPage() {
                       required
                       value={formData.phone}
                       onChange={handlePhoneChange}
-                      className={`flex-1 px-4 py-3 rounded-lg bg-white/10 border text-white placeholder-white/50 focus:outline-none transition-colors ${
+                      className={`flex-1 min-w-0 px-3 sm:px-4 py-3 rounded-lg bg-white/10 border text-white placeholder-white/50 focus:outline-none transition-colors ${
                         validationErrors.phone 
                           ? 'border-red-500 focus:border-red-400' 
                           : 'border-white/20 focus:border-blue-500'
