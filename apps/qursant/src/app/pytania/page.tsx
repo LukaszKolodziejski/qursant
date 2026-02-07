@@ -63,7 +63,7 @@ export default function PytaniaPage() {
         name: 'Od jakiego wieku można zacząć kurs na prawo jazdy?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Kurs na prawo jazdy kategorii B możesz rozpocząć po ukończeniu 17 lat i 9 miesięcy. Egzamin państwowy możesz zdawać po ukończeniu 18 roku życia.',
+          text: 'Od 3 marca 2026 kurs na prawo jazdy kategorii B możesz rozpocząć już po ukończeniu 16 lat i 9 miesięcy. Egzamin państwowy możesz zdawać po ukończeniu 18 roku życia.',
         },
       },
       {

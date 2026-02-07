@@ -49,7 +49,7 @@ export default function PytaniaContent() {
           id: 'wymagania',
           question: 'Jakie są wymagania, aby rozpocząć kurs?',
           answer:
-            'Aby rozpocząć kurs, musisz: mieć ukończone 17 lat i 9 miesięcy, posiadać numer PKK (Profil Kandydata na Kierowcę), przejść badania lekarskie oraz dostarczyć zdjęcie do dokumentów. Pomagamy w załatwieniu wszystkich formalności.',
+            'Aby rozpocząć kurs, musisz: mieć ukończone 16 lat i 9 miesięcy (od 3 marca 2026), posiadać numer PKK (Profil Kandydata na Kierowcę), przejść badania lekarskie oraz dostarczyć zdjęcie do dokumentów. Pomagamy w załatwieniu wszystkich formalności.',
         },
         {
           id: 'egzaminy',
@@ -67,7 +67,7 @@ export default function PytaniaContent() {
           id: 'wiek',
           question: 'W jakim wieku mogę zacząć kurs?',
           answer:
-            'Kurs można rozpocząć już w wieku 17 lat i 9 miesięcy. Egzamin teoretyczny można zdawać 3 miesiące przed 18. urodzinami, natomiast egzamin praktyczny można zdać najwcześniej w dniu 18. urodzin. Warto rozpocząć kurs wcześniej, aby być gotowym do egzaminu praktycznego zaraz po osiągnięciu pełnoletności.',
+            '✨ NOWOŚĆ od 3 marca 2026! Kurs można rozpocząć już w wieku 16 lat i 9 miesięcy. Egzamin teoretyczny można zdawać 3 miesiące przed 18. urodzinami, natomiast egzamin praktyczny można zdać najwcześniej w dniu 18. urodzin. Warto rozpocząć kurs wcześniej, aby być gotowym do egzaminu praktycznego zaraz po osiągnięciu pełnoletności. Zapraszamy 17-latków!',
         },
       ],
     },

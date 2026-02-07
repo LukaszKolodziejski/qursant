@@ -77,10 +77,10 @@
       }
     },
     {
-      "id": "2026-02-09-kurs-standardowy-czy-ekspresowy-porownanie",
-      "slug": "kurs-standardowy-czy-ekspresowy-porownanie",
-      "title": "Kurs ekspresowy vs standardowy – który wybrać i dlaczego?",
-      "excerpt": "Zależy Ci na czasie, czy wolisz uczyć się we własnym tempie? Porównujemy koszty, zalety i wady kursów prawa jazdy w Bydgoszczy.",
+      "id": "2026-02-09-kurs-dla-17-latkow-standardowy-czy-ekspresowy",
+      "slug": "kurs-dla-17-latkow-standardowy-czy-ekspresowy",
+      "title": "Kurs dla 17-latków: ekspresowy czy standardowy? Nowość od 3 marca 2026!",
+      "excerpt": "Od 3 marca 2026 możesz zacząć kurs już w wieku 16 lat i 9 miesięcy! Zależy Ci na czasie, czy wolisz uczyć się we własnym tempie? Porównujemy koszty, zalety i wady kursów prawa jazdy dla 17-latków w Bydgoszczy.",
       "publishDate": "2026-02-09T12:00:00",
       "author": "Robert Langer",
       "category": "ceny",
@@ -89,7 +89,9 @@
         "cena prawa jazdy",
         "czas trwania kursu",
         "prawo jazdy Bydgoszcz",
-        "szkoła jazdy"
+        "szkoła jazdy",
+        "prawo jazdy dla 17-latków",
+        "kurs od 16 lat"
       ],
       "image": "office/photo-48.webp",
       "sections": [
@@ -119,6 +121,13 @@
           ]
         },
         {
+          "heading": "✨ NOWOŚĆ 2026: Kurs już od 16 lat i 9 miesięcy!",
+          "paragraphs": [
+            "Od 3 marca 2026 roku wchodzi w życie zmiana ustawy, która pozwala na rozpoczęcie kursu na prawo jazdy kategorii B już w wieku 16 lat i 9 miesięcy! To rewolucyjna zmiana dla tysięcy młodych ludzi w Bydgoszczy. Oznacza to, że 17-latkowie mogą rozpocząć naukę jazdy znacznie wcześniej i być gotowi do egzaminu praktycznego zaraz po ukończeniu 18 lat.",
+            "W Qursancie już przygotowujemy się na napływ młodszych kursantów. Zarówno kurs ekspresowy, jak i standardowy jest dostępny dla osób od 16 lat i 9 miesięcy. Szczególnie polecamy młodym ludziom kurs standardowy rozłożony w czasie – daje on szansę na dojrzałe przyswojenie wiedzy i budowanie odpowiedzialnych nawyków drogowych. Młody wiek to nie przeszkoda, a wręcz zaleta – młodsi kursanci uczą się szybciej i są bardziej otwarci na nowe umiejętności!"
+          ]
+        },
+        {
           "heading": "Analiza kosztów 2026",
           "paragraphs": [
             "W 2026 roku średnia cena kursu standardowego w Bydgoszczy to ok. 3200-3600 zł. Kurs ekspresowy to wydatek rzędu 4000-4500 zł. Wyższa cena 'ekspresu' wynika z konieczności priorytetowego traktowania kursanta przez instruktora i dopasowania grafiku tak, by jazdy odbywały się codziennie."
@@ -140,13 +149,19 @@
         {
           "q": "Jak szybko mogę zacząć kurs ekspresowy?",
           "a": "Zazwyczaj od ręki, po wyrobieniu numeru PKK. W Qursancie staramy się startować w ciągu 3-5 dni od zgłoszenia."
+        },
+        {
+          "q": "Od jakiego wieku mogę rozpocząć kurs na prawo jazdy?",
+          "a": "Od 3 marca 2026 kurs można rozpocząć już w wieku 16 lat i 9 miesięcy! Zapraszamy 17-latków na zarówno kurs ekspresowy, jak i standardowy. Egzamin praktyczny można zdawać dopiero po ukończeniu 18 lat."
         }
       ],
       "seo": {
-        "metaTitle": "Kurs ekspresowy na prawo jazdy Bydgoszcz – czy warto?",
-        "metaDescription": "Porównanie kursu szybkiego i standardowego. Poznaj ceny, wady i zalety szkolenia ekspresowego w Bydgoszczy. Sprawdź, co wybrać!",
+        "metaTitle": "Kurs na prawo jazdy od 16 lat i 9 miesięcy - ekspresowy czy standardowy?",
+        "metaDescription": "Od 3 marca 2026 możesz zacząć kurs już w wieku 16 lat i 9 miesięcy! Porównanie kursu szybkiego i standardowego dla 17-latków. Poznaj ceny, wady i zalety w Bydgoszczy.",
         "keywords": [
           "kurs ekspresowy prawo jazdy Bydgoszcz",
+          "prawo jazdy od 16 lat",
+          "kurs dla 17-latków",
           "szybkie prawo jazdy",
           "cena kursu na prawo jazdy",
           "prawo jazdy w 15 dni",
@@ -370,10 +385,10 @@
       }
     },
     {
-      "id": "2026-03-01-samochody-elektryczne-w-szkoleniu-kierowcow",
-      "slug": "samochody-elektryczne-w-szkoleniu-kierowcow",
-      "title": "Samochody elektryczne w szkołach jazdy – czy warto uczyć się na elektryku?",
-      "excerpt": "Cisza, brak biegów i ogromne przyspieszenie. Sprawdź, jak wygląda szkolenie na autach EV i czy w Bydgoszczy warto zdawać egzamin automatem.",
+      "id": "2026-03-01-samochody-elektryczne-dla-mlodych-kierowcow-17-latkow",
+      "slug": "samochody-elektryczne-dla-mlodych-kierowcow-17-latkow",
+      "title": "Samochody elektryczne dla 17-latków – idealne auto do nauki jazdy od 16 lat!",
+      "excerpt": "Od 3 marca 2026 na kurs możesz zapisać się już w wieku 16 lat i 9 miesięcy! Cisza, brak biegów i ogromne przyspieszenie – sprawdź, jak wygląda szkolenie na autach EV dla młodych kierowców i czy warto zdawać egzamin automatem.",
       "publishDate": "2026-03-01T12:00:00",
       "author": "Robert Langer",
       "category": "aktualnosci",
@@ -382,7 +397,9 @@
         "prawo jazdy automat",
         "przyszłość motoryzacji",
         "szkolenie kierowców",
-        "EV"
+        "EV",
+        "prawo jazdy dla 17-latków",
+        "kurs od 16 lat"
       ],
       "image": "instructors/photo-1.webp",
       "sections": [
@@ -411,6 +428,14 @@
           "paragraphs": [
             "W 2026 roku coraz mniej osób postrzega kod 78 (prawo jazdy tylko na automat) jako wadę. Rynek aut używanych i nowych w Polsce szybko nasyca się automatami i elektrykami. Jeśli wiesz, że Twoje przyszłe auto będzie miało automatyczną skrzynię, nauka na elektryku w Qursancie może być najszybszą i najmniej stresującą drogą do zdobycia 'prawka'."
           ]
+        },
+        {
+          "heading": "✨ Auta elektryczne idealne dla 17-latków – nowość od 3 marca!",
+          "paragraphs": [
+            "Od 3 marca 2026 obowiązuje nowa ustawa pozwalająca na rozpoczęcie kursu na prawo jazdy kat. B już w wieku 16 lat i 9 miesięcy! To oznacza, że tysiące 17-latków w Bydgoszczy może teraz wcześniej rozpocząć naukę jazdy. Samochody elektryczne z automatyczną skrzynią biegów to wyjątkowo dobry wybór dla młodych kursantów!",
+            "Dlaczego? Młodzi ludzie są cyfrowi natywni – doskonale radzą sobie z nowoczesnymi technologiami, ekranami dotykowymi i interfejsami multimedialnymi, które są standardem w elektrykach. Eliminacja skrzyni manualnej pozwala młodym kierowcom skupić się na tym, co najważniejsze: na bezpiecznym poruszaniu się w ruchu drogowym, obserwacji innych uczestników ruchu i budowaniu dobrych nawyków. Mniej stresu, więcej koncentracji na bezpieczeństwie – to idealna kombinacja dla debiutujących kierowców.",
+            "W Qursancie widzimy, że młodsi kursanci szybciej przyswajają wiedzę o systemach wspomagających (asystent pasa ruchu, tempomat adaptacyjny, parkowanie automatyczne). Jeśli jesteś rodzicem 17-latka i zastanawiasz się, jak bezpiecznie wprowadzić swoje dziecko w świat motoryzacji – rozważ kurs na aucie elektrycznym. To inwestycja nie tylko w umiejętności, ale i w świadomość ekologiczną."
+          ]
         }
       ],
       "tips": [
@@ -428,14 +453,20 @@
         {
           "q": "Czy WORD Bydgoszcz ma samochody elektryczne?",
           "a": "WORD systematycznie modernizuje flotę. Obecnie większość egzaminów na automat odbywa się na autach hybrydowych lub elektrycznych dostarczanych przez szkoły jazdy."
+        },
+        {
+          "q": "Czy 17-latek może uczyć się na samochodzie elektrycznym?",
+          "a": "Tak! Od 3 marca 2026 roku kurs można rozpocząć już w wieku 16 lat i 9 miesięcy. Samochody elektryczne z automatem to świetny wybór dla młodych kursantów – mniej stresu, więcej koncentracji na bezpieczeństwie. Zapraszamy 17-latków do Qursant!"
         }
       ],
       "seo": {
-        "metaTitle": "Nauka jazdy samochodem elektrycznym – czy warto? 2026",
-        "metaDescription": "Elektryczne eLki w Bydgoszczy. Poznaj wady i zalety szkolenia na autach EV. Dowiedz się, co oznacza kod 78 w prawie jazdy i dlaczego automat to przyszłość.",
+        "metaTitle": "Samochody elektryczne dla 17-latków – nauka jazdy od 16 lat i 9 miesięcy",
+        "metaDescription": "Od 3 marca 2026 kurs już w wieku 16 lat i 9 miesięcy! Poznaj zalety nauki jazdy na autach elektrycznych dla młodych kierowców. Kod 78, automat i bezpieczeństwo w Qursant Bydgoszcz.",
         "keywords": [
           "samochód elektryczny nauka jazdy",
           "prawo jazdy na automat Bydgoszcz",
+          "prawo jazdy od 16 lat",
+          "kurs dla 17-latków",
           "kod 78 prawo jazdy",
           "egzamin na elektryku",
           "szkoła jazdy Qursant EV"

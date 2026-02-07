@@ -90,9 +90,24 @@ export default function HeroSection() {
         <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 text-center text-white">
           <div className="w-full max-w-4xl mx-auto">
             {/* Badge with CSS animation */}
-            <div className="mb-8 md:mb-6 mt-2 sm:mt-0 animate-fade-in-up">
+            <div className="mb-4 md:mb-3 mt-2 sm:mt-0 animate-fade-in-up">
               <div className="inline-block px-4 py-2 md:px-6 md:py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white text-xs md:text-sm font-medium animate-gradient-shift">
                 Prawo jazdy w 2 miesiące!
+              </div>
+            </div>
+
+            {/* NOWOŚĆ - Banner o 17-latkach */}
+            <div className="mb-8 md:mb-6 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
+              <div className="inline-block px-6 py-4 md:px-8 md:py-5 rounded-2xl bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white shadow-2xl border-2 border-white/30">
+                <div className="text-sm md:text-base font-semibold mb-1">
+                  ✨ NOWOŚĆ OD 3 MARCA 2026!
+                </div>
+                <div className="text-xl md:text-3xl font-bold">
+                  Zapraszamy 17-latków na kurs kat. B!
+                </div>
+                <div className="text-xs md:text-sm mt-2 opacity-90">
+                  Kurs już od 16 lat i 9 miesięcy
+                </div>
               </div>
             </div>
 
