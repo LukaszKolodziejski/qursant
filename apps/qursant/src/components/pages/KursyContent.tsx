@@ -85,11 +85,13 @@ export default function KursyContent() {
               <p className="text-xl text-blue-200 mb-3">
                 Start o godzinie {COURSE.START_TIME}
               </p>
-              <div className="inline-block bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm rounded-full px-6 py-2 border border-yellow-400/30">
-                <p className="text-2xl font-bold text-yellow-300 animate-pulse">
-                  ⚡ {COURSE.PROMO_TEXT} ⚡
-                </p>
-              </div>
+              {COURSE.PROMO_TEXT && (
+                <div className="inline-block bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm rounded-full px-6 py-2 border border-yellow-400/30">
+                  <p className="text-2xl font-bold text-yellow-300 animate-pulse">
+                    ⚡ {COURSE.PROMO_TEXT} ⚡
+                  </p>
+                </div>
+              )}
             </div>
             <div className="mt-6 text-center">
               <Link
