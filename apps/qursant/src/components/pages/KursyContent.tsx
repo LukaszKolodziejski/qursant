@@ -17,7 +17,7 @@ import {
 } from 'react-icons/fa';
 import { BsCalendarCheck, BsClock, BsPinMap } from 'react-icons/bs';
 import { CONTACT } from '@/constants/contact';
-import { COURSE } from '@/constants/course';
+import { COURSE, formatDateReadable } from '@/constants/course';
 
 // ===================================================================
 // CLIENT COMPONENT - ANIMACJE I INTERAKCJE
@@ -80,7 +80,7 @@ export default function KursyContent() {
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-white mb-2">
-                {COURSE.NEXT_START_DATE}
+                {formatDateReadable(COURSE.NEXT_START_DATE)}
               </p>
               <p className="text-xl text-blue-200 mb-3">
                 Start o godzinie {COURSE.START_TIME}

@@ -12,6 +12,7 @@ import {
 } from 'react-icons/hi';
 import Link from 'next/link';
 import { useReservationCounter } from '@/hooks/useReservationCounter';
+import { getReservationTargetMonth } from '@/constants/course';
 
 // Typy kierunkowe
 type CountryCode = '+48' | '+380';
@@ -25,7 +26,7 @@ interface ValidationErrors {
 const formatPhoneNumber = (value: string, countryCode: CountryCode): string => {
   // Usuwamy wszystko oprócz cyfr
   const digits = value.replace(/\D/g, '');
-  
+
   if (countryCode === '+48') {
     // Format polski: XXX XXX XXX
     if (digits.length <= 3) return digits;
@@ -45,59 +46,61 @@ const validateName = (name: string): { isValid: boolean; isSpam?: boolean } => {
   if (!trimmedName) {
     return { isValid: false };
   }
-  
-  const words = trimmedName.split(/\s+/).filter(word => word.length > 0);
-  
+
+  const words = trimmedName.split(/\s+/).filter((word) => word.length > 0);
+
   // Musi być 2-3 słowa
   if (words.length < 2 || words.length > 3) {
     return { isValid: false, isSpam: true };
   }
-  
+
   // Każde słowo musi zawierać tylko litery (polskie/ukraińskie)
   const lettersOnlyRegex = /^[a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻґєіїҐЄІЇа-яА-Я'-]+$/;
-  
+
   for (const word of words) {
     if (!lettersOnlyRegex.test(word)) {
       return { isValid: false, isSpam: true };
     }
   }
-  
+
   // Akceptujemy dwa warianty:
   // 1. Wszystkie małe litery (jan kowalski)
   // 2. Każde słowo zaczyna się wielką literą (Jan Kowalski)
   const allLowerCase = trimmedName === trimmedName.toLowerCase();
-  const properCase = words.every(word => {
+  const properCase = words.every((word) => {
     // Pierwsza litera wielka, reszta mała
     const firstChar = word.charAt(0);
     const rest = word.slice(1);
-    const isFirstUpper = firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase();
+    const isFirstUpper =
+      firstChar === firstChar.toUpperCase() &&
+      firstChar !== firstChar.toLowerCase();
     const isRestLower = rest === rest.toLowerCase();
     return isFirstUpper && isRestLower;
   });
-  
+
   if (!allLowerCase && !properCase) {
     return { isValid: false, isSpam: true };
   }
-  
+
   return { isValid: true };
 };
 
 // Walidacja numeru telefonu
 const validatePhone = (phone: string): { isValid: boolean; error?: string } => {
   const digits = phone.replace(/\D/g, '');
-  
+
   if (digits.length === 0) {
     return { isValid: false, error: 'Numer telefonu jest wymagany' };
   }
-  
+
   if (digits.length < 9) {
     return { isValid: false, error: `Brakuje ${9 - digits.length} cyfr` };
   }
-  
+
   if (digits.length > 9) {
     return { isValid: false, error: 'Za dużo cyfr (max 9)' };
   }
-  
+
   return { isValid: true };
 };
 
@@ -113,37 +116,39 @@ export default function RezerwacjaPage() {
     agreement: false,
   });
   const [countryCode, setCountryCode] = useState<CountryCode>('+48');
-  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>(
+    {}
+  );
   // const [captchaToken, setCaptchaToken] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Handler dla telefonu z auto-formatowaniem
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
     const digits = input.replace(/\D/g, '');
-    
+
     // Ograniczamy do 9 cyfr
     if (digits.length <= 9) {
       const formatted = formatPhoneNumber(digits, countryCode);
       setFormData({ ...formData, phone: formatted });
-      
+
       // Walidacja w czasie rzeczywistym
       if (digits.length > 0 && digits.length < 9) {
-        setValidationErrors(prev => ({ 
-          ...prev, 
-          phone: `Brakuje ${9 - digits.length} cyfr` 
+        setValidationErrors((prev) => ({
+          ...prev,
+          phone: `Brakuje ${9 - digits.length} cyfr`,
         }));
       } else {
-        setValidationErrors(prev => ({ ...prev, phone: undefined }));
+        setValidationErrors((prev) => ({ ...prev, phone: undefined }));
       }
     }
   };
-  
+
   // Handler dla imienia - bez walidacji w czasie rzeczywistym (ukryta logika)
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, name: e.target.value });
   };
-  
+
   // Handler zmiany kierunkowego
   const handleCountryCodeChange = (newCode: CountryCode) => {
     setCountryCode(newCode);
@@ -154,8 +159,7 @@ export default function RezerwacjaPage() {
   };
 
   useEffect(() => {
-    // Generowanie aktualnej daty i opcji miesięcy
-    const now = new Date();
+    // Generowanie opcji miesięcy zsynchronizowanych z NEXT_START_DATE
     const months = [
       'Styczeń',
       'Luty',
@@ -171,10 +175,14 @@ export default function RezerwacjaPage() {
       'Grudzień',
     ];
 
-    // Generowanie opcji dla następnych 6 miesięcy
+    // Pobierz docelowy miesiąc kursu (zsynchronizowany z NEXT_START_DATE)
+    const { month: targetMonth, year: targetYear } =
+      getReservationTargetMonth();
+
+    // Generowanie opcji od miesiąca kursu dla następnych 6 miesięcy
     const options: string[] = [];
     for (let i = 0; i < 7; i++) {
-      const futureDate = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      const futureDate = new Date(targetYear, targetMonth + i, 1);
       const monthName = months[futureDate.getMonth()];
       const year = futureDate.getFullYear();
       options.push(`${monthName} ${year}`);
@@ -195,15 +203,18 @@ export default function RezerwacjaPage() {
           duration: 6000,
         });
         setTimeout(() => {
-          toast('Twoja aktywność jest monitorowana. Adres IP został zapisany w celach bezpieczeństwa.', {
-            icon: '🔒',
-            duration: 8000,
-            style: {
-              background: '#1e1b4b',
-              color: '#fca5a5',
-              border: '1px solid #dc2626',
-            },
-          });
+          toast(
+            'Twoja aktywność jest monitorowana. Adres IP został zapisany w celach bezpieczeństwa.',
+            {
+              icon: '🔒',
+              duration: 8000,
+              style: {
+                background: '#1e1b4b',
+                color: '#fca5a5',
+                border: '1px solid #dc2626',
+              },
+            }
+          );
         }, 1000);
       } else {
         toast.error('Wprowadź imię i nazwisko');
@@ -215,7 +226,10 @@ export default function RezerwacjaPage() {
     const phoneValidation = validatePhone(formData.phone);
     if (!phoneValidation.isValid) {
       toast.error(phoneValidation.error || 'Nieprawidłowy numer telefonu');
-      setValidationErrors(prev => ({ ...prev, phone: phoneValidation.error }));
+      setValidationErrors((prev) => ({
+        ...prev,
+        phone: phoneValidation.error,
+      }));
       return;
     }
 
@@ -299,8 +313,8 @@ export default function RezerwacjaPage() {
 
   return (
     <div className="min-h-screen">
-      <Toaster 
-        position="bottom-center" 
+      <Toaster
+        position="bottom-center"
         toastOptions={{
           style: {
             maxWidth: '90vw',
@@ -415,11 +429,17 @@ export default function RezerwacjaPage() {
                     {/* Wybór kierunkowego */}
                     <select
                       value={countryCode}
-                      onChange={(e) => handleCountryCodeChange(e.target.value as CountryCode)}
+                      onChange={(e) =>
+                        handleCountryCodeChange(e.target.value as CountryCode)
+                      }
                       className="px-2 sm:px-3 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-blue-500 text-sm sm:text-base shrink-0"
                     >
-                      <option value="+48" className="bg-gray-900">🇵🇱 +48</option>
-                      <option value="+380" className="bg-gray-900">🇺🇦 +380</option>
+                      <option value="+48" className="bg-gray-900">
+                        🇵🇱 +48
+                      </option>
+                      <option value="+380" className="bg-gray-900">
+                        🇺🇦 +380
+                      </option>
                     </select>
                     <input
                       type="tel"
@@ -427,16 +447,20 @@ export default function RezerwacjaPage() {
                       value={formData.phone}
                       onChange={handlePhoneChange}
                       className={`flex-1 min-w-0 px-3 sm:px-4 py-3 rounded-lg bg-white/10 border text-white placeholder-white/50 focus:outline-none transition-colors ${
-                        validationErrors.phone 
-                          ? 'border-red-500 focus:border-red-400' 
+                        validationErrors.phone
+                          ? 'border-red-500 focus:border-red-400'
                           : 'border-white/20 focus:border-blue-500'
                       }`}
-                      placeholder={countryCode === '+48' ? '123 456 789' : '12 345 6789'}
+                      placeholder={
+                        countryCode === '+48' ? '123 456 789' : '12 345 6789'
+                      }
                       maxLength={11}
                     />
                   </div>
                   {validationErrors.phone && (
-                    <p className="mt-1 text-sm text-red-400">{validationErrors.phone}</p>
+                    <p className="mt-1 text-sm text-red-400">
+                      {validationErrors.phone}
+                    </p>
                   )}
                 </div>
 
