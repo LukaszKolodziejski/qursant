@@ -1,0 +1,507 @@
+{
+  "week": 12,
+  "startDate": "2026-04-14",
+  "endDate": "2026-05-14",
+  "posts": [
+    {
+      "id": "2026-04-14-pierwsza-jazda-w-deszczu-poradnik",
+      "slug": "pierwsza-jazda-w-deszczu-poradnik",
+      "title": "Pierwsza jazda w deszczu: Jak poradzić sobie ze śliską nawierzchnią?",
+      "excerpt": "Pogoda nie zawsze dopisuje na kursie. Dowiedz się, jak opanować strach przed jazdą w deszczu i uniknąć aquaplaningu na bydgoskich ulicach.",
+      "publishDate": "2026-04-14T12:00:00",
+      "author": "Robert Langer",
+      "category": "poradniki",
+      "tags": [
+        "jazda w deszczu",
+        "technika jazdy",
+        "aquaplaning",
+        "trudne warunki",
+        "bezpieczeństwo"
+      ],
+      "image": "instructors/photo-3.webp",
+      "sections": [
+        {
+          "heading": "Deszcz to sprzymierzeniec w nauce",
+          "paragraphs": [
+            "Wielu kursantów z niepokojem spogląda w niebo przed planowaną jazdą. Padający deszcz często kojarzy się ze stresem, słabą widocznością i wydłużoną drogą hamowania. Prawda jest jednak taka, że nauka jazdy w trudnych warunkach pod okiem doświadczonego instruktora szkoły Qursant to ogromny przywilej. Lepiej popełnić błąd na mokrej nawierzchni w „L-ce” niż w swoim pierwszym samochodzie.",
+            "Jazda w deszczu wymaga przestawienia się na inny tryb myślenia: wszystkie manewry muszą być wykonywane płynniej, a koncentracja wędruje na najwyższy poziom."
+          ]
+        },
+        {
+          "heading": "Zjawisko aquaplaningu – co to jest?",
+          "paragraphs": [
+            "Aquaplaning, czyli tzw. klin wodny, występuje wtedy, gdy opona nie nadąża z odprowadzaniem wody i samochód zaczyna „ślizgać się” po powierzchni kałuży, tracąc kontakt z asfaltem."
+          ],
+          "list": [
+            "Największe ryzyko aquaplaningu pojawia się w głębokich koleinach (np. na ul. Fordońskiej czy Kamiennej w Bydgoszczy).",
+            "Gdy poczujesz, że kierownica staje się nienaturalnie „lekka”, zdejmij nogę z gazu. Nie hamuj gwałtownie i nie szarp kierownicą!",
+            "Poczekaj, aż auto samo wytraci prędkość i opony z powrotem odzyskają przyczepność."
+          ]
+        },
+        {
+          "heading": "Widoczność to podstawa",
+          "paragraphs": [
+            "Zanim ruszysz, upewnij się, że szyby nie parują. Włącz klimatyzację (która osusza powietrze) i skieruj nawiew na przednią szybę. Pamiętaj też o włączeniu świateł mijania – światła do jazdy dziennej w czasie deszczu nie sprawiają, że jesteś widoczny dla aut jadących za Tobą!"
+          ]
+        }
+      ],
+      "tips": [
+        "Zwiększ odstęp od poprzedzającego auta o co najmniej 2-3 sekundy. Droga hamowania na mokrym asfalcie wydłuża się o blisko 50%.",
+        "Unikaj jazdy tuż przy krawężniku – to tam zbiera się najwięcej wody i ukrywają się najgłębsze dziury.",
+        "Dostosuj prędkość wycieraczek do intensywności opadów. Zbyt szybkie „machanie” piórami może rozpraszać.",
+        "Omijaj głębokie kałuże, jeśli to możliwe. Ochlapanie pieszego to nie tylko brak kultury, ale też ryzyko mandatu.",
+        "Hamuj pulsacyjnie lub po prostu dużo wcześniej i płynniej niż zwykle."
+      ],
+      "faq": [
+        {
+          "q": "Czy egzamin państwowy może zostać odwołany przez deszcz?",
+          "a": "Egzaminy są przerywane tylko w przypadku ekstremalnych zjawisk pogodowych (huragan, oberwanie chmury, które całkowicie uniemożliwia widoczność). Zwykły deszcz nie jest podstawą do przełożenia egzaminu."
+        },
+        {
+          "q": "Jak ruszac na wzniesieniu w deszczu?",
+          "a": "Podobnie jak na suchym, jednak z nieco większym naciskiem na delikatne puszczanie sprzęgła. Zbyt duża ilość gazu spowoduje tzw. 'buksowanie' kół w miejscu."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Jak jeździć w deszczu? Poradnik i technika jazdy | Qursant",
+        "metaDescription": "Pierwsza jazda w deszczu na kursie prawa jazdy? Sprawdź nasze porady, dowiedz się, czym jest aquaplaning i jak bezpiecznie hamować na mokrej nawierzchni.",
+        "keywords": [
+          "jazda w deszczu",
+          "aquaplaning",
+          "nauka jazdy deszcz",
+          "droga hamowania",
+          "technika jazdy na mokrym"
+        ]
+      }
+    },
+    {
+      "id": "2026-04-19-koszty-badan-lekarskich-kierowcow-2026",
+      "slug": "koszty-badan-lekarskich-kierowcow-2026",
+      "title": "Badania lekarskie na prawo jazdy w 2026 roku – co się zmieniło?",
+      "excerpt": "Zanim zapiszesz się na kurs, musisz wyrobić PKK. Sprawdź, ile obecnie kosztują badania lekarskie dla kandydatów na kierowców i jak one przebiegają.",
+      "publishDate": "2026-04-19T12:00:00",
+      "author": "Robert Langer",
+      "category": "ceny",
+      "tags": [
+        "badania lekarskie",
+        "koszty prawa jazdy",
+        "Profil Kandydata na Kierowcę",
+        "PKK",
+        "lekarz medycyny pracy"
+      ],
+      "image": "instructors/photo-1.webp",
+      "sections": [
+        {
+          "heading": "Pierwszy krok przed rozpoczęciem kursu",
+          "paragraphs": [
+            "Zanim zaczniesz wyjeżdżać godziny z instruktorem w Qursancie, musisz załatwić formalności w wydziale komunikacji. Aby wyrobić niezbędny Profil Kandydata na Kierowcę (PKK), musisz udać się na wizytę do lekarza orzecznika. Rok 2026 nie przyniósł rewolucji w samej procedurze, ale warto znać aktualne koszty i przebieg takiego badania."
+          ]
+        },
+        {
+          "heading": "Ile kosztuje badanie lekarskie w 2026?",
+          "paragraphs": [
+            "Cena badania lekarskiego dla kandydatów na kierowców kategorii A, B, T, AM jest ustalana ustawowo. W 2026 roku stawka ta jest wciąż sztywna i wynosi równo 200 zł. Lekarz nie ma prawa pobrać ani wyższej, ani niższej kwoty za wydanie orzeczenia."
+          ],
+          "list": [
+            "Opłatę zazwyczaj uiszcza się gotówką bezpośrednio w gabinecie (warto zapytać o możliwość płatności kartą podczas rejestracji).",
+            "W przypadku konieczności noszenia okularów lub soczewek, lekarz umieści odpowiedni kod (01.01, 01.06) na orzeczeniu.",
+            "Większość orzeczeń dla kierowców aut osobowych (kat. B) wydawana jest obecnie na okres do 15 lat."
+          ]
+        },
+        {
+          "heading": "Jak wygląda samo badanie?",
+          "paragraphs": [
+            "Badanie jest szybkie i bezbolesne. Lekarz sprawdzi przede wszystkim Twój wzrok, słuch oraz koordynację ruchową. Zostaniesz również zapytany o przebyte choroby, zażywane leki (szczególnie te psychotropowe czy obniżające koncentrację), padaczkę czy cukrzycę. W szkole Qursant chętnie podpowiemy Ci, gdzie w Bydgoszczy znajdziesz lekarzy orzeczników, którzy przyjmują niemal od ręki."
+          ]
+        }
+      ],
+      "tips": [
+        "Na badanie zabierz ze sobą dowód osobisty lub paszport.",
+        "Jeśli na co dzień nosisz okulary lub soczewki kontaktowe, koniecznie załóż je lub zabierz ze sobą do lekarza.",
+        "W przypadku poważnych chorób przewlekłych (np. cukrzyca), poproś swojego lekarza prowadzącego o zaświadczenie o braku przeciwwskazań do kierowania pojazdami.",
+        "Zrób badanie wcześniej – bez orzeczenia nie wyrobisz PKK i nie zaczniesz kursu.",
+        "Nie oszukuj lekarza podczas wywiadu – zatajenie padaczki to śmiertelne zagrożenie dla Ciebie i innych."
+      ],
+      "faq": [
+        {
+          "q": "Czy jeśli noszę okulary, moje prawo jazdy będzie ważne krócej?",
+          "a": "To zależy od decyzji lekarza. Przy dużej wadzie wzroku lekarz może wydać orzeczenie ważne np. tylko na 5 lat. Po tym czasie będziesz musiał ponowić badanie (i opłacić je ponownie) oraz wymienić dokument."
+        },
+        {
+          "q": "Gdzie w Bydgoszczy zrobię badanie?",
+          "a": "Wielu lekarzy orzeczników ma swoje prywatne gabinety. Zadzwoń do biura Qursant – skierujemy Cię do sprawdzonych specjalistów z krótkim czasem oczekiwania."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Badania lekarskie na prawo jazdy Bydgoszcz – Cena 2026",
+        "metaDescription": "Ile kosztują badania lekarskie dla kandydatów na kierowców w 2026 roku? Sprawdź, jak przebiega badanie, co sprawdza lekarz i jak wyrobić profil PKK.",
+        "keywords": [
+          "badania lekarskie na prawo jazdy",
+          "cena badań na prawo jazdy 2026",
+          "jak wyrobić PKK",
+          "lekarz orzecznik Bydgoszcz",
+          "badanie wzroku kierowca"
+        ]
+      }
+    },
+    {
+      "id": "2026-04-24-jazda-na-zderzaku-nowe-mandaty-2026",
+      "slug": "jazda-na-zderzaku-nowe-mandaty-2026",
+      "title": "Jazda na zderzaku: Surowe kary i zasady zachowania odległości na autostradzie",
+      "excerpt": "Jazda zbyt blisko poprzedzającego auta to plaga na polskich drogach szybkiego ruchu. Sprawdź, jak przepisy definiują jazdę na zderzaku i jakie kary grożą w 2026.",
+      "publishDate": "2026-04-24T12:00:00",
+      "author": "Robert Langer",
+      "category": "prawo",
+      "tags": [
+        "jazda na zderzaku",
+        "autostrada",
+        "odstęp między pojazdami",
+        "mandaty 2026",
+        "bezpieczna odległość"
+      ],
+      "image": "office/photo-1.webp",
+      "sections": [
+        {
+          "heading": "Agresja drogowa na drogach szybkiego ruchu",
+          "paragraphs": [
+            "Wielu z nas kojarzy ten scenariusz: wyprzedzamy lewym pasem na autostradzie A1 niedaleko Bydgoszczy, a w lusterku wstecznym nagle pojawia się auto 'siedzące' nam na samym zderzaku, często mrugające długimi światłami. Tzw. 'jazda na zderzaku' to nie tylko brak kultury, ale jedno z najczęstszych źródeł karamboli na drogach szybkiego ruchu.",
+            "W 2026 roku policja wyposażyła się w zaawansowany sprzęt pomiarowy, a kary za niezachowanie odpowiedniej odległości są bezlitosne."
+          ]
+        },
+        {
+          "heading": "Reguła połowy prędkości",
+          "paragraphs": [
+            "Zgodnie z przepisami Prawa o ruchu drogowym, kierujący pojazdem na autostradzie i drodze ekspresowej jest obowiązany zachować minimalny odstęp od poprzedzającego pojazdu. Jak go obliczyć?"
+          ],
+          "list": [
+            "Odstęp ten wyrażony w metrach powinien być nie mniejszy niż połowa liczby określającej prędkość pojazdu (w km/h).",
+            "Jadąc 140 km/h na autostradzie, musisz utrzymać minimum 70 metrów odstępu.",
+            "Jadąc 120 km/h na drodze ekspresowej (np. S5), musisz utrzymać minimum 60 metrów odstępu.",
+            "Wyjątek: Zasada ta nie obowiązuje podczas samego manewru wyprzedzania."
+          ]
+        },
+        {
+          "heading": "Taryfikator 2026 i punkty karne",
+          "paragraphs": [
+            "Policja na trasach A1 i S5 regularnie używa dronów oraz wideorejestratorów do mierzenia odstępów między pojazdami. Niezachowanie bezpiecznej odległości wiąże się z mandatem od 300 do nawet 500 złotych, a na Twoje konto trafi aż 5 punktów karnych. Pamiętaj: czas reakcji kierowcy to około sekundy. Przy 140 km/h auto pokonuje w tym czasie prawie 39 metrów! Siedząc na zderzaku, po prostu nie masz szans na zahamowanie."
+          ]
+        }
+      ],
+      "tips": [
+        "Używaj słupków pikietażowych (rozstawionych co 100 metrów), aby nauczyć się oceniać odległość na autostradzie.",
+        "Stosuj 'zasadę 3 sekund' – gdy poprzedzające auto mija jakiś punkt orientacyjny (np. znak), Ty powinieneś minąć go dopiero 3 sekundy później.",
+        "Jeśli ktoś 'siedzi Ci na ogonie', nie hamuj złośliwie (tzw. brake checking). To skrajnie niebezpieczne i również karalne. Zjedź spokojnie na prawy pas.",
+        "Pamiętaj, że zła pogoda i deszcz wymagają co najmniej podwojenia bezpiecznego odstępu.",
+        "W nowoczesnych autach używaj tempomatu adaptacyjnego (ACC), który sam utrzyma za Ciebie bezpieczną odległość."
+      ],
+      "faq": [
+        {
+          "q": "Czy reguła połowy prędkości obowiązuje też w mieście?",
+          "a": "Nie, zapis ten dotyczy tylko autostrad i dróg ekspresowych. W mieście (obszar zabudowany) przepis mówi ogólnie o 'zachowaniu bezpiecznego odstępu niezbędnego do uniknięcia zderzenia'."
+        },
+        {
+          "q": "Jak policja mierzy odstęp?",
+          "a": "Za pomocą laserowych mierników prędkości najnowszej generacji, policyjnych dronów, a także zapisów z wideorejestratorów w nieoznakowanych radiowozach."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Jazda na zderzaku – jaki odstęp na autostradzie? Mandaty 2026",
+        "metaDescription": "Ile wynosi bezpieczny odstęp na autostradzie? Sprawdź regułę połowy prędkości i zobacz, jakie mandaty grożą za jazdę na zderzaku w 2026 roku.",
+        "keywords": [
+          "jazda na zderzaku",
+          "odstęp na autostradzie",
+          "reguła połowy prędkości",
+          "mandat za odstęp",
+          "bezpieczeństwo na S5"
+        ]
+      }
+    },
+    {
+      "id": "2026-04-29-pierwsza-pomoc-egzamin-teoretyczny",
+      "slug": "pierwsza-pomoc-egzamin-teoretyczny",
+      "title": "Pytania z pierwszej pomocy na egzaminie – jak je rozwiązywać?",
+      "excerpt": "Boją się ich niemal wszyscy. Pytania z ratownictwa potrafią być podchwytliwe. Przygotowaliśmy ściągawkę z najważniejszych zagadnień z pierwszej pomocy na testach WORD.",
+      "publishDate": "2026-04-29T12:00:00",
+      "author": "Robert Langer",
+      "category": "egzaminy",
+      "tags": [
+        "pierwsza pomoc",
+        "egzamin teoretyczny",
+        "testy na prawo jazdy",
+        "ratownictwo",
+        "WORD Bydgoszcz"
+      ],
+      "image": "cars/photo-36.webp",
+      "sections": [
+        {
+          "heading": "Ratownictwo w teorii",
+          "paragraphs": [
+            "Egzamin teoretyczny na prawo jazdy składa się z 32 pytań. Zawsze znajdzie się wśród nich kilka dotyczących zasad udzielania pierwszej pomocy przedmedycznej. Dla wielu kursantów w Qursancie to właśnie te zagadnienia są najtrudniejsze do zapamiętania, ponieważ zawierają konkretne liczby, procedury i medyczne nazewnictwo.",
+            "Nie można ich jednak ignorować, bo mogą decydować o ostatecznym wyniku – szczególnie pytania za 3 punkty!"
+          ]
+        },
+        {
+          "heading": "Najważniejsze liczby, które musisz znać",
+          "paragraphs": [
+            "Zdecydowana większość pytań dotyczy Resuscytacji Krążeniowo-Oddechowej (RKO) oraz oceny funkcji życiowych. Zapamiętaj te parametry:"
+          ],
+          "list": [
+            "RKO dorosłego: Zawsze 30 uciśnięć klatki piersiowej na 2 wdechy ratownicze (30:2).",
+            "Głębokość ucisków: U dorosłego klatkę piersiową uciskamy na głębokość 5-6 cm.",
+            "Częstotliwość ucisków: 100-120 uciśnięć na minutę (w rytm piosenki 'Stayin' Alive').",
+            "Ocena oddechu: Przez 10 sekund musisz wyczuć, usłyszeć lub zobaczyć co najmniej 2 prawidłowe oddechy.",
+            "Telefon alarmowy: 112 to numer ogólnoeuropejski, 999 to Pogotowie Ratunkowe."
+          ]
+        },
+        {
+          "heading": "Podchwytliwe pytania z bazy",
+          "paragraphs": [
+            "W bazie WORD znajdziesz pytania o kask motocyklisty: 'Czy po wypadku należy zawsze zdjąć kask z głowy poszkodowanego motocyklisty?'. Odpowiedź brzmi: NIE, zdejmujemy go tylko wtedy, gdy poszkodowany nie oddycha (by rozpocząć RKO). Inne częste pytanie dotyczy wyciągania z auta: poszkodowanego ewakuujemy tylko, jeśli zagraża mu bezpośrednie niebezpieczeństwo (np. pożar) lub wymaga RKO."
+          ]
+        }
+      ],
+      "tips": [
+        "Bezpieczeństwo własne jest zawsze na 1 miejscu. W pytaniach o kolejność działań najpierw wybieraj zabezpieczenie miejsca zdarzenia (trójkąt).",
+        "Nigdy nie podawaj płynów ani leków ofiarom wypadku komunikacyjnego (częsta błędna odpowiedź w testach).",
+        "W przypadku ciał obcych wbitych w rany (np. pręt), pamiętaj o zasadzie: NIE wyciągamy ich, a jedynie stabilizujemy opatrunkiem.",
+        "Rozwiązuj działy tematyczne w aplikacji – przerób blok 'Pierwsza pomoc' kilkukrotnie przed egzaminem.",
+        "Pozycja boczna bezpieczna: stosujemy ją u osób nieprzytomnych, ale ODDYCHAJĄCYCH prawidłowo."
+      ],
+      "faq": [
+        {
+          "q": "Czy można zostać ukaranym za złe udzielenie pomocy?",
+          "a": "Nie. Polskie prawo chroni ratownika. Jedynym przestępstwem jest całkowite nieudzielenie pomocy (np. ucieczka z miejsca lub nie wezwanie służb)."
+        },
+        {
+          "q": "Czy muszę wykonywać wdechy ratownicze podczas pandemii/bez maseczki?",
+          "a": "Nie. W przypadku nieznajomego dorosłego i braku maseczki z filtrem (tzw. pocket mask), możesz ograniczyć się do ciągłego uciskania klatki piersiowej."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Testy WORD: Pytania z pierwszej pomocy – Odpowiedzi",
+        "metaDescription": "Rozwiązuj poprawnie pytania z pierwszej pomocy na egzaminie teoretycznym prawa jazdy. Zobacz najważniejsze zasady RKO i omijaj podchwytliwe pytania.",
+        "keywords": [
+          "testy pierwsza pomoc",
+          "pytania z pierwszej pomocy WORD",
+          "RKO 30 uciśnięć",
+          "egzamin teoretyczny prawo jazdy",
+          "ratownictwo drogowe"
+        ]
+      }
+    },
+    {
+      "id": "2026-05-04-jazda-z-nawigacja-jak-nie-zwariowac",
+      "slug": "jazda-z-nawigacja-jak-nie-zwariowac",
+      "title": "Jazda z nawigacją – jak bezpiecznie korzystać z map Google w samochodzie?",
+      "excerpt": "Telefony ułatwiają jazdę, ale potrafią też zawieść. Dowiedz się, jak mądrze korzystać z GPS, nie łamać przepisów i unikać ślepych zaułków.",
+      "publishDate": "2026-05-04T12:00:00",
+      "author": "Robert Langer",
+      "category": "porady",
+      "tags": [
+        "Google Maps",
+        "nawigacja GPS",
+        "porady dla kierowców",
+        "mandat za telefon",
+        "bezpieczna jazda"
+      ],
+      "image": "course/photo-25.webp",
+      "sections": [
+        {
+          "heading": "Cyfrowy pilot",
+          "paragraphs": [
+            "W 2026 roku trudno wyobrazić sobie poruszanie się po obcych miastach bez wsparcia Google Maps, Yanosika czy nawigacji wbudowanej w system samochodu. W Qursancie sami zachęcamy kursantów do korzystania z nowoczesnych technologii – umiejętność zintegrowania telefonu z autem przez Apple CarPlay czy Android Auto to dziś niemal standardowy element szkolenia.",
+            "Jednak nawigacja to tylko narzędzie. Ślepe podążanie za wskazówkami głosowymi, ignorowanie znaków drogowych i wpatrywanie się w ekran to prosta droga do stłuczki lub mandatu."
+          ]
+        },
+        {
+          "heading": "Mandat za telefon w uchwycie?",
+          "paragraphs": [
+            "Korzystanie z telefonu umieszczonego w uchwycie na desce rozdzielczej lub szybie JEST dozwolone. Przepisy zabraniają natomiast korzystania z telefonu 'wymagającego trzymania słuchawki lub mikrofonu w ręku'."
+          ],
+          "list": [
+            "Wpisujesz adres stojąc na czerwonym świetle z telefonem w ręku? Grozi Ci 500 zł mandatu i 12 punktów karnych.",
+            "Wpisujesz adres na ekranie telefonu przypiętego do uchwytu? To w pełni legalne, ale odwraca uwagę od drogi.",
+            "Złota zasada: trasę planuj przed odpaleniem silnika. Wszelkie korekty wykonuj, gdy pasażer może Ci pomóc lub zatrzymaj się w bezpiecznym miejscu."
+          ]
+        },
+        {
+          "heading": "Zaufanie ograniczone (do GPS-u)",
+          "paragraphs": [
+            "Nawigacja nie widzi tymczasowych znaków, nowych remontów czy barier na ulicy (szczególnie w wiecznie przebudowywanej Bydgoszczy). Jeśli GPS każe Ci skręcić w lewo, a stoi tam znak 'zakaz skrętu' – ZNAK MA ZAWSZE PIERWSZEŃSTWO. Kiedy przegapisz zjazd, nie panikuj i nie próbuj gwałtownie cofać – nawigacja w sekundę wytyczy nową, bezpieczną trasę zastępczą."
+          ]
+        }
+      ],
+      "tips": [
+        "Ścisz radio, a włącz komunikaty głosowe z nawigacji – dzięki temu nie musisz odrywać wzroku od drogi, by wiedzieć o manewrze.",
+        "Kup solidny uchwyt (najlepiej na kratkę nawiewu) lub korzystaj z ekranu multimedialnego w aucie. Odpadający na wybojach telefon to ogromne ryzyko.",
+        "Zwracaj uwagę na asystenta pasa ruchu w aplikacjach – odpowiednio wcześnie pokazuje, na którym pasie powinieneś się ustawić na skrzyżowaniu.",
+        "Aplikacje takie jak Yanosik pomagają w unikaniu zagrożeń, ale pamiętaj, by nie traktować ich jako zezwolenia na przekraczanie prędkości w miejscach bez fotoradarów.",
+        "Sprawdzaj pobrane mapy offline, jeśli jedziesz w rejony np. Borów Tucholskich, gdzie zasięg komórkowy potrafi zniknąć."
+      ],
+      "faq": [
+        {
+          "q": "Czy na egzaminie państwowym można używać nawigacji?",
+          "a": "Nie. Podczas zadań egzaminacyjnych w ruchu drogowym polecenia wydaje egzaminator. Używanie własnego telefonu i nawigacji jest kategorycznie zabronione."
+        },
+        {
+          "q": "Co zrobić, gdy nawigacja poprowadzi mnie w drogę gruntową/leśną?",
+          "a": "Zawsze analizuj proponowaną trasę przed wyruszeniem. Zaznacz w opcjach aplikacji 'Unikaj dróg gruntowych', aby nie utknąć w błocie autem o niskim zawieszeniu."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Jak jeździć z nawigacją? Google Maps i zasady w aucie",
+        "metaDescription": "Korzystasz z Google Maps za kierownicą? Sprawdź, za co możesz dostać 500 zł mandatu, jak zamontować uchwyt i dlaczego znaki zawsze wygrywają z GPS-em.",
+        "keywords": [
+          "jazda z nawigacją",
+          "mandat za telefon w aucie",
+          "Google Maps w samochodzie",
+          "Android Auto Bydgoszcz",
+          "bezpieczne korzystanie z GPS"
+        ]
+      }
+    },
+    {
+      "id": "2026-05-09-szkolenia-pierwsza-pomoc-licea-bydgoszcz",
+      "slug": "szkolenia-pierwsza-pomoc-licea-bydgoszcz",
+      "title": "Qursant wspiera licealistów! Darmowe szkolenia z pierwszej pomocy w Bydgoszczy",
+      "excerpt": "Wyruszyliśmy z nową akcją społeczną. W maju nasi instruktorzy i ratownicy odwiedzą bydgoskie licea, by uczyć młodzież, jak ratować życie.",
+      "publishDate": "2026-05-09T12:00:00",
+      "author": "Robert Langer",
+      "category": "aktualnosci",
+      "tags": [
+        "pierwsza pomoc",
+        "inicjatywy lokalne",
+        "szkolenia młodzież",
+        "licea Bydgoszcz",
+        "ratownictwo"
+      ],
+      "image": "cars/photo-80.webp",
+      "sections": [
+        {
+          "heading": "Bezpieczeństwo zaczyna się przed wejściem do L-ki",
+          "paragraphs": [
+            "W Szkole Jazdy Qursant wierzymy, że edukacja z zakresu bezpieczeństwa ruchu drogowego to misja, która wychodzi daleko poza mury naszej sali wykładowej. Zauważyliśmy, że wiedza o pierwszej pomocy wśród młodzieży bywa czysto teoretyczna. Kiedy przychodzi do praktyki, pojawia się strach przed działaniem.",
+            "Dlatego w maju 2026 roku uruchamiamy cykl bezpłatnych warsztatów z pierwszej pomocy przedmedycznej dedykowanych uczniom ostatnich klas szkół średnich w Bydgoszczy."
+          ]
+        },
+        {
+          "heading": "Praktyka czyni mistrza – ratownika",
+          "paragraphs": [
+            "Nasze warsztaty poprowadzą wykwalifikowani ratownicy medyczni, z którymi współpracujemy na co dzień podczas szkoleń na prawo jazdy. Skupimy się w 100% na praktyce!"
+          ],
+          "list": [
+            "Praca na zaawansowanych fantomach (RKO dorośli i niemowlęta),",
+            "Obsługa zewnętrznego defibrylatora AED (których w Bydgoszczy jest coraz więcej),",
+            "Sytuacje z życia: układanie w pozycji bocznej, radzenie sobie z zadławieniami,",
+            "Prawidłowe wzywanie służb i zabezpieczanie miejsca wypadku drogowego."
+          ]
+        },
+        {
+          "heading": "Kiedy i gdzie nas spotkacie?",
+          "paragraphs": [
+            "W pierwszej transzy projektu odwiedzimy wybrane szkoły na Wyżynach, Błoniu oraz w Fordonie. Akcja potrwa przez cały maj i czerwiec. Celem jest nie tylko przygotowanie młodych ludzi do przyszłych kursów na prawo jazdy, ale przede wszystkim zaszczepienie w nich odwagi, by w sytuacji kryzysowej nie byli biernymi obserwatorami z telefonem w ręku."
+          ]
+        }
+      ],
+      "tips": [
+        "Jesteś samorządowcem lub nauczycielem w bydgoskim liceum? Skontaktuj się z biurem Qursant, by zaprosić naszą ekipę do swojej szkoły!",
+        "Każdy uczestnik szkolenia otrzyma od nas specjalny certyfikat oraz mini-apteczkę do plecaka.",
+        "Rozdajemy również specjalne vouchery zniżkowe na kurs prawa jazdy dla wszystkich uczestników prelekcji.",
+        "Uważnie słuchaj ratowników – opowiadają historie z prawdziwych wypadków, które dają do myślenia.",
+        "Nie bój się zadawać pytań podczas warsztatów – to czas na zlikwidowanie wszystkich wątpliwości."
+      ],
+      "faq": [
+        {
+          "q": "Czy kursanci Qursanta mają podobne szkolenie w cenie kursu?",
+          "a": "Oczywiście! Pełne, 4-godzinne szkolenie z zakresu pierwszej pomocy, prowadzone przez profesjonalnego ratownika medycznego, jest integralną i obowiązkową częścią kursu na prawo jazdy w naszej szkole."
+        },
+        {
+          "q": "Czy jako osoba z zewnątrz mogę wziąć udział w tych prelekcjach?",
+          "a": "Szkolenia majowe są zamknięte dla uczniów danych szkół. Planujemy jednak otwarte warsztaty z pierwszej pomocy w okresie wakacyjnym."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Darmowe szkolenia z pierwszej pomocy w liceach | Qursant",
+        "metaDescription": "Szkoła Qursant rusza z cyklem bezpłatnych warsztatów z pierwszej pomocy (RKO, AED) dla uczniów bydgoskich szkół średnich. Zobacz, gdzie nas spotkasz!",
+        "keywords": [
+          "szkolenia pierwsza pomoc Bydgoszcz",
+          "darmowe kursy RKO",
+          "AED Bydgoszcz",
+          "akcja społeczna Qursant",
+          "szkoły średnie ratownictwo"
+        ]
+      }
+    },
+    {
+      "id": "2026-05-14-strefa-platnego-parkowania-bydgoszcz",
+      "slug": "strefa-platnego-parkowania-bydgoszcz",
+      "title": "Gdzie zaparkować w centrum Bydgoszczy? Przewodnik dla 'świeżaków'",
+      "excerpt": "Strefa Płatnego Parkowania w Bydgoszczy stale się powiększa. Zobacz, jak działają parkomaty, gdzie są podstrefy A i B oraz jak nie zarobić wezwania do zapłaty.",
+      "publishDate": "2026-05-14T12:00:00",
+      "author": "Robert Langer",
+      "category": "lokalne",
+      "tags": [
+        "parkowanie Bydgoszcz",
+        "strefa płatnego parkowania",
+        "SPP Bydgoszcz",
+        "aplikacje parkingowe",
+        "porady miejskie"
+      ],
+      "image": "instructors/photo-7.webp",
+      "sections": [
+        {
+          "heading": "Wjazd do centrum – koszmar o parkowaniu?",
+          "paragraphs": [
+            "Zdałeś egzamin, kupiłeś swoje pierwsze auto i chcesz wyruszyć na Wyspę Młyńską ze znajomymi. Problem pojawia się w momencie szukania miejsca postojowego. Strefa Płatnego Parkowania (SPP) w Bydgoszczy obejmuje obecnie ogromny obszar Śródmieścia, część Bielaw, a także okoliczne ulice. Dla początkującego kierowcy gąszcz znaków 'Parkomat' bywa mylący.",
+            "Przygotowaliśmy krótki przewodnik, który wyjaśnia, jak sprawnie parkować w grodzie nad Brdą i jak używać do tego nowoczesnych aplikacji."
+          ]
+        },
+        {
+          "heading": "Podział na podstrefy A i B",
+          "paragraphs": [
+            "Bydgoska strefa dzieli się na dwie główne podstrefy, które różnią się ceną za godzinę postoju. Obowiązują one w dni robocze od poniedziałku do piątku, w godzinach od 8:00 do 17:00."
+          ],
+          "list": [
+            "Podstrefa A (kolor czerwony na znakach i w parkomatach) – to ścisłe centrum. Tu opłaty są najwyższe. Obejmuje m.in. okolice Starego Rynku, ul. Gdańską i Dworcową.",
+            "Podstrefa B (kolor żółty) – obrzeża strefy (np. ulice bliżej Ronda Jagiellonów czy Rondo Grunwaldzkie). Postój jest tu zauważalnie tańszy.",
+            "W weekendy (soboty i niedziele) parkowanie w całej strefie jest darmowe!"
+          ]
+        },
+        {
+          "heading": "Jak płacić za postój najwygodniej?",
+          "paragraphs": [
+            "Czasy drobniaków wrzucanych do błękitnych maszyn powoli mijają. Obecne parkomaty w Bydgoszczy obsługują karty płatnicze (zbliżeniowo) oraz BLIK. Jednak najwygodniejszą metodą są aplikacje mobilne (np. SkyCash, mPay, AnyPark). Pozwalają one na włączenie opcji 'Start/Stop', co oznacza, że płacisz tylko za realny czas postoju co do minuty, bez konieczności nadpłacania 'z górką'. Pamiętaj tylko o umieszczeniu za szybą plakietki lub zwykłej kartki z napisem 'MOBiLET / mPay'."
+          ]
+        }
+      ],
+      "tips": [
+        "Unikaj parkowania na chodnikach, jeśli nie ma wyznaczonych linii – straż miejska w Bydgoszczy restrykcyjnie podchodzi do zostawiania 1,5 metra przestrzeni dla pieszych.",
+        "Parkowanie bez ważnego biletu grozi nałożeniem opłaty dodatkowej (tzw. mandatu za parkowanie) w wysokości 200 zł.",
+        "Zwróć uwagę na Parkingi Park&Ride (np. przy ul. Grudziądzkiej czy Rondzie Kujawskim) – integrują one opłatę za postój z darmową komunikacją miejską.",
+        "Parkując pod centrum handlowym (Focus, Zielone Arkady), masz zazwyczaj 2-3 godziny darmowego postoju. Pamiętaj jednak o pobraniu biletu zerowego z maszyny przed wejściem!",
+        "Strefa SPP powiększa się, dlatego zawsze rozglądaj się za znakami D-44 na wjazdach w nową ulicę."
+      ],
+      "faq": [
+        {
+          "q": "Czy auta elektryczne płacą za parking w Bydgoszczy?",
+          "a": "Nie! Zgodnie z ustawą, właściciele aut w 100% elektrycznych (posiadający zielone tablice rejestracyjne) są całkowicie zwolnieni z opłat w całej Strefie Płatnego Parkowania."
+        },
+        {
+          "q": "Mam bilet na strefę A. Czy mogę przeparkować do strefy B?",
+          "a": "Tak, bilet ze strefy droższej (A) jest honorowany w strefie tańszej (B). Zasada ta nie działa jednak w drugą stronę."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Parkowanie w Bydgoszczy – Ceny, Strefy i Aplikacje",
+        "metaDescription": "Gdzie i jak parkować w centrum Bydgoszczy? Poznaj cennik SPP (Strefy Płatnego Parkowania), podstrefy A i B oraz aplikacje mobilne do wygodnego płacenia.",
+        "keywords": [
+          "parkowanie Bydgoszcz",
+          "strefa parkowania Bydgoszcz 2026",
+          "aplikacja do parkowania",
+          "SPP Bydgoszcz cennik",
+          "darmowe parkowanie w Bydgoszczy"
+        ]
+      }
+    }
+  ]
+}
