@@ -8,6 +8,7 @@ import {
   HiLightningBolt,
   HiOutlineCheck,
   HiOutlineGift,
+  HiOutlineExclamation,
 } from 'react-icons/hi';
 import { FaCar } from 'react-icons/fa';
 import { CONTACT } from '@/constants/contact';
@@ -169,6 +170,32 @@ export default function CennikContent({ currentDate }: Props) {
               <div className="flex items-center text-blue-200">
                 <HiOutlineCheck className="text-emerald-400 mr-2" />
                 Egzaminy wewnętrzne
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Informacja o przerwie w szkoleniu */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-12 max-w-3xl mx-auto"
+          >
+            <div className="bg-gradient-to-r from-yellow-400 to-amber-400 rounded-2xl p-6 md:p-8 shadow-lg shadow-yellow-500/20">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
+                  <HiOutlineExclamation className="text-3xl text-yellow-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-yellow-900 uppercase tracking-wide mb-2">
+                    Informacja
+                  </p>
+                  <p className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed">
+                    Po przerwaniu szkolenia na okres dłuższy niż 3 miesiące,
+                    można go kontynuować &ndash; po dopłaceniu różnicy w cenie
+                    &ndash; jeżeli uległa ona zmianie.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
