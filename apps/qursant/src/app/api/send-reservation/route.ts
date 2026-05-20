@@ -13,37 +13,82 @@ const validateName = (name: string): { isValid: boolean; isSpam?: boolean } => {
   }
 
   const trimmedName = name.trim();
-  const words = trimmedName.split(/\s+/).filter((word) => word.length > 0);
+  if (!trimmedName) {
+    return { isValid: false };
+  }
 
-  // Musi być 2-3 słowa
+  // Normalizacja: ujednolicamy różne typy myślników (en dash, em dash itp.) do "-"
+  // oraz usuwamy spacje wokół myślnika, żeby "Nazwisko - Nazwisko" traktować
+  // tak samo jak "Nazwisko-Nazwisko" (popularny zapis dwuczłonowych nazwisk).
+  const normalized = trimmedName
+    .replace(/[\u2010-\u2015\u2212]/g, '-')
+    .replace(/\s*-\s*/g, '-');
+
+  const words = normalized.split(/\s+/).filter((word) => word.length > 0);
+
+  // Musi być 2-3 słowa (po normalizacji "Imię Nazwisko-Nazwisko" to 2 słowa)
   if (words.length < 2 || words.length > 3) {
     return { isValid: false, isSpam: true };
   }
 
-  // Każde słowo musi zawierać tylko litery (polskie/ukraińskie)
+  // Każde słowo musi zawierać tylko litery (polskie/ukraińskie/łacińskie)
+  // oraz opcjonalnie myślnik / apostrof wewnątrz słowa
   const lettersOnlyRegex = /^[a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻґєіїҐЄІЇа-яА-Я'-]+$/;
+
+  // Maks. długość pojedynczej części słowa (po podziale po '-' / "'").
+  const MAX_PART_LENGTH = 20;
+
+  // Dopuszczalne samogłoski: polskie, łacińskie z akcentami, ukraińskie/cyrylica
+  const vowelRegex =
+    /[aeiouyąęóáàâäãåæéèêëíìîïóòôöõøœúùûüýÿаеєиіїоуюя]/i;
 
   for (const word of words) {
     if (!lettersOnlyRegex.test(word)) {
       return { isValid: false, isSpam: true };
     }
+    if (/^[-']|[-']$|[-']{2,}/.test(word)) {
+      return { isValid: false, isSpam: true };
+    }
+    const wordParts = word.split(/[-']/);
+    for (const part of wordParts) {
+      if (part.length > MAX_PART_LENGTH) {
+        return { isValid: false, isSpam: true };
+      }
+      if (!vowelRegex.test(part)) {
+        return { isValid: false, isSpam: true };
+      }
+    }
   }
 
-  // Akceptujemy dwa warianty:
-  // 1. Wszystkie małe litery (jan kowalski)
-  // 2. Każde słowo zaczyna się wielką literą (Jan Kowalski)
-  const allLowerCase = trimmedName === trimmedName.toLowerCase();
-  const properCase = words.every((word) => {
-    const firstChar = word.charAt(0);
-    const rest = word.slice(1);
-    const isFirstUpper =
-      firstChar === firstChar.toUpperCase() &&
-      firstChar !== firstChar.toLowerCase();
-    const isRestLower = rest === rest.toLowerCase();
-    return isFirstUpper && isRestLower;
-  });
+  // Akceptujemy każde słowo w jednym z dwóch wariantów:
+  // 1. Wszystkie litery małe (np. "kowalski", "nazwisko-nazwisko")
+  // 2. Proper case z dopuszczeniem wielkiej lub małej litery po myślniku/apostrofie
+  //    (np. "Kowalski", "Nazwisko-Nazwisko", "Nazwisko-nazwisko", "O'Brien")
+  const isAllLowerWord = (word: string) => word === word.toLowerCase();
 
-  if (!allLowerCase && !properCase) {
+  const isProperCaseWord = (word: string) => {
+    const parts = word.split(/[-']/);
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i];
+      if (part.length === 0) return false;
+      if (i === 0) {
+        const firstChar = part.charAt(0);
+        const isFirstUpper =
+          firstChar === firstChar.toUpperCase() &&
+          firstChar !== firstChar.toLowerCase();
+        if (!isFirstUpper) return false;
+      }
+      const rest = part.slice(1);
+      if (rest !== rest.toLowerCase()) return false;
+    }
+    return true;
+  };
+
+  const everyWordOk = words.every(
+    (word) => isAllLowerWord(word) || isProperCaseWord(word)
+  );
+
+  if (!everyWordOk) {
     return { isValid: false, isSpam: true };
   }
 
