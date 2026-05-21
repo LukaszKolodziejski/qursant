@@ -415,10 +415,10 @@ export default function RezerwacjaPage() {
                 <motion.div
                   className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 rounded-[20px] flex items-center justify-center text-white font-medium"
                   initial={{ width: '0%' }}
-                  animate={{ width: `${progressWidth}%` }}
+                  animate={{ width: `${(remainingPlaces / 25) * 100}%` }}
                   transition={{ duration: 1 }}
                 >
-                  {Math.round(progressWidth / 4.5)}
+                  {remainingPlaces}
                 </motion.div>
               </div>
             </div>
