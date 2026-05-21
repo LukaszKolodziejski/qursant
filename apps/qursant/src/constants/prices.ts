@@ -1,12 +1,12 @@
 export const PRICES = {
   COURSE: {
-    BASIC: 3850,
-    EXPRESS: 4850,
+    BASIC: 3900,
+    EXPRESS: 4900,
   },
   INSTALLMENTS: [
     { step: 'I rata', amount: 800, desc: 'Zajęcia teoretyczne' },
     { step: 'II rata', amount: 800, desc: 'Przed pierwszą jazdą' },
-    { step: 'III rata', amount: 750, desc: 'Po 10 godz. jazdy' },
+    { step: 'III rata', amount: 800, desc: 'Po 10 godz. jazdy' },
     { step: 'IV rata', amount: 750, desc: 'Po 16 godz. jazdy' },
     { step: 'V rata', amount: 750, desc: 'Po 24 godz. jazdy' },
   ],
