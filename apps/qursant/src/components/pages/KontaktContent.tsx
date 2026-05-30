@@ -73,7 +73,6 @@ export default function KontaktContent({ coordinates }: Props) {
                 </div>
                 <div className="space-y-2 text-blue-200">
                   <p>Poniedziałek - Piątek: 15:00 - 17:00</p>
-                  <p>Sobota: 9:00 - 11:00</p>
                 </div>
               </div>
 

@@ -1,3 +1,6 @@
+/** Ustaw null, gdy kurs ekspresowy wraca do oferty. Format: DD.MM */
+export const EXPRESS_COURSE_UNAVAILABLE_UNTIL: string | null = '31.08';
+
 export const PRICES = {
   COURSE: {
     BASIC: 3900,

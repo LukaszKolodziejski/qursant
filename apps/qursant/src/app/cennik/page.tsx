@@ -7,7 +7,7 @@
 
 import { Metadata } from 'next';
 import CennikContent from '@/components/pages/CennikContent';
-import { PRICES } from '@/constants/prices';
+import { PRICES, EXPRESS_COURSE_UNAVAILABLE_UNTIL } from '@/constants/prices';
 import { CONTACT } from '@/constants/contact';
 
 export const metadata: Metadata = {
@@ -91,7 +91,7 @@ export default function CennikPage() {
       {
         '@type': 'Offer',
         name: 'Kurs Podstawowy na prawo jazdy kat. B',
-        description: '2-3 jazdy w tygodniu, teoria stacjonarnie lub E-learning',
+        description: '1-2 jazdy w tygodniu, teoria stacjonarnie lub E-learning',
         price: PRICES.COURSE.BASIC,
         priceCurrency: 'PLN',
         availability: 'https://schema.org/InStock',
@@ -102,7 +102,10 @@ export default function CennikPage() {
         description: '5-7 jazd w tygodniu, szybsza realizacja kursu',
         price: PRICES.COURSE.EXPRESS,
         priceCurrency: 'PLN',
-        availability: 'https://schema.org/InStock',
+        availability:
+          EXPRESS_COURSE_UNAVAILABLE_UNTIL !== null
+            ? 'https://schema.org/OutOfStock'
+            : 'https://schema.org/InStock',
       },
       {
         '@type': 'Offer',

@@ -12,13 +12,15 @@ import {
 } from 'react-icons/hi';
 import { FaCar } from 'react-icons/fa';
 import { CONTACT } from '@/constants/contact';
-import { PRICES } from '@/constants/prices';
+import { PRICES, EXPRESS_COURSE_UNAVAILABLE_UNTIL } from '@/constants/prices';
 
 type Props = {
   currentDate: string;
 };
 
 export default function CennikContent({ currentDate }: Props) {
+  const isExpressUnavailable = EXPRESS_COURSE_UNAVAILABLE_UNTIL !== null;
+
   // Animacje
   const pulseAnimation = {
     scale: [1, 1.02, 1],
@@ -88,7 +90,7 @@ export default function CennikContent({ currentDate }: Props) {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
-                  2-3 jazdy w tygodniu
+                  1-2 jazdy w tygodniu
                 </li>
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
@@ -112,12 +114,20 @@ export default function CennikContent({ currentDate }: Props) {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20"
+              className={`relative bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20 ${
+                isExpressUnavailable ? 'opacity-90' : ''
+              }`}
             >
               <div className="absolute -top-4 left-4">
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Szybka realizacja
-                </span>
+                {isExpressUnavailable ? (
+                  <span className="bg-gray-500/70 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    Niedostępny do {EXPRESS_COURSE_UNAVAILABLE_UNTIL}
+                  </span>
+                ) : (
+                  <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    Szybka realizacja
+                  </span>
+                )}
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">
                 Kurs Ekspresowy
@@ -142,12 +152,21 @@ export default function CennikContent({ currentDate }: Props) {
                   Intensywne szkolenie
                 </li>
               </ul>
-              <Link
-                href="/rezerwacja"
-                className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                Wybierz kurs ekspresowy
-              </Link>
+              {isExpressUnavailable ? (
+                <span
+                  aria-disabled="true"
+                  className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400/50 to-orange-500/50 text-white/70 font-medium cursor-not-allowed"
+                >
+                  Wybierz kurs ekspresowy
+                </span>
+              ) : (
+                <Link
+                  href="/rezerwacja"
+                  className="block text-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
+                >
+                  Wybierz kurs ekspresowy
+                </Link>
+              )}
             </motion.div>
           </div>
 
