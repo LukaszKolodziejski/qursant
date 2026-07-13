@@ -128,8 +128,7 @@ export default function LocalSEOSection() {
 
           {/* Right column - CSS Animation: fade-in-right */}
           <div className="space-y-6 animate-fade-in-right">
-            {/* Areas served */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
+            {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
                 <HiOutlineLocationMarker className="text-blue-400 mr-3 text-3xl" />
                 Obsługujemy całą Bydgoszcz
@@ -140,7 +139,6 @@ export default function LocalSEOSection() {
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {areas.map((area, index) => (
-                  // CSS Animation: staggered scale-in-90 with inline delay
                   <div
                     key={area}
                     className="bg-blue-500/10 rounded-lg p-3 text-center animate-scale-in-90"
@@ -154,7 +152,7 @@ export default function LocalSEOSection() {
                 Dla osób zamiejscowych możliwość rozpoczęcia jazd od dworca PKS
                 przy ul. Jagiellońskiej
               </p>
-            </div>
+            </div> */}
 
             {/* Info boxes */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
