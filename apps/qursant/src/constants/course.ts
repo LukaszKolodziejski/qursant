@@ -1,7 +1,7 @@
 export const COURSE = {
   COURSE_NAME: 'Kurs Prawa Jazdy',
   PROMO_TEXT: '', // Zostaw puste jeśli brak promocji. Wypełnij np. 'Teoria w 10 dni!' dla kursów specjalnych
-  NEXT_START_DATE: '28.07.2026', // Format: DD.MM.YYYY - automatycznie formatowany na stronach
+  NEXT_START_DATE: '07.09.2026', // Format: DD.MM.YYYY - automatycznie formatowany na stronach
   START_TIME: '17:00',
   DURATION: {
     THEORY: {
