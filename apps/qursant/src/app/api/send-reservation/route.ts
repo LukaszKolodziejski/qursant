@@ -5,6 +5,7 @@ import {
   getAdminEmailTemplate,
 } from '@/constants/emailTemplates';
 import { CONTACT } from '@/constants/contact';
+// import { appendReservationToSheet } from '@/lib/google-sheets';
 
 // Walidacja imienia i nazwiska (ukryta logika - bez podpowiedzi dla spamerów)
 const validateName = (name: string): { isValid: boolean; isSpam?: boolean } => {
@@ -39,8 +40,7 @@ const validateName = (name: string): { isValid: boolean; isSpam?: boolean } => {
   const MAX_PART_LENGTH = 20;
 
   // Dopuszczalne samogłoski: polskie, łacińskie z akcentami, ukraińskie/cyrylica
-  const vowelRegex =
-    /[aeiouyąęóáàâäãåæéèêëíìîïóòôöõøœúùûüýÿаеєиіїоуюя]/i;
+  const vowelRegex = /[aeiouyąęóáàâäãåæéèêëíìîïóòôöõøœúùûüýÿаеєиіїоуюя]/i;
 
   for (const word of words) {
     if (!lettersOnlyRegex.test(word)) {
@@ -275,7 +275,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // Jeśli wszystko się udało
+    // Zapis do Google Sheets (Data, Imię i Nazwisko, Email) — nie blokuje sukcesu rezerwacji
+    // await appendReservationToSheet({ name, email });
+
     return NextResponse.json(
       {
         success: true,

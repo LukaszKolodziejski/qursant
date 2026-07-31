@@ -90,7 +90,7 @@ export default function CennikContent({ currentDate }: Props) {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
-                  1-2 jazdy w tygodniu
+                  2-3 jazdy w tygodniu
                 </li>
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
