@@ -104,7 +104,7 @@ export default function PytaniaContent() {
           id: 'ilosc-jazd',
           question: 'Ile jazd mogę odbyć w tygodniu?',
           answer:
-            'W trybie standardowym realizujemy 2-3 jazdy tygodniowo, co pozwala na lepsze przyswojenie wiedzy. W trybie ekspresowym możemy zorganizować 5-7 jazd tygodniowo. Harmonogram zawsze ustalamy indywidualnie, biorąc pod uwagę Twoje możliwości czasowe i tempo nauki.',
+            'W trybie standardowym realizujemy 1-2 jazdy tygodniowo, co pozwala na lepsze przyswojenie wiedzy. W trybie ekspresowym możemy zorganizować 5-7 jazd tygodniowo. Harmonogram zawsze ustalamy indywidualnie, biorąc pod uwagę Twoje możliwości czasowe i tempo nauki.',
         },
       ],
     },

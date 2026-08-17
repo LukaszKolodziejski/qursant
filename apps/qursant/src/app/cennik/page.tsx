@@ -91,7 +91,7 @@ export default function CennikPage() {
       {
         '@type': 'Offer',
         name: 'Kurs Podstawowy na prawo jazdy kat. B',
-        description: '2-3 jazdy w tygodniu, teoria stacjonarnie lub E-learning',
+        description: '1-2 jazdy w tygodniu, teoria stacjonarnie lub E-learning',
         price: PRICES.COURSE.BASIC,
         priceCurrency: 'PLN',
         availability: 'https://schema.org/InStock',

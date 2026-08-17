@@ -10,7 +10,7 @@ export const COURSE = {
     },
     PRACTICE: {
       HOURS: 30,
-      WEEKS: '3-5',
+      WEEKS: '5-8',
     },
   },
   SCHEDULE: {
