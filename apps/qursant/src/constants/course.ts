@@ -6,7 +6,7 @@ export const COURSE = {
   DURATION: {
     THEORY: {
       HOURS: 30,
-      WEEKS: '2-3',
+      WEEKS: '3',
     },
     PRACTICE: {
       HOURS: 30,
