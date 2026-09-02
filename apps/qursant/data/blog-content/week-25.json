@@ -1,0 +1,511 @@
+{
+  "week": 25,
+  "startDate": "2027-07-13",
+  "endDate": "2027-08-12",
+  "posts": [
+    {
+      "id": "2027-07-13-jazda-w-upale-klimatyzacja-zmeczenie-latem",
+      "slug": "jazda-w-upale-klimatyzacja-zmeczenie-latem",
+      "title": "Jazda samochodem w lipcowym upale – jak prawidłowo używać klimatyzacji i unikać zmęczenia za kółkiem?",
+      "excerpt": "Fala upałów w Bydgoszczy to wyzwanie dla każdego kierowcy. Zobacz, jak ustawić klimatyzację, by nie zachorować, i jak walczyć ze spadkiem koncentracji w gorące dni.",
+      "publishDate": "2027-07-13T12:00:00",
+      "author": "Robert Langer",
+      "category": "poradniki",
+      "tags": [
+        "jazda w upale",
+        "klimatyzacja w aucie",
+        "bezpieczeństwo latem",
+        "zmęczenie kierowcy",
+        "porady dla kierowców"
+      ],
+      "image": "instructors/photo-7.webp",
+      "sections": [
+        {
+          "heading": "Gorące auto niczym sauna",
+          "paragraphs": [
+            "Lipcowe dni w Bydgoszczy potrafią przynieść temperatury przekraczające 30 st. Celsjusza w cieniu. Wnętrze zaparkowanego na słońcu samochodu (np. przy centrum handlowym lub przed budynkiem Qursanta) nagrzewa się w kilkanaście minut nawet do 50-60 st. Celsjusza.",
+            "Jazda w tak wysokiej temperaturze wpływa na organizm kierowcy podobnie jak umiarkowane spożycie alkoholu – drastycznie wydłuża czas reakcji, powoduje senność i spadek koncentracji. W szkole jazdy Qursant od pierwszych letnich jazd uczymy, jak właściwie przygotować auto do podróży w upalne dni."
+          ]
+        },
+        {
+          "heading": "Jak bezpiecznie i skutecznie chłodzić wnętrze?",
+          "paragraphs": [
+            "Wielu kierowców popełnia błąd, wsiadając do nagrzanego auta i od razu włączając klimatyzację na najniższą możliwą temperaturę przy zamkniętych szybach. To błąd i ryzyko szoku termicznego!"
+          ],
+          "list": [
+            "Przed ruszeniem otwórz na oścież wszystkie drzwi na 1-2 minuty, aby przewietrzyć kabinę i wypuścić najgorętsze powietrze.",
+            "Przez pierwsze kilkaset metrów jedź z uchylonymi szybami przy wyłączonej klimatyzacji, pozwalając pędowi powietrza wywiać gorąco.",
+            "Ustaw nawiew klimatyzacji tak, aby różnica temperatur między wnętrzem auta a otoczeniem nie przekraczała 5-7 st. Celsjusza (optymalna temperatura to 21-23 st. Celsjusza).",
+            "Nigdy nie kieruj nawiewu mroźnego powietrza bezpośrednio na twarz czy klatkę piersiową – skieruj strumień na szyby i sufit."
+          ]
+        },
+        {
+          "heading": "Nawodnienie i przerwy w trasie",
+          "paragraphs": [
+            "W gorące dni organizm szybko traci wodę, co prowadzi do bólów głowy i rozkojarzenia. Zawsze miej pod ręką butelkę wody mineralnej. Podczas dłuższych wyjazdów wakacyjnych (np. drogą S5) planuj krótkie postoje w cieniu co 1,5–2 godziny, by rozprostować nogi i zregenerować wzrok."
+          ]
+        }
+      ],
+      "tips": [
+        "Nigdy pod żadnym pozorem nie zostawiaj dzieci ani zwierząt w zaparkowanym pojeździe, nawet 'na chwilę do sklepu'.",
+        "Stosuj osłony przeciwsłoneczne na przednią szybę podczas postoju na nasłonecznionych parkingach.",
+        "Na 5 minut przed dotarciem do celu wyłącz klimatyzację, pozostawiając sam nawiew – osuszy to parownik i zapobiegnie powstawaniu grzybów oraz brzydkiego zapachu.",
+        "Obserwuj wskaźnik temperatury płynu chłodzącego na desce rozdzielczej – w korku w upalny dzień silnik łatwiej ulega przegrzaniu.",
+        "Podczas jazdy na kursie w Qursancie nasi instruktorzy dbają o optymalny mikroklimat w autach szkoleniowych, by nauka była komfortowa."
+      ],
+      "faq": [
+        {
+          "q": "Czy klimatyzacja zwiększa zużycie paliwa?",
+          "a": "Tak, włączony kompresor klimatyzacji zwiększa spalanie o około 0,5–1 litra na 100 km, ale komfort i bezpieczeństwo jazdy są tego zdecydowanie warte."
+        },
+        {
+          "q": "Co zrobić, gdy z nawiewu wydobywa się nieprzyjemny zapach?",
+          "a": "Oznacza to zagrzybiony układ klimatyzacji. Należy udać się do serwisu na ozonowanie lub odgrzybianie chemiczne oraz wymianę filtra kabinowego."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Jazda w upale i klimatyzacja w aucie – Porady Qursant Bydgoszcz",
+        "metaDescription": "Jak prawidłowo używać klimatyzacji i zapobiegać zmęczeniu podczas jazdy w lipcowe upały? Zobacz porady instruktorów Szkoły Jazdy Qursant.",
+        "keywords": [
+          "jazda w upale",
+          "klimatyzacja w samochodzie porady",
+          "zmęczenie za kierownicą latem",
+          "bezpieczna jazda wakacje",
+          "qursant bydgoszcz"
+        ]
+      }
+    },
+    {
+      "id": "2027-07-18-koszty-prawa-jazdy-wakacje-pakiety-ekspresowe",
+      "slug": "koszty-prawa-jazdy-wakacje-pakiety-ekspresowe",
+      "title": "Ile kosztuje prawo jazdy latem 2027 roku? Cennik, pakiety wakacyjne i opłacalność kursów ekspresowych",
+      "excerpt": "Rozważasz zapis na prawo jazdy w trakcie wakacji? Sprawdź cennik kursów lipcowo-sierpniowych w Bydgoszczy, korzyści z jazd ekspresowych i brak ukrytych opłat.",
+      "publishDate": "2027-07-18T12:00:00",
+      "author": "Robert Langer",
+      "category": "ceny",
+      "tags": [
+        "cena kursu prawa jazdy",
+        "kurs ekspresowy wakacje",
+        "prawo jazdy bydgoszcz cena",
+        "cennik qursant 2027",
+        "prawo jazdy na raty"
+      ],
+      "image": "course/photo-3.webp",
+      "sections": [
+        {
+          "heading": "Wakacje – szczyt sezonu w szkołach jazdy",
+          "paragraphs": [
+            "Lipiec i sierpień to tradycyjnie czas największego zainteresowania kursami prawa jazdy w Bydgoszczy. Uczniowie po maturach, studenci po sesji oraz osoby biorące urlopy w pracy chcą wykorzystać wolne tygodnie na zdobycie uprawnień kategorii B.",
+            "Przeglądając oferty bydgoskich ośrodków szkolenia, warto dokładnie sprawdzić, co wchodzi w skład prezentowanej ceny i czy w sezonie wakacyjnym nie pojawiają się ukryte dopłaty."
+          ]
+        },
+        {
+          "heading": "Cennik i warianty kursów wakacyjnych w 2027 r.",
+          "paragraphs": [
+            "W szkole Qursant oferujemy przejrzyste warunki finansowe dopasowane do różnego tempa nauki i dyspozycyjności:"
+          ],
+          "list": [
+            "Kurs Standardowy Kat. B – pełne 30h teorii (stacjonarnie lub e-learning) + 30h jazd praktycznych w rozłożonym grafiku.",
+            "Kurs Ekspresowy Wakacyjny – priorytetowy wykaz terminów, umożliwiający wyjeżdżenie wszystkich godzin w 3–4 tygodnie.",
+            "Materiały dydaktyczne w cenie – komplet podręczników oraz dostęp do bazy pytań testowych online bez żadnych dodatkowych opłat.",
+            "Płatność w ratach 0% – brak odsetek i formalności bankowych, z pierwszą wpłatą przy zapisie na kurs."
+          ]
+        },
+        {
+          "heading": "Czy warto dopłacić do kursu ekspresowego?",
+          "paragraphs": [
+            "Dla osób, które mają ograniczony czas wolny (np. przyjeżdżają na wakacje z zagranicy lub chcą zdążyć przed początkiem roku akademickiego w październiku), kurs ekspresowy jest niezwykle opłacalną inwestycją. Ciągłość jazd dzień po dniu sprawia, że odruchy za kierownicą utrwalają się znacznie szybciej, a ryzyko zapominania manewrów między lekcjami jest znikome."
+          ]
+        }
+      ],
+      "tips": [
+        "Porównując oferty szkół jazdy, zawsze pytaj o koszty egzaminów wewnętrznych – w Qursancie są one wliczone w cenę kursu.",
+        "Zarezerwuj numer PKK w urzędzie jeszcze przed startem wakacji, by nie czekać w kolejkach w Wydziale Komunikacji.",
+        "Pamiętaj o opłatach urzędowych i egzaminacyjnych (200 zł za egzamin praktyczny WORD Bydgoszcz, 50 zł teoria, 100,50 zł wydanie plastiku).",
+        "Jeśli brakuje Ci pewności przed egzaminem państwowym, rozważ wyjeżdżenie 2-4 dodatkowych godzin uzupełniających.",
+        "Sprawdź możliwość opłaty za kurs w elastycznych ratach – ułatwia to zarządzanie letnim budżetem."
+      ],
+      "faq": [
+        {
+          "q": "Czy ceny kursów prawa jazdy wzrastają w wakacje?",
+          "a": "W Qursancie zachowujemy stały, przejrzysty cennik przez cały rok. Zmiany stawek wynikają jedynie z ogólnych czynników rynkowych, a nie z 'sezonowego podbijania cen'."
+        },
+        {
+          "q": "Jakie formy płatności są akceptowane w szkole Qursant?",
+          "a": "Przyjmujemy płatności gotówką w biurze, kartą płatniczą oraz przelewem tradycyjnym i natychmiastowym online."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Ile kosztuje prawo jazdy wakacje 2027? Cennik Qursant Bydgoszcz",
+        "metaDescription": "Sprawdź ceny kursów prawa jazdy w lipcu i sierpniu 2027 w Bydgoszczy. Pakiety ekspresowe, raty 0% i brak ukrytych opłat w szkole Qursant.",
+        "keywords": [
+          "koszt prawa jazdy wakacje 2027",
+          "kurs ekspresowy prawo jazdy cena",
+          "szkoła jazdy raty 0 bydgoszcz",
+          "cennik qursant",
+          "prawo jazdy kat b koszt"
+        ]
+      }
+    },
+    {
+      "id": "2027-07-23-jazda-z-bagaznikiem-dachowym-rowerami-i-przyczepa",
+      "slug": "jazda-z-bagaznikiem-dachowym-rowerami-i-przyczepa",
+      "title": "Wakacyjny bagaż na i za autem – przepisy, limity mas i zasady jazdy z boksem dachowym oraz rowerami",
+      "excerpt": "Ruszasz na wakacje z rowerami na klapie lub boksem na dachu? Sprawdź przepisy drogowe, dopuszczalne masy i wskazówki bezpiecznego prowadzenia obciążonego auta.",
+      "publishDate": "2027-07-23T12:00:00",
+      "author": "Robert Langer",
+      "category": "prawo",
+      "tags": [
+        "bagażnik dachowy",
+        "rowery na haku",
+        "przepisy drogowe latem",
+        "jazda z przyczepą",
+        "dopuszczalna masa całkowita"
+      ],
+      "image": "office/photo-50.webp",
+      "sections": [
+        {
+          "heading": "Zapakowane auto na wyjazd wakacyjny",
+          "paragraphs": [
+            "Wyjazdy na urlop bardzo często wiążą się z pakowaniem sporej ilości sprzętu rekreacyjnego. Rowery na haku, boks dachowy ze sprzętem kempingowym czy mała przyczepka towarowa to powszechny widok na trasach wyjazdowych wokół Bydgoszczy (np. na DK10 czy S5).",
+            "Wielu kierowców nie zdaje sobie jednak sprawy, że montaż dodatkowych akcesoriów transportowych zmienia właściwości jezdne samochodu i nakłada na nas konkretne obowiązki prawne."
+          ]
+        },
+        {
+          "heading": "Przepisy i zasady montażu dodatkowego bagażu",
+          "paragraphs": [
+            "Policja drogowa podczas letnich kontroli weryfikuje nie tylko prędkość, ale również prawidłowość zabezpieczenia ładunku:"
+          ],
+          "list": [
+            "Zasłonięta tablica rejestracyjna: montując bagażnik rowerowy na hak, musisz posiadać dodatkową (trzecią) tablicę rejestracyjną wydaną przez Wydział Komunikacji oraz sprawne oświetlenie na platformie.",
+            "Niewystawanie ładunku: bagaż nie może wystawać poza obrys pojazdu z przodu na więcej niż 0,5 m (z czerwoną chorągiewką) oraz z tyłu na więcej niż 2 m.",
+            "Maksymalny nacisk na dach: sprawdź w instrukcji pojazdu dopuszczalne obciążenie dachu (zazwyczaj 50–75 kg włączając masę samego boksu i belek!).",
+            "Jazda z przyczepą na kat. B: prawo jazdy kategoria B pozwala na ciągnięcie przyczepy lekkiej (do 750 kg DMC) lub zespołu pojazdów o łącznej DMC nieprzekraczającej 3500 kg."
+          ]
+        },
+        {
+          "heading": "Zmiana zachowania pojazdu w trasie",
+          "paragraphs": [
+            "Auto z boksem dachowym staje się wyższe i wykazuje znacznie większą podatność na boczne podmuchy wiatru (np. przy wyjeździe z lasu lub wyprzedzaniu ciężarówki na S5). Dodatkowo środek ciężkości przesuwa się w górę, co wymaga wolniejszego pokonywania ostrych zakrętów. Spalanie wzrasta o 10–20%, a wysokość pojazdu uniemożliwia wjazd na niektóre podziemne parkingi."
+          ]
+        }
+      ],
+      "tips": [
+        "Zawsze zmierz wysokość auta z boksem dachowym i zapamiętaj tę wartość przed wjazdem pod bramki czy parkingi podziemne.",
+        "Po przejechaniu pierwszych 20-30 km od zamontowania boksu lub rowerów zatrzymaj się na MOP-ie i sprawdź dociągnięcie pasów oraz śrub mocujących.",
+        "Dopompuj koła – obciążone wakacyjnie auto wymaga wyższego ciśnienia w ogumieniu (sprawdź tabliczkę na słupku drzwi).",
+        "Pamiętaj o trzeciej tablicy rejestracyjnej na bagażnik hakowy – wyrób ją legalnie w urzędzie miasta (koszt ok. 53 zł), nie używaj zrobionych domowym sposobem 'tekturek'.",
+        "W szkole Qursant podczas kursu omawiamy wpływ masy ładunku na drogę hamowania pojazdu."
+      ],
+      "faq": [
+        {
+          "q": "Czy mogę przełożyć tylną tablicę rejestracyjną z samochodu na bagażnik rowerowy?",
+          "a": "Zgodnie z aktualnymi przepisami przekładanie tablicy jest nielegalne. Należy złożyć wniosek w Wydziale Komunikacji o wydanie dodatkowej, legalnej tablicy rejestracyjnej dla bagażnika."
+        },
+        {
+          "q": "Jaka jest dopuszczalna prędkość z boksem dachowym?",
+          "a": "Przepisy nie nakładają osobnego limitu, obowiązują limity ogólne drogi. Producent boksu zazwyczaj zaleca jednak nieprzekraczanie 120–130 km/h ze względów bezpieczeństwa."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Bagażnik dachowy i rowery na haku – Przepisy 2027 Qursant",
+        "metaDescription": "Jak legalnie i bezpiecznie przewozić rowery oraz boks dachowy latem? Poznaj zasady DMC, przepisy o trzeciej tablicy i porady Qursant.",
+        "keywords": [
+          "bagażnik dachowy przepisy",
+          "rowery na haku trzecia tablica",
+          "jazda z boksem dachowym",
+          "przepisy przyczepa kat b",
+          "załadunek auta na wakacje"
+        ]
+      }
+    },
+    {
+      "id": "2027-07-28-egzamin-word-bydgoszcz-w-upalne-dni-jak-opanowac-stres",
+      "slug": "egzamin-word-bydgoszcz-w-upalne-dni-jak-opanowac-stres",
+      "title": "Egzamin w WORD Bydgoszcz podczas upałów – jak opanować stres i nie popełnić błędu na placu i w mieście?",
+      "excerpt": "Zdajesz egzamin na prawo jazdy w lipcu lub sierpniu? Zobacz, jak przygotować się fizycznie i psychicznie do jazdy w gorące dni na ul. Wyszyńskiego.",
+      "publishDate": "2027-07-28T12:00:00",
+      "author": "Robert Langer",
+      "category": "egzaminy",
+      "tags": [
+        "WORD Bydgoszcz egzamin",
+        "stres na egzaminie",
+        "egzamin praktyczny latem",
+        "plac manewrowy upał",
+        "porady egzaminacyjne"
+      ],
+      "image": "cars/photo-78.webp",
+      "sections": [
+        {
+          "heading": "Egzaminacyjna gorączka na ul. Wyszyńskiego 54",
+          "paragraphs": [
+            "Przystąpienie do egzaminu państwowego w Wojewódzkim Ośrodku Ruchu Drogowego w Bydgoszczy samo w sobie wiąże się ze sporym poziomem emocji. Gdy dojdzie do tego lipcowy upał, oczekiwanie w poczekalni i nagrzany plac manewrowy potrafią dodatkowo osłabić koncentrację.",
+            "W Qursancie dbamy o to, by nasi kursanci byli przygotowani nie tylko pod kątem znajomości przepisów, ale również odporności na trudne warunki pogodowe i stres."
+          ]
+        },
+        {
+          "heading": "Plac manewrowy w palącym słońcu",
+          "paragraphs": [
+            "Pierwszy etap egzaminu odbywa się na wolnym powietrzu. Jak poradzić sobie na placu manewrowym w gorący dzień?"
+          ],
+          "list": [
+            "Przygotowanie auta w środku: po wejściu do pojazdu egzaminacyjnego włącz nawiew lub klimatyzację, by obniżyć temperaturę w kabinie zanim ruszysz na łuk.",
+            "Spokojne oddechy: nie śpiesz się z rozpoczynaniem zadań. Masz czas na ustawienie fotela, lusterek i zagłówka – wykorzystaj ten moment na wyrównanie oddechu.",
+            "Jazda po pasie ruchu (łuk): przy nagrzanej nawierzchni opony mają wysoką przyczepność, operuj półsprzęgłem bardzo płynnie bez zbędnego dodawania wysokich obrotów.",
+            "Ruszanie na wzniesieniu: pamiętaj, że nogi spocone w letnim obuwiu mogą ześlizgiwać się z pedałów – załóż wygodne buty z płaską, gumową podeszwą!"
+          ]
+        },
+        {
+          "heading": "Jazda w ruchu miejskim w wakacyjnym szczycie",
+          "paragraphs": [
+            "Po wyjeździe z placu WORD na ul. Wyszyńskiego trafisz w miejski ruch. Latem na bydgoskich ulicach jest mnóstwo pieszych, rowerzystów oraz hulajnóg elektrycznych. Zwracaj podwójną uwagę na przejścia dla pieszych przy parkach i przystankach tramwajowych, gdzie rozkojarzeni upałem piesi potrafią nagle wejść na jezdnię."
+          ]
+        }
+      ],
+      "tips": [
+        "Nigdy nie idź na egzamin na czczo ani odwodniony – wypij szklankę wody i zjedz lekki posiłek przed wyjściem z domu.",
+        "Załóż przewiewne ubranie i stabilne obuwie (odradzamy klapki i sandały na śliskiej podeszwie, które uniemożliwiają precyzyjną pracę pedałami).",
+        "Jeśli w pojeździe egzaminacyjnym jest zbyt gorąco lub nawiew wieje zbyt mocno, powiedz o tym egzaminatorowi – masz prawo do komfortowych warunków.",
+        "Zamiast myśleć 'muszę zdać', skup się na kolejnych, małych zadaniach dyktowanych przez egzaminatora.",
+        "Przed egzaminem warto odbyć 1-2 godziny jazdy rozgrzewkowej z instruktorem Qursanta w tym samym dniu."
+      ],
+      "faq": [
+        {
+          "q": "Czy na egzaminie w WORD Bydgoszcz auta są klimatyzowane?",
+          "a": "Tak, flota egzaminacyjna w WORD Bydgoszcz (Hyundai i20) jest wyposażona w sprawną klimatyzację."
+        },
+        {
+          "q": "Co zrobić, gdy podczas egzaminu poczuję się źle z powodu upału?",
+          "a": "Poinformuj o tym natychmiast egzaminatora. Możesz poprosić o bezpieczne zatrzymanie pojazdu na chwilę, by napić się wody."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Jak zdać egzamin WORD Bydgoszcz w upał? Porady Qursant",
+        "metaDescription": "Stres i upał na egzaminie na prawo jazdy w Bydgoszczy? Zobacz wskazówki instruktorów Qursant jak zachować zimną krew na placu i w mieście.",
+        "keywords": [
+          "WORD Bydgoszcz egzamin latem",
+          "jak zdać egzamin na prawo jazdy",
+          "stres przed egzaminem word",
+          "plac manewrowy porady",
+          "qursant bydgoszcz"
+        ]
+      }
+    },
+    {
+      "id": "2027-08-02-pierwsza-jazda-autostrada-i-droga-ekspresowa-s5",
+      "slug": "pierwsza-jazda-autostrada-i-droga-ekspresowa-s5",
+      "title": "Pierwsza jazda drogą ekspresową S5 lub autostradą – jak bezpiecznie wyprzedzać i trzymać odstęp?",
+      "excerpt": "Planujesz pierwszy wakacyjny wyjazd trasą S5 z Bydgoszczy? Poznaj zasady włączania się do ruchu, wyprzedzania ciężarówek i zachowania bezpiecznego odstępu.",
+      "publishDate": "2027-08-02T12:00:00",
+      "author": "Robert Langer",
+      "category": "porady",
+      "tags": [
+        "droga ekspresowa S5",
+        "jazda autostradą",
+        "pierwsza trasa",
+        "wyprzedzanie na S5",
+        "bezpieczna jazda szybkiego ruchu"
+      ],
+      "image": "cars/photo-77.webp",
+      "sections": [
+        {
+          "heading": "Z miasta na trasę szybkiego ruchu",
+          "paragraphs": [
+            "Obwodnica Bydgoszczy oraz droga ekspresowa S5 pozwalają na błyskawiczne przemieszczanie się w stronę Poznańskiego lub Gdańska. Dla świeżo upieczonego kierowcy wjazd na trasę o dopuszczalnej prędkości 120 km/h bywa jednak emocjonującym przeżyciem.",
+            "Różnica prędkości między ruchem miejskim a ekspresowym wymaga zmiany sposobu obserwacji otoczenia i operowania manewrami."
+          ]
+        },
+        {
+          "heading": "Kluczowe manewry na drodze ekspresowej",
+          "paragraphs": [
+            "Oto najważniejsze zasady bezpiecznego poruszania się po drodze S5 i autostradach:"
+          ],
+          "list": [
+            "Włączanie się do ruchu (pas rozbiegowy): wykorzystaj CAŁĄ długość pasa włączeniowego do dynamicznego rozpędzenia auta do prędkości potoku (np. 90-100 km/h) przed zmianą pasa na prawy.",
+            "Jazda prawym pasem: w Polsce obowiązuje ruch prawostronny. Lewy pas służy WYŁĄCZNIE do wyprzedzania – po zakończeniu manewru wracaj na prawy pas.",
+            "Reguła 2 sekund (bezpieczny odstęp): przy prędkości 120 km/h pokonujesz aż 33 metry w każdą sekundę! Zachowaj odległość minimum połowy prędkości w metrach (przy 120 km/h to co najmniej 60 metrów od auta z przodu).",
+            "Wyprzedzanie ciężarówek: uważaj na zawirowania powietrza przy mijaniu zestawów ciężarowych oraz na martwe pola w lusterkach kierowcy tira."
+          ]
+        },
+        {
+          "heading": "Korytarz życia i MOP-y",
+          "paragraphs": [
+            "Gdy na drodze szybkiego ruchu tworzy się zator, natychmiast zjedź do krawędzi swojego pasa, tworząc korytarz życia dla służb ratunkowych. Podczas dłuższej jazdy korzystaj z Miejsc Obsługi Podróżnych (MOP), by odpocząć i zapobiec mikrosną za kierownicą."
+          ]
+        }
+      ],
+      "tips": [
+        "Nigdy nie zatrzymuj się na pasie awaryjnym bez wyraźnej usterki – stop na pasie awaryjnym to ogromne niebezpieczeństwo!",
+        "Sygnalizuj kierunkowskazem chęć zmiany pasa z wyprzedzeniem, spoglądając wstecz w lusterko boczne i wsteczne.",
+        "Pamiętaj, że na drogach ekspresowych dwujezdniowych limit wynosi 120 km/h, a na autostradach 140 km/h.",
+        "W przypadku awarii auta włącz światła awaryjne, załóż kamizelkę odblaskową i wyjdź z auta za barierę ochronną, a dopiero potem ustaw trójkąt ostrzegawczy 100 m za autem.",
+        "W szkole jazdy Qursant w ramach godzin pozamiejskich wyjeżdżamy z kursantami na obwodnicę S5, by oswoić ich z prędkościami ekspresowymi."
+      ],
+      "faq": [
+        {
+          "q": "Czy na drodze ekspresowej wolno zawracać lub cofać?",
+          "a": "Absolutnie NIE! Cofanie i zawracanie na autostradzie lub drodze ekspresowej jest surowo zabronione i grozi zatrzymaniem prawa jazdy."
+        },
+        {
+          "q": "Co zrobić, jeśli przegapiłem zjazd z drogi ekspresowej?",
+          "a": "Jedź spokojnie do następnego węzła wyjazdowego. Nigdy nie zatrzymuj się ani nie cofaj na pasie ruchu!"
+        }
+      ],
+      "seo": {
+        "metaTitle": "Pierwsza jazda drogą S5 i autostradą – Porady Qursant Bydgoszcz",
+        "metaDescription": "Jak bezpiecznie jeździć po drodze ekspresowej S5 z Bydgoszczy? Zobacz zasady wyprzedzania, włączania się do ruchu i trzymania odstępu.",
+        "keywords": [
+          "jazda drogą S5",
+          "pierwsza jazda autostradą",
+          "bezpieczny odstęp autostrada",
+          "pas rozbiegowy jak wjechać",
+          "qursant porady kierowcy"
+        ]
+      }
+    },
+    {
+      "id": "2027-08-07-sierpniowy-nabor-na-kursy-prawa-jazdy-qursant",
+      "slug": "sierpniowy-nabor-na-kursy-prawa-jazdy-qursant",
+      "title": "Sierpniowy nabór w Qursancie – ostatnia szansa na prawo jazdy przed nowym rokiem szkolnym i akademickim!",
+      "excerpt": "Chcesz zdać prawo jazdy jeszcze przed jesienią? Rusza sierpniowy nabór na kursy w Qursant Bydgoszcz. Wybierz grafik dopasowany do Twoich potrzeb.",
+      "publishDate": "2027-08-07T12:00:00",
+      "author": "Robert Langer",
+      "category": "aktualnosci",
+      "tags": [
+        "nabór prawo jazdy",
+        "kurs prawa jazdy sierpień",
+        "qursant bydgoszcz",
+        "prawo jazdy przed rokiem szkolnym",
+        "szkoła jazdy zapisy"
+      ],
+      "image": "cars/photo-81.webp",
+      "sections": [
+        {
+          "heading": "Sierpień – idealny moment na start",
+          "paragraphs": [
+            "Sierpień to dla wielu osób ostatni dzwonek, by sprawnie rozpocząć i ukończyć kurs prawa jazdy przed powrotem do szkoły, na uczelnię czy do powrotu z urlopu pracowniczego.",
+            "W Ośrodku Szkolenia Kierowców Qursant w Bydgoszczy ruszają zapisy na sierpniowe grupy wykładowe oraz pakiety e-learningowe z możliwością natychmiastowego rozpoczęcia zajęć praktycznych."
+          ]
+        },
+        {
+          "heading": "Dlaczego warto zapisać się w sierpniu?",
+          "paragraphs": [
+            "Rozpoczęcie nauki w sierpniu niesie ze sobą szereg korzyści organizacyjnych i szkoleniowych:"
+          ],
+          "list": [
+            "Doskonale warunki pogodowe: korzystasz z długich, słonecznych dni i suchej nawierzchni na pierwszych jazdach.",
+            "Elastyczne harmonogramy: możliwość ułożenia intensywnego grafiku jazd 3–4 razy w tygodniu.",
+            "Gwarancja stałej ceny: zapisując się w sierpniowym naborze, rezerwujesz aktualną stawkę kursu z opcją wygodnych rat 0%.",
+            "Szkolenie na pojazdach egzaminacyjnych: jazda identycznymi Hyundaiami i20 jak w WORD Bydgoszcz."
+          ]
+        },
+        {
+          "heading": "Jak krok po kroku zapisać się na kurs?",
+          "paragraphs": [
+            "Samo dołączenie do kursu jest niezwykle proste. Wystarczy udać się do Wydziału Komunikacji po numer PKK, a następnie skontaktować się z biurem Qursanta telefonicznie, mailowo lub wypełniając formularz na naszej stronie internetowej. Nasi pracownicy pomogą dobrać najbardziej dogodne terminy."
+          ]
+        }
+      ],
+      "tips": [
+        "Złóż wniosek o PKK w urzędzie jak najszybciej, by uniknąć opóźnień przed pierwszymi jazdami.",
+        "Skorzystaj z opcji teorii online, jeśli w sierpniu przebywasz jeszcze poza Bydgoszczą – wykłady zrobisz na smartfonie.",
+        "Zapytaj w naszym biurze o zniżki studenckie i pakiety dla przyjaciół zapisujących się razem.",
+        "Rozplanuj jazdy tak, by wyjeździć znaczną część godzin przed początkiem września.",
+        "Zapoznaj się z materiałami szkoleniowymi udostępnianymi w strefie kursanta Qursant."
+      ],
+      "faq": [
+        {
+          "q": "Czy zdążę zdać egzamin przed październikiem, zapisując się w sierpniu?",
+          "a": "Przy wyborze trybu intensywnego i wysokiej dyspozyczności wyjeżdżenie 30 godzin zajmuje około 4 tygodni, co pozwala przystąpić do egzaminu we wrześniu."
+        },
+        {
+          "q": "Czy mogę zmienić instruktora w trakcie trwania kursu?",
+          "a": "Tak, w Qursancie dbamy o pełen komfort kursanta. Na życzenie istnieje możliwość zmiany instruktora prowadzącego."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Sierpniowy nabór na kurs prawa jazdy – Qursant Bydgoszcz",
+        "metaDescription": "Zapisz się na kurs prawa jazdy w sierpniu w Bydgoszczy! Zdaj przed nowym rokiem szkolnym. Oferta, raty 0% i zapisy w Qursant.",
+        "keywords": [
+          "zapisy prawo jazdy sierpień",
+          "kurs prawa jazdy bydgoszcz 2027",
+          "qursant rekrutacja",
+          "prawo jazdy przed rokiem szkolnym",
+          "szkoła jazdy kat b"
+        ]
+      }
+    },
+    {
+      "id": "2027-08-12-trasa-egzaminacyjna-wezel-zachodni-nad-torem-czyzkowko",
+      "slug": "trasa-egzaminacyjna-wezel-zachodni-nad-torem-czyzkowko",
+      "title": "Trasa egzaminacyjna: Węzeł Zachodni, ul. Nad Torem i Czyżkówko w Bydgoszczy – pułapki i skrzyżowania",
+      "excerpt": "Węzeł Zachodni i ulica Nad Torem to jedno z najbardziej wymagających miejsc na trasach WORD Bydgoszcz. Zobacz, jak bezbłędnie pokonać ten rejon.",
+      "publishDate": "2027-08-12T12:00:00",
+      "author": "Robert Langer",
+      "category": "lokalne",
+      "tags": [
+        "Węzeł Zachodni Bydgoszcz",
+        "ulica Nad Torem",
+        "trasa egzaminacyjna WORD",
+        "Czyżkówko jazdy",
+        "skrzyżowania Bydgoszcz"
+      ],
+      "image": "instructors/photo-69.webp",
+      "sections": [
+        {
+          "heading": "Wielopoziomowy węzeł i osiedlowe wloty",
+          "paragraphs": [
+            "Węzeł Zachodni w Bydgoszczy wraz z odchodzącą od niego ulicą Nad Torem stanowią kluczowy węzeł komunikacyjny łączący centrum miasta z kierunkiem na Koronowo i Piłę.",
+            "Egzaminatorzy WORD Bydgoszcz bardzo chętnie kierują tu samochody egzaminacyjne, by sprawdzić umiejętność zajmowania odpowiednich pasów przed skrzyżowaniem wielopoziomowym, jazdę pod wiaduktem kolejowym oraz zachowanie na osiedlowych uliczkach Czyżkówka."
+          ]
+        },
+        {
+          "heading": "Trudne punkty na trasie: Węzeł Zachodni i Nad Torem",
+          "paragraphs": [
+            "Na co musisz zwrócić szczególną uwagę, przejeżdżając przez ten rejon?"
+          ],
+          "list": [
+            "Znaki kierunkowe przed Węzłem Zachodnim (F-10): pasy ruchu ułożone są tak, że wczesna zmiana pasa jest konieczna. Zmiana pasa na linii ciągłej wewnątrz węzła grozi natychmiastowym oblaniem!",
+            "Sygnalizacja świetlna pod wiaduktem: uważaj na sygnalizatory nad poszczególnymi pasami – zielona strzałka w prawo wymaga ustąpienia pierwszeństwa pieszym.",
+            "Przejazd ulicą Nad Torem: ulica charakteryzuje się sporym ruchem ciężarowym oraz gęsto rozmieszczonymi przejściami dla pieszych przy osiedlu Czyżkówko.",
+            "Skręt z ul. Nad Torem w ul. Krajeńską lub Siedlecką: brak osobnych pasów do skrętu w lewo wymaga cierpliwego wyczekania na lukę w ruchu z przeciwka i niezalegania pieszych."
+          ]
+        },
+        {
+          "heading": "Strefy ograniczenia prędkości na Czyżkówku",
+          "paragraphs": [
+            "Po zjeździe w głąb osiedla Czyżkówko wjeżdżasz w strefę uspokojonego ruchu z licznymi skrzyżowaniami równorzędnymi. Pamiętaj o stosowaniu reguły prawej ręki oraz wolnej jazdy przy szkołach i osiedlowych placach zabaw."
+          ]
+        }
+      ],
+      "tips": [
+        "Obserwuj znaki pionowe z wyprzedzeniem kilkuset metrów przed Węzłem Zachodnim.",
+        "Nigdy nie wjeżdżaj na skrzyżowanie pod wiaduktem, jeśli z przodu nie ma miejsca do kontynuowania jazdy.",
+        "Pamiętaj o bezpiecznym odstępie od ciężarówek skręcających na Węźle Zachodnim – potrzebują one większego promienia skrętu.",
+        "W strefach osiedlowych Czyżkówka trzymaj rękę w pogotowiu nad hamulcem przy każdym wlocie z prawej strony.",
+        "Instruktorzy Qursanta wielokrotnie przejeżdżają ten odcinek podczas jazd szkoleniowych, rozbijając zawiłości Węzła Zachodniego na proste czynniki."
+      ],
+      "faq": [
+        {
+          "q": "Z jakiego pasa wjechać na Węzeł Zachodni jadąc od strony ul. Focha w kierunku Koronowa?",
+          "a": "Dla kierunku na Koronowo (ul. Nad Torem) należy wcześnie zająć prawy lub środkowy pas zgodnie z tablicami drogowskazowymi przed węzłem."
+        },
+        {
+          "q": "Czy na ulicy Nad Torem są skrzyżowania równorzędne?",
+          "a": "Sama ulica Nad Torem jest drogą z pierwszeństwem, jednak dochodzące do niej mniejsze uliczki osiedlowe na Czyżkówku bywają oznaczone jako równorzędne."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Węzeł Zachodni i ul. Nad Torem Bydgoszcz – Trasa WORD",
+        "metaDescription": "Rozpracowujemy trasę egzaminacyjną WORD Bydgoszcz na Węźle Zachodnim, ul. Nad Torem i Czyżkówku. Porady i pułapki od instruktorów Qursant.",
+        "keywords": [
+          "Węzeł Zachodni Bydgoszcz egzamin",
+          "ulica Nad Torem trasa word",
+          "Czyżkówko nauka jazdy",
+          "trasy egzaminacyjne bydgoszcz",
+          "qursant poradnik"
+        ]
+      }
+    }
+  ]
+}

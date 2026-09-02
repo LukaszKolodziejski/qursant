@@ -1,0 +1,508 @@
+{
+  "week": 24,
+  "startDate": "2027-06-08",
+  "endDate": "2027-07-08",
+  "posts": [
+    {
+      "id": "2027-06-08-jazda-w-upale-klimatyzacja-silnik-poradnik",
+      "slug": "jazda-w-upale-klimatyzacja-silnik-poradnik",
+      "title": "Upały za kierownicą – jak bezpiecznie korzystać z klimatyzacji i chronić silnik przed przegrzaniem?",
+      "excerpt": "Upalne czerwcowe dni to wyzwanie dla kierowcy i samochodu. Zobacz, jak prawidłowo używać klimatyzacji, unikać szoku termicznego i dbać o chłodzenie silnika w korkach.",
+      "publishDate": "2027-06-08T12:00:00",
+      "author": "Robert Langer",
+      "category": "poradniki",
+      "tags": [
+        "jazda w upale",
+        "klimatyzacja w aucie",
+        "bezpieczeństwo jazdy",
+        "przegrzanie silnika",
+        "porady dla kierowców"
+      ],
+      "image": "instructors/photo-21.webp",
+      "sections": [
+        {
+          "heading": "Wpływ wysokich temperatur na skupienie kierowcy",
+          "paragraphs": [
+            "Oczekiwanie na pierwsze powiewy lata wiąże się z gwałtownym wzrostem temperatur na zewnątrz i wewnątrz pojazdu. Temperatura w zaparkowanym na słońcu aucie może przekroczyć 50°C w zaledwie kilkanaście minut. Wysoka temperatura w kabinie obniża koncentrację kierowcy w stopniu porównywalnym z niewielką ilością alkoholu we krwi.",
+            "Praca w uciążliwym upale wydłuża czas reakcji na drodze, wywołuje zniecierpliwienie i potęguje zmęczenie. W szkole jazdy Qursant kładziemy duży nacisk na to, by przyszli kierowcy potrafili zadbać o komfort termiczny przed i w trakcie podróży."
+          ]
+        },
+        {
+          "heading": "Jak prawidłowo schłodzić auto i używać klimatyzacji?",
+          "paragraphs": [
+            "Wiele osób popełnia błąd, włączając klimatyzację na maksimum od razu po wejściu do nagrzanego samochodu. Błędne nawyki obciążają układ chłodzenia oraz grożą infekcjami dróg oddechowych."
+          ],
+          "list": [
+            "Przewietrz auto przed ruszaniem: Otwórz na oścież drzwi po przeciwnej stronie pojazdu i wykonaj kilka płynnych ruchów drugimi drzwiami, by wypchnąć gorące powietrze.",
+            "Ustaw rozsądną temperaturę: Różnica między temperaturą w aucie a otoczeniem nie powinna przekraczać 5-6°C, by uniknąć szoku termicznego przy wysiadaniu.",
+            "Kieruj nawiew na szyby i dach: Nigdy nie ustawiaj zimnego nawiewu bezpośrednio na twarz ani klatkę piersiową.",
+            "Wyłącz nawiew chwilę przed celem: Umożliwi to osuszenie parownika klimatyzacji i zapobiegnie rozwojowi grzybów i drobnoustrojów."
+          ]
+        },
+        {
+          "heading": "Kontrola układu chłodzenia w letnie dni",
+          "paragraphs": [
+            "Podczas jazdy w podbydgoskich korkach w upalne dni silnik pracujący na wolnych obrotach generuje potężne ilości ciepła. Kontroluj wskaźnik temperatury płynu chłodzącego – jeśli wskazówka zbliża się do czerwonego pola, natychmiast wyłącz klimatyzację i włącz ogrzewanie na maksimum, co pomoże odprowadzić ciepło z bloku silnika."
+          ]
+        }
+      ],
+      "tips": [
+        "Przed wejściem do nagrzanego auta otwórz na 2 minuty wszystkie drzwi, aby usunąć najgorętsze powietrze z kabiny.",
+        "Nie ustawiaj klimatyzacji na najniższą możliwą temperaturę – zachowaj umiar (optymalnie 21-23°C).",
+        "Regularnie sprawdzaj poziom płynu chłodzącego w zbiorniczku wyrównawczym (wyłącznie na zimnym silniku!).",
+        "Używaj mat przeciwsłonecznych na przednią szybę podczas parkowania na otwartych parkingach w Bydgoszczy.",
+        "Pamiętaj o nawodnieniu – zawsze miej w samochodzie butelkę wody mineralnej na wypadek zatoru drogowego."
+      ],
+      "faq": [
+        {
+          "q": "Czy jazda z włączoną klimatyzacją znacząco zwiększa zużycie paliwa?",
+          "a": "Klimatyzacja zwiększa spalanie o około 0,5 do 1 litra na 100 km. Jednak otwarcie szyb przy wyższych prędkościach generuje opory powietrza, które spalają porównywalną ilość paliwa przy znacznie niższym komforcie."
+        },
+        {
+          "q": "Co zrobić, gdy podczas jazdy w upale zapali się czerwona kontrolka temperatury płynu?",
+          "a": "Bezpiecznie zjedź na pobocze, wyłącz silnik i nie odkręcaj korka zbiornika chłodnicy! Poczekaj, aż silnik ostygnie i skontroluj stan płynu lub wezwij pomoc drogową."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Klimatyzacja w aucie w upały – jak bezpiecznie używać? Poradnik",
+        "metaDescription": "Jak schłodzić nagrzane auto i nie przegrzać silnika w letnich korkach? Poznaj zasady korzystania z klimatyzacji według instruktorów Qursant Bydgoszcz.",
+        "keywords": [
+          "klimatyzacja w samochodzie",
+          "jazda w upale",
+          "przegrzanie silnika",
+          "szok termiczny w aucie",
+          "porady kierowcy lato"
+        ]
+      }
+    },
+    {
+      "id": "2027-06-13-wakacyjny-kurs-prawa-jazdy-bydgoszcz-ceny-2027",
+      "slug": "wakacyjny-kurs-prawa-jazdy-bydgoszcz-ceny-2027",
+      "title": "Wakacyjny kurs prawa jazdy 2027 w Bydgoszczy – ile kosztuje i jak zaplanować budżet?",
+      "excerpt": "Planujesz zdobyć prawo jazdy w wakacje? Sprawdź aktualny cennik kursów w Qursancie, koszty jazd dodatkowych oraz sposoby na elastyczne raty 0%.",
+      "publishDate": "2027-06-13T12:00:00",
+      "author": "Robert Langer",
+      "category": "ceny",
+      "tags": [
+        "wakacyjny kurs prawa jazdy",
+        "cena kursu prawa jazdy",
+        "Qursant cennik",
+        "bydgoszcz szkoła jazdy",
+        "raty na prawo jazdy"
+      ],
+      "image": "instructors/photo-1.webp",
+      "sections": [
+        {
+          "heading": "Dlaczego wakacje to najlepszy czas na zrobienie prawa jazdy?",
+          "paragraphs": [
+            "Czerwiec to moment, w którym wielu uczniów, studentów oraz osób planujących wakacyjny urlop decyduje się na rozpoczęcie kursu na prawo jazdy kategorii B. Większa ilość wolnego czasu pozwala na wyjeżdżenie wymaganych 30 godzin w znacznie szybszym tempie.",
+            "W szkole jazdy Qursant w Bydgoszczy przygotowaliśmy elastyczne pakiety szkoleniowe, dopasowane do budżetu i możliwości czasowych każdego kursanta."
+          ]
+        },
+        {
+          "heading": "Składniki ceny kursu na prawo jazdy w 2027 roku",
+          "paragraphs": [
+            "Przejrzystość finansowa jest dla nas priorytetem. Decydując się na kurs w Qursancie, otrzymujesz pełen pakiet usług bez żadnych ukrytych opłat w trakcie trwania szkolenia:"
+          ],
+          "list": [
+            "Komplet materiałów dydaktycznych: Podręczniki, dostęp do aplikacji z aktualnymi pytaniami testowymi oficjalnej bazy ministerstwa.",
+            "30 godzin teorii oraz 30 godzin jazdy: Przeprowadzane na pojazdach identycznych z egzaminacyjnymi WORD Bydgoszcz (Hyundai i20).",
+            "Egzaminy wewnętrzne: Teoretyczny i praktyczny egzamin próbny w cenie pakietu podstawowego.",
+            "System rat 0%: Możliwość rozłożenia płatności na wygodne raty dopasowane do postępów w kursie."
+          ]
+        },
+        {
+          "heading": "Jak zaplanować dodatkowe wydatki towarzyszące?",
+          "paragraphs": [
+            "Pamiętaj, aby przy planowaniu całego budżetu na prawo jazdy uwzględnić oficjalne opłaty urzędowe i medyczne. Badanie lekarskie to ustawowy koszt 200 zł, opłata egzaminacyjna w WORD Bydgoszcz wynosi 250 zł (50 zł teoria + 200 zł praktyka), a wydanie gotowego plastiku w Urzędzie Miasta to 100,50 zł."
+          ]
+        }
+      ],
+      "tips": [
+        "Skorzystaj z płatności ratalnej 0% – pierwsza wpłata przy zapisie pozwala od razu rozpocząć teorię.",
+        "Porównując oferty szkół jazdy w Bydgoszczy, upewnij się, czy cena obejmuje materiały dydaktyczne i egzaminy wewnętrzne.",
+        "Rezerwuj terminy jazd blisko siebie – ciągłość szkolenia zmniejsza zapotrzebowanie na jazdy uzupełniające.",
+        "Jeśli czujesz niepewność przed egzaminem, dokup 2-3 godziny jazd dodatkowych tuż przed terminem w WORD.",
+        "Zapytaj w biurze Qursanta o zniżki studenckie lub rabaty przy zapisie ze znajomym."
+      ],
+      "faq": [
+        {
+          "q": "Ile kosztuje godzina jazdy dodatkowej w szkole Qursant?",
+          "a": "Ceny jazd dodatkowych dla naszych kursantów są objęte preferencyjną stawką. Dokładny cennik poszczególnych pakietów godzinowych znajdziesz na naszej stronie w zakładce Cennik."
+        },
+        {
+          "q": "Czy w trakcie trwania kursu cena może ulec zmianie?",
+          "a": "Nie! Cena ustalona w moment podpisania umowy w Qursancie jest gwarantowana i nie ulega zmianie przez cały okres trwania szkolenia."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Ile kosztuje kurs prawa jazdy w wakacje 2027? Qursant Bydgoszcz",
+        "metaDescription": "Cennik wakacyjnych kursów prawa jazdy w Bydgoszczy. Zrób prawo jazdy w ratach 0% w szkole Qursant. Przejrzyste zasady i brak ukrytych kosztów.",
+        "keywords": [
+          "kurs prawa jazdy cena 2027",
+          "prawo jazdy Bydgoszcz koszt",
+          "wakacyjny kurs prawa jazdy",
+          "Qursant cennik",
+          "szkoła jazdy raty"
+        ]
+      }
+    },
+    {
+      "id": "2027-06-18-wyjazd-autem-za-granice-przepisy-mobywatel",
+      "slug": "wyjazd-autem-za-granice-przepisy-mobywatel",
+      "title": "Wyjazd samochodem za granicę po zdanym egzaminie – przepisy, mObywatel i obowiązkowe wyposażenie",
+      "excerpt": "Planujesz wakacyjną podróż autem po Europie ze świeżym prawem jazdy? Sprawdź, czy tymczasowe prawo jazdy działa za granicą i co musisz ze sobą zabrać.",
+      "publishDate": "2027-06-18T12:00:00",
+      "author": "Robert Langer",
+      "category": "prawo",
+      "tags": [
+        "wyjazd za granicę autem",
+        "mObywatel prawo jazdy",
+        "przepisy w UE",
+        "wyposażenie auta",
+        "młody kierowca"
+      ],
+      "image": "instructors/photo-22.webp",
+      "sections": [
+        {
+          "heading": "Tymczasowe prawo jazdy a granica państwa",
+          "paragraphs": [
+            "Zdobycie prawa jazdy przed wakacjami otwiera drzwi do zagranicznych podróży samochodem. Jednak nowi kierowcy często popełniają niebezpieczny błąd formalny związany z cyfrowym dokumentem w aplikacji mObywatel.",
+            "Pamiętaj: tymczasowe elektroniczne prawo jazdy generowane w mObywatelu po egzaminie w WORD jest ważne WYŁĄCZNIE na terytorium Polski. Przekroczenie granicy państwa bez fizycznego plastiku wydanego przez wydział komunikacji traktowane jest przez zagraniczną policję jako jazda bez uprawnień!"
+          ]
+        },
+        {
+          "heading": "Wymagany plastik i dokumenty pojazdu",
+          "paragraphs": [
+            "Przed wyruszeniem w trasę do krajów Unii Europejskiej lub strefy Schengen upewnij się, że posiadasz komplet fizycznych dokumentów:"
+          ],
+          "list": [
+            "Fizyczne prawo jazdy: Tradycyjna plastikowa karta ze zaktualizowanymi kategoriami.",
+            "Dowód rejestracyjny i ważne badanie techniczne: Pamiętaj, że cyfrowe dowody w mObywatelu również nie są honorowane przez zagraniczne służby drogowe.",
+            "Ubezpieczenie OC oraz Zielona Karta: W większości krajów UE wystarczy polskie OC, ale przy wyjeździe poza UE (np. do Czarnogóry czy Albanii) wymagana jest Zielona Karta.",
+            "Dowód osobisty lub paszport: Niezbędny dokument tożsamości dla każdego pasażera."
+          ]
+        },
+        {
+          "heading": "Różnice w wyposażeniu obowiązkowym w krajach sąsiednich",
+          "paragraphs": [
+            "Przepisy dotyczące wyposażenia samochodu różnią się w zależności od kraju. Podczas gdy w Polsce obowiązkowa jest gaśnica i trójkąt ostrzegawczy, w Niemczech, Czechach czy Słowacji wymagane są kamizelki odblaskowe dla KAŻDEGO pasażera znajdujące się w kabinie (a nie w bagażniku), apteczka pierwszej pomocy odpowiadająca normie DIN 13164 oraz zapasowe bezpieczniki."
+          ]
+        }
+      ],
+      "tips": [
+        "Odbierz fizyczne plastikowe prawo jazdy z Urzędu Miasta Bydgoszczy przed wyjazdem z Polski.",
+        "Sprawdź dopuszczalne limity alkoholu we krwi w krajach, przez które będziesz przejeżdżać (w wielu krajach dla młodych kierowców wynosi on 0,0 promila!).",
+        "Wyposaż auto w apteczkę spełniającą normę DIN 13164 oraz komplet kamizelek odblaskowych przechowywanych w schowku.",
+        "Kup winiety drogowe online na oficjalnych stronach państwowych przed przekroczeniem granicy (np. w Czechach czy Słowacji).",
+        "Zapoznaj się z ograniczeniami prędkości na autostradach i drogach ekspresowych w poszczególnych państwach."
+      ],
+      "faq": [
+        {
+          "q": "Czy mogę jechać do Niemiec na tymczasowym prawie jazdy z mObywatela?",
+          "a": "Nie! Tymczasowe prawo jazdy w mObywatelu obowiązuje wyłącznie w Polsce. Wjeżdżając do Niemiec bez fizycznej karty prawa jazdy narażasz się na bardzo wysoki mandat i zakaz dalszej jazdy."
+        },
+        {
+          "q": "Czy w okresie próbnym obowiązują mnie inne przepisy za granicą?",
+          "a": "W wielu krajach (np. w Niemczech czy Austrii) młodzi kierowcy (do 21 lat lub posiadający prawo jazdy krócej niż 2 lata) podlegają rygorystycznej zasadzie 0,0 promila alkoholu."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Wyjazd autem za granicę – czy mObywatel wystarczy? Przepisy",
+        "metaDescription": "Planujesz podróż samochodem po Europie? Sprawdź, dlaczego mObywatel nie działa za granicą i jakie wyposażenie auta jest wymagane w UE. Poradnik Qursant.",
+        "keywords": [
+          "wyjazd autem za granice",
+          "mObywatel prawo jazdy granica",
+          "przepisy drogowe UE",
+          "wyposażenie samochodu Czechy Niemcy",
+          "prawo jazdy wakacje"
+        ]
+      }
+    },
+    {
+      "id": "2027-06-23-plac-manewrowy-word-bydgoszcz-upal-stres",
+      "slug": "plac-manewrowy-word-bydgoszcz-upal-stres",
+      "title": "Plac manewrowy WORD Bydgoszcz w letnie dni – jak opanować stres i wykonać manewry w upale?",
+      "excerpt": "Plac manewrowy w WORD Bydgoszcz to pierwszy etap egzaminu. Zobacz, jak bezbłędnie wykonać łuk i ruszanie na wzniesieniu przy wysokich temperaturach.",
+      "publishDate": "2027-06-23T12:00:00",
+      "author": "Robert Langer",
+      "category": "egzaminy",
+      "tags": [
+        "plac manewrowy",
+        "WORD Bydgoszcz",
+        "jazda po łuku",
+        "ruszanie na wzniesieniu",
+        "stres na egzaminie"
+      ],
+      "image": "office/photo-47.webp",
+      "sections": [
+        {
+          "heading": "Letnia specyfika placu manewrowego",
+          "paragraphs": [
+            "Wyjście na nagrzany asfalt placu manewrowego WORD Bydgoszcz przy ulicy Wyszyńskiego potrafi podbić poziom stresu u każdego zdającego. Słońce odbijające się od karoserii i wysoka temperatura utrudniają skupienie podczas przygotowania do jazdy.",
+            "Kluczem do sukcesu na placu jest opanowanie nerwów, precyzyjna ocena odległości w lusterkach oraz spokojne wykonanie czynności kontrolno-obsługowych."
+          ]
+        },
+        {
+          "heading": "Jazda po łuku (pas ruchu do przodu i do tyłu) – krok po kroku",
+          "paragraphs": [
+            "Łuk to element, na którym najłatwiej popełnić błąd wynikający z pośpiechu. Pamiętaj o złotych zasadach wpajanych podczas kursu w Qursancie:"
+          ],
+          "list": [
+            "Ustawienie fotela i lusterek: Nie spiesz się! Pozycja za kierownicą i poprawne widzenie linii w prawym i lewym lusterku to 50% sukcesu.",
+            "Płynna operacja sprzęgłem: Auto egzaminacyjne na nagrzanej nawierzchni toczy się bardzo swobodnie. Kontroluj prędkość wyłącznie półsprzęgłem, bez używania gazu.",
+            "Obserwacja otoczenia: Pamiętaj o spoglądaniu przez tylną szybę i w oba lusterka boczne podczas cofania.",
+            "Zatrzymaj się w wyznaczonej kopercie: Przednia i tylna część pojazdu muszą mieścić się wewnątrz linii zatrzymania."
+          ]
+        },
+        {
+          "heading": "Ruszanie na wzniesieniu (górka) bez szarpania",
+          "paragraphs": [
+            "Drugim zadaniem na placu jest ruszenie z hamulca pomocniczego na wzniesieniu. W gorący dzień silnik szybko reaguje na dodanie gazu. Wciśnij sprzęgło, wrzuć pierwszy bieg, dodaj gazu do około 1500-2000 obrotów na minutę, powoli odpuszczaj sprzęgło do momentu wyczucia drgań (tzw. punktu biernego) i sprawnie zwolnij dźwignię hamulca ręcznego. Auto ruszy gładko bez staczania się w dół."
+          ]
+        }
+      ],
+      "tips": [
+        "Weź na egzamin okulary przeciwsłoneczne z filtrem polaryzacyjnym, by oślepiające słońce nie przeszkadzało w ocenie linii.",
+        "Nie spiesz się przy wykonywaniu czynności sprawdzania płynów i świateł – to doskonały czas na opanowanie tętna.",
+        "Ustaw lusterka boczne lekko w dół, aby wyraźnie widzieć krawędź linii na pasie ruchu.",
+        "Na łuku nie używaj pedału gazu – płynne operowanie półsprzęgłem zapewnia pełną kontrolę nad prędkością ruchu.",
+        "Pamiętaj o zapięciu pasów bezpieczeństwa i włączeniu świateł mijania PRZED rozpoczęciem jazdy po łuku!"
+      ],
+      "faq": [
+        {
+          "q": "Co się stanie, jeśli najeżdżając na kopertę zatrzymam auto ze zbyt dużą odległością od linii?",
+          "a": "Jeśli auto nie znajdzie się w całości wewnątrz pola koperty, egzaminator przerwie próbę i przyzna drugą szansę (powtórkę manewru). Najechanie lub potrącenie tyczki oznacza wynik negatywny."
+        },
+        {
+          "q": "Czy silnik zgaśnie na górce, jeśli dodam za mało gazu?",
+          "a": "Tak, zbyt niskie obroty silnika przy puszczaniu sprzęgła wywołają zgaśnięcie. Zgaśnięcie silnika to błąd, ale nie oznacza oblania egzaminu – masz drugą próbę!"
+        }
+      ],
+      "seo": {
+        "metaTitle": "Plac manewrowy WORD Bydgoszcz – Jak zdać łuk i górkę? Porady",
+        "metaDescription": "Jak bezbłędnie pokonać plac manewrowy w WORD Bydgoszcz? Zobacz porady instruktorów Qursant dotyczące jazdy po łuku i ruszania na wzniesieniu.",
+        "keywords": [
+          "plac manewrowy WORD Bydgoszcz",
+          "jazda po łuku poradnik",
+          "ruszanie na wzniesieniu górka",
+          "egzamin praktyczny kat B",
+          "Qursant porady"
+        ]
+      }
+    },
+    {
+      "id": "2027-06-28-jazda-noca-w-okresie-letnim-widocznosc",
+      "slug": "jazda-noca-w-okresie-letnim-widocznosc",
+      "title": "Jazda po zmroku w okresie letnim – jak bezpiecznie podróżować nocą i uniknąć olśnienia?",
+      "excerpt": "Czerwcowe i lipcowe noce zachęcają do wakacyjnych wyjazdów po zmroku. Zobacz, jak prawidłowo używać świateł drogowych i reagować na pieszych oraz zwierzynę.",
+      "publishDate": "2027-06-28T12:00:00",
+      "author": "Robert Langer",
+      "category": "porady",
+      "tags": [
+        "jazda nocą",
+        "światła drogowe",
+        "widoczność na drodze",
+        "bezpieczeństwo po zmroku",
+        "porady dla kierowców"
+      ],
+      "image": "office/photo-48.webp",
+      "sections": [
+        {
+          "heading": "Specyfika wakacyjnej jazdy nocnej",
+          "paragraphs": [
+            "Podróżowanie samochodem nocą ma wiele zalet – mniejszy ruch na drogach, brak męczącego skwaru i płynniejsza jazda. Jednak prowadzenie pojazdu po zmroku stawia przed kierowcą zupełnie inne wyzwania wizualne i percepcyjne.",
+            "Zmniejszony zasięg widzenia, zmęczenie wzroku oraz ryzyko olśnienia przez reflektory pojazdów z przeciwka wymagają podwyższonej czujności, o której przypominamy na kursach w Qursancie."
+          ]
+        },
+        {
+          "heading": "Zasady używania świateł mijania i drogowych",
+          "paragraphs": [
+            "Prawidłowe operowanie oświetleniem pojazdu to podstawa bezpieczeństwa podczas jazdy poza obszarem zabudowanym:"
+          ],
+          "list": [
+            "Światła drogowe (tzw. długie): Używaj ich wyłącznie od zmierzchu do świtu na nieoświetlonych drogach, gdy nie oślepiają innych kierujących ani pieszych w kolumnie.",
+            "Przełączanie na światła mijania: Zmień światła na mijania dostatecznie wcześnie, gdy z przeciwka nadjeżdża pojazd lub gdy zbliżasz się do auta jadącego przed Tobą.",
+            "Unikanie efektu olśnienia: W momencie mijania z pojazdem z przeciwka nie patrz bezpośrednio w jego reflektory – skieruj wzrok lekko w prawo, na prawą krawędź jezdni lub linię krawędziową P-7."
+          ]
+        },
+        {
+          "heading": "Zagrożenia: Piesi bez odblasków i dzika zwierzyzna",
+          "paragraphs": [
+            "Podczas letnich nocy podbydgoskie drogi biegnące przez kompleksy leśne (np. w okolicach Białych Błot, Solca Kujawskiego czy Koronowa) są miejscem częstych migracji dzikich zwierząt (saren, dzików, jeleni). Widząc błysk oczu przy poboczu, natychmiast zredukuj prędkość. Uważaj także na nieoświetlonych pieszych i rowerzystów poruszających się poboczem bez elementów odblaskowych."
+          ]
+        }
+      ],
+      "tips": [
+        "Przed nocną trasą dokładnie umyj przednią szybę od wewnątrz i z zewnątrz – tłuste smugi potęgują efekt olśnienia.",
+        "Gdy nadjeżdżające z przeciwka auto oślepia Cię światłami długimi, mrugnij krótko światłami drogowymi i skieruj wzrok na prawą krawędź drogi.",
+        "Dbaj o czystość reflektorów – zabrudzone klosze potrafią zabrać nawet 40% strumienia światła.",
+        "Jeśli czujesz senność, nie walcz z nią za wszelką cenę – zjedź na oświetlony MOP lub stację paliw na 15-minutową drzemkę.",
+        "Nie przesadzaj z jasnością podświetlenia deski rozdzielczej i ekranu nawigacji – mocny blask w kabinie męczy wzrok."
+      ],
+      "faq": [
+        {
+          "q": "Czy podczas jazdy nocą po mieście w Bydgoszczy wolno włączać światła drogowe?",
+          "a": "Na drogach oświetlonych latarniami miejskimi używanie świateł drogowych jest zabronione. Światła mijania zapewniają wystarczającą widoczność."
+        },
+        {
+          "q": "Co zrobić, gdy przed auto wybiegnie dzikie zwierzę?",
+          "a": "Hamuj awaryjnie z całą siłą, trzymając kierownicę prosto. Gwałtowne omijanie zwierzęcia przy wyższej prędkości często kończy się dachowaniem lub uderzeniem w drzewo."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Jazda nocą po zmroku – Jak uniknąć olśnienia i bezpiecznie jechać?",
+        "metaDescription": "Poznaj zasady bezpiecznej jazdy nocą w okresie letnim. Jak używać świateł drogowych i unikać oślepiania? Porady instruktorów Qursant Bydgoszcz.",
+        "keywords": [
+          "jazda nocą",
+          "światła drogowe długie",
+          "olśnienie na drodze",
+          "bezpieczeństwo po zmroku",
+          "dzika zwierzęta na drodze"
+        ]
+      }
+    },
+    {
+      "id": "2027-07-03-letnie-warsztaty-pierwsza-pomoc-obsluga-auta-qursant",
+      "slug": "letnie-warsztaty-pierwsza-pomoc-obsluga-auta-qursant",
+      "title": "Wakacyjne warsztaty z pierwszej pomocy i obsługi pojazdu w Qursancie – dołącz do lipcowych spotkań!",
+      "excerpt": "Szkoła jazdy Qursant zaprasza kursantów na bezpłatne praktyczne warsztaty z pierwszej pomocy przedmedycznej oraz podstawowej obsługi technicznej auta.",
+      "publishDate": "2027-07-03T12:00:00",
+      "author": "Robert Langer",
+      "category": "aktualnosci",
+      "tags": [
+        "warsztaty Qursant",
+        "pierwsza pomoc",
+        "obsługa samochodu",
+        "szkoła jazdy Bydgoszcz",
+        "letni nabór 2027"
+      ],
+      "image": "course/photo-20.webp",
+      "sections": [
+        {
+          "heading": "Więcej niż tylko nauka jazdy",
+          "paragraphs": [
+            "W Ośrodku Szkolenia Kierowców Qursant wychodzimy z założenia, że dobry kierowca to nie tylko osoba, która potrafi zdać egzamin w WORD, ale przede wszystkim odpowiedzialny uczestnik ruchu drogowego gotowy na niespodziewane sytuacje na drodze.",
+            "Z wielką radością ogłaszamy cykl bezpłatnych wakacyjnych warsztatów praktycznych przeznaczonych dla wszystkich naszych aktualnych oraz przyszłych kursantów!"
+          ]
+        },
+        {
+          "heading": "Program warsztatów: Od resuscytacji po zmianę koła",
+          "paragraphs": [
+            "Zajęcia podzieliliśmy na dwa bloki tematyczne prowadzone przez dyplomowanych ratowników medycznych oraz doświadczonych mechaników naszej floty:"
+          ],
+          "list": [
+            "Blok I – Pierwsza pomoc przedmedyczna: Ćwiczenia na fantomach z cyfrowym pomiarem uciśnięć klatki piersiowej, obsługa defibrylatora AED, zabezpieczenie miejsca wypadku drogowego oraz ewakuacja poszkodowanego z pojazdu.",
+            "Blok II – Praktyczna obsługa pojazdu: Wymiana koła na zapasowe, prawidłowe użycie lewarka, podłączanie kabli rozruchowych przy rozładowanym akumulatorze, kontrola i uzupełnianie płynów eksploatacyjnych.",
+            "Blok III – Bezpieczeństwo pasażerów: Prawidłowe montowanie fotelików dziecięcych oraz bezpieczny przewóz bagażu na wakacyjne wyjazdy."
+          ]
+        },
+        {
+          "heading": "Kiedy i jak się zapisać?",
+          "paragraphs": [
+            "Warsztaty odbywać się będą w wybrane soboty lipca 2027 roku w naszej siedzibie w Bydgoszczy przy ulicy Fordońskiej. Uczestnictwo jest całkowicie darmowe dla kursantów Qursanta, jednak ze względu na kameralny, ćwiczeniowy charakter grupy obowiązują wcześniejsze zapisy w biurze lub poprzez nasz formularz online."
+          ]
+        }
+      ],
+      "tips": [
+        "Zapisz się na warsztaty z wyprzedzeniem – liczba miejsc w grupie warsztatowej jest ograniczona.",
+        "Przetestuj zdobyte umiejętności na fantomie z podglądem wskaźników prawidłowego ucisku klatki piersiowej.",
+        "Zabierz ze sobą wygodny strój sportowy ułatwiający udział w ćwiczeniach praktycznych.",
+        "Wykorzystaj okazję do zadania mechanikowi pytań o typowe usterki w pierwszym własnym samochodzie.",
+        "Pobierz naszą ulotkę z najważniejszymi numerami alarmowymi i schematem łańcucha przeżycia."
+      ],
+      "faq": [
+        {
+          "q": "Czy za udział w warsztatach pobierana jest dodatkowa opłata?",
+          "a": "Nie, warsztaty są w 100% bezpłatne dla wszystkich osób posiadających aktywny kurs w szkole jazdy Qursant."
+        },
+        {
+          "q": "Czy otrzymam zaświadczenie o ukończeniu szkolenia z pierwszej pomocy?",
+          "a": "Tak, każdy uczestnik otrzymuje pamiątkowe zaświadczenie potwierdzające udział w praktycznym kursie pierwszej pomocy przedmedycznej."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Warsztaty z pierwszej pomocy i obsługi auta – Qursant Bydgoszcz",
+        "metaDescription": "Ruszają bezpłatne wakacyjne warsztaty z pierwszej pomocy i obsługi samochodu w szkole jazdy Qursant Bydgoszcz. Zapisz się już dziś i zyskaj cenne umiejętności!",
+        "keywords": [
+          "warsztaty pierwsza pomoc",
+          "Qursant Bydgoszcz",
+          "obsługa samochodu nauka",
+          "pierwsza pomoc kierowca",
+          "kurs prawa jazdy Bydgoszcz"
+        ]
+      }
+    },
+    {
+      "id": "2027-07-08-trasa-zalew-koronowski-ostrowiecko-jazda-latem",
+      "slug": "trasa-zalew-koronowski-ostrowiecko-jazda-latem",
+      "title": "Wycieczka samochodem nad Zalew Koronowski – porady dla nowych kierowców i zasady jazdy po leśnych drogach",
+      "excerpt": "Weekendowy wyjazd nad wodę z Bydgoszczy? Trasa nad Zalew Koronowski to świetna próba dla świeżego kierowcy. Zobacz, jak bezpiecznie jeździć po wąskich drogach leśnych.",
+      "publishDate": "2027-07-08T12:00:00",
+      "author": "Robert Langer",
+      "category": "lokalne",
+      "tags": [
+        "Zalew Koronowski",
+        "trasa wycieczkowa Bydgoszcz",
+        "jazda po drogach leśnych",
+        "pierwsza trasa auto",
+        "podbydgoskie atrakcje"
+      ],
+      "image": "cars/photo-66.webp",
+      "sections": [
+        {
+          "heading": "Malownicza trasa nad bydgoskie morze",
+          "paragraphs": [
+            "Lipcowe słońce i wysokie temperatury ciągną mieszkańców Bydgoszczy nad akweny wodne. Jednym z ulubionych kierunków weekendowych wypadów jest Zalew Koronowski (Pieczyska, Samociążek, Koronowo).",
+            "Dla osoby, która niedawno odebrała prawo jazdy, trasa ta stanowi doskonały sprawdzian umiejętności poza obszarem zabudowanym – łączy szybkie odcinki drogi krajowej DK25 z wąskimi, krętymi drogami leśnymi."
+          ]
+        },
+        {
+          "heading": "Zasady bezpiecznej jazdy po drogach lokalnych i leśnych",
+          "paragraphs": [
+            "Dojazd do plaż i ośrodków wypoczynkowych nad zalewem często wymaga zjechania z drogi głównej na węższe szosy o ograniczonej widoczności:"
+          ],
+          "list": [
+            "Zachowaj bezpieczną prędkość na łukach: Drogi w otoczeniu lasów bywają zdradliwe – zacienione odcinki, piasek naniesiony z pobocza lub wilgotne liście zmniejszają przyczepność.",
+            "Mijanie na wąskich szosach: Widząc auto z przeciwka, zredukuj prędkość i zbliż się do prawej krawędzi jezdni. Uważaj na wysokie i twarde pobocza gruntowe.",
+            "Uważaj na pieszych i rowerzystów: W rejonach turystycznych ruch pieszy i rowerowy bywa wzmożony, szczególnie w okolicach Samociążka i Pieczysk."
+          ]
+        },
+        {
+          "heading": "Parkowanie w strefach turystycznych",
+          "paragraphs": [
+            "W słoneczne weekendy parkingi przy plażach w Pieczyskach szybko się zapełniają. Parkuj wyłącznie w miejscach do tego wyznaczonych. Wjeżdżanie do lasu poza wyznaczonymi drogami udostępnionymi dla ruchu jest zabronione przez Straż Leśną i grozi surowym mandatem. Ćwicz parkowanie prostopadłe i tyłem, by sprawnie opuścić zatłoczony plac po wypoczynku."
+          ]
+        }
+      ],
+      "tips": [
+        "Nie wjeżdżaj samochodem do lasu na drogi nieoznakowane jako drogi publiczne lub dojazdowe do parkingów.",
+        "Zachowaj podwójną ostrożność przy wyjeździe z podporządkowanych dróg leśnych na drogę krajową DK25.",
+        "Pamiętaj o włączeniu świateł mijania – w gęstym, zacienionym lesie auto bez świateł jest bardzo słabo widoczne.",
+        "Przed wyjazdem skontroluj poziom ciśnienia w kołach oraz poziom płynu do spryskiwaczy (przydatny przy owadach na szybie).",
+        "Zawsze sprawdzaj, czy miejsce, w którym parkujesz, nie blokuje drogi pożarowej dla służb ratunkowych."
+      ],
+      "faq": [
+        {
+          "q": "Czy nowym kierowcom wolno wjeżdżać na drogę krajową DK25 do Koronowa?",
+          "a": "Oczywiście! Posiadając prawo jazdy kat. B możesz jeździć po wszystkich drogach publicznych. Trzymaj się dozwolonego limitu prędkości (90 km/h) i zachowaj odpowiednią odległość od poprzedzających aut."
+        },
+        {
+          "q": "Co grozi za wjazd autem na leśną drogę zakazaną?",
+          "a": "Wjazd do lasu pojazdem silnikowym w miejscu niedozwolonym to wykroczenie zagrożone mandatem karnym od Straży Leśnej lub Policji w wysokości od 20 do nawet 500 zł."
+        }
+      ],
+      "seo": {
+        "metaTitle": "Dojazd nad Zalew Koronowski – Porady dla kierowców Qursant",
+        "metaDescription": "Jedziesz nad Zalew Koronowski ze świeżym prawem jazdy? Zobacz, jak bezpiecznie poruszać się po drogach leśnych i gdzie parkować w Pieczyskach.",
+        "keywords": [
+          "Zalew Koronowski dojazd",
+          "jazda po drogach leśnych",
+          "wycieczka autem Bydgoszcz",
+          "Pieczyska parking",
+          "porady świeży kierowca"
+        ]
+      }
+    }
+  ]
+}
