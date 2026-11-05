@@ -83,14 +83,24 @@ export default function KursyContent() {
                 {formatDateReadable(COURSE.NEXT_START_DATE)}
               </p>
               <p className="text-xl text-blue-200 mb-3">
-                Start o godzinie {COURSE.START_TIME}
+                {COURSE.START_LABEL} {COURSE.START_TIME}
               </p>
               {COURSE.PROMO_TEXT && (
-                <div className="inline-block bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm rounded-full px-6 py-2 border border-yellow-400/30">
-                  <p className="text-2xl font-bold text-yellow-300 animate-pulse">
-                    ⚡ {COURSE.PROMO_TEXT} ⚡
+                <motion.div
+                  className="inline-block bg-gradient-to-r from-black via-zinc-900 to-black rounded-full px-7 py-3 border-2 border-yellow-400 shadow-lg shadow-yellow-500/30"
+                  animate={{
+                    boxShadow: [
+                      '0 0 12px rgba(250,204,21,0.35)',
+                      '0 0 28px rgba(249,115,22,0.55)',
+                      '0 0 12px rgba(250,204,21,0.35)',
+                    ],
+                  }}
+                  transition={{ duration: 1.8, repeat: Infinity }}
+                >
+                  <p className="text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-200 to-orange-400 animate-pulse">
+                    🔥 {COURSE.PROMO_TEXT} 🔥
                   </p>
-                </div>
+                </motion.div>
               )}
             </div>
             <div className="mt-6 text-center">
@@ -169,10 +179,10 @@ export default function KursyContent() {
                   <BsClock className="mt-1 mr-3 text-purple-400" />
                   <div>
                     <span className="font-medium text-white">
-                      Tryb tygodniowy:
+                      Teoria:
                     </span>
                     <br />
-                    {COURSE.SCHEDULE.WEEKDAY.DAYS}, godz.{' '}
+                    {COURSE.SCHEDULE.WEEKDAY.DAYS},{' '}
                     {COURSE.SCHEDULE.WEEKDAY.TIME}
                   </div>
                 </li>
@@ -180,7 +190,7 @@ export default function KursyContent() {
                   <BsClock className="mt-1 mr-3 text-purple-400" />
                   <div>
                     <span className="font-medium text-white">
-                      Tryb weekendowy:
+                      Praktyka:
                     </span>
                     <br />
                     {COURSE.SCHEDULE.WEEKEND.INFO}

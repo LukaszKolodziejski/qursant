@@ -1,9 +1,14 @@
-/** Ustaw null, gdy kurs ekspresowy wraca do oferty. Format: DD.MM */
-export const EXPRESS_COURSE_UNAVAILABLE_UNTIL: string | null = '31.08';
+/**
+ * Ustaw null, gdy kurs ekspresowy wraca do oferty.
+ * Format: DD.MM (np. '31.01') albo 'czasowo' bez konkretnej daty.
+ */
+export const EXPRESS_COURSE_UNAVAILABLE_UNTIL: string | null = 'czasowo';
 
 export const PRICES = {
   COURSE: {
     BASIC: 4250,
+    /** Przekreślona cena (np. Black Friday). Ustaw null, gdy brak promocji. */
+    BASIC_WAS: 4500 as number | null,
     EXPRESS: 5250,
   },
   INSTALLMENTS: [

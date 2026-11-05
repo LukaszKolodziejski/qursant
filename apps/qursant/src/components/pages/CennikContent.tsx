@@ -46,7 +46,21 @@ export default function CennikContent({ currentDate }: Props) {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="mb-6">
+            <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              {PRICES.COURSE.BASIC_WAS && (
+                <motion.span
+                  className="inline-block px-4 py-2 rounded-full bg-black border-2 border-yellow-400 text-yellow-300 text-sm font-black tracking-wide"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{
+                    duration: 1.4,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                  }}
+                >
+                  🔥 BLACK FRIDAY — {PRICES.COURSE.BASIC_WAS} →{' '}
+                  {PRICES.COURSE.BASIC} zł
+                </motion.span>
+              )}
               <motion.span
                 className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-500/20 text-yellow-300 text-sm font-medium"
                 animate={pulseAnimation}
@@ -71,21 +85,57 @@ export default function CennikContent({ currentDate }: Props) {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20"
+              className={`relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border ${
+                PRICES.COURSE.BASIC_WAS
+                  ? 'border-yellow-400/50 shadow-lg shadow-yellow-500/20 ring-2 ring-yellow-400/30'
+                  : 'border-blue-500/20'
+              }`}
             >
               <div className="absolute -top-4 left-4">
-                <span className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Popularny wybór
-                </span>
+                {PRICES.COURSE.BASIC_WAS ? (
+                  <motion.span
+                    className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-black tracking-wide shadow-lg shadow-yellow-500/40"
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{
+                      duration: 1.4,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                    }}
+                  >
+                    🔥 BLACK FRIDAY
+                  </motion.span>
+                ) : (
+                  <span className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    Popularny wybór
+                  </span>
+                )}
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">
                 Kurs Podstawowy
               </h3>
-              <div className="flex items-baseline mb-6">
-                <span className="text-4xl font-bold text-blue-300">
-                  {PRICES.COURSE.BASIC} zł
-                </span>
-                <span className="text-blue-200 ml-2">/ kurs</span>
+              <div className="mb-6">
+                {PRICES.COURSE.BASIC_WAS ? (
+                  <div className="flex flex-wrap items-end gap-x-3 gap-y-1">
+                    <span className="text-xl text-blue-300/60 line-through decoration-2 decoration-red-400">
+                      {PRICES.COURSE.BASIC_WAS} zł
+                    </span>
+                    <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-400">
+                      {PRICES.COURSE.BASIC} zł
+                    </span>
+                    <span className="text-blue-200 mb-1">/ kurs</span>
+                    <span className="w-full text-sm font-bold text-emerald-400">
+                      Oszczędzasz{' '}
+                      {PRICES.COURSE.BASIC_WAS - PRICES.COURSE.BASIC} zł!
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-baseline">
+                    <span className="text-4xl font-bold text-blue-300">
+                      {PRICES.COURSE.BASIC} zł
+                    </span>
+                    <span className="text-blue-200 ml-2">/ kurs</span>
+                  </div>
+                )}
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center text-blue-200">
@@ -94,7 +144,7 @@ export default function CennikContent({ currentDate }: Props) {
                 </li>
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
-                  Teoria stacjonarnie lub E-learning
+                  Teoria e-learning w domu
                 </li>
                 <li className="flex items-center text-blue-200">
                   <HiOutlineCheck className="text-emerald-400 mr-2" />
@@ -121,7 +171,9 @@ export default function CennikContent({ currentDate }: Props) {
               <div className="absolute -top-4 left-4">
                 {isExpressUnavailable ? (
                   <span className="bg-gray-500/70 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Niedostępny do {EXPRESS_COURSE_UNAVAILABLE_UNTIL}
+                    {EXPRESS_COURSE_UNAVAILABLE_UNTIL === 'czasowo'
+                      ? 'Czasowo niedostępny'
+                      : `Niedostępny do ${EXPRESS_COURSE_UNAVAILABLE_UNTIL}`}
                   </span>
                 ) : (
                   <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">
