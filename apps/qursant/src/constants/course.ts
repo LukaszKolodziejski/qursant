@@ -1,6 +1,8 @@
 export const COURSE = {
   COURSE_NAME: 'Kurs Prawa Jazdy',
   PROMO_TEXT: 'BLACK FRIDAY −250 zł!', // Zostaw puste jeśli brak promocji. Wypełnij np. 'Teoria w 10 dni!' dla kursów specjalnych
+  /** Info o formie teorii (np. tylko e-learning). Zostaw puste, gdy zbędne. */
+  THEORY_NOTE: 'Teoria w grudniu tylko w formie e-learningu',
   NEXT_START_DATE: '07.12.2026', // Format: DD.MM.YYYY - automatycznie formatowany na stronach
   START_TIME: '17:00',
   START_LABEL: 'Spotkanie organizacyjne na żywo o godzinie',

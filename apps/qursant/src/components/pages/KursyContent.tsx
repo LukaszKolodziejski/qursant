@@ -85,6 +85,11 @@ export default function KursyContent() {
               <p className="text-xl text-blue-200 mb-3">
                 {COURSE.START_LABEL} {COURSE.START_TIME}
               </p>
+              {COURSE.THEORY_NOTE && (
+                <p className="text-lg md:text-xl font-semibold text-cyan-300 mb-4">
+                  {COURSE.THEORY_NOTE}
+                </p>
+              )}
               {COURSE.PROMO_TEXT && (
                 <motion.div
                   className="inline-block bg-gradient-to-r from-black via-zinc-900 to-black rounded-full px-7 py-3 border-2 border-yellow-400 shadow-lg shadow-yellow-500/30"
